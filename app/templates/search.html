@@ -26,6 +26,7 @@
             <button type="submit" class="btn btn-info"> Go! </button>
         </form>
         <form class="form-inline global-search">
+        
         {% if data %}
             <h1>{{output_message}}</h1>
             {% for d in data %}  
@@ -33,7 +34,17 @@
                 <p>{{d}}</p>
             {% endfor %}
         {% endif %}
+
+        <h1>Team members:</h1>
+        {% if netIDS %}
+            {% for user in netIDS %}
+                <p> {{ user }}</p>
+            {% endfor %}
+        {% endif %}
         </form>
+        
+
+
     </body>
 
 </html>
