@@ -35,20 +35,24 @@
     <!--  Shoes card grid  -->
     <div class = "shoes-grid"> 
       <!-- generate shoe cards -->
-      {% for i in range (11) %}
-      <!-- <div class="card" data-toggle="modal" data-target=".bd-example-modal-lg"> -->
-        <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
-        {% if shoeImage %}
-        <figure>
-          <img class="shoeImage" src={{shoeImage|safe}}>
-        </figure>
-        {% endif %}
-        <div class="card-caption">
-          <h3 class="shoeName"> {{shoeName}}</h3>
-          <a class="shoeURL" href="{{shoeURL|safe}}">Shoe Link</a>
+      {% if data|length > 0 %}
+        {% for shoe in data %}
+        <!-- <div class="card" data-toggle="modal" data-target=".bd-example-modal-lg"> -->
+          <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
+          {% if shoe['shoeImage'] %}
+          <figure>
+            <img class="shoeImage" src="{{ shoe['shoeImage']| safe }}">
+          </figure>
+          {% endif %}
+          <div class="card-caption">
+            <h3 class="shoeName"> {{ shoe['shoeName'] }}</h3>
+            <a class="shoeURL" href="{{ shoe['shoeURL'] |safe }}">Shoe Link</a>
+          </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
+      {% else %}
+        <h1 class="text-center"> No matches found :( </h1>
+      {% endif %}
     </div>
     
 
