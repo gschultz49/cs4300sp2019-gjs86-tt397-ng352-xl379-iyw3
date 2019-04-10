@@ -44,14 +44,15 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    -webkit-transition: box-shadow .25s;
+    -webkit-transition: box-shadow 0.3 cubic-bezier(0.25, 0.8, 0.25, 1);
     /* Safari */
-    transition: box-shadow .25s; }
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
     .shoes-grid .card:hover {
       cursor: pointer;
-      -moz-box-shadow: 0 0 5px #888;
-      -webkit-box-shadow: 0 0 5px #888;
-      box-shadow: 0 0 5px #888; }
+      -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
     .shoes-grid .card .card-caption {
       text-align: center;
       padding-top: 10px; }

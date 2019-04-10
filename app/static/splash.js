@@ -19,13 +19,30 @@ $(document).ready(function () {
     
   });
 
+  let render_card = (shoe) => {
+    let card_template =
+    `
+    <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
+      <figure>
+        <img class="shoeImage" src="${shoe.shoeImage}">
+      </figure>
+      <div class="card-caption">
+        <h3 class="shoeName"> ${shoe.shoeName}</h3>
+        <a class="shoeURL" target="_blank" href="${shoe.shoeURL}">Shoe Link</a>
+      </div>
+    </div>
+    `
+    console.log(card_template);
+  }
+
   // AJAX
   $('#go').bind('click', function () {
     $.getJSON($SCRIPT_ROOT + '/retrieve', {
       search: $('input[name="search"]').val(),
     }, function (data) {
       console.log("AJAX RETURNED DATA: ")
-      console.log({{data|safe}});
+      console.log(data);
+      render_card(...data);
     });
     return false;
   });

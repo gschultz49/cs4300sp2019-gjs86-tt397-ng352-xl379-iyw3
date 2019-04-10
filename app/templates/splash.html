@@ -41,16 +41,16 @@
       {% if data|length > 0 %}
         {% for shoe in data %}
           <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
-          {% if shoe['shoeImage'] %}
-          <figure>
-            <img class="shoeImage" src="{{ shoe['shoeImage']| safe }}">
-          </figure>
-          {% endif %}
-          <div class="card-caption">
-            <h3 class="shoeName"> {{ shoe['shoeName'] }}</h3>
-            <a class="shoeURL" target= "_blank" href="{{ shoe['shoeURL'] |safe }}">Shoe Link</a>
+            {% if shoe['shoeImage'] %}
+            <figure>
+              <img class="shoeImage" src="{{ shoe['shoeImage']| safe }}">
+            </figure>
+            {% endif %}
+            <div class="card-caption">
+              <h3 class="shoeName"> {{ shoe['shoeName'] }}</h3>
+              <a class="shoeURL" target= "_blank" href="{{ shoe['shoeURL'] |safe }}">Shoe Link</a>
+            </div>
           </div>
-        </div>
         {% endfor %}
       {% else %}
         <h1 class="text-center"> No matches found :( </h1>
@@ -97,6 +97,7 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
   <script src="/static/splash.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
 
   <!-- {{bleh}}
   <script type="text/javascript">
@@ -107,3 +108,5 @@
   </script> -->
   </body>
 </html>
+
+
