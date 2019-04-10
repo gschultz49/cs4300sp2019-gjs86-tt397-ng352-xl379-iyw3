@@ -1,10 +1,26 @@
 <html>
 <head>
   <link rel="stylesheet" href="/static/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/main.css">
+  <link rel="stylesheet" href="/static/splash.css">
 </head>
-<body>
-  <p>meep</p>
-</body>
+  <body>
+    <div class = "header"> 
+      <h1> Find your Solemate</h1>
+    </div> 
+    
+    <!--  Shoes card grid  -->
+    <div class = "shoes-grid"> 
 
+      {% for i in range (10) %}
+      <div class="card">
+        <img
+          src="https://cdn.runrepeat.com/i/nike/28162/nike-womens-air-zoom-pegasus-35-running-shoes-8-5-b-us-elemental-rose-barely-rose-vintage-wine-womens-elemental-rose-barely-rose-5627-main.jpg">
+        <div class="card-caption">
+          <h3> Nike Pegasus</h3>
+        </div>
+      </div>
+      {% endfor %}
+    
+    </div>
+  </body>
 </html>
