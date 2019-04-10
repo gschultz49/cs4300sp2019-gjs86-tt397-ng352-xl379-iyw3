@@ -49,6 +49,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 2rem;
   margin: 0 10%;
+  margin-bottom: 10%;
   .card{
     padding: 20px;
     background-color: white;
@@ -79,9 +80,14 @@ body {
 
 .authors{
   @extend .text-center;
-  margin: 3%;
+  // margin: 3%;
   font-size: 1rem;
   img {
     height: 8px;
   }
+  margin-top:10%;
+  height: 10px;
+  bottom: 20;
+  width: 100%;
+  z-index:-1;
 }

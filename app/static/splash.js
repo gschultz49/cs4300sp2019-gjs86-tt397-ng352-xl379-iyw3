@@ -32,7 +32,8 @@ $(document).ready(function () {
       </div>
     </div>
     `
-    console.log(card_template);
+    console.log(typeof(card_template));
+    $(".shoes-grid").append(card_template);
   }
 
   // AJAX
@@ -42,7 +43,10 @@ $(document).ready(function () {
     }, function (data) {
       console.log("AJAX RETURNED DATA: ")
       console.log(data);
-      render_card(...data);
+      // remove old recommendations
+      $(".shoes-grid").empty();
+
+      data.map (shoe => render_card (shoe))
     });
     return false;
   });

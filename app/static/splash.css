@@ -37,7 +37,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 2rem;
-  margin: 0 10%; }
+  margin: 0 10%;
+  margin-bottom: 10%; }
   .shoes-grid .card {
     padding: 20px;
     background-color: white;
@@ -61,8 +62,12 @@ body {
       max-height: 100%; }
 
 .authors {
-  margin: 3%;
-  font-size: 1rem; }
+  font-size: 1rem;
+  margin-top: 10%;
+  height: 10px;
+  bottom: 20;
+  width: 100%;
+  z-index: -1; }
   .authors img {
     height: 8px; }
 

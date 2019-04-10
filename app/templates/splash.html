@@ -36,7 +36,7 @@
     <!-- </form> -->
     
     <!--  Shoes card grid  -->
-    <div class = "shoes-grid"> 
+    <div id ="main-grid" class = "shoes-grid"> 
       <!-- generate shoe cards -->
       {% if data|length > 0 %}
         {% for shoe in data %}
@@ -99,13 +99,6 @@
   <script src="/static/splash.js"></script>
   <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
 
-  <!-- {{bleh}}
-  <script type="text/javascript">
-    function test_func(data) {
-      console.log(data);
-    }
-    test_func({{ bleh|safe }})
-  </script> -->
   </body>
 </html>
 

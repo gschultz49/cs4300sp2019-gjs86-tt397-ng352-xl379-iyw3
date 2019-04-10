@@ -31,10 +31,7 @@ def retrieve():
 @irsystem.route('/splash', methods=['GET'])
 def splash():
 	# pick default shoe?
-	e = [1, 'foo']
-	return render_template('splash.html', bleh = json.dumps(e), data=ir_retrieve("Nike Air Zoom Pegasus 35"))
-
-
+	return render_template('splash.html', data=ir_retrieve("Nike Air Zoom Pegasus 35"))
 
 
 
@@ -42,7 +39,6 @@ def splash():
 
 # project_name = "TEAM SOLEMATE"
 # net_id = "dnm"
-
 # @irsystem.route('/', methods=['GET'])
 # def search():
 # 	query = request.args.get('search')
