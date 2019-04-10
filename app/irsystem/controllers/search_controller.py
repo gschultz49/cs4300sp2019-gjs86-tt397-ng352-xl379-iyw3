@@ -24,7 +24,7 @@ def search():
 	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data, netIDS = netIDS)
 
 
-@irsystem.route('/splash', methods=['GET'])
+@irsystem.route('/splash', methods=['POST'])
 def splash():
 	query = request.args.get('search')
 	print ("USERS QUERY: {0}".format(query))
