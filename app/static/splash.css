@@ -1,31 +1,50 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Marck+Script");
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 body {
-  font-family: "Montserrat"; }
+  font-family: "Montserrat";
+  background-image: url("shoe.svg");
+  background-repeat: repeat;
+  background-color: #f1f1f1 !important; }
 
 .text-center {
   text-align: center; }
 
-form {
-  margin: 3rem; }
+.header {
+  margin-top: 5%; }
+  .header h1 {
+    font-family: 'Marck Script', cursive;
+    font-size: 10rem; }
+
+.header > img,
+.header > h1 {
+  display: inline-block; }
+
+#sender {
+  margin: 3%; }
 
 .shoes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 2rem;
-  padding: 5rem; }
+  margin: 0 10%; }
   .shoes-grid .card {
     padding: 20px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    -moz-box-shadow: 0 0 5px #888;
-    -webkit-box-shadow: 0 0 5px #888;
-    box-shadow: 0 0 5px #888; }
+    -webkit-transition: box-shadow .25s;
+    /* Safari */
+    transition: box-shadow .25s; }
+    .shoes-grid .card:hover {
+      cursor: pointer;
+      -moz-box-shadow: 0 0 5px #888;
+      -webkit-box-shadow: 0 0 5px #888;
+      box-shadow: 0 0 5px #888; }
     .shoes-grid .card .card-caption {
       text-align: center;
       padding-top: 10px; }
