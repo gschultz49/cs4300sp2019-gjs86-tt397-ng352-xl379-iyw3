@@ -1,3 +1,5 @@
+
+let $SCRIPT_ROOT = ""
 $(document).ready(function () {
   // when user selects a specific card, grab its attributes to populate the modal
   $(".card").click(function () {
@@ -17,4 +19,17 @@ $(document).ready(function () {
     
   });
 
+  // AJAX
+  $('#go').bind('click', function () {
+    $.getJSON($SCRIPT_ROOT + '/retrieve', {
+      search: $('input[name="search"]').val(),
+    }, function (data) {
+      console.log("AJAX RETURNED DATA: ")
+      console.log({{data|safe}});
+    });
+    return false;
+  });
 });
+
+
+    

@@ -19,20 +19,21 @@
         Find your Solemate
         <img class="logo" src="/static/logo.png">
       </h1>
+      <!-- <h2> Find shoes based on what you love </h2> -->
     </div>
     
-    <form id = "sender" method = "post" action ="/bleh">
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 col-lg-4 col-lg-offset-4">
+    <!-- <form id = "sender"> -->
+      <div id = "searcher" class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
           <div class="input-group input-group-lg">
             <input id="input" type="text" name="search" class="form-control form-control-lg" placeholder="Soft and cushy">
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-info"> Go! </button>
+              <button id ="go" type="submit" class="btn btn-info"> Go! </button>
             </span>
           </div>
         </div>
       </div>
-    </form>
+    <!-- </form> -->
     
     <!--  Shoes card grid  -->
     <div class = "shoes-grid"> 
@@ -59,10 +60,9 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
       aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
             <h3 class="modal-title modal-shoeName">None</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -79,6 +79,13 @@
       </div>
     </div>
 
+    
+
+    
+
+
+
+
   <!-- authors -->
   <div class="authors">
     <p> Made with <img src="/static/heart.png"> by Tomohiro Tokuyama (tt397), Lily Liu (xl379), Nishant Goel (ng352), Irina Wang (iyw3), Greg Schultz (gjs86)</p>
@@ -91,5 +98,12 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
   <script src="/static/splash.js"></script>
 
+  <!-- {{bleh}}
+  <script type="text/javascript">
+    function test_func(data) {
+      console.log(data);
+    }
+    test_func({{ bleh|safe }})
+  </script> -->
   </body>
 </html>
