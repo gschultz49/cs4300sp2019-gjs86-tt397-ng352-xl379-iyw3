@@ -44,7 +44,7 @@ body {
   margin: 0 10%;
   .card{
     padding: 20px;
-    
+    background-color: white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -66,5 +66,14 @@ body {
         max-height:100%;
       }
     } 
+  }
+}
+
+.authors{
+  @extend .text-center;
+  margin: 3%;
+  font-size: 1rem;
+  img {
+    height: 8px;
   }
 }

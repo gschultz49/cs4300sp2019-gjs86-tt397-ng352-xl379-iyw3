@@ -3,11 +3,15 @@
   <link rel="stylesheet" href="/static/bootstrap.min.css">
   <link rel="stylesheet" href="/static/splash.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script> -->
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <title>Solemate</title>
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/static/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#d55b5b">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
 </head>
   <body>
     <div class = "header text-center"> 
@@ -36,7 +40,6 @@
       <!-- generate shoe cards -->
       {% if data|length > 0 %}
         {% for shoe in data %}
-        <!-- <div class="card" data-toggle="modal" data-target=".bd-example-modal-lg"> -->
           <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
           {% if shoe['shoeImage'] %}
           <figure>
@@ -45,7 +48,7 @@
           {% endif %}
           <div class="card-caption">
             <h3 class="shoeName"> {{ shoe['shoeName'] }}</h3>
-            <a class="shoeURL" href="{{ shoe['shoeURL'] |safe }}">Shoe Link</a>
+            <a class="shoeURL" target= "_blank" href="{{ shoe['shoeURL'] |safe }}">Shoe Link</a>
           </div>
         </div>
         {% endfor %}
@@ -53,6 +56,7 @@
         <h1 class="text-center"> No matches found :( </h1>
       {% endif %}
     </div>
+
     
 
     <!-- Modal -->
@@ -68,7 +72,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <a class="modal-shoeURL" href="">ShoeURL</a>
+            <a class="modal-shoeURL" target="_blank" href="">ShoeURL</a>
             
             <a class="modal-shoeImage" href="">ShoeImage</a>
           </div>
@@ -80,19 +84,10 @@
       </div>
     </div>
 
-    <!--  my modal -->
-    <!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <a class="modal-shoeURL" href="">ShoeURL</a>
-              <p class="modal-shoeName">None</p>
-              <a class="modal-shoeImage" href="">ShoeImage</a>
-              
-            </div>
-          </div>
-        </div> -->
-
+  <!-- authors -->
+  <div class="authors">
+    <p> Made with <img src="/static/heart.png"> by Greg Schultz (gjs86), Tomohiro Tokuyama (tt397), Lily Liu (xl379), Nishant Goel (ng352), Irina Wang (iyw3)</p>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
