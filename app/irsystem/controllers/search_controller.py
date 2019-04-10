@@ -26,7 +26,14 @@ def search():
 
 @irsystem.route('/splash', methods=['GET'])
 def splash():
-	return render_template('splash.html')
-
+	query = request.args.get('search')
+	print ("USERS QUERY: {0}".format(query))
+	# run information retrieval here, make sure template names match up
+	data = {
+		"shoeName": "Nike Air Zoom Pegasus 35", 
+		"shoeImage": "https://cdn.runrepeat.com/i/nike/28162/nike-womens-air-zoom-pegasus-35-running-shoes-8-5-b-us-elemental-rose-barely-rose-vintage-wine-womens-elemental-rose-barely-rose-5627-main.jpg", 
+		"shoeURL": "https://runrepeat.com/nike-air-zoom-pegasus-35"
+	}
+	return render_template('splash.html', **data )
 
 

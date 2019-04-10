@@ -7,22 +7,19 @@
 body {
   font-family: "Montserrat"; }
 
-img {
-  max-width: 100%;
-  max-height: 100%; }
-
-.header {
+.text-center {
   text-align: center; }
 
+form {
+  margin: 3rem; }
+
 .shoes-grid {
-  display: block;
-  margin: auto; }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 2rem;
+  padding: 5rem; }
   .shoes-grid .card {
-    display: inline-block;
-    height: 350px;
-    width: 350px;
-    padding: 10px;
-    margin: 15px;
+    padding: 20px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,5 +29,8 @@ img {
     .shoes-grid .card .card-caption {
       text-align: center;
       padding-top: 10px; }
+    .shoes-grid .card figure img {
+      max-width: 100%;
+      max-height: 100%; }
 
 /*# sourceMappingURL=splash.css.map */
