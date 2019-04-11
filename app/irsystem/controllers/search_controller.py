@@ -5,19 +5,33 @@ from app.irsystem.models.helpers import NumpyEncoder as NumpyEncoder
 # The actual IR system that will take the [query] and return the results as an array of objects
 def ir_retrieve(query):
 	print ("THE QUERY: {0}".format(query))
-	results =[
+	results = [
 		{
-				"shoeName": "Nike Air Zoom Pegasus 35",
-				"shoeImage": "https://cdn.runrepeat.com/i/nike/28162/nike-womens-air-zoom-pegasus-35-running-shoes-8-5-b-us-elemental-rose-barely-rose-vintage-wine-womens-elemental-rose-barely-rose-5627-main.jpg",
-					"shoeURL": "https://runrepeat.com/nike-air-zoom-pegasus-35"
+			"shoeName": "Nike Air Zoom Pegasus 35",
+			"shoeImage": "https://cdn.runrepeat.com/i/nike/28162/nike-womens-air-zoom-pegasus-35-running-shoes-8-5-b-us-elemental-rose-barely-rose-vintage-wine-womens-elemental-rose-barely-rose-5627-main.jpg",
+			"similarityScore": 0.5,
+			"relevantTerms": ["soft", "warm"],
+			"corescore": 95,
+			"similarShoes": ["Nike Air Zoom Pegasus 40", "Nike Air Zoom Pegasus 34"]
 		},
-			{
-				"shoeName": "Nike Epic React Flyknit",
-					"shoeImage": "https://cdn.runrepeat.com/i/nike/27379/nike-men-s-epic-react-flyknit-running-shoes-11-5-grey-white-mens-grey-white-aad2-main.jpg",
-					"shoeURL": "https://runrepeat.com/nike-epic-react-flyknit"
+		{
+			"shoeName": "Nike Air Zoom Pegasus 35",
+			"shoeImage": "https://cdn.runrepeat.com/i/nike/28162/nike-womens-air-zoom-pegasus-35-running-shoes-8-5-b-us-elemental-rose-barely-rose-vintage-wine-womens-elemental-rose-barely-rose-5627-main.jpg",
+			"similarityScore": 0.5,
+			"relevantTerms": ["soft", "warm"],
+			"corescore": 95,
+			"similarShoes": ["Nike Air Zoom Pegasus 40", "Nike Air Zoom Pegasus 34"]
 		},
-		# random filler for grid testing
-		{"shoeName": "Nike Air Zoom Pegasus 35", "shoeImage": "https://cdn.runrepeat.com/i/nike/28162/nike-womens-air-zoom-pegasus-35-running-shoes-8-5-b-us-elemental-rose-barely-rose-vintage-wine-womens-elemental-rose-barely-rose-5627-main.jpg", "shoeURL": "https://runrepeat.com/nike-air-zoom-pegasus-35"}, {"shoeName": "Nike Air Zoom Pegasus 35", "shoeImage": "https://cdn.runrepeat.com/i/nike/28162/nike-womens-air-zoom-pegasus-35-running-shoes-8-5-b-us-elemental-rose-barely-rose-vintage-wine-womens-elemental-rose-barely-rose-5627-main.jpg", "shoeURL": "https://runrepeat.com/nike-air-zoom-pegasus-35"}, {"shoeName": "Nike Air Zoom Pegasus 35", "shoeImage": "https://cdn.runrepeat.com/i/nike/28162/nike-womens-air-zoom-pegasus-35-running-shoes-8-5-b-us-elemental-rose-barely-rose-vintage-wine-womens-elemental-rose-barely-rose-5627-main.jpg", "shoeURL": "https://runrepeat.com/nike-air-zoom-pegasus-35"}]
+		{
+			"shoeName": "Nike Air Zoom Pegasus 35",
+			"shoeImage": "https://cdn.runrepeat.com/i/nike/28162/nike-womens-air-zoom-pegasus-35-running-shoes-8-5-b-us-elemental-rose-barely-rose-vintage-wine-womens-elemental-rose-barely-rose-5627-main.jpg",
+			"similarityScore": 0.5,
+			"relevantTerms": ["soft", "warm"],
+			"corescore": 95,
+			"similarShoes": ["Nike Air Zoom Pegasus 40", "Nike Air Zoom Pegasus 34"]
+		}
+	]
+
 	return results
 
 # used for ajax retrieval

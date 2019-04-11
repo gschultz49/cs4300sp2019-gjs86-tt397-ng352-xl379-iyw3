@@ -26,10 +26,6 @@ body {
   .header img {
     height: 7.5rem; }
 
-.header > img,
-.header > h1 {
-  display: inline-block; }
-
 #searcher {
   margin: 5% 0; }
 
@@ -70,5 +66,13 @@ body {
   z-index: -1; }
   .authors img {
     height: 8px; }
+
+.transitition-from-grey {
+  width: 500px;
+  height: 250px;
+  filter: grayscale(100%);
+  transition: filter 0.1s; }
+  .transitition-from-grey:hover {
+    filter: none; }
 
 /*# sourceMappingURL=splash.css.map */

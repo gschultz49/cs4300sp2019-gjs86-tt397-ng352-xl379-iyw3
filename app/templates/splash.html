@@ -35,27 +35,8 @@
       </div>
     <!-- </form> -->
     
-    <!--  Shoes card grid  -->
-    <div id ="main-grid" class = "shoes-grid"> 
-      <!-- generate shoe cards -->
-      {% if data|length > 0 %}
-        {% for shoe in data %}
-          <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
-            {% if shoe['shoeImage'] %}
-            <figure>
-              <img class="shoeImage" src="{{ shoe['shoeImage']| safe }}">
-            </figure>
-            {% endif %}
-            <div class="card-caption">
-              <h3 class="shoeName"> {{ shoe['shoeName'] }}</h3>
-              <a class="shoeURL" target= "_blank" href="{{ shoe['shoeURL'] |safe }}">Shoe Link</a>
-            </div>
-          </div>
-        {% endfor %}
-      {% else %}
-        <h1 class="text-center"> No matches found :( </h1>
-      {% endif %}
-    </div>
+    <!--  Target shoe grid  -->
+    <div class = "shoes-grid"> </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
