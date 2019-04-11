@@ -1,6 +1,7 @@
 from . import *  
 from app.irsystem.models.helpers import *
 from app.irsystem.models.helpers import NumpyEncoder as NumpyEncoder
+from app.irsystem.models.search import *
 
 # The actual IR system that will take the [query] and return the results as an array of objects
 def ir_retrieve(query):
