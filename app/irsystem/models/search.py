@@ -1,6 +1,8 @@
 # IR system goes here
 import numpy as np
 import re, json, os, nltk, csv
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -203,6 +205,8 @@ def Precompute(sdict = sdict, tokenize = tokenize, build_inverted_index = build_
             similar[i][j]= {}
             similar[i][j]['index'] = topshoes[j]
             similar[i][j]['shoeName']=sdict[str(topshoes[j])]['shoeName']
+            similar[i][j]['shoeImage']=sdict[str(topshoes[j])]['shoe_image']
+
             similar[i][j]['our similarity score'] = round(cossim[i][topshoes[j]],4)
             similar[i][j]['shoes'] = sdict[str(i)]['shoeName'],sdict[str(topshoes[j])]['shoeName']
             similar[i][j]['relevant terms'] = top_terms(i, topshoes[j], doc_by_vocab, index_to_vocab, top_k=12)[0]
@@ -225,6 +229,8 @@ def FindSimilarShoes(shoename,information_dict = similar,shoename_to_index =shoe
         newdict[i] = {}
         newdict[i]['shoeName'] = datadict[i]['shoeName']
         newind = shoename_to_index[datadict[i]['shoeName'].lower()]
+        newdict[i]['shoeImage'] = datadict[i]['shoeImage']
+
         newdict[i]['our similarity score'] = datadict[i]['our similarity score']
         newdict[i]['relevant terms'] = datadict[i]['relevant terms']
         newdict[i]['corescore'] = datadict[i]['corescore'] 
