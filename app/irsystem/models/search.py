@@ -208,6 +208,7 @@ def Precompute(sdict = sdict, tokenize = tokenize, build_inverted_index = build_
             similar[i][j]['index'] = topshoes[j]
             similar[i][j]['shoeName']=sdict[str(topshoes[j])]['shoeName']
             similar[i][j]['shoeImage']=sdict[str(topshoes[j])]['shoe_image']
+            similar[i][j]['amazonLink']=sdict[str(topshoes[j])]['amazonLink']
 
             similar[i][j]['our similarity score'] = round(cossim[i][topshoes[j]],4)
             similar[i][j]['shoes'] = sdict[str(i)]['shoeName'],sdict[str(topshoes[j])]['shoeName']
@@ -232,7 +233,7 @@ def FindSimilarShoes(shoename,information_dict = similar,shoename_to_index =shoe
         newdict[i]['shoeName'] = datadict[i]['shoeName']
         newind = shoename_to_index[datadict[i]['shoeName'].lower()]
         newdict[i]['shoeImage'] = datadict[i]['shoeImage']
-
+        newdict[i]['amazonLink'] = datadict[i]['amazonLink']
         newdict[i]['similarity'] = datadict[i]['our similarity score']
         newdict[i]['relevantTerms'] = datadict[i]['relevant terms']
         newdict[i]['corescore'] = datadict[i]['corescore'] 
@@ -299,6 +300,7 @@ def FindQuery(q,sdict = sdict, numtop = 6, information_dict = similar,shoename_t
         tops[i]= {}
         tops[i]['shoeName'] = sdict[str(topresults[i])]['shoeName']
         tops[i]['shoeImage'] = sdict[str(topresults[i])]['shoe_image']
+        tops[i]['amazonLink'] = sdict[str(topresults[i])]['amazonLink']
         tops[i]['our similarity score'] = round(cossim1[topresults[i]],4)
         tops[i]['corescore'] = sdict[str(topresults[i])]['corescore']
         tops[i]['relevant terms'] = top_terms(len(sdict),topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[0]
