@@ -41,7 +41,7 @@ body {
 
 .shoes-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 2rem;
   margin: 0 10%;
   margin-bottom: 10%;
