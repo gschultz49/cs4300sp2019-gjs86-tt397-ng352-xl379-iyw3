@@ -4,11 +4,11 @@ import re, json, os, nltk, csv
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
-from nltk.corpus import stopwords
+# from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-nltk.download('stopwords')
+# nltk.download('stopwords')
 ps = PorterStemmer()
 
 # APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
@@ -301,19 +301,19 @@ def FindQuery(q,sdict = sdict, numtop = 6, information_dict = similar,shoename_t
         tops[i]['shoeName'] = sdict[str(topresults[i])]['shoeName']
         tops[i]['shoeImage'] = sdict[str(topresults[i])]['shoe_image']
         tops[i]['amazonLink'] = sdict[str(topresults[i])]['amazonLink']
-        tops[i]['our similarity score'] = round(cossim1[topresults[i]],4)
+        tops[i]['similarity'] = round(cossim1[topresults[i]],4)
         tops[i]['corescore'] = sdict[str(topresults[i])]['corescore']
-        tops[i]['relevant terms'] = top_terms(len(sdict),topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[0]
+        tops[i]['relevantTerms'] = top_terms(len(sdict),topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[0]
         tops[i]['scores'] = top_terms(len(sdict),topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[1]
-        tops[i]['terms and scores'] = top_terms(len(sdict),topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[2]
-        tops[i]['relevant sentence']=sentdict[topresults[i]]['sent']
+        tops[i]['termsAndScores'] = top_terms(len(sdict),topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[2]
+        tops[i]['relevantSentence']=sentdict[topresults[i]]['sent']
     
     for item in tops:
         sim_shoes = []
         newindex = shoename_to_index[tops[item]['shoeName'].lower()]
         for j in information_dict[newindex]:
             sim_shoes.append(information_dict[newindex][j]['shoeName'])
-        tops[item]['links to similar shoes'] = sim_shoes 
+        tops[item]['similarShoes'] = sim_shoes 
         
     array = []
     for item in tops:
