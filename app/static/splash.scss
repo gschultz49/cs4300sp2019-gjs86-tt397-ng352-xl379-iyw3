@@ -73,6 +73,10 @@ body {
   }
 }
 
+.additional-data {
+  display: none
+}
+
 .authors{
   @extend .text-center;
   // margin: 3%;
