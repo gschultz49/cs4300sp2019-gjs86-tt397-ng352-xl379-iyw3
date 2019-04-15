@@ -1,26 +1,16 @@
 # IR system goes here
-
-import re
-import json
-from glob import glob
-import os
-from io import StringIO
-from itertools import groupby
-import pickle
-from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk.stem import PorterStemmer
-ps = PorterStemmer()
-from nltk.corpus import stopwords
-import nltk
-nltk.download('stopwords')
 import numpy as np
-import bs4
-%matplotlib inline
+import re, json, os, nltk, csv
 import matplotlib.pyplot as plt
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
-import csv
+nltk.download('stopwords')
+ps = PorterStemmer()
 
-with open('new_data.tsv') as csvfile:
+# this is very janky, figure out how to get this in a database later
+with open('4_10_2019.tsv') as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
     for row in reader:

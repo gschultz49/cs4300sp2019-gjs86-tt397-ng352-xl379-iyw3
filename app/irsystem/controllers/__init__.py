@@ -18,7 +18,7 @@ from marshmallow import ValidationError
 from app import socketio
 
 # Import module models 
-# from app.irsystem import search
+from app.irsystem import search
 
 # IMPORT THE BLUEPRINT APP OBJECT 
 from app.irsystem import irsystem 
