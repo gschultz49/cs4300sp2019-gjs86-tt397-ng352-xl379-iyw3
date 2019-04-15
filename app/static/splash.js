@@ -1,7 +1,7 @@
 
 let $SCRIPT_ROOT = ""
 
-$(document).on("click", '.card', function (event) {
+$(document).on("click", '.card', function () {
   // when user selects a specific card, grab its attributes to populate the modal
   let card = $(this);
   console.log("CLICKED");
@@ -27,8 +27,6 @@ $(document).on("click", '.card', function (event) {
 });
 
 $(document).ready(function () {
-  
-
   // rendering template for a card
   // will need to handle which mode we're in
   let render_card = (shoe) => {
