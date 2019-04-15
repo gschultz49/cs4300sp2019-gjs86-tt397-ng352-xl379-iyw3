@@ -1,3 +1,4 @@
+import os 
 # Import flask deps
 from flask import request, render_template, \
 	flash, g, session, redirect, url_for, jsonify, abort
@@ -18,7 +19,7 @@ from marshmallow import ValidationError
 from app import socketio
 
 # Import module models 
-from app.irsystem import search
+from app.irsystem.models import *
 
 # IMPORT THE BLUEPRINT APP OBJECT 
 from app.irsystem import irsystem 
@@ -26,3 +27,9 @@ from app.irsystem import irsystem
 # Import module models
 from app.accounts.models.user import *
 from app.accounts.models.session import *
+
+
+# # __file__ refers to the file settings.py
+# APP_ROOT = os.path.dirname(os.path.abspath(
+#     __file__))   # refers to application_top
+# APP_STATIC = os.path.join(APP_ROOT, 'static')

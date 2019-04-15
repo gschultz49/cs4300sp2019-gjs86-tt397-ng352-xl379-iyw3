@@ -9,8 +9,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 nltk.download('stopwords')
 ps = PorterStemmer()
 
-# this is very janky, figure out how to get this in a database later
-with open('4_10_2019.tsv') as csvfile:
+# APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
+# APP_STATIC = os.path.join(APP_ROOT, 'static')
+
+
+# FIGURE OUT HOW TO GET THIS TO USE THE REAL APPLICATION ROOT
+with open("/Users/gschultz49/Desktop/CS4300/CS4300_Flask_template/app/irsystem/models/4_10_2019.tsv") as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
     for row in reader:
