@@ -69,12 +69,24 @@ $(document).ready(function () {
     ajax_retrieve(query);
   }
 
-  // Click handler, TODO: modify for press of enter
-  $('#go').bind('click', function () {
+  // grab and perform input
+  let input_handler = () => {
     let inputted_value = $('input[name="search"]').val();
     clear_and_search(inputted_value);
     return false;
+  }
+
+  // Click handler, TODO: modify for press of enter
+  $('#go').bind('click', function () {
+    input_handler();
   });
+  // Handle for click of enter
+  $("#input").on('keypress', function (e) {
+    if (e.which == 13) {
+      input_handler();
+    }
+  });
+
 
   // generate amazon link dynamically from name, allows us to handle if we want to filter by gender or size
   let amazonGenderSizeAdjuster = (amzURL, gender="", size="") => {
@@ -86,7 +98,6 @@ $(document).ready(function () {
   // Onpage load a shoe:
   ajax_retrieve("Nike Air Zoom Pegasus 35");
 
-  
 });
 
 

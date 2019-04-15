@@ -18,7 +18,6 @@ ps = PorterStemmer()
 # FIGURE OUT HOW TO GET THIS TO USE THE REAL APPLICATION ROOT
 # with ("4_10_2019.tsv") as csvfile:
 
-
 with open("/Users/gschultz49/Desktop/CS4300/CS4300_Flask_template/app/4_10_2019.tsv") as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
