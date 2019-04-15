@@ -234,8 +234,8 @@ def FindSimilarShoes(shoename,information_dict = similar,shoename_to_index =shoe
         newind = shoename_to_index[datadict[i]['shoeName'].lower()]
         newdict[i]['shoeImage'] = datadict[i]['shoeImage']
 
-        newdict[i]['similarity'] = datadict[i]['similarity']
-        newdict[i]['relevantTerms'] = datadict[i]['relevantTerms']
+        newdict[i]['similarity'] = datadict[i]['our similarity score']
+        newdict[i]['relevantTerms'] = datadict[i]['relevant terms']
         newdict[i]['corescore'] = datadict[i]['corescore'] 
         sim_shoes = []
         for j in information_dict[newind]:
