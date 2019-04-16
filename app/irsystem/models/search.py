@@ -216,7 +216,10 @@ def Precompute(sdict=sdict, tokenize=tokenize, build_inverted_index=build_invert
             similar[i][j]['shoeName'] = sdict[str(topshoes[j])]['shoeName']
             similar[i][j]['shoeImage'] = sdict[str(topshoes[j])]['shoe_image']
             similar[i][j]['amazonLink'] = sdict[str(topshoes[j])]['amazonLink']
-
+            similar[i][j]['terrain'] = sdict[str(topshoes[j])]['terrain']
+            similar[i][j]['arch_support'] = sdict[str(topshoes[j])]['arch_support']
+            similar[i][j]['men_weight'] = sdict[str(topshoes[j])]['men_weight']
+            similar[i][j]['women_weight'] = sdict[str(topshoes[j])]['women_weight']
             similar[i][j]['our similarity score'] = round(
                 cossim[i][topshoes[j]], 4)
             similar[i][j]['shoes'] = sdict[str(
@@ -250,6 +253,10 @@ def FindSimilarShoes(shoename, information_dict=similar, shoename_to_index=shoen
         newdict[i]['similarity'] = datadict[i]['our similarity score']
         newdict[i]['relevantTerms'] = datadict[i]['relevant terms']
         newdict[i]['corescore'] = datadict[i]['corescore']
+        newdict[i]['terrain'] = datadict[i]['terrain']
+        newdict[i]['arch_support'] = datadict[i]['arch_support']
+        newdict[i]['men_weight'] = datadict[i]['men_weight']
+        newdict[i]['women_weight'] = datadict[i]['women_weight']
         sim_shoes = []
         for j in information_dict[newind]:
             sim_shoes.append(information_dict[newind][j]['shoeName'])
@@ -327,6 +334,10 @@ def FindQuery(q, sdict=sdict, numtop=6, get_sim=get_sim, information_dict=simila
         tops[i]['termsAndScores'] = top_terms(len(
             sdict), topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[2]
         tops[i]['relevantSentence'] = sentdict[topresults[i]]['sent']
+        tops[i]['terrain'] = sdict[str(topresults[i])]['terrain']
+        tops[i]['men_weight'] = sdict[str(topresults[i])]['men_weight']
+        tops[i]['women_weight'] = sdict[str(topresults[i])]['women_weight']
+        tops[i]['arch_support'] = sdict[str(topresults[i])]['arch_support']
 
     for item in tops:
         sim_shoes = []
