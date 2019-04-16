@@ -1,9 +1,12 @@
 # IR system goes here
 import numpy as np
 import re, json, os, nltk, csv
+<<<<<<< HEAD
 # import matplotlib
 # matplotlib.use('TkAgg')
 # import matplotlib.pyplot as plt
+=======
+>>>>>>> 865c73fdd07ea91fe4bddbee1a607a38406b0abc
 # from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -17,7 +20,12 @@ ps = PorterStemmer()
 
 # FIGURE OUT HOW TO GET THIS TO USE THE REAL APPLICATION ROOT
 # with ("4_10_2019.tsv") as csvfile:
+<<<<<<< HEAD
 with open("/Users/tomohirotokuyama/documents/cornell/spring2019/info4300/cs4300sp2019-gjs86-tt397-ng352-xl379-iyw3/app/4_10_2019.tsv") as csvfile:
+=======
+
+with open("/Users/gschultz49/Desktop/CS4300/CS4300_Flask_template/app/4_15_2019.tsv") as csvfile:
+>>>>>>> 865c73fdd07ea91fe4bddbee1a607a38406b0abc
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
     for row in reader:
@@ -236,6 +244,10 @@ def FindSimilarShoes(shoename,information_dict = similar,shoename_to_index =shoe
         newdict[i]['similarity'] = datadict[i]['our similarity score']
         newdict[i]['relevantTerms'] = datadict[i]['relevant terms']
         newdict[i]['corescore'] = datadict[i]['corescore'] 
+        newdict[i]['terrain'] = datadict[i]['terrain'] 
+        newdict[i]['arch_support'] = datadict[i]['arch_support'] 
+        newdict[i]['men_weight'] = datadict[i]['men_weight'] 
+        newdict[i]['women_weight'] = datadict[i]['women_weight'] 
         sim_shoes = []
         for j in information_dict[newind]:
             sim_shoes.append(information_dict[newind][j]['shoeName'])
