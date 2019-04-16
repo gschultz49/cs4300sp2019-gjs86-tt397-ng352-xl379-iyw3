@@ -28,10 +28,10 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-similarity").html("<b>similarity</b> "+similarity);
   modal.find(".modal-relevantTerms").html("<b>relevantTerms</b> "+relevantTerms);
   modal.find(".modal-amazonLink").html("<b>amazonLink</b> " + amazonLink);
-  modal.find(".modal-terrain").html("<b>terrain</b> " + terrain);
-  modal.find(".modal-arch_support").html("<b>arch_support</b> " + arch_support);
-  modal.find(".modal-men_weight").html("<b>men_weight</b> " + men_weight);
-  modal.find(".modal-women_weight").html("<b>women_weight</b> " + women_weight);
+  // modal.find(".modal-terrain").html("<b>terrain</b> " + terrain);
+  // modal.find(".modal-arch_support").html("<b>arch_support</b> " + arch_support);
+  // modal.find(".modal-men_weight").html("<b>men_weight</b> " + men_weight);
+  // modal.find(".modal-women_weight").html("<b>women_weight</b> " + women_weight);
 });
   
 
