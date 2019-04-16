@@ -17,7 +17,7 @@ $(document).on("click", '.card', function () {
   let men_weight = card.find(".card-men_weight").text();
   let women_weight = card.find(".card-women_weight").text();
 
-  console.log(shoeName, shoeImage, similarShoes, corescore, similarity, relevantTerms, terrain, arch_support, men_weight, women_weight);
+  console.log(shoeName, similarShoes, corescore, similarity, relevantTerms, terrain, arch_support, men_weight, women_weight);
 
   // populate modal 
   let modal = $(".modal-content");

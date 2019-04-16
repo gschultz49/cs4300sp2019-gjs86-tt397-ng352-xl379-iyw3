@@ -7,7 +7,6 @@ $(document).on("click", '.card', function () {
   console.log("CLICKED");
   // get contents of clicked shoe
   let shoeName = card.find(".card-shoeName").text();
-  let shoeImage = card.find(".card-shoeImage").attr("src");
   let similarShoes = card.find(".card-similarShoes").text();
   let corescore = card.find(".card-corescore").text();
   let similarity = card.find(".card-similarity").text();
@@ -23,7 +22,6 @@ $(document).on("click", '.card', function () {
 
   // populate modal 
   let modal = $(".modal-content");
-  modal.find(".modal-shoeImage").html("<b>shoeImage</b> "+shoeImage);
   modal.find(".modal-shoeName").html("<b>shoeName</b> "+shoeName);
   modal.find(".modal-similarShoes").html("<b>similarShoes</b> "+similarShoes);
   modal.find(".modal-corescore").html("<b>corescore</b> "+corescore);
