@@ -99,120 +99,111 @@ $(document).ready(function () {
       input_handler();
     }
   });
-
-
-  // generate amazon link dynamically from name, allows us to handle if we want to filter by gender or size
-  let amazonGenderSizeAdjuster = (amzURL, gender = "", size = "") => {
-    let gender_adjusted = (gender == "") ? gender : `+${gender}`;
-    let size_adjusted = (size == "") ? size : `+${size}`;
-    return `https://www.amazon.com/s?k=${amzURL}${gender_adjusted}${size_adjusted}`;
-  }
-
   //generate bar chart
-  function create_bar_chart(key, chart_data_raw) {
+  // function create_bar_chart(key, chart_data_raw) {
 
-    const margin = { top: 30, right: 30, bottom: 30, left: 30 };
+  //   const margin = { top: 30, right: 30, bottom: 30, left: 30 };
 
-    let svg = d3.select("#bar_chart");
-    let height = svg.attr("height");
-    let width = svg.attr("width");
-    let plotHeight = height - margin.top - margin.bottom;
-    let plotWidth = width - margin.right - margin.left;
+  //   let svg = d3.select("#bar_chart");
+  //   let height = svg.attr("height");
+  //   let width = svg.attr("width");
+  //   let plotHeight = height - margin.top - margin.bottom;
+  //   let plotWidth = width - margin.right - margin.left;
 
-    let chart_data_keys = keys.splice(0, 5);
-    let chart_data = chart_data_raw.splice(0, 5);
+  //   let chart_data_keys = keys.splice(0, 5);
+  //   let chart_data = chart_data_raw.splice(0, 5);
 
-    let max_count = d3.max(chart_data_raw, function (key) {
-      return key;
-    });
+  //   let max_count = d3.max(chart_data_raw, function (key) {
+  //     return key;
+  //   });
 
-    let bar_width = (plotWidth - margin.left) / 5;
-    let padding = 10;
+  //   let bar_width = (plotWidth - margin.left) / 5;
+  //   let padding = 10;
 
-    let range = [...Array(5).keys()].map(d => d * (plotWidth - margin.left) / 5);
+  //   let range = [...Array(5).keys()].map(d => d * (plotWidth - margin.left) / 5);
 
-    let xScale = d3.scaleOrdinal()
-      .domain(chart_data_keys)
-      .range(range);
+  //   let xScale = d3.scaleOrdinal()
+  //     .domain(chart_data_keys)
+  //     .range(range);
 
-    let yScale = d3.scaleLinear()
-      .domain([0, max_count])
-      .range([plotHeight, margin.bottom]);
+  //   let yScale = d3.scaleLinear()
+  //     .domain([0, max_count])
+  //     .range([plotHeight, margin.bottom]);
 
-    let plot = svg.append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  //   let plot = svg.append("g")
+  //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    //create bar chart
-    plot.selectAll("rect")
-      .data(chart_data_keys)
-      .enter()
-      .append("rect")
-      .attr("class", "chart_rect")
-      .attr("x", function (d) {
-        return xScale(d);
-      })
-      .attr("y", function (d) {
-        return yScale(chart_data[d]) + 10;
-      })
-      .attr("stroke", function (d) {
-        return "black";
-      })
-      .attr("width", bar_width)
-      .attr("height", function (d) {
-        return plotHeight - yScale(chart_data[d]);
-      })
-      .attr("fill", "orange")
-      .style("stroke", "white")
-      .style("stroke-width", 4);
+  //   //create bar chart
+  //   plot.selectAll("rect")
+  //     .data(chart_data_keys)
+  //     .enter()
+  //     .append("rect")
+  //     .attr("class", "chart_rect")
+  //     .attr("x", function (d) {
+  //       return xScale(d);
+  //     })
+  //     .attr("y", function (d) {
+  //       return yScale(chart_data[d]) + 10;
+  //     })
+  //     .attr("stroke", function (d) {
+  //       return "black";
+  //     })
+  //     .attr("width", bar_width)
+  //     .attr("height", function (d) {
+  //       return plotHeight - yScale(chart_data[d]);
+  //     })
+  //     .attr("fill", "orange")
+  //     .style("stroke", "white")
+  //     .style("stroke-width", 4);
 
-    //create Y-labels
-    plot.selectAll("text")
-      .data(chart_data_keys)
-      .enter()
-      .append("text")
-      .attr("class", "chart_text_y")
-      .text(function (d) {
-        return chart_data[d];
-      })
-      .attr("x", function (d) {
-        return xScale(d) + bar_width / 2;
-      })
-      .attr("y", function (d) {
-        return yScale(chart_data[d]) + 30;
-      })
-      .attr("alignment-baseline", "middle")
-      .attr('text-anchor', "middle")
-      .attr("fill", "white");
+  //   //create Y-labels
+  //   plot.selectAll("text")
+  //     .data(chart_data_keys)
+  //     .enter()
+  //     .append("text")
+  //     .attr("class", "chart_text_y")
+  //     .text(function (d) {
+  //       return chart_data[d];
+  //     })
+  //     .attr("x", function (d) {
+  //       return xScale(d) + bar_width / 2;
+  //     })
+  //     .attr("y", function (d) {
+  //       return yScale(chart_data[d]) + 30;
+  //     })
+  //     .attr("alignment-baseline", "middle")
+  //     .attr('text-anchor', "middle")
+  //     .attr("fill", "white");
 
-    //create x-labels
-    let xLabels = svg.append("g")
-      .attr("transform", "translate(" + margin.left + "," + (margin.top + plotHeight) + ")");
+  //   //create x-labels
+  //   let xLabels = svg.append("g")
+  //     .attr("transform", "translate(" + margin.left + "," + (margin.top + plotHeight) + ")");
 
-    xLabels.selectAll("text.xAxis")
-      .data(chart_data_keys)
-      .enter()
-      .append("text")
-      .attr("class", "xAxis")
-      .text(function (d) {
-        return d;
-      })
-      .attr("font-size", "13px")
-      .attr("text-anchor", "middle")
-      .attr("x", function (d) {
-        return xScale(d) + bar_width / 2;
-      })
-      .attr("y", 25);
+  //   xLabels.selectAll("text.xAxis")
+  //     .data(chart_data_keys)
+  //     .enter()
+  //     .append("text")
+  //     .attr("class", "xAxis")
+  //     .text(function (d) {
+  //       return d;
+  //     })
+  //     .attr("font-size", "13px")
+  //     .attr("text-anchor", "middle")
+  //     .attr("x", function (d) {
+  //       return xScale(d) + bar_width / 2;
+  //     })
+  //     .attr("y", 25);
 
-    //Create Title
-    svg.append("text")
-      .attr("id", "chart_title")
-      .attr("x", (plotWidth + 50) / 2)
-      .attr("y", 30)
-      .attr("class", "title")
-      .attr("text-anchor", "middle")
-      .attr("alignment-baseline", "middle")
-      .text("Cosine Similarity Scores for the Top 5 Words");
-  }
+  //   //Create Title
+  //   svg.append("text")
+  //     .attr("id", "chart_title")
+  //     .attr("x", (plotWidth + 50) / 2)
+  //     .attr("y", 30)
+  //     .attr("class", "title")
+  //     .attr("text-anchor", "middle")
+  //     .attr("alignment-baseline", "middle")
+  //     .text("Cosine Similarity Scores for the Top 5 Words");
+  // }
 
   // Onpage load a shoe:
   ajax_retrieve("Nike Air Zoom Pegasus 35");
