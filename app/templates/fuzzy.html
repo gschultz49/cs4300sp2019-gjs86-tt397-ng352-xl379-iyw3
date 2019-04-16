@@ -1,0 +1,105 @@
+<html>
+<head>
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/splash.css">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <title>Solemate</title>
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/static/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#d55b5b">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+</head>
+  <body>
+    <div class = "header text-center"> 
+      <h1> 
+        <img class="logo" src="/static/logo.png">
+        Find your Solemate
+        <img class="logo" src="/static/logo.png">
+      </h1>
+      <!-- <h2> Find shoes based on what you love </h2> -->
+    </div>
+    
+    <!-- <form id = "sender"> -->
+      <div id = "searcher" class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+          <div class="input-group input-group-lg">
+            <input id="input" type="text" name="search" class="form-control form-control-lg" placeholder="">
+            <span class="input-group-btn">
+              <button id ="go" type="submit" class="btn btn-info"> Go! </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    <!-- </form> -->
+    
+    <!--  Target shoe grid  -->
+    <div class = "shoes-grid"> </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title modal-shoeName">None</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="modal-shoeImage">None</p>
+            <p class="modal-similarShoes">None</p>
+            <p class="modal-corescore">None</p>
+            <p class="modal-similarity">None</p>
+            <p class="modal-relevantTerms">None</p>
+            <p class="modal-amazonLink">None</p>
+            <p class="modal-terrain">None</p>
+            <p class="modal-arch_support">None</p>
+            <p class="modal-men_weight">None</p>
+            <p class="modal-women_weight">None</p>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- 
+    <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
+      <figure>
+        <img class="shoeImage" src="${shoe.shoeImage}">
+      </figure>
+      <div class="card-caption">
+        <h3 class="shoeName"> ${shoe.shoeName}</h3>
+      </div>
+      <div class="additional-data">
+        <p class="similarShoes"> ${shoe.similarShoes}</p>
+        <p class="corescore"> ${shoe.corescore}</p>
+        <p class="similarity"> ${shoe.similarity}</p>
+        <p class="relevantTerms"> ${shoe.relevantTerms}</p>
+      </div>
+    </div> 
+  -->
+
+
+
+  <!-- authors -->
+  <div class="authors">
+    <p> Made with <img src="/static/heart.png"> by Tomohiro Tokuyama (tt397), Lily Liu (xl379), Nishant Goel (ng352), Irina Wang (iyw3), Greg Schultz (gjs86)</p>
+  </div>
+
+  <!-- dependencies -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+  <script src="/static/fuzzy.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+
+  </body>
+</html>
+
+
