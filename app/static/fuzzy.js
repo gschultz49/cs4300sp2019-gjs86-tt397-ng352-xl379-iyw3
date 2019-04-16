@@ -12,12 +12,14 @@ $(document).on("click", '.card', function () {
   let corescore = card.find(".card-corescore").text();
   let similarity = card.find(".card-similarity").text();
   let relevantTerms = card.find(".card-relevantTerms").text();
+  let amazonLink = card.find(".card-amazonLink").text();
   let terrain = card.find(".card-terrain").text();
   let arch_support = card.find(".card-arch_support").text();
   let men_weight = card.find(".card-men_weight").text();
   let women_weight = card.find(".card-women_weight").text();
+  let relevantSentence = card.find(".card-relevantSentence").text();
 
-  console.log(shoeName, shoeImage, similarShoes, corescore, similarity, relevantTerms);
+  console.log(shoeName, shoeImage, similarShoes, corescore, similarity, relevantTerms, terrain, arch_support, men_weight, women_weight, relevantSentence);
 
   // populate modal 
   let modal = $(".modal-content");
@@ -28,11 +30,11 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-similarity").html("<b>similarity</b> "+similarity);
   modal.find(".modal-relevantTerms").html("<b>relevantTerms</b> "+relevantTerms);
   modal.find(".modal-amazonLink").html("<b>amazonLink</b> " + amazonLink);
-  // modal.find(".modal-terrain").html("<b>terrain</b> " + terrain);
-  // modal.find(".modal-arch_support").html("<b>arch_support</b> " + arch_support);
-  // modal.find(".modal-men_weight").html("<b>men_weight</b> " + men_weight);
-  // modal.find(".modal-women_weight").html("<b>women_weight</b> " + women_weight);
-});
+  modal.find(".modal-terrain").html("<b>terrain</b> " + terrain);
+  modal.find(".modal-arch_support").html("<b>arch_support</b> " + arch_support);
+  modal.find(".modal-men_weight").html("<b>men_weight</b> " + men_weight);
+  modal.find(".modal-women_weight").html("<b>women_weight</b> " + women_weight);
+  modal.find(".modal-relevantSentence").html("<b>relevantSentence</b> " + relevantSentence); });
   
 
 $(document).ready(function () {
@@ -59,6 +61,7 @@ $(document).ready(function () {
         <p class="card-arch_support"> ${shoe.arch_support}</p>
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
+        <p class="card-relevantSentence"> ${shoe.relevantSentence}</p>
       </div>
     </div>
     `
