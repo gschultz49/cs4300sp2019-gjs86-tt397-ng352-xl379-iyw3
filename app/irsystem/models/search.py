@@ -5,16 +5,12 @@ import re, json, os, nltk, csv
 # matplotlib.use('TkAgg')
 # import matplotlib.pyplot as plt
 # from nltk.corpus import stopwords
+from ... import settings
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-from ... import settings 
-
 # nltk.download('stopwords')
 ps = PorterStemmer()
-
-# APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
-# APP_STATIC = os.path.join(APP_ROOT, 'static')
 
 path = os.path.join(settings.APP_STATIC, "4_15_2019.tsv")
 print ("SEARCH PATH")
