@@ -13,8 +13,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 ps = PorterStemmer()
 
 path = os.path.join(settings.APP_STATIC, "4_15_2019.tsv")
-print ("SEARCH PATH")
-print (path)
+# print ("SEARCH PATH")
+# print (path)
 with open(path) as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
