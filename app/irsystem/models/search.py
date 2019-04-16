@@ -1,20 +1,13 @@
 # IR system goes here
 import numpy as np
 import re, json, os, nltk, csv
-# import matplotlib
-# matplotlib.use('TkAgg')
-# import matplotlib.pyplot as plt
-# from nltk.corpus import stopwords
 from ... import settings
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-# nltk.download('stopwords')
 ps = PorterStemmer()
 
 path = os.path.join(settings.APP_STATIC, "4_15_2019.tsv")
-# print ("SEARCH PATH")
-# print (path)
 with open(path) as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
