@@ -1,6 +1,9 @@
 # IR system goes here
 import numpy as np
 import re, json, os, nltk, csv
+# import matplotlib
+# matplotlib.use('TkAgg')
+# import matplotlib.pyplot as plt
 # from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
