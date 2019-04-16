@@ -1,9 +1,9 @@
 # IR system goes here
 import numpy as np
 import re, json, os, nltk, csv
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
+# import matplotlib
+# matplotlib.use('TkAgg')
+# import matplotlib.pyplot as plt
 # from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -17,8 +17,7 @@ ps = PorterStemmer()
 
 # FIGURE OUT HOW TO GET THIS TO USE THE REAL APPLICATION ROOT
 # with ("4_10_2019.tsv") as csvfile:
-
-with open("/Users/gschultz49/Desktop/CS4300/CS4300_Flask_template/app/4_10_2019.tsv") as csvfile:
+with open("/Users/tomohirotokuyama/documents/cornell/spring2019/info4300/cs4300sp2019-gjs86-tt397-ng352-xl379-iyw3/app/4_10_2019.tsv") as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
     for row in reader:

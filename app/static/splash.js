@@ -12,7 +12,7 @@ $(document).on("click", '.card', function () {
   let corescore = card.find(".card-corescore").text();
   let similarity = card.find(".card-similarity").text();
   let relevantTerms = card.find(".card-relevantTerms").text();
-
+  let barChart = card.find("#bar_chart").text();
 
   console.log(shoeName, shoeImage, similarShoes, corescore, similarity, relevantTerms);
 
@@ -30,7 +30,7 @@ $(document).ready(function () {
   // rendering template for a card
   // will need to handle which mode we're in
   let render_card = (shoe) => {
-    // console.log("Rendering template data");
+    console.log("Rendering template data");
     let card_template =
     `
     <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
@@ -45,6 +45,7 @@ $(document).ready(function () {
         <p class="card-corescore"> ${shoe.corescore}</p>
         <p class="card-similarity"> ${shoe.similarity}</p>
         <p class="card-relevantTerms"> ${shoe.relevantTerms}</p>
+        <svg id="bar_chart"></svg>
       </div>
     </div>
     `
