@@ -11,9 +11,9 @@ from app.irsystem.models.search import *
 def ir_retrieve(query):
 	print ("THE QUERY: {0}".format(query))
 
-	# results =  FindSimilarShoes(query)
-	results = FindQuery(query)
-	print ("RESULTS")
+	results = FindSimilarShoes(query)
+	# results = FindQuery(query)
+	# print ("RESULTS")
 	print (results)
 
 	# results = [
@@ -46,4 +46,6 @@ def retrieve():
 @irsystem.route('/splash', methods=['GET'])
 def splash():
 	# pick default shoe?
-	return render_template('splash.html', data=ir_retrieve("Nike Air Zoom Pegasus 35"))
+	return render_template('splash.html', 
+	# data=ir_retrieve("Nike Air Zoom Pegasus 35")
+	)

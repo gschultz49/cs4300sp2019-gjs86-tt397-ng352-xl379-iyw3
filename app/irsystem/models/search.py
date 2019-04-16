@@ -15,7 +15,7 @@ ps = PorterStemmer()
 # FIGURE OUT HOW TO GET THIS TO USE THE REAL APPLICATION ROOT
 # with ("4_10_2019.tsv") as csvfile:
 
-with open("/Users/gschultz49/Desktop/CS4300/CS4300_Flask_template/app/4_10_2019.tsv") as csvfile:
+with open("/Users/gschultz49/Desktop/CS4300/CS4300_Flask_template/app/4_15_2019.tsv") as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
     for row in reader:
@@ -234,6 +234,10 @@ def FindSimilarShoes(shoename,information_dict = similar,shoename_to_index =shoe
         newdict[i]['similarity'] = datadict[i]['our similarity score']
         newdict[i]['relevantTerms'] = datadict[i]['relevant terms']
         newdict[i]['corescore'] = datadict[i]['corescore'] 
+        newdict[i]['terrain'] = datadict[i]['terrain'] 
+        newdict[i]['arch_support'] = datadict[i]['arch_support'] 
+        newdict[i]['men_weight'] = datadict[i]['men_weight'] 
+        newdict[i]['women_weight'] = datadict[i]['women_weight'] 
         sim_shoes = []
         for j in information_dict[newind]:
             sim_shoes.append(information_dict[newind][j]['shoeName'])

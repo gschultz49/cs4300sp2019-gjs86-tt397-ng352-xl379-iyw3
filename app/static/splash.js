@@ -7,12 +7,15 @@ $(document).on("click", '.card', function () {
   console.log("CLICKED");
   // get contents of clicked shoe
   let shoeName = card.find(".card-shoeName").text();
-  let shoeImage = card.find("img.card-shoeImage").attr("src");
+  let shoeImage = card.find(".card-shoeImage").attr("src");
   let similarShoes = card.find(".card-similarShoes").text();
   let corescore = card.find(".card-corescore").text();
   let similarity = card.find(".card-similarity").text();
   let relevantTerms = card.find(".card-relevantTerms").text();
-
+  let terrain = card.find(".card-terrain").text();
+  let arch_support = card.find(".card-arch_support").text();
+  let men_weight = card.find(".card-men_weight").text();
+  let women_weight = card.find(".card-women_weight").text();
 
   console.log(shoeName, shoeImage, similarShoes, corescore, similarity, relevantTerms);
 
@@ -24,7 +27,13 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-corescore").html("<b>corescore</b> "+corescore);
   modal.find(".modal-similarity").html("<b>similarity</b> "+similarity);
   modal.find(".modal-relevantTerms").html("<b>relevantTerms</b> "+relevantTerms);
+  modal.find(".modal-amazonLink").html("<b>amazonLink</b> " + amazonLink);
+  modal.find(".modal-terrain").html("<b>terrain</b> " + terrain);
+  modal.find(".modal-arch_support").html("<b>arch_support</b> " + arch_support);
+  modal.find(".modal-men_weight").html("<b>men_weight</b> " + men_weight);
+  modal.find(".modal-women_weight").html("<b>women_weight</b> " + women_weight);
 });
+  
 
 $(document).ready(function () {
   // rendering template for a card
@@ -45,6 +54,11 @@ $(document).ready(function () {
         <p class="card-corescore"> ${shoe.corescore}</p>
         <p class="card-similarity"> ${shoe.similarity}</p>
         <p class="card-relevantTerms"> ${shoe.relevantTerms}</p>
+        <p class="card-amazonLink"> ${shoe.amazonLink}</p>
+        <p class="card-terrain"> ${shoe.terrain}</p>
+        <p class="card-arch_support"> ${shoe.arch_support}</p>
+        <p class="card-men_weight"> ${shoe.men_weight}</p>
+        <p class="card-women_weight"> ${shoe.women_weight}</p>
       </div>
     </div>
     `
