@@ -46,5 +46,5 @@ def retrieve():
 def splash():
 	# pick default shoe?
 	return render_template('splash.html', 
-	# data=ir_retrieve("Nike Air Zoom Pegasus 35")
+	data=ir_retrieve("Nike Air Zoom Pegasus 35")
 	)
