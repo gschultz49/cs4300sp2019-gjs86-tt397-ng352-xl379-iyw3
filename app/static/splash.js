@@ -110,7 +110,7 @@ $(document).ready(function () {
   }
 
   //generate bar chart
-  function create_bar_chart(key, chart_data) {
+  function create_bar_chart(key, chart_data_raw) {
 
     const margin = {top:30, right:30, bottom:30, left:30};
 
@@ -121,10 +121,10 @@ $(document).ready(function () {
     let plotWidth = width - margin.right - margin.left;
 
     let chart_data_keys = keys.splice(0,5);
-    let chart_data = chart_data.splice(0,5);
+    let chart_data = chart_data_raw.splice(0,5);
 
-    let max_count = d3.max(chart_data, function(key){
-      return chart_data;
+    let max_count = d3.max(chart_data_raw, function(key){
+      return key;
     });
 
     let bar_width = (plotWidth-margin.left)/5;
