@@ -15,10 +15,6 @@ const MODAL = [
   "relevantSentence"
 ]
 
-let finder = (card, k) => {
-  card.find(`.card-${}`).text();
- }
-
 $(document).on("click", '.card', function () {
   // when user selects a specific card, grab its attributes to populate the modal
   let card = $(this);
