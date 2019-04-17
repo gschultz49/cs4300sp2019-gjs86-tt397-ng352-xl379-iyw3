@@ -1,6 +1,24 @@
 
 let $SCRIPT_ROOT = ""
 
+const MODAL = [
+  "shoeName",
+  "similarShoes",
+  "corescore",
+  "similarity",
+  "relevantTerms",
+  "amazonLink",
+  "terrain",
+  "arch_support",
+  "men_weight",
+  "women_weight",
+  "relevantSentence"
+]
+
+let finder = (card, k) => {
+  card.find(`.card-${}`).text();
+ }
+
 $(document).on("click", '.card', function () {
   // when user selects a specific card, grab its attributes to populate the modal
   let card = $(this);
