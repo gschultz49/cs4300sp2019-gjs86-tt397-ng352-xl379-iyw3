@@ -1,8 +1,7 @@
 # IR system goes here
 import numpy as np
 import re, json, os, nltk, csv
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from ... import settings
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer#from ... import settings
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -14,6 +13,15 @@ with open(path) as csvfile:
     sdict = {}
     for row in reader:
         sdict[row['shoeNumber']] = row
+        
+path1 = os.path.join(settings.APP_STATIC, "v2.tsv")
+with open(path1) as tsvfile2:
+    reader = csv.DictReader(tsvfile2, dialect='excel-tab')
+    rdict = {}
+    for row in reader:
+        rdict[row['shoeName']] = row
+        
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 # Build analyzer
 analyzer = SentimentIntensityAnalyzer()
 
@@ -84,7 +92,7 @@ def build_vectorizer(max_features, stop_words, tokenizer=tokenize, max_df=0.8, m
                            max_features=max_features, norm=norm)
 
 
-def build_vectorizer_unstemmed(max_features, stop_words, tokenizer=tokenize, max_df=0.8, min_df=1, norm='l2'):
+def build_vectorizer_unstemmed(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):
     """Returns a TfidfVectorizer object with the above preprocessing properties.
     
     Params: {max_features: Integer,
@@ -139,7 +147,7 @@ def top_terms(shoe1, shoe2, input_doc_mat, index_to_vocab, top_k=10):
     return final, score, concat
 
 
-def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer,
+def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize = tokenize, tokenize1=tokenize1, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer_unstemmed,
                get_sim=get_sim, top_terms=top_terms, numdisp=18):
     """Precomputes the cosine similarity matrix for all shoes, and outputs the similar dictionary for every shoe """
 
@@ -154,6 +162,7 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
     shoename_to_index = {}
     index_to_shoename = {}
     allw = []
+    
     for item in sdict:
         name = sdict[item]['shoeName']
         list1 = sdict[item]['good_buy_bullets'].split('</s>')
@@ -165,6 +174,14 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
         sdict[item]['name'] = tokenize1(name)
         shoename_to_index[name.lower()] = int(sdict[item]['shoeNumber'])
         index_to_shoename[sdict[item]['shoeNumber']] = name.lower()
+        
+        reviews = ""
+        features = []
+        if name in rdict:   
+            sdict[item]['amazonLink'] = rdict[name]['link']
+            reviews = rdict[name]['amazonReviews']
+            features = rdict[name]['amazonFeatureBullets']
+        
         blist = []
         for s in splitter.split(sdict[item]['bottom_line']):
             if is_positive(s):
@@ -174,7 +191,8 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
                         ' buyer ', ' his ', ' was ', ' review ', ' comment ', ' reviews ',
                         ' reviewers ', ' reviewer ', ' wearer ', ' wearers ', ' commented ',
                         ' thought ', ' mentioned ', ' felt ', ' this ', ' users ', ' has ', ' feel ', ' admired ',
-                        ' testers ', ' tester ', ' comments ', 's']
+                        ' testers ', ' tester ', ' comments ', 's', "good", 'pair', 'definitely','t','like','very','ha','just',
+                       'stated']
 
         for sent in list1:
             if len(sent) > 0:
@@ -183,12 +201,22 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
             if len(sent) > 0:
                 sent = sent + "."
                 sdict[item]['good'].append(sent)
-
+        
+        t = tokenize(reviews)
+        for token in t:
+            sdict[item]['tokens'].append(token)
+        
+        for feat in features:
+            t = tokenize1(feat)
+            for token in t:
+                sdict[item]['tokens'].append(token)
+        
         for sent in sdict[item]['good']:
             t = tokenize1(sent)
             for token in t:
                 sdict[item]['tokens'].append(token)
                 allw.append(token)
+                
 
         newunwant = [term.strip() for term in unwantedlist]
 
@@ -212,7 +240,7 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
     n_feats = len(all_words)
     doc_by_vocab = np.empty([len(sdict), n_feats])
 
-    tfidf_vec = build_vectorizer(n_feats, "english")
+    tfidf_vec = build_vectorizer_unstemmed(n_feats, "english")
     doc_by_vocab = tfidf_vec.fit_transform(dictlist).toarray()
     index_to_vocab = {i: v for i, v in enumerate(
         tfidf_vec.get_feature_names())}
@@ -280,8 +308,11 @@ def FindSimilarShoes(shoename, information_dict=similar, shoename_to_index=shoen
         newdict[i]['men_weight'] = datadict[i]['men_weight']
         newdict[i]['women_weight'] = datadict[i]['women_weight']
         sim_shoes = []
+        numbers = 0
         for j in information_dict[newind]:
-            sim_shoes.append(information_dict[newind][j]['shoeName'])
+            if numbers < 5:
+                sim_shoes.append(information_dict[newind][j]['shoeName'])
+            numbers += 1
         newdict[i]['similarShoes'] = sim_shoes
     array = []
     for item in newdict:
@@ -389,8 +420,11 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
     for item in tops:
         sim_shoes = []
         newindex = shoename_to_index[tops[item]['shoeName'].lower()]
+        numbers = 0
         for j in information_dict[newindex]:
-            sim_shoes.append(information_dict[newindex][j]['shoeName'])
+            if numbers < 5:
+                sim_shoes.append(information_dict[newindex][j]['shoeName'])
+            numbers += 1
         tops[item]['similarShoes'] = sim_shoes
 
     array = []
@@ -438,4 +472,3 @@ def CompleteQuery(query, tokenize=tokenize1):
         topwords.append(item[0])
 
     return topwords
-
