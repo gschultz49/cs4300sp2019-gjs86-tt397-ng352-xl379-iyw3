@@ -14,8 +14,6 @@ with open(path) as csvfile:
     sdict = {}
     for row in reader:
         sdict[row['shoeNumber']] = row
-
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 # Build analyzer
 analyzer = SentimentIntensityAnalyzer()
 
@@ -142,7 +140,7 @@ def top_terms(shoe1, shoe2, input_doc_mat, index_to_vocab, top_k=10):
 
 
 def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer,
-               get_sim=get_sim, top_terms=top_terms, numdisp=6):
+               get_sim=get_sim, top_terms=top_terms, numdisp=18):
     """Precomputes the cosine similarity matrix for all shoes, and outputs the similar dictionary for every shoe """
 
     
@@ -302,7 +300,11 @@ def CompleteName(q, titles=titles):
     return possible[:15]
 
 
-def FindQuery(q, sdict=sdict, numtop=6, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
+u_input = {}
+u_input['arch_support'] = ""
+u_input['terrain'] = ""
+
+def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
 
     newdictlist = []
@@ -318,8 +320,29 @@ def FindQuery(q, sdict=sdict, numtop=6, get_sim=get_sim, information_dict=simila
     cossim1 = np.zeros(len(sdict))
     for i in np.arange(len(sdict)):
             cossim1[i] = get_sim(i, len(sdict), doc_by_vocab1)
-    topresults = np.flip(np.argsort(cossim1))[:numtop]
-
+    
+    if np.argmax(cossim1) == 0:
+        return []
+    
+    topresult = np.flip(np.argsort(cossim1))
+    
+    #topresults = topresult[:numtop]
+    
+    user_dict = u_input
+    topresults = []
+    
+    i = 0
+    while len(topresults) < numtop and i < 100:
+        if user_dict["arch_support"] != "" and user_dict['arch_support'] != sdict[str(topresult[i])]['arch_support']:
+            i += 1
+            continue
+        if user_dict["terrain"] != "" and user_dict["terrain"] != sdict[str(topresult[i])]['terrain']:
+            i += 1
+            continue
+        topresults.append(topresult[i])
+        i +=1
+      
+    
     sentdict = {}
     for i in topresults:
         sentdict[i] = {}
@@ -371,9 +394,13 @@ def FindQuery(q, sdict=sdict, numtop=6, get_sim=get_sim, information_dict=simila
         tops[item]['similarShoes'] = sim_shoes
 
     array = []
-    for item in tops:
-        array.append(tops[item])
-
+    
+    maxnum = len(tokenize1(q))
+    
+    for num in np.flip(np.arange(maxnum)+1):
+        for item in tops:
+            if len(tops[item]['relevantTerms'])==num:
+                array.append(tops[item])
     return array
 
 

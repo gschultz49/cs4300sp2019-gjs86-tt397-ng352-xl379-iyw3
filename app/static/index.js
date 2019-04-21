@@ -89,22 +89,6 @@ $(document).on("click", '.card', function () {
 
   console.log(shoeName, similarShoes, corescore, similarity, relevantTerms, terrain, arch_support, men_weight, women_weight);
   console.log(graph_text);
-
-  //create input for creating bar chart from graph text
-  let input = [];
-  let counter = 0;
-  let accum = [];
-  graph_text.split(",").forEach(d=>{
-    if (counter === 0) {
-      accum.push(d);
-      counter += 1;
-    } else if (counter === 1) {
-      accum.push(parseFloat(d));
-      input.push(accum);
-      accum = [];
-      counter = 0;
-    }
-  });
   
   //create bar chart
   create_bar_chart(input);
