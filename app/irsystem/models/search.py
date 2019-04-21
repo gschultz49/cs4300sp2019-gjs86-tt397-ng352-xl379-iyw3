@@ -22,7 +22,6 @@ with open(path1) as tsvfile2:
     for row in reader:
         rdict[row['shoeName']] = row
         
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 # Build analyzer
 analyzer = SentimentIntensityAnalyzer()
 
