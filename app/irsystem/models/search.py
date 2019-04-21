@@ -275,6 +275,7 @@ def FindSimilarShoes(shoename, information_dict=similar, shoename_to_index=shoen
         newdict[i]['amazonLink'] = datadict[i]['amazonLink']
         newdict[i]['similarity'] = datadict[i]['our similarity score']
         newdict[i]['relevantTerms'] = datadict[i]['relevant terms']
+        newdict[i]['term_and_score'] = datadict[i]['term_and_score']
         newdict[i]['corescore'] = datadict[i]['corescore']
         newdict[i]['terrain'] = datadict[i]['terrain']
         newdict[i]['arch_support'] = datadict[i]['arch_support']
