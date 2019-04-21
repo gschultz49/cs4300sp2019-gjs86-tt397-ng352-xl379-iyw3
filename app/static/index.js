@@ -118,7 +118,7 @@ $(document).ready(function () {
     });
   });
 
-  $(".header").bind('click', function(){
+  $(".header h1").bind('click', function(){
     reload_page();
   })
 

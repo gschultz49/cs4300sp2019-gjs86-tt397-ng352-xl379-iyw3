@@ -36,16 +36,17 @@ body {
 
 .header{
   margin-top: 3%;
-  cursor: pointer;
+  
   h1{
     font-family: 'Marck Script', cursive;
     font-size: 8rem; 
+    cursor: pointer;
   }
-  h2{
-    font-size: 3rem;
-    font-style: italic;
-    color: rgba(20, 19, 19, 0.479);
-  }
+  // h2{
+  //   font-size: 3rem;
+  //   font-style: italic;
+  //   color: rgba(20, 19, 19, 0.479);
+  // }
   img{
     height: 7.5rem;
   }
