@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
-@import url("https://fonts.googleapis.com/css?family=Marck+Script");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
 .card-example, .card, .box {
   -webkit-transition: box-shadow 0.3 cubic-bezier(0.25, 0.8, 0.25, 1);
   /* Safari */
@@ -11,13 +11,17 @@
     -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
+#similar-search-content, #custom-search-content {
+  margin: 5% 0;
+  display: none; }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 body {
-  font-family: "Montserrat";
+  font-family: "Open Sans";
   background-image: url("shoe.svg");
   background-repeat: repeat;
   background-color: #f1f1f1 !important; }
@@ -28,15 +32,11 @@ body {
 .header {
   margin-top: 3%; }
   .header h1 {
-    font-family: 'Marck Script', cursive;
+    font-family: "Marck Script", cursive;
     font-size: 8rem;
     cursor: pointer; }
   .header img {
     height: 7.5rem; }
-
-#searcher {
-  margin: 5% 0;
-  display: none; }
 
 .shoes-grid {
   display: grid;

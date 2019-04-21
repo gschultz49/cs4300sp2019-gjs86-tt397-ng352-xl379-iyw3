@@ -103,24 +103,35 @@ $(document).on("click", '.card', function () {
 $(document).ready(function () {
 
   $('#go').bind('click', function () {
-    input_handler();
+    input_handler("/custom_search");
   });
   // Handle for click of enter
   $("#input").on('keypress', function (e) {
     if (e.which == 13) {
-      input_handler();
+      input_handler("/custom_search");
     }
   });
 
-  $("#similar-search").on("click", function (){
-    $(".landing-cards").fadeOut("slow", function (){
-      $("#searcher").fadeIn("slow");
-    });
-  });
-
-  $(".header h1").bind('click', function(){
+  $(".header h1").bind('click', function () {
     reload_page();
   })
+
+  let render_search_section = (search_content_id) => {
+    $(".landing-cards").fadeOut("slow", function () {
+      $(search_content_id).fadeIn("slow");
+    });
+  }
+
+  $("#similar-search").on("click", function (){
+    render_search_section("#similar-search-content");
+  });
+
+  $("#custom-search").on("click", function () {
+    render_search_section("#custom-search-content");
+  });
+
+  
+  
 
 
   //generate bar chart

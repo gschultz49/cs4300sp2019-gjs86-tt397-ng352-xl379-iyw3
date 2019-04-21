@@ -25,7 +25,7 @@
     <!-- <h2> Find shoes based on what you love </h2> -->
   </div>
 
-  <!-- landing cards -->
+  <!-- Landing cards -->
   <div class="landing-cards">
     <div id = "similar-search" class="box">
       <div class="content">
@@ -40,23 +40,9 @@
       </div>
     </div>
   </div>
-
-
-  <!-- 
-  <div id="searcher" class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-      <div class="input-group input-group-lg">
-        <input id="input" type="text" name="search" class="form-control form-control-lg"
-          placeholder="Nike Zoom Pegasus 35">
-        <span class="input-group-btn">
-          <button id="go" type="submit" class="btn btn-info"> Go! </button>
-        </span>
-      </div>
-    </div>
-  </div> 
--->
-
-  <div id="searcher">
+  
+  <!-- Similar search section -->
+  <div id="similar-search-content">
     <div class="container">
       <div class="row">
         <div class="input-group input-group-lg">
@@ -66,83 +52,68 @@
           </span>
         </div>
       </div>
-    </div>
+    </div> <!--./container -->
       <div id ="examples" class="container">
         <h3 class="text-center"> Try out an example below! </h3>
-      <div class="example-row">
-        <div class= "example-item">
-          <div class="card-example">
-            <figure>
-              <img class="shoeImage"
-                src="https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg">
-            </figure>
-            <div class="card-caption">
-              <h3 class="shoeName"> Nike Air Zoom Pegasus 35</h3>
+        <div class="example-row">
+          <div class= "example-item">
+            <div class="card-example">
+              <figure>
+                <img alt="shoe" class="shoeImage"
+                  src="https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg">
+              </figure>
+              <div class="card-caption">
+                <h3 class="shoeName"> Nike Air Zoom Pegasus 35</h3>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="example-item">
-          <div class="card-example">
-            <figure>
-              <img class="shoeImage"
-                src="https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg">
-            </figure>
-            <div class="card-caption">
-              <h3 class="shoeName"> DNM swag</h3>
-            </div>
-          </div>
-        </div>
-        <div class="example-item">
-          <div class="card-example">
-            <figure>
-              <img class="shoeImage"
-                src="https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg">
-            </figure>
-            <div class="card-caption">
-              <h3 class="shoeName"> ur solemate</h3>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-
-      <!-- <div class="container">
-        <div class="row">
-          <h3>Try some examples!</h3>
           <div class="example-item">
-            <img
-              src="https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg"
-              alt="Example shoe">
-            <h4 class="example-text">Nike Air Zoom Pegasus 35</h4>
+            <div class="card-example">
+              <figure>
+                <img alt="shoe" class="shoeImage"
+                  src="https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg">
+              </figure>
+              <div class="card-caption">
+                <h3 class="shoeName"> DNM swag</h3>
+              </div>
+            </div>
           </div>
-        <div class="example-item">
-          <img
-            src="https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg"
-            alt="Example shoe">
-          <h4 class="example-text">Nike Air Zoom Pegasus 35</h4>
-        </div>
-        <div class="example-item">
-          <img
-            src="https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg"
-            alt="Example shoe">
-          <h4 class="example-text">Nike Air Zoom Pegasus 35</h4>
+          <div class="example-item">
+            <div class="card-example">
+              <figure>
+                <img alt="shoe" class="shoeImage"
+                  src="https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg">
+              </figure>
+              <div class="card-caption">
+                <h3 class="shoeName"> ur solemate</h3>
+              </div>
+            </div>
+          </div>
+        </div> <!--./example-row-->
+      </div> <!--./examples -->
+  </div> <!--./similar-search-content-->
+
+
+  <!-- Custom Search Content -->
+  <div id="custom-search-content">
+    <div class="container">
+      <div class="row">
+        <div class="input-group input-group-lg">
+          <input id="input" type="text" name="search" class="form-control form-control-lg"
+            placeholder="Nike Zoom Pegasus 35">
+          <span class="input-group-btn">
+            <button id="go" type="submit" class="btn btn-info"> Go! </button>
+          </span>
         </div>
       </div>
-      </div> -->
+    </div> <!--./container -->
+  </div>
+  <!--./custom-search-content-->
 
-    </div>
-
-
+  
 
   <!--  Target shoe grid  -->
-  <div class="shoes-grid"> </div>
-
-
-
-
-
-
-
+  <div class="shoes-grid"> </div> 
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"

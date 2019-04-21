@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
 
-@import url('https://fonts.googleapis.com/css?family=Marck+Script');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 
+$header-font-family: 'Marck Script', cursive;
+$body-font-family: "Open Sans";
 $background-color: #f1f1f1;
 $card-white: #fff;
 
@@ -17,6 +19,11 @@ $card-white: #fff;
     }
 }
 
+%hide-search-content {
+  margin: 5% 0 ;
+  display:none;
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -24,7 +31,7 @@ $card-white: #fff;
 }
 
 body {
-  font-family: "Montserrat";
+  font-family: $body-font-family;
   background-image: url("shoe.svg");
   background-repeat: repeat;
   // background-color: #191919 !important;
@@ -38,7 +45,7 @@ body {
   margin-top: 3%;
   
   h1{
-    font-family: 'Marck Script', cursive;
+    font-family: $header-font-family;
     font-size: 8rem; 
     cursor: pointer;
   }
@@ -52,10 +59,16 @@ body {
   }
 }
 
-#searcher{
-  margin: 5% 0 ;
-  display:none;
+
+
+#similar-search-content{
+  @extend %hide-search-content;
 }
+
+#custom-search-content{
+  @extend %hide-search-content;
+}
+
 
 .shoes-grid{
   display: grid;

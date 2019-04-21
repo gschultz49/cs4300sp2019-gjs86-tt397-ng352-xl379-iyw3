@@ -7,7 +7,11 @@ import matplotlib.pyplot as plt
 import requests
 
 
-img = io.imread('https://i.stack.imgur.com/DNM65.png')[:, :, :-1]
+# img = io.imread('https://i.stack.imgur.com/DNM65.png')[:, :, :-1]
+
+img = io.imread(
+    "https://cdn.runrepeat.com/i/nike/28162/nike-air-zoom-pegasus-35-mens-942851-002-black-oil-grey-white-6f1d-600.jpg")[:, :, :-1]
+
 
 average = img.mean(axis=0).mean(axis=0)
 
