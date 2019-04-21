@@ -148,7 +148,7 @@ def top_terms(shoe1, shoe2, input_doc_mat, index_to_vocab, top_k=10):
     return final, score, concat
 
 
-def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize = tokenize, tokenize1=tokenize1, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer_unstemmed,
+def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize = tokenize, tokenize1=tokenize1, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer,
                get_sim=get_sim, top_terms=top_terms, numdisp=18):
     """Precomputes the cosine similarity matrix for all shoes, and outputs the similar dictionary for every shoe """
 
@@ -181,7 +181,6 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
         if name in rdict:   
             sdict[item]['amazonLink'] = rdict[name]['link']
             reviews = rdict[name]['amazonReviews']
-            features = rdict[name]['amazonFeatureBullets']
         
         blist = []
         for s in splitter.split(sdict[item]['bottom_line']):
@@ -203,14 +202,9 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
                 sent = sent + "."
                 sdict[item]['good'].append(sent)
         
-        t = tokenize(reviews)
+        t = tokenize1(reviews)
         for token in t:
             sdict[item]['tokens'].append(token)
-        
-        for feat in features:
-            t = tokenize1(feat)
-            for token in t:
-                sdict[item]['tokens'].append(token)
         
         for sent in sdict[item]['good']:
             t = tokenize1(sent)
@@ -241,7 +235,7 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
     n_feats = len(all_words)
     doc_by_vocab = np.empty([len(sdict), n_feats])
 
-    tfidf_vec = build_vectorizer_unstemmed(n_feats, "english")
+    tfidf_vec = build_vectorizer(n_feats, "english")
     doc_by_vocab = tfidf_vec.fit_transform(dictlist).toarray()
     index_to_vocab = {i: v for i, v in enumerate(
         tfidf_vec.get_feature_names())}
