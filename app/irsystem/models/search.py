@@ -1,7 +1,8 @@
 # IR system goes here
 import numpy as np
 import re, json, os, nltk, csv
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer#from ... import settings
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from ... import settings
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
