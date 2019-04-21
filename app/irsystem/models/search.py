@@ -249,7 +249,7 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
             similar[i][j]['scores'] = top_terms(
                 i, topshoes[j], doc_by_vocab, index_to_vocab, top_k=12)[1]
             similar[i][j]['corescore'] = sdict[str(i)]['corescore']
-            similar[i][j]['term and score'] = top_terms(
+            similar[i][j]['term_and_score'] = top_terms(
                 i, topshoes[j], doc_by_vocab, index_to_vocab, top_k=12)[2]
 
     return similar, shoename_to_index, titles
