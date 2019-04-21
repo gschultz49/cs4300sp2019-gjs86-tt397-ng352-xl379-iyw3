@@ -1,6 +1,7 @@
 # IR system goes here
 import numpy as np
 import re, json, os, nltk, csv
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from ... import settings
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -13,6 +14,21 @@ with open(path) as csvfile:
     sdict = {}
     for row in reader:
         sdict[row['shoeNumber']] = row
+
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+# Build analyzer
+analyzer = SentimentIntensityAnalyzer()
+
+def is_positive(text):
+    """
+    Typical threshold values (used in the literature cited on this page) are:
+    positive sentiment: compound score >= 0.05
+    neutral sentiment: (compound score > -0.05) and (compound score < 0.05)
+    negative sentiment: compound score <= -0.05
+    """    
+    # sample output {'compound': -0.1458, 'pos': 0.267, 'neg': 0.315, 'neu': 0.418}
+    score = analyzer.polarity_scores(text)['compound']
+    return score >= 0.05
 
 
 def tokenize(text):
@@ -125,9 +141,17 @@ def top_terms(shoe1, shoe2, input_doc_mat, index_to_vocab, top_k=10):
     return final, score, concat
 
 
-def Precompute(sdict=sdict, tokenize=tokenize, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer,
+def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer,
                get_sim=get_sim, top_terms=top_terms, numdisp=6):
     """Precomputes the cosine similarity matrix for all shoes, and outputs the similar dictionary for every shoe """
+
+    
+    splitter = re.compile(r"""
+        (?<![A-Z])  # LOOKBEHIND last character cannot be uppercase
+        [.!?]       # match punctuation
+        \s+
+        (?=[A-Z])   # LOOKAHEAD next character must be followed by at least one whitespace and an uppercase      
+        """, re.VERBOSE)
 
     shoename_to_index = {}
     index_to_shoename = {}
@@ -135,7 +159,6 @@ def Precompute(sdict=sdict, tokenize=tokenize, build_inverted_index=build_invert
     for item in sdict:
         name = sdict[item]['shoeName']
         list1 = sdict[item]['good_buy_bullets'].split('</s>')
-        blist = sdict[item]['bottom_line'].split('.')
         sdict[item]['good'] = []
         sdict[item]['tokens'] = []
         sdict[item]['usefult'] = ""
@@ -144,6 +167,10 @@ def Precompute(sdict=sdict, tokenize=tokenize, build_inverted_index=build_invert
         sdict[item]['name'] = tokenize1(name)
         shoename_to_index[name.lower()] = int(sdict[item]['shoeNumber'])
         index_to_shoename[sdict[item]['shoeNumber']] = name.lower()
+        blist = []
+        for s in splitter.split(sdict[item]['bottom_line']):
+            if is_positive(s):
+                blist.append(s)
 
         unwantedlist = [' consumers ', ' purchasers ', ' said ', ' user ', ' consumer ', ' purchaser ', ' buyers ',
                         ' buyer ', ' his ', ' was ', ' review ', ' comment ', ' reviews ',
@@ -222,7 +249,7 @@ def Precompute(sdict=sdict, tokenize=tokenize, build_inverted_index=build_invert
             similar[i][j]['scores'] = top_terms(
                 i, topshoes[j], doc_by_vocab, index_to_vocab, top_k=12)[1]
             similar[i][j]['corescore'] = sdict[str(i)]['corescore']
-            similar[i][j]['term and score'] = top_terms(
+            similar[i][j]['term_and_score'] = top_terms(
                 i, topshoes[j], doc_by_vocab, index_to_vocab, top_k=12)[2]
 
     return similar, shoename_to_index, titles
@@ -234,6 +261,9 @@ similar, shoename_to_index, titles = Precompute()
 def FindSimilarShoes(shoename, information_dict=similar, shoename_to_index=shoename_to_index):
     """ given a valid shoe name, outputs a list of 6 similar shoes"""
     shoename = shoename.lower()
+    if shoename not in shoename_to_index:
+        return []
+    
     index = shoename_to_index[shoename]
     datadict = information_dict[index]
     newdict = {}
@@ -245,6 +275,7 @@ def FindSimilarShoes(shoename, information_dict=similar, shoename_to_index=shoen
         newdict[i]['amazonLink'] = datadict[i]['amazonLink']
         newdict[i]['similarity'] = datadict[i]['our similarity score']
         newdict[i]['relevantTerms'] = datadict[i]['relevant terms']
+        newdict[i]['term_and_score'] = datadict[i]['term_and_score']
         newdict[i]['corescore'] = datadict[i]['corescore']
         newdict[i]['terrain'] = datadict[i]['terrain']
         newdict[i]['arch_support'] = datadict[i]['arch_support']
@@ -271,7 +302,7 @@ def CompleteName(q, titles=titles):
     return possible[:15]
 
 
-def FindQuery(q, sdict=sdict, numtop=12, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
+def FindQuery(q, sdict=sdict, numtop=6, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
 
     newdictlist = []
@@ -380,3 +411,4 @@ def CompleteQuery(query, tokenize=tokenize1):
         topwords.append(item[0])
 
     return topwords
+
