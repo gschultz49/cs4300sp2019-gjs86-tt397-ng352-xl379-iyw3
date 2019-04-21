@@ -21,7 +21,8 @@ let ajax_retrieve = (query, endpoint) => {
   }, function (data) {
     console.log("AJAX RETURNED DATA: ")
     console.log(data);
-    data.map(render_card);
+    // NEED TO ADD A CATCH FOR THE SERVER NOT TO FAIL
+    (data.length > 0) ? data.map(render_card) : render_empty();
   });
 };
 
@@ -52,6 +53,16 @@ let render_card = (shoe) => {
     </div>
     `
   $(".shoes-grid").append(card_template);
+}
+
+let render_empty = () => {
+  let empty = 
+  `
+  <div class="empty">
+    <h3> No results found :( </h3>
+  </div>
+  `
+  $(".shoes-grid").append(empty);
 }
 
 $(document).on("click", '.card', function () {

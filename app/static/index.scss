@@ -156,4 +156,10 @@ body {
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 2rem;
+  margin: 0 10%;
+  padding: 0 10%;
+}
+
+#examples {
+  margin-top: 0 5%;
 }
