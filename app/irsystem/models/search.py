@@ -14,8 +14,6 @@ with open(path) as csvfile:
     sdict = {}
     for row in reader:
         sdict[row['shoeNumber']] = row
-
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 # Build analyzer
 analyzer = SentimentIntensityAnalyzer()
 
