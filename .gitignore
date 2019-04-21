@@ -5,4 +5,7 @@ vagrant/.vagrant
 vagrant/site.retry
 vagrant/a4keypair.pem
 .DS_store
-sass-cache/
+.sass-cache/
+.ipynb_checkpoints/
+*.ipynb
+

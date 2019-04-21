@@ -271,7 +271,7 @@ def CompleteName(q, titles=titles):
     return possible[:15]
 
 
-def FindQuery(q, sdict=sdict, numtop=6, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
+def FindQuery(q, sdict=sdict, numtop=12, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
 
     newdictlist = []

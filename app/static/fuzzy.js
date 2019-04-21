@@ -231,7 +231,7 @@ $(document).ready(function () {
 }
 
   // Onpage load a shoe:
-  ajax_retrieve("Nike Air Zoom Pegasus 35");
+  // ajax_retrieve("Nike Air Zoom Pegasus 35");
 
 });
 
