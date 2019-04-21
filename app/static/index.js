@@ -1,6 +1,59 @@
 
 let $SCRIPT_ROOT = ""
 
+// wrapper, clears the data and fetches results
+let clear_and_search = (query, endpoint) => {
+  $(".shoes-grid").empty();
+  ajax_retrieve(query, endpoint);
+}
+
+// grab and perform input
+let input_handler = (endpoint) => {
+  let inputted_value = $('input[name="search"]').val();
+  clear_and_search(inputted_value, endpoint);
+  return false;
+}
+
+// Conducts the ajax request and renders the results
+let ajax_retrieve = (query, endpoint) => {
+  $.getJSON($SCRIPT_ROOT + endpoint, {
+    search: query,
+  }, function (data) {
+    console.log("AJAX RETURNED DATA: ")
+    console.log(data);
+    data.map(render_card);
+  });
+};
+
+// rendering template for a card
+// will need to handle which mode we're in
+let render_card = (shoe) => {
+  console.log("Rendering template data");
+  let card_template =
+    `
+    <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
+      <figure>
+        <img class="card-shoeImage" src="${shoe.shoeImage}">
+      </figure>
+      <div class="card-caption">
+        <h3 class="card-shoeName"> ${shoe.shoeName}</h3>
+      </div>
+      <div class="additional-data">
+        <p class="card-similarShoes"> ${shoe.similarShoes}</p>
+        <p class="card-corescore"> ${shoe.corescore}</p>
+        <p class="card-similarity"> ${shoe.similarity}</p>
+        <p class="card-relevantTerms"> ${shoe.relevantTerms}</p>
+        <p class="card-amazonLink"> ${shoe.amazonLink}</p>
+        <p class="card-terrain"> ${shoe.terrain}</p>
+        <p class="card-arch_support"> ${shoe.arch_support}</p>
+        <p class="card-men_weight"> ${shoe.men_weight}</p>
+        <p class="card-women_weight"> ${shoe.women_weight}</p>
+      </div>
+    </div>
+    `
+  $(".shoes-grid").append(card_template);
+}
+
 $(document).on("click", '.card', function () {
   // when user selects a specific card, grab its attributes to populate the modal
   let card = $(this);
@@ -35,61 +88,7 @@ $(document).on("click", '.card', function () {
 
 
 $(document).ready(function () {
-  // rendering template for a card
-  // will need to handle which mode we're in
-  let render_card = (shoe) => {
-    console.log("Rendering template data");
-    let card_template =
-      `
-    <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
-      <figure>
-        <img class="card-shoeImage" src="${shoe.shoeImage}">
-      </figure>
-      <div class="card-caption">
-        <h3 class="card-shoeName"> ${shoe.shoeName}</h3>
-      </div>
-      <div class="additional-data">
-        <p class="card-similarShoes"> ${shoe.similarShoes}</p>
-        <p class="card-corescore"> ${shoe.corescore}</p>
-        <p class="card-similarity"> ${shoe.similarity}</p>
-        <p class="card-relevantTerms"> ${shoe.relevantTerms}</p>
-        <p class="card-amazonLink"> ${shoe.amazonLink}</p>
-        <p class="card-terrain"> ${shoe.terrain}</p>
-        <p class="card-arch_support"> ${shoe.arch_support}</p>
-        <p class="card-men_weight"> ${shoe.men_weight}</p>
-        <p class="card-women_weight"> ${shoe.women_weight}</p>
-      </div>
-    </div>
-    `
-    $(".shoes-grid").append(card_template);
-  }
 
-  // Conducts the ajax request and renders the results
-  let ajax_retrieve = (query) => {
-    $.getJSON($SCRIPT_ROOT + '/retrieve', {
-      search: query,
-    }, function (data) {
-      console.log("AJAX RETURNED DATA: ")
-      console.log(data);
-      data.map(render_card);
-    });
-
-  };
-
-  // wrapper, clears the data and fetches results
-  let clear_and_search = (query) => {
-    $(".shoes-grid").empty();
-    ajax_retrieve(query);
-  }
-
-  // grab and perform input
-  let input_handler = () => {
-    let inputted_value = $('input[name="search"]').val();
-    clear_and_search(inputted_value);
-    return false;
-  }
-
-  // Click handler, TODO: modify for press of enter
   $('#go').bind('click', function () {
     input_handler();
   });
@@ -99,6 +98,14 @@ $(document).ready(function () {
       input_handler();
     }
   });
+
+  $("#similar-search").on("click", function (){
+    $(".landing-cards").fadeOut("slow", function (){
+      $("#searcher").fadeIn("slow");
+    });
+  });
+
+
   //generate bar chart
   // function create_bar_chart(key, chart_data_raw) {
 
@@ -208,6 +215,15 @@ $(document).ready(function () {
   // Onpage load a shoe:
   // ajax_retrieve("Nike Air Zoom Pegasus 35");
 
+});
+
+
+$(document).on("click", '.card-example', function () {
+  let card = $(this);
+  let shoeName = card.find("div > .shoeName").text().trim();
+  console.log(shoeName);
+  $("#input").val(shoeName);
+  input_handler("/custom_search");
 });
 
 

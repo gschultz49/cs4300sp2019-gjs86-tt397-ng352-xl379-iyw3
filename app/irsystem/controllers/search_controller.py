@@ -2,26 +2,16 @@ from . import *
 # from app.irsystem.models.helpers import *	
 # from app.irsystem.models.helpers import NumpyEncoder as NumpyEncoder
 
-# from app.irsystem.models.search import *
-
-
-# The actual IR system that will take the [query] and return the results as an array of objects
-def ir_retrieve(query):
-	print("THE QUERY: {0}".format(query))
-	results = FindSimilarShoes(query)
-	print(results)
-	return results
-
-# def ir_retrieve (func) ():
+from app.irsystem.models.search import *
 
 # used for ajax retrieval
 @irsystem.route('/custom_search')
 def custom_search():
 	query = request.args.get('search')
-	search_mode = request.args.get('search_mode')
-	search_mode = request.args.get('search_mode')
+	print (query)
 	# need to json.dumps the array for .getJSON to work
-	results = json.dumps(ir_retrieve(query))
+	results = json.dumps(FindSimilarShoes(query))
+	print (results)
 	return results
 
 
