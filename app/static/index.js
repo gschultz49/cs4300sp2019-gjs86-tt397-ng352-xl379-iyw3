@@ -26,6 +26,8 @@ let ajax_retrieve = (query, endpoint) => {
   });
 };
 
+let reload_page = () => location.reload();
+
 // rendering template for a card
 // will need to handle which mode we're in
 let render_card = (shoe) => {
@@ -115,6 +117,10 @@ $(document).ready(function () {
       $("#searcher").fadeIn("slow");
     });
   });
+
+  $(".header").bind('click', function(){
+    reload_page();
+  })
 
 
   //generate bar chart
