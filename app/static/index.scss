@@ -345,10 +345,55 @@ body {
         display: block;
       }
       img{
-        height:150px;
-        width:150px;
+        height:100px;
+        width:100px;
       }
     }
   }
-  
+}
+
+#shoe-modal{
+  figure{
+    img {
+      max-width:90%;
+      max-height:90%;
+      display:block;
+      margin: auto;
+      padding:10%;
+    }
+  }
+  .modal-shoeName {
+    text-align: center;
+    font-style: oblique;
+  }
+  .modal-center-grid{
+    text-align: center;
+    padding: 2% 0;
+  }
+  .item-box {
+      display: inline-block;
+      margin: 5%;
+      width: 20%;
+      p{
+        margin-top:5px;
+      }
+      img{
+        height:100px;
+        width:100px;
+      }
+    }
+  span{
+    color:#337ab7;
+    &:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .other-shoes{
+    text-align: center;
+    padding: 5% 10%;
+  }
+}
+.center{
+  text-align: center;
 }

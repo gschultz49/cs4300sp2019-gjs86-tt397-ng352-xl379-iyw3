@@ -4,6 +4,16 @@ let $SCRIPT_ROOT = ""
 // reload for click on header
 let reload_page = () => location.reload();
 
+// returns whether a checkbox is checked or not
+let is_checked = (selector) => {
+  if ($(selector).prop("checked") == true) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 // no results found
 let render_empty = () => {
   let empty =
@@ -21,7 +31,7 @@ const results_text =
   <div class="header" >
     <h1 style="cursor:initial">
       <img class="logo" src="/static/logo.png">
-        Meet your Solemates
+        Your Solemates
       <img class="logo" src="/static/logo.png">
     </h1>
   </div>
@@ -30,7 +40,7 @@ const results_text =
 // template generator for shoes found under the EXACT NAME MATCHING SECTION
 const similar_shoe_template = (shoe) => {
   return `
-    <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
+    <div class="card" data-toggle="modal" data-target="#shoe-modal">
       <figure>
         <img class="card-shoeImage" src="${shoe.shoeImage}">
       </figure>
@@ -56,7 +66,7 @@ const similar_shoe_template = (shoe) => {
 // template generator for shoes found under the MULTI PART INPUT section
 const custom_shoe_template = (shoe) => {
   return `
-    <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
+    <div class="card" data-toggle="modal" data-target="#shoe-modal">
       <figure>
         <img class="card-shoeImage" src="${shoe.shoeImage}">
       </figure>
@@ -105,18 +115,10 @@ let clear_and_search = (endpoint, search_dictionary) => {
   $(".shoes-grid").empty();
   $(".results_text").empty();
   $(".results_text").append(results_text);
+  // something to append the query shoe?
   ajax_retrieve(endpoint, search_dictionary);
 }
 
-
-let is_checked = (selector) => {
-  if ($(selector).prop("checked") == true){
-    return true;
-  }
-  else{
-    return false;
-  }
-}
 
 // grab and perform input
 let input_handler = (inputbox, endpoint, search_dictionary = {}) => {

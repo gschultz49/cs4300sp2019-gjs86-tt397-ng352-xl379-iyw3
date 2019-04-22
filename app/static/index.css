@@ -205,7 +205,40 @@ body {
       margin-right: auto;
       display: block; }
     #custom-search-content .item-group .input-item img {
-      height: 150px;
-      width: 150px; }
+      height: 100px;
+      width: 100px; }
+
+#shoe-modal figure img {
+  max-width: 90%;
+  max-height: 90%;
+  display: block;
+  margin: auto;
+  padding: 10%; }
+#shoe-modal .modal-shoeName {
+  text-align: center;
+  font-style: oblique; }
+#shoe-modal .modal-center-grid {
+  text-align: center;
+  padding: 2% 0; }
+#shoe-modal .item-box {
+  display: inline-block;
+  margin: 5%;
+  width: 20%; }
+  #shoe-modal .item-box p {
+    margin-top: 5px; }
+  #shoe-modal .item-box img {
+    height: 100px;
+    width: 100px; }
+#shoe-modal span {
+  color: #337ab7; }
+  #shoe-modal span:hover {
+    text-decoration: underline;
+    cursor: pointer; }
+#shoe-modal .other-shoes {
+  text-align: center;
+  padding: 5% 10%; }
+
+.center {
+  text-align: center; }
 
 /*# sourceMappingURL=index.css.map */
