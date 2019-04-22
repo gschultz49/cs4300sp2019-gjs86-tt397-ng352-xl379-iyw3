@@ -340,13 +340,15 @@ def CompleteName(q, titles=titles):
     return possible[:15]
 
 
-u_input = {}
-u_input['arch_support'] = "N/A"
-u_input['terrain'] = "N/A"
-
-def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
+    u_input = {}
+    u_input['arch_support'] = "N/A"
+    u_input['terrain'] = "N/A"
+    
+def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
 
+    user_dict = u_input
+    
     newdictlist = []
     for i in np.arange(len(sdict)):
         newdictlist.append(sdict[str(i)]['useful'])
@@ -368,7 +370,7 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
     
     #topresults = topresult[:numtop]
     
-    user_dict = u_input
+    
     topresults = []
     
     i = 0
