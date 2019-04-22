@@ -65,6 +65,18 @@ def tokenize1(text):
     list = re.findall(reg, text)
     return list
 
+def tokenize2(text):
+    """Returns a list of words that make up the text. Words are unstemmed.
+    
+    Params: {text: String}
+    Returns: List
+    """
+    text = text.lower()
+
+    reg = '[a-z]+'
+    list = re.findall(reg, text)
+    return list
+
 
 def build_inverted_index(shoedict):
     newdict = {}
@@ -147,7 +159,7 @@ def top_terms(shoe1, shoe2, input_doc_mat, index_to_vocab, top_k=10):
     return final, score, concat
 
 
-def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize = tokenize, tokenize1=tokenize1, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer,
+def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize = tokenize, tokenize1=tokenize1, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer_unstemmed,
                get_sim=get_sim, top_terms=top_terms, numdisp=18):
     """Precomputes the cosine similarity matrix for all shoes, and outputs the similar dictionary for every shoe """
 
@@ -191,7 +203,7 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
                         ' reviewers ', ' reviewer ', ' wearer ', ' wearers ', ' commented ',
                         ' thought ', ' mentioned ', ' felt ', ' this ', ' users ', ' has ', ' feel ', ' admired ',
                         ' testers ', ' tester ', ' comments ', 's', "good", 'pair', 'definitely','t','like','very','ha','just',
-                       'stated']
+                       'stated', 'shoes', 'pair', 'shoe', 'pairs', 'model']
 
         for sent in list1:
             if len(sent) > 0:
