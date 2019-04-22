@@ -165,7 +165,7 @@ $(document).on("click", '.card', function () {
   let graph_text = card.find(".card-graph").text();
 
   console.log(shoeName, shoeImage, similarShoes, corescore, similarity, relevantTerms, terrain, arch_support, men_weight, women_weight);
-  console.log(graph_text);
+  // console.log(graph_text);
 
   //create input for creating bar chart from graph text
   let input = [];
@@ -201,7 +201,7 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-terrain").html("<b>Terrain:</b>" + terrain);
   modal.find(".modal-arch_support").html("<b>Arch:</b>" + arch_support);
   modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
-  modal.find(".modal-women_weight").html("<b>Women's weight:</b< " + women_weight);
+  modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight);
 });
 
 let scrollToResults = () => {
