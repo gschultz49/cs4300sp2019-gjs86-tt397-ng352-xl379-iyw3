@@ -39,7 +39,7 @@
   <!-- Similar search section -->
   <div id="similar-search-content">
     <div class="searchbox">
-      <input id="input" type="text" name="search" class="" placeholder="Nike Zoom Pegasus 35">
+      <input id="similar-input-text" type="text" name="search" class="search-bar" placeholder="Nike Zoom Pegasus 35">
     </div>
       <div id ="examples" class="container">
         <h3 class="header"> Try out an example! </h3>
@@ -84,22 +84,67 @@
 
   <!-- Custom Search Content -->
   <div id="custom-search-content">
-    <div class="container">
-      <div class="row">
-        <div class="input-group ">
-          <input id="input" type="text" name="search"
-            placeholder="Nike Zoom Pegasus 35">
-          <span class="input-group-btn">
-            <button id="go" type="submit" class="btn btn-info"> Go! </button>
-          </span>
+    <div class="searchbox">
+      <input id="custom-search-text" type="text" name="search" class="search-bar" placeholder="Soft and comfortable">
+    </div>
+    <div class="item-group">
+      <h3>Terrain Type</h3>
+      <div class="input-item">
+        <div class="item-box">
+          <input type="checkbox" id="trail" name="trail" value="trail" class="item">
+          <label id="trail-label" for="trail"><img alt="terrain-type" src="/static/trail.png"></label>
+          <p>Trail</p>
+        </div>
+        <div class="item-box">
+          <input type="checkbox" id="road" name="road" value="road" class="item">
+          <label id="road-label" for="road"> <img alt="terrain-type" src="/static/road.png"></label>
+          <p>Road</p>
         </div>
       </div>
-    </div> <!--./container -->
+    </div>
+
+    <div class="item-group">
+      <h3>Arch Support</h3>
+      <div class="input-item">
+          <div class="item-box">
+            <input type="checkbox" id="neutral" name="neutral" value="neutral" class="item">
+            <label id="neutral-label" for="neutral"><img alt="arch support" src="/static/trail.png"></label>
+            <p>Neutral</p>
+          </div>
+          <div class="item-box">
+            <input type="checkbox" id="stability" name="stability" value="stability" class="item">
+            <label id="stability-label" for="stability"> <img alt="arch support" src="/static/trail.png"></label>
+            <p>Stability</p>
+          </div>
+          <div class="item-box">
+            <input type="checkbox" id="motion_control" name="motion_control" value="motion_control" class="item">
+            <label id="motion_control-label" for="motion_control"> <img alt="arch support" src="/static/trail.png"></label>
+            <p>Motion Control</p>
+          </div>
+        </div>
+      </div>
+      <div class="item-group">
+        <div class="input-item">
+          <div class="item-box">
+            <select class="weight">
+              <option>Men</option>
+              <option>Women</option>
+            </select>
+          </div>
+
+          <div class="item-box">
+            <p> Weight: <span id="current_weight">7.5</span>oz </p>
+            <div class="slidecontainer">
+              <input type="range" min="0.5" max="15" value="7.5" step = "0.1" class="slider" id="weight-range">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
   <!--./custom-search-content-->
 
-  
-  
   <!--  Target shoe grid  -->
   <div class="results_text"></div>
   <div class="shoes-grid"> </div>
@@ -133,25 +178,6 @@
       </div>
     </div>
   </div>
-
-
-  <!-- 
-    <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
-      <figure>
-        <img class="shoeImage" src="${shoe.shoeImage}">
-      </figure>
-      <div class="card-caption">
-        <h3 class="shoeName"> ${shoe.shoeName}</h3>
-      </div>
-      <div class="additional-data">
-        <p class="similarShoes"> ${shoe.similarShoes}</p>
-        <p class="corescore"> ${shoe.corescore}</p>
-        <p class="similarity"> ${shoe.similarity}</p>
-        <p class="relevantTerms"> ${shoe.relevantTerms}</p>
-      </div>
-    </div> 
-  -->
-
 
 
   <!-- authors -->

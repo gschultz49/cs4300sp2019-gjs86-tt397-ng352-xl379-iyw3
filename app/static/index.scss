@@ -24,6 +24,20 @@ $card-white: #fff;
   display:none;
 }
 
+%input-text {
+  input[type=text] {
+      padding:8px; 
+      border:2px solid #ccc; 
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      height:55px;
+    }
+
+  input[type=text]:focus {
+      border-color:#333;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -49,18 +63,13 @@ body {
     font-size: 8rem; 
     cursor: pointer;
   }
-  // h2{
-  //   font-size: 3rem;
-  //   font-style: italic;
-  //   color: rgba(20, 19, 19, 0.479);
-  // }
   img{
     height: 7.5rem;
   }
 }
 
 
-#input {
+.search-bar {
     grid-area: search;
 }
 
@@ -71,27 +80,12 @@ body {
   grid-template-areas:
     ". search .";
   margin-top: 50px;
-
-  input[type=text] {
-      padding:8px; 
-      border:2px solid #ccc; 
-      -webkit-border-radius: 5px;
-      border-radius: 5px;
-      height:55px;
-    }
-
-  input[type=text]:focus {
-      border-color:#333;
-  }
-
-
+  @extend %input-text;
 }
 
 #similar-search-content{
   @extend %hide-search-content;
 }
-
-
 
 .shoes-grid{
   display: grid;
@@ -229,22 +223,131 @@ body {
 }
 
 #custom-search-content {
+  @extend %input-text;
   background: #fff;
   border: 2px solid #d3d3d3;
   border-radius: 10px;
-  width: 55%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   // display: block;
-  padding-bottom: 20px;
-  input[type=text] {
-      padding:5px; 
-      border:2px solid #ccc; 
-      -webkit-border-radius: 5px;
-      border-radius: 5px;
+  // padding-bottom: 20px;
+  // display: grid;
+  // grid-gap: 10px;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-template-areas:
+  //   ". similar-search  custom-search .";
+  // margin-top: 50px;
+
+  .slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+  
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('/static/mini_heart.svg');
+    background-repeat: no-repeat;
+    cursor: pointer;
   }
 
-  input[type=text]:focus {
-      border-color:#333;
+  .slider::-moz-range-thumb {
+    width: 23px;
+    height: 25px;
+    border: 0;
+    background: url('/static/mini_heart.svg');
+    background-repeat: no-repeat;
+    cursor: pointer;
   }
+
+  .weight{
+   color: #fff;
+  //  background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #808cd3;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+
+  .item-group{
+    text-align: center;
+    .input-item{
+
+      .item-box {
+        display: inline-block;
+        margin: 5%;
+        width: 20%;
+        p{
+          margin-top:5px;
+        }
+      }
+
+      // input[type=checkbox] {
+      //   display:none;
+      // }
+
+      // #trail-label::before{
+      //   content: url("/static/trail.png");
+      // }
+      // :checked + #trail-label::before{
+      //   content: url("/static/trail_clicked.png");
+      // }
+
+      // #road-label::before{
+      //   background-image: url("/static/road.png")
+      // }
+      // :checked + #road-label::before{
+      //   background-image: url("/static/road_clicked.png")
+      // }
+
+      // input[type=checkbox] + label {
+      //   background: #999;
+      //   height: 16px;
+      //   width: 16px;
+      //   display:inline-block;
+      //   padding: 0 0 0 0px;
+      // }
+      // input[type=checkbox]:checked + label {
+      //   background: #0080FF;
+      //   height: 16px;
+      //   width: 16px;
+      //   display:inline-block;
+      //   padding: 0 0 0 0px;
+      // }
+      .item{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+      img{
+        height:150px;
+        width:150px;
+      }
+    }
+  }
+  
 }

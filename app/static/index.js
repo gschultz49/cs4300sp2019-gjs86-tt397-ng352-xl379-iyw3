@@ -1,52 +1,35 @@
 
 let $SCRIPT_ROOT = ""
 
-// wrapper, clears the data and fetches results
-let clear_and_search = (query, endpoint) => {
-  $(".shoes-grid").empty();
-  $(".results_text").empty();
-  let results_text = 
+// reload for click on header
+let reload_page = () => location.reload();
+
+// no results found
+let render_empty = () => {
+  let empty =
+    `
+  <div class="empty">
+    <h3> No results found :( </h3>
+  </div>
   `
-  <div class="header">
-    <h1>
+  $(".shoes-grid").append(empty);
+}
+
+// Results HTML
+const results_text =
+  `
+  <div class="header" >
+    <h1 style="cursor:initial">
       <img class="logo" src="/static/logo.png">
         Meet your Solemates
       <img class="logo" src="/static/logo.png">
     </h1>
   </div>
   `
-  $(".results_text").append(results_text);
-  ajax_retrieve(query, endpoint);
-}
 
-// grab and perform input
-let input_handler = (endpoint) => {
-  let inputted_value = $('input[name="search"]').val();
-  scrollToResults();
-  clear_and_search(inputted_value, endpoint);
-  return false;
-}
-
-// Conducts the ajax request and renders the results
-let ajax_retrieve = (query, endpoint) => {
-  $.getJSON($SCRIPT_ROOT + endpoint, {
-    search: query,
-  }, function (data) {
-    console.log("AJAX RETURNED DATA: ")
-    console.log(data);
-    // NEED TO ADD A CATCH FOR THE SERVER NOT TO FAIL
-    (data.length > 0) ? data.map(render_card) : render_empty();
-  });
-};
-
-let reload_page = () => location.reload();
-
-// rendering template for a card
-// will need to handle which mode we're in
-let render_card = (shoe) => {
-  console.log("Rendering template data");
-  let card_template =
-    `
+// template generator for shoes found under the EXACT NAME MATCHING SECTION
+const similar_shoe_template = (shoe) => {
+  return `
     <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
       <figure>
         <img class="card-shoeImage" src="${shoe.shoeImage}">
@@ -64,23 +47,92 @@ let render_card = (shoe) => {
         <p class="card-arch_support"> ${shoe.arch_support}</p>
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
-        <p class="card-graph"> ${shoe.term_and_score.splice(0,5).map(function(d){return d.toString()}).join(",")} </p>
+        <p class="card-graph"> ${shoe.term_and_score.splice(0, 5).map(function (d) { return d.toString() }).join(",")} </p>
       </div>
     </div>
-    `
-  $(".shoes-grid").append(card_template);
+  `
+};
+
+// template generator for shoes found under the MULTI PART INPUT section
+const custom_shoe_template = (shoe) => {
+  return `
+    <div class="card" data-toggle="modal" data-target="#exampleModalCenter">
+      <figure>
+        <img class="card-shoeImage" src="${shoe.shoeImage}">
+      </figure>
+      <div class="card-caption">
+        <h3 class="card-shoeName"> ${shoe.shoeName}</h3>
+      </div>
+      <div class="additional-data">
+        <p class="card-similarShoes"> ${shoe.similarShoes}</p>
+        <p class="card-corescore"> ${shoe.corescore}</p>
+        <p class="card-similarity"> ${shoe.similarity}</p>
+        <p class="card-relevantTerms"> ${shoe.relevantTerms}</p>
+        <p class="card-amazonLink"> ${shoe.amazonLink}</p>
+        <p class="card-terrain"> ${shoe.terrain}</p>
+        <p class="card-arch_support"> ${shoe.arch_support}</p>
+        <p class="card-men_weight"> ${shoe.men_weight}</p>
+        <p class="card-women_weight"> ${shoe.women_weight}</p>
+      </div>
+    </div>
+  `
+};
+  
+
+// rendering template for a card
+let render_card = (endpoint, shoe) => {
+  console.log("Rendering template data");
+  // determines which shoe to use by endpoint
+  let rendering_card = (endpoint == "/custom_search") ? custom_shoe_template(shoe) : similar_shoe_template(shoe);
+  $(".shoes-grid").append(rendering_card);
 }
 
-//<script>create_bar_chart(${shoe.term_and_score})</script>
+// Conducts the ajax request and renders the results
+let ajax_retrieve = (endpoint, search_dictionary) => {
+  console.log(search_dictionary);
+  
+  // testing
+  search_dictionary["sadness"] = "4300";
 
-let render_empty = () => {
-  let empty = 
-  `
-  <div class="empty">
-    <h3> No results found :( </h3>
-  </div>
-  `
-  $(".shoes-grid").append(empty);
+  console.log(search_dictionary);
+  
+  // retrieve data via GET request
+  $.getJSON($SCRIPT_ROOT + endpoint, 
+    search_dictionary
+    , function (data) {
+    console.log("AJAX RETURNED DATA: ")
+    console.log(data);
+    // if no results display none, else display some card
+    (data.length > 0) ? data.map(c => render_card(endpoint, c)) : render_empty();
+  });
+};
+
+// wrapper, clears the data and fetches results
+let clear_and_search = (endpoint, search_dictionary) => {
+  $(".shoes-grid").empty();
+  $(".results_text").empty();
+  $(".results_text").append(results_text);
+  ajax_retrieve(endpoint, search_dictionary);
+}
+
+// grab and perform input
+let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
+  console.log("IN INPUT HANDLER");
+  console.log(inputbox, endpoint, search_dictionary);
+  let inputted_value = $(inputbox).val();
+  // GET ALL VALUES HERE
+  
+  if (!("search" in search_dictionary)) { 
+    search_dictionary["search"] = inputted_value;
+  }
+  
+  if (endpoint == "/custom_search"){
+    // find more values and add to dictionary here...
+  }
+  scrollToResults();
+  console.log(inputbox, endpoint, search_dictionary); 
+  clear_and_search(endpoint, search_dictionary);
+  return false;
 }
 
 $(document).on("click", '.card', function () {
@@ -146,22 +198,36 @@ let scrollToResults = () => {
     }, 1100);
 };
 
-$(document).ready(function () {
 
+$(document).ready(function () {
+  
+  // should we have a button?
   // $('#go').bind('click', function () {
   //   input_handler("/custom_search");
   // });
-  // Handle for click of enter
-  $("#input").on('keypress', function (e) {
-    if (e.which == 13) {
-      input_handler("/custom_search");
-    }
-  });
 
+  // on click of header, go back to splash
   $(".header h1").bind('click', function () {
     reload_page();
   })
 
+  // Handle for click of enter for similar shoe
+  $("#similar-search-text").on('keypress', function (e) {
+    if (e.which == 13) {
+      console.log("enter was pressed for similar");
+      input_handler("#similar-input-text", "/similar_search");
+    }
+  });
+
+  // Handle for click of enter for custom searched shoe
+  $("#custom-search-text").on('keypress', function (e) {
+    if (e.which == 13) {
+      console.log("enter was pressed for custom");
+      input_handler("#custom-search-text", "/custom_search");
+    }
+  });
+
+  // transition between modes from splash
   let render_search_section = (search_content_id) => {
     $(".landing-cards").fadeOut("slow", function () {
       $(search_content_id).fadeIn("slow");
@@ -176,17 +242,19 @@ $(document).ready(function () {
     render_search_section("#custom-search-content");
   });
 
-  // Onpage load a shoe:
-  // ajax_retrieve("Nike Air Zoom Pegasus 35");
+  // live render slider values from custom
+  $(document).on("input change", "#weight-range", function (){
+    $("#current_weight").text(this.value);
+  });
 
 });
 
+// for similar, handle on click of any card and load it's data
 $(document).on("click", '.card-example', function () {
   let card = $(this);
   let shoeName = card.find("div > .shoeName").text().trim();
-  console.log(shoeName);
   $("#input").val(shoeName);
-  input_handler("/custom_search");
+  input_handler("#input-text", "/similar_search", { search: shoeName });
 });
 
 
