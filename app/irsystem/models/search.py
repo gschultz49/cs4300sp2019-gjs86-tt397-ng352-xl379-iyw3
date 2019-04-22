@@ -341,8 +341,8 @@ def CompleteName(q, titles=titles):
 
 
 u_input = {}
-u_input['arch_support'] = ""
-u_input['terrain'] = ""
+u_input['arch_support'] = "N/A"
+u_input['terrain'] = "N/A"
 
 def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
@@ -373,10 +373,10 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
     
     i = 0
     while len(topresults) < numtop and i < 100:
-        if user_dict["arch_support"] != "" and user_dict['arch_support'] != sdict[str(topresult[i])]['arch_support']:
+        if user_dict["arch_support"] != "N/A" and user_dict['arch_support'] != sdict[str(topresult[i])]['arch_support']:
             i += 1
             continue
-        if user_dict["terrain"] != "" and user_dict["terrain"] != sdict[str(topresult[i])]['terrain']:
+        if user_dict["terrain"] != "N/A" and user_dict["terrain"] != sdict[str(topresult[i])]['terrain']:
             i += 1
             continue
         topresults.append(topresult[i])
