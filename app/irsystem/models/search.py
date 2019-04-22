@@ -78,7 +78,7 @@ def build_inverted_index(shoedict):
     return newdict
 
 
-def build_vectorizer(max_features, stop_words, tokenizer=tokenize, max_df=0.8, min_df=1, norm='l2'):
+def build_vectorizer(max_features, stop_words, tokenizer=tokenize1, max_df=0.8, min_df=1, norm='l2'):
     """Returns a TfidfVectorizer object with the above preprocessing properties.
     
     Params: {max_features: Integer,
@@ -88,7 +88,7 @@ def build_vectorizer(max_features, stop_words, tokenizer=tokenize, max_df=0.8, m
              stop_words: String}
     Returns: TfidfVectorizer
     """
-    return TfidfVectorizer(stop_words=stop_words, tokenizer=tokenize, max_df=max_df, min_df=min_df,
+    return TfidfVectorizer(stop_words=stop_words, tokenizer=tokenizer, max_df=max_df, min_df=min_df,
                            max_features=max_features, norm=norm)
 
 
@@ -161,7 +161,7 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
 
     shoename_to_index = {}
     index_to_shoename = {}
-    allw = []
+    #allw = []
     
     for item in sdict:
         name = sdict[item]['shoeName']
@@ -209,7 +209,7 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
             t = tokenize1(sent)
             for token in t:
                 sdict[item]['tokens'].append(token)
-                allw.append(token)
+               # allw.append(token)
                 
 
         newunwant = [term.strip() for term in unwantedlist]
@@ -224,14 +224,14 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
     for item in sdict:
         titles.append(sdict[item]['shoeName'])
 
-    inv_idx = build_inverted_index(sdict)
+    #inv_idx = build_inverted_index(sdict)
 
     dictlist = []
     for i in np.arange(len(sdict)):
         dictlist.append(sdict[str(i)]['usefult'])
 
-    all_words = list(set(allw))
-    n_feats = len(all_words)
+    #all_words = list(set(allw))
+    n_feats = 4000
     doc_by_vocab = np.empty([len(sdict), n_feats])
 
     tfidf_vec = build_vectorizer(n_feats, "english")
