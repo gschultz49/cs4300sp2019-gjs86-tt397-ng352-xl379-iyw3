@@ -92,7 +92,7 @@ let ajax_retrieve = (endpoint, search_dictionary) => {
   console.log(search_dictionary);
   
   // testing
-  search_dictionary["sadness"] = "4300";
+  // search_dictionary["sadness"] = "4300";
 
   console.log(search_dictionary);
   
@@ -120,6 +120,8 @@ let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
   console.log("IN INPUT HANDLER");
   console.log(inputbox, endpoint, search_dictionary);
   let inputted_value = $(inputbox).val();
+  console.log("input box val:");
+  console.log(inputted_value);
   // GET ALL VALUES HERE
   
   if (!("search" in search_dictionary)) { 
@@ -215,7 +217,7 @@ $(document).ready(function () {
   $("#similar-search-text").on('keypress', function (e) {
     if (e.which == 13) {
       console.log("enter was pressed for similar");
-      input_handler("#similar-input-text", "/similar_search");
+      input_handler("#similar-search-text", "/similar_search");
     }
   });
 
