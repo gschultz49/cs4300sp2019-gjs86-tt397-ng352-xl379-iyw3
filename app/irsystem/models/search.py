@@ -3,7 +3,7 @@ import numpy as np
 import re, json, os, nltk, csv
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from ... import settings
-from nltk.stem import PorterStemmer
+#from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 ps = PorterStemmer()
@@ -48,9 +48,9 @@ def tokenize(text):
     reg = '[a-z]+'
     list = re.findall(reg, text)
     list1 = []
-    for item in list:
-        list1.append(ps.stem(item))
-    return list1
+    #for item in list:
+    #    list1.append(ps.stem(item))
+    return list
 
 
 def tokenize1(text):
@@ -90,7 +90,7 @@ def build_inverted_index(shoedict):
     return newdict
 
 
-def build_vectorizer(max_features, stop_words, tokenizer=tokenize1, max_df=0.8, min_df=1, norm='l2'):
+def build_vectorizer(max_features, stop_words, tokenizer=tokenize2, max_df=0.8, min_df=1, norm='l2'):
     """Returns a TfidfVectorizer object with the above preprocessing properties.
     
     Params: {max_features: Integer,
@@ -159,7 +159,7 @@ def top_terms(shoe1, shoe2, input_doc_mat, index_to_vocab, top_k=10):
     return final, score, concat
 
 
-def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize = tokenize, tokenize1=tokenize1, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer_unstemmed,
+def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize = tokenize, tokenize1=tokenize1, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer,
                get_sim=get_sim, top_terms=top_terms, numdisp=18):
     """Precomputes the cosine similarity matrix for all shoes, and outputs the similar dictionary for every shoe """
 
@@ -203,7 +203,7 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
                         ' reviewers ', ' reviewer ', ' wearer ', ' wearers ', ' commented ',
                         ' thought ', ' mentioned ', ' felt ', ' this ', ' users ', ' has ', ' feel ', ' admired ',
                         ' testers ', ' tester ', ' comments ', 's', "good", 'pair', 'definitely','t','like','very','ha','just',
-                       'stated', 'shoes', 'pair', 'shoe', 'pairs', 'model']
+                       'stated', 'shoes', 'pair', 'shoe', 'pairs', 'model', 'saucony','previous','pros','cons','ye']
 
         for sent in list1:
             if len(sent) > 0:
@@ -456,21 +456,22 @@ def CompleteQuery(query, tokenize=tokenize1):
 
     tokens = {}
 
-    #use results from top 200 hits
-    sim = FindQuery(q, numtop=200)
+    #use results from top 100 hits
+    sim = FindQuery(q, numtop=100)
 
     for dictionary in sim:
-        if q in dictionary['relevant terms']:
-            for sent in dictionary['relevant sentence']:
+        if q in dictionary['relevantTerms']:
+            for sent in dictionary['relevantSentence']:
                 sentence = tokenize1(sent)
-                index = sentence.index(q)
-                if index + 1 < len(sentence):
-                    newtoken = sentence[index + 1]
-                    if newtoken not in stopwords.words('english'):
-                        if newtoken not in tokens:
-                            tokens[newtoken] = 1
-                        else:
-                            tokens[newtoken] += 1
+                if q in sentence:
+                    index = sentence.index(q)
+                    if index + 1 < len(sentence):
+                        newtoken = sentence[index + 1]
+                        if newtoken not in stopwords.words('english'):
+                            if newtoken not in tokens:
+                                tokens[newtoken] = 1
+                            else:
+                                tokens[newtoken] += 1
     words = sorted(tokens.items(), key=lambda x: x[1], reverse=True)
 
     topwords = []
