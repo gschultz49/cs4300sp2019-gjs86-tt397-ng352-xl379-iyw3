@@ -14,6 +14,10 @@ let is_checked = (selector) => {
   }
 }
 
+let terrain_to_image = (name) => {
+  let lowered= name.lowered();
+}
+
 // no results found
 let render_empty = () => {
   let empty =
