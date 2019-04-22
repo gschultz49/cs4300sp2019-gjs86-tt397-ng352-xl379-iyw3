@@ -203,7 +203,8 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
                         ' reviewers ', ' reviewer ', ' wearer ', ' wearers ', ' commented ',
                         ' thought ', ' mentioned ', ' felt ', ' this ', ' users ', ' has ', ' feel ', ' admired ',
                         ' testers ', ' tester ', ' comments ', 's', "good", 'pair', 'definitely','t','like','very','ha','just',
-                       'stated', 'shoes', 'pair', 'shoe', 'pairs', 'model', 'saucony','previous','pros','cons','ye']
+                       'stated', 'shoes', 'pair', 'shoe', 'pairs', 'model', 'saucony','previous','pros','cons','ye','didn','wasn','ve','t', 'k',
+                       'feels','consider','considers','mistake','earlier','installment']
 
         for sent in list1:
             if len(sent) > 0:
