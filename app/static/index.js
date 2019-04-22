@@ -89,13 +89,6 @@ let render_card = (endpoint, shoe) => {
 
 // Conducts the ajax request and renders the results
 let ajax_retrieve = (endpoint, search_dictionary) => {
-  console.log(search_dictionary);
-  
-  // testing
-  // search_dictionary["sadness"] = "4300";
-
-  console.log(search_dictionary);
-  
   // retrieve data via GET request
   $.getJSON($SCRIPT_ROOT + endpoint, 
     search_dictionary
@@ -115,25 +108,39 @@ let clear_and_search = (endpoint, search_dictionary) => {
   ajax_retrieve(endpoint, search_dictionary);
 }
 
+
+let is_checked = (selector) => {
+  if ($(selector).prop("checked") == true){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
 // grab and perform input
 let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
   console.log("IN INPUT HANDLER");
-  console.log(inputbox, endpoint, search_dictionary);
   let inputted_value = $(inputbox).val();
-  console.log("input box val:");
-  console.log(inputted_value);
-  // GET ALL VALUES HERE
   
+  // GET ALL VALUES HERE
   if (!("search" in search_dictionary)) { 
     search_dictionary["search"] = inputted_value;
   }
   
   if (endpoint == "/custom_search"){
     // find more values and add to dictionary here...
+    search_dictionary["trail"] = is_checked("#trail");
+    search_dictionary["road"] = is_checked ("#road");
+    search_dictionary["neutral"] = is_checked ("#neutral");
+    search_dictionary["stability"] = is_checked ("#stability");
+    search_dictionary["motion_control"] = is_checked ("#motion_control");
+    search_dictionary["gender"] = $(".weight :selected").val();
+    search_dictionary["weight"] = $("#weight-range").val();
   }
-  scrollToResults();
   console.log(inputbox, endpoint, search_dictionary); 
   clear_and_search(endpoint, search_dictionary);
+  scrollToResults();
   return false;
 }
 
@@ -202,11 +209,6 @@ let scrollToResults = () => {
 
 
 $(document).ready(function () {
-  
-  // should we have a button?
-  // $('#go').bind('click', function () {
-  //   input_handler("/custom_search");
-  // });
 
   // on click of header, go back to splash
   $(".header h1").bind('click', function () {
@@ -220,6 +222,11 @@ $(document).ready(function () {
       input_handler("#similar-search-text", "/similar_search");
     }
   });
+
+  // should we have a button?
+  // $('#go').bind('click', function () {
+  //   input_handler("/custom_search");
+  // });
 
   // Handle for click of enter for custom searched shoe
   $("#custom-search-text").on('keypress', function (e) {
