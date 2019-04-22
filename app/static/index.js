@@ -4,12 +4,25 @@ let $SCRIPT_ROOT = ""
 // wrapper, clears the data and fetches results
 let clear_and_search = (query, endpoint) => {
   $(".shoes-grid").empty();
+  $(".results_text").empty();
+  let results_text = 
+  `
+  <div class="header">
+    <h1>
+      <img class="logo" src="/static/logo.png">
+        Meet your Solemates
+      <img class="logo" src="/static/logo.png">
+    </h1>
+  </div>
+  `
+  $(".results_text").append(results_text);
   ajax_retrieve(query, endpoint);
 }
 
 // grab and perform input
 let input_handler = (endpoint) => {
   let inputted_value = $('input[name="search"]').val();
+  scrollToResults();
   clear_and_search(inputted_value, endpoint);
   return false;
 }
@@ -126,12 +139,18 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-women_weight").html("<b>women_weight</b> " + women_weight);
 });
 
+let scrollToResults = () => {
+  console.log("scrolling to results...");
+  $("html, body").animate({
+     scrollTop: ($(".results_text").offset().top - 50)
+    }, 1100);
+};
 
 $(document).ready(function () {
 
-  $('#go').bind('click', function () {
-    input_handler("/custom_search");
-  });
+  // $('#go').bind('click', function () {
+  //   input_handler("/custom_search");
+  // });
   // Handle for click of enter
   $("#input").on('keypress', function (e) {
     if (e.which == 13) {

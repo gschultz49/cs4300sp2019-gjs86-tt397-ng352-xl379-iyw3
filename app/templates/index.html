@@ -22,39 +22,27 @@
       Find your Solemate
       <img class="logo" src="/static/logo.png">
     </h1>
-    <!-- <h2> Find shoes based on what you love </h2> -->
   </div>
 
   <!-- Landing cards -->
   <div class="landing-cards">
     <div id = "similar-search" class="box">
-      <div class="content">
-        <img src="/static/search.png">
-        <h3>Similar Shoes</h3>
-      </div>
+      <img src="/static/search.png">
+      <h3>Similar Shoes</h3>
     </div>
     <div id = "custom-search" class="box">
-      <div class="content">
-        <img src="/static/search.png">
-        <h3>Custom Search</h3>
-      </div>
+      <img src="/static/search.png">
+      <h3>Custom Search</h3>
     </div>
   </div>
   
   <!-- Similar search section -->
   <div id="similar-search-content">
-    <div class="container">
-      <div class="row">
-        <div class="input-group input-group-lg">
-          <input id="input" type="text" name="search" class="form-control form-control-lg" placeholder="Nike Zoom Pegasus 35">
-          <span class="input-group-btn">
-            <button id="go" type="submit" class="btn btn-info"> Go! </button>
-          </span>
-        </div>
-      </div>
-    </div> <!--./container -->
+    <div class="searchbox">
+      <input id="input" type="text" name="search" class="" placeholder="Nike Zoom Pegasus 35">
+    </div>
       <div id ="examples" class="container">
-        <h3 class="text-center"> Try out an example below! </h3>
+        <h3 class="header"> Try out an example! </h3>
         <div class="example-row">
           <div class= "example-item">
             <div class="card-example">
@@ -111,9 +99,11 @@
   <!--./custom-search-content-->
 
   
-
+  
   <!--  Target shoe grid  -->
-  <div class="shoes-grid"> </div> 
+  <div class="results_text"></div>
+  <div class="shoes-grid"> </div>
+  
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
