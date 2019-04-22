@@ -14,8 +14,14 @@ with open(path) as csvfile:
     sdict = {}
     for row in reader:
         sdict[row['shoeNumber']] = row
-
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+        
+path1 = os.path.join(settings.APP_STATIC, "v2.tsv")
+with open(path1) as tsvfile2:
+    reader = csv.DictReader(tsvfile2, dialect='excel-tab')
+    rdict = {}
+    for row in reader:
+        rdict[row['shoeName']] = row
+        
 # Build analyzer
 analyzer = SentimentIntensityAnalyzer()
 
@@ -86,7 +92,7 @@ def build_vectorizer(max_features, stop_words, tokenizer=tokenize, max_df=0.8, m
                            max_features=max_features, norm=norm)
 
 
-def build_vectorizer_unstemmed(max_features, stop_words, tokenizer=tokenize, max_df=0.8, min_df=1, norm='l2'):
+def build_vectorizer_unstemmed(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):
     """Returns a TfidfVectorizer object with the above preprocessing properties.
     
     Params: {max_features: Integer,
@@ -141,8 +147,8 @@ def top_terms(shoe1, shoe2, input_doc_mat, index_to_vocab, top_k=10):
     return final, score, concat
 
 
-def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer,
-               get_sim=get_sim, top_terms=top_terms, numdisp=6):
+def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize = tokenize, tokenize1=tokenize1, build_inverted_index=build_inverted_index, build_vectorizer=build_vectorizer,
+               get_sim=get_sim, top_terms=top_terms, numdisp=18):
     """Precomputes the cosine similarity matrix for all shoes, and outputs the similar dictionary for every shoe """
 
     
@@ -156,6 +162,7 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
     shoename_to_index = {}
     index_to_shoename = {}
     allw = []
+    
     for item in sdict:
         name = sdict[item]['shoeName']
         list1 = sdict[item]['good_buy_bullets'].split('</s>')
@@ -167,6 +174,13 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
         sdict[item]['name'] = tokenize1(name)
         shoename_to_index[name.lower()] = int(sdict[item]['shoeNumber'])
         index_to_shoename[sdict[item]['shoeNumber']] = name.lower()
+        
+        reviews = ""
+        features = []
+        if name in rdict:   
+            sdict[item]['amazonLink'] = rdict[name]['link']
+            reviews = rdict[name]['amazonReviews']
+        
         blist = []
         for s in splitter.split(sdict[item]['bottom_line']):
             if is_positive(s):
@@ -176,7 +190,8 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
                         ' buyer ', ' his ', ' was ', ' review ', ' comment ', ' reviews ',
                         ' reviewers ', ' reviewer ', ' wearer ', ' wearers ', ' commented ',
                         ' thought ', ' mentioned ', ' felt ', ' this ', ' users ', ' has ', ' feel ', ' admired ',
-                        ' testers ', ' tester ', ' comments ', 's']
+                        ' testers ', ' tester ', ' comments ', 's', "good", 'pair', 'definitely','t','like','very','ha','just',
+                       'stated']
 
         for sent in list1:
             if len(sent) > 0:
@@ -185,12 +200,17 @@ def Precompute(sdict=sdict, is_positive = is_positive, tokenize=tokenize, build_
             if len(sent) > 0:
                 sent = sent + "."
                 sdict[item]['good'].append(sent)
-
+        
+        t = tokenize1(reviews)
+        for token in t:
+            sdict[item]['tokens'].append(token)
+        
         for sent in sdict[item]['good']:
             t = tokenize1(sent)
             for token in t:
                 sdict[item]['tokens'].append(token)
                 allw.append(token)
+                
 
         newunwant = [term.strip() for term in unwantedlist]
 
@@ -282,8 +302,11 @@ def FindSimilarShoes(shoename, information_dict=similar, shoename_to_index=shoen
         newdict[i]['men_weight'] = datadict[i]['men_weight']
         newdict[i]['women_weight'] = datadict[i]['women_weight']
         sim_shoes = []
+        numbers = 0
         for j in information_dict[newind]:
-            sim_shoes.append(information_dict[newind][j]['shoeName'])
+            if numbers < 5:
+                sim_shoes.append(information_dict[newind][j]['shoeName'])
+            numbers += 1
         newdict[i]['similarShoes'] = sim_shoes
     array = []
     for item in newdict:
@@ -302,7 +325,11 @@ def CompleteName(q, titles=titles):
     return possible[:15]
 
 
-def FindQuery(q, sdict=sdict, numtop=6, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
+u_input = {}
+u_input['arch_support'] = ""
+u_input['terrain'] = ""
+
+def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
 
     newdictlist = []
@@ -318,8 +345,29 @@ def FindQuery(q, sdict=sdict, numtop=6, get_sim=get_sim, information_dict=simila
     cossim1 = np.zeros(len(sdict))
     for i in np.arange(len(sdict)):
             cossim1[i] = get_sim(i, len(sdict), doc_by_vocab1)
-    topresults = np.flip(np.argsort(cossim1))[:numtop]
-
+    
+    if np.argmax(cossim1) == 0:
+        return []
+    
+    topresult = np.flip(np.argsort(cossim1))
+    
+    #topresults = topresult[:numtop]
+    
+    user_dict = u_input
+    topresults = []
+    
+    i = 0
+    while len(topresults) < numtop and i < 100:
+        if user_dict["arch_support"] != "" and user_dict['arch_support'] != sdict[str(topresult[i])]['arch_support']:
+            i += 1
+            continue
+        if user_dict["terrain"] != "" and user_dict["terrain"] != sdict[str(topresult[i])]['terrain']:
+            i += 1
+            continue
+        topresults.append(topresult[i])
+        i +=1
+      
+    
     sentdict = {}
     for i in topresults:
         sentdict[i] = {}
@@ -366,14 +414,21 @@ def FindQuery(q, sdict=sdict, numtop=6, get_sim=get_sim, information_dict=simila
     for item in tops:
         sim_shoes = []
         newindex = shoename_to_index[tops[item]['shoeName'].lower()]
+        numbers = 0
         for j in information_dict[newindex]:
-            sim_shoes.append(information_dict[newindex][j]['shoeName'])
+            if numbers < 5:
+                sim_shoes.append(information_dict[newindex][j]['shoeName'])
+            numbers += 1
         tops[item]['similarShoes'] = sim_shoes
 
     array = []
-    for item in tops:
-        array.append(tops[item])
-
+    
+    maxnum = len(tokenize1(q))
+    
+    for num in np.flip(np.arange(maxnum)+1):
+        for item in tops:
+            if len(tops[item]['relevantTerms'])==num:
+                array.append(tops[item])
     return array
 
 
@@ -411,4 +466,3 @@ def CompleteQuery(query, tokenize=tokenize1):
         topwords.append(item[0])
 
     return topwords
-

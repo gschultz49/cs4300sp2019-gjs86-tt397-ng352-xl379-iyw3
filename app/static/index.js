@@ -51,11 +51,14 @@ let render_card = (shoe) => {
         <p class="card-arch_support"> ${shoe.arch_support}</p>
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
+        <p class="card-graph"> ${shoe.term_and_score.splice(0,5).map(function(d){return d.toString()}).join(",")} </p>
       </div>
     </div>
     `
   $(".shoes-grid").append(card_template);
 }
+
+//<script>create_bar_chart(${shoe.term_and_score})</script>
 
 let render_empty = () => {
   let empty = 
@@ -82,8 +85,32 @@ $(document).on("click", '.card', function () {
   let arch_support = card.find(".card-arch_support").text();
   let men_weight = card.find(".card-men_weight").text();
   let women_weight = card.find(".card-women_weight").text();
+  let graph_text = card.find(".card-graph").text();
 
   console.log(shoeName, similarShoes, corescore, similarity, relevantTerms, terrain, arch_support, men_weight, women_weight);
+  console.log(graph_text);
+
+  //create input for creating bar chart from graph text
+  let input = [];
+  let counter = 0;
+  let accum = [];
+  graph_text.split(",").forEach(d=>{
+    if (counter === 0) {
+      accum.push(d);
+      counter += 1;
+    } else if (counter === 1) {
+      accum.push(parseFloat(d));
+      input.push(accum);
+      accum = [];
+      counter = 0;
+    }
+  });
+
+  //empty element before drawing
+  $("#modal_graph").empty();
+  
+  //create bar chart
+  create_bar_chart(input);
 
   // populate modal 
   let modal = $(".modal-content");
@@ -130,121 +157,10 @@ $(document).ready(function () {
     render_search_section("#custom-search-content");
   });
 
-  
-  
-
-
-  //generate bar chart
-  // function create_bar_chart(key, chart_data_raw) {
-
-  //   const margin = { top: 30, right: 30, bottom: 30, left: 30 };
-
-  //   let svg = d3.select("#bar_chart");
-  //   let height = svg.attr("height");
-  //   let width = svg.attr("width");
-  //   let plotHeight = height - margin.top - margin.bottom;
-  //   let plotWidth = width - margin.right - margin.left;
-
-  //   let chart_data_keys = keys.splice(0, 5);
-  //   let chart_data = chart_data_raw.splice(0, 5);
-
-  //   let max_count = d3.max(chart_data_raw, function (key) {
-  //     return key;
-  //   });
-
-  //   let bar_width = (plotWidth - margin.left) / 5;
-  //   let padding = 10;
-
-  //   let range = [...Array(5).keys()].map(d => d * (plotWidth - margin.left) / 5);
-
-  //   let xScale = d3.scaleOrdinal()
-  //     .domain(chart_data_keys)
-  //     .range(range);
-
-  //   let yScale = d3.scaleLinear()
-  //     .domain([0, max_count])
-  //     .range([plotHeight, margin.bottom]);
-
-  //   let plot = svg.append("g")
-  //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  //   //create bar chart
-  //   plot.selectAll("rect")
-  //     .data(chart_data_keys)
-  //     .enter()
-  //     .append("rect")
-  //     .attr("class", "chart_rect")
-  //     .attr("x", function (d) {
-  //       return xScale(d);
-  //     })
-  //     .attr("y", function (d) {
-  //       return yScale(chart_data[d]) + 10;
-  //     })
-  //     .attr("stroke", function (d) {
-  //       return "black";
-  //     })
-  //     .attr("width", bar_width)
-  //     .attr("height", function (d) {
-  //       return plotHeight - yScale(chart_data[d]);
-  //     })
-  //     .attr("fill", "orange")
-  //     .style("stroke", "white")
-  //     .style("stroke-width", 4);
-
-  //   //create Y-labels
-  //   plot.selectAll("text")
-  //     .data(chart_data_keys)
-  //     .enter()
-  //     .append("text")
-  //     .attr("class", "chart_text_y")
-  //     .text(function (d) {
-  //       return chart_data[d];
-  //     })
-  //     .attr("x", function (d) {
-  //       return xScale(d) + bar_width / 2;
-  //     })
-  //     .attr("y", function (d) {
-  //       return yScale(chart_data[d]) + 30;
-  //     })
-  //     .attr("alignment-baseline", "middle")
-  //     .attr('text-anchor', "middle")
-  //     .attr("fill", "white");
-
-  //   //create x-labels
-  //   let xLabels = svg.append("g")
-  //     .attr("transform", "translate(" + margin.left + "," + (margin.top + plotHeight) + ")");
-
-  //   xLabels.selectAll("text.xAxis")
-  //     .data(chart_data_keys)
-  //     .enter()
-  //     .append("text")
-  //     .attr("class", "xAxis")
-  //     .text(function (d) {
-  //       return d;
-  //     })
-  //     .attr("font-size", "13px")
-  //     .attr("text-anchor", "middle")
-  //     .attr("x", function (d) {
-  //       return xScale(d) + bar_width / 2;
-  //     })
-  //     .attr("y", 25);
-
-  //   //Create Title
-  //   svg.append("text")
-  //     .attr("id", "chart_title")
-  //     .attr("x", (plotWidth + 50) / 2)
-  //     .attr("y", 30)
-  //     .attr("class", "title")
-  //     .attr("text-anchor", "middle")
-  //     .attr("alignment-baseline", "middle")
-  //     .text("Cosine Similarity Scores for the Top 5 Words");
-  // }
-
   // Onpage load a shoe:
   // ajax_retrieve("Nike Air Zoom Pegasus 35");
 
 });
-
 
 $(document).on("click", '.card-example', function () {
   let card = $(this);
@@ -255,3 +171,114 @@ $(document).on("click", '.card-example', function () {
 });
 
 
+//generate bar chart
+function create_bar_chart(chart_data_raw) {
+  //chart_data_raw is a 2-d array with [shoe name, score]
+
+  const margin = { top: 30, right: 30, bottom: 30, left: 30 };
+
+  let svg = d3.select("#modal_graph");
+  let height = svg.attr("height");
+  let width = svg.attr("width");
+  let plotHeight = height - margin.top - margin.bottom;
+  let plotWidth = width - margin.right - margin.left;
+
+  //get keys 
+  let chart_data = chart_data_raw.splice(0,5);
+
+  let chart_data_keys = []
+  chart_data.forEach(function(d){
+    chart_data_keys.push(d[0]);
+  });
+
+  let max_count = d3.max(chart_data, function (d) {
+    return d[1];
+  });
+
+  let bar_width = (plotWidth - margin.left) / 5;
+
+  let range = [...Array(5).keys()].map(d => d * (plotWidth - margin.left) / 5);
+
+  let xScale = d3.scaleOrdinal()
+    .domain(chart_data_keys)
+    .range(range);
+
+  let yScale = d3.scaleLinear()
+    .domain([0, max_count])
+    .range([plotHeight, margin.bottom]);
+
+  let plot = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  //create bar chart
+  plot.selectAll("rect")
+    .data(chart_data)
+    .enter()
+    .append("rect")
+    .attr("class", "chart_rect")
+    .attr("x", function (d) {
+      return xScale(d[0]);
+    })
+    .attr("y", function (d) {
+      return yScale(d[1]) + 20;
+    })
+    .attr("stroke", function (d) {
+      return "black";
+    })
+    .attr("width", bar_width)
+    .attr("height", function (d) {
+      return plotHeight - yScale(d[1]);
+    })
+    .attr("fill", "orange")
+    .style("stroke", "white")
+    .style("stroke-width", 4);
+
+  //create Y-labels
+  plot.selectAll("text")
+    .data(chart_data)
+    .enter()
+    .append("text")
+    .attr("class", "chart_text_y")
+    .text(function (d) {
+      return d[1].toFixed(4);
+    })
+    .attr("x", function (d) {
+      return xScale(d[0]) + bar_width / 2;
+    })
+    .attr("y", function (d) {
+      return yScale(d[1]) + 40;
+    })
+    .attr("alignment-baseline", "middle")
+    .attr('text-anchor', "middle")
+    .attr("fill", "white");
+
+  //create x-labels
+  let xLabels = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + (margin.top + plotHeight) + ")");
+
+  xLabels.selectAll("text.xAxis")
+    .data(chart_data)
+    .enter()
+    .append("text")
+    .attr("class", "xAxis")
+    .text(function (d) {
+      return d[0];
+    })
+    .attr("font-size", "13px")
+    .attr("text-anchor", "middle")
+    .attr("x", function (d) {
+      return xScale(d[0]) + bar_width / 2;
+    })
+    .attr("y", 30);
+
+  //Create Title
+  svg.append("text")
+    .attr("id", "chart_title")
+    .attr("x", plotWidth / 2 + 20)
+    .attr("y", 10)
+    .attr("class", "title")
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "middle")
+    .text("Cosine Similarity Scores for the Top 5 Words");
+
+}
