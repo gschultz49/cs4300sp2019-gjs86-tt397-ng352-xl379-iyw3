@@ -6,7 +6,7 @@ from ... import settings
 #from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-ps = PorterStemmer()
+#ps = PorterStemmer()
 
 path = os.path.join(settings.APP_STATIC, "v1.tsv")
 with open(path) as csvfile:
