@@ -152,6 +152,7 @@ $(document).on("click", '.card', function () {
   console.log("CLICKED");
   // get contents of clicked shoe
   let shoeName = card.find(".card-shoeName").text();
+  let shoeImage = card.find(".card-shoeImage").attr("src");
   let similarShoes = card.find(".card-similarShoes").text();
   let corescore = card.find(".card-corescore").text();
   let similarity = card.find(".card-similarity").text();
@@ -163,7 +164,7 @@ $(document).on("click", '.card', function () {
   let women_weight = card.find(".card-women_weight").text();
   let graph_text = card.find(".card-graph").text();
 
-  console.log(shoeName, similarShoes, corescore, similarity, relevantTerms, terrain, arch_support, men_weight, women_weight);
+  console.log(shoeName, shoeImage, similarShoes, corescore, similarity, relevantTerms, terrain, arch_support, men_weight, women_weight);
   console.log(graph_text);
 
   //create input for creating bar chart from graph text
@@ -190,16 +191,17 @@ $(document).on("click", '.card', function () {
 
   // populate modal 
   let modal = $(".modal-content");
-  modal.find(".modal-shoeName").html("<b>shoeName</b> " + shoeName);
-  modal.find(".modal-similarShoes").html("<b>similarShoes</b> " + similarShoes);
-  modal.find(".modal-corescore").html("<b>corescore</b> " + corescore);
-  modal.find(".modal-similarity").html("<b>similarity</b> " + similarity);
-  modal.find(".modal-relevantTerms").html("<b>relevantTerms</b> " + relevantTerms);
-  modal.find(".modal-amazonLink").html("<b>amazonLink</b> " + amazonLink);
-  modal.find(".modal-terrain").html("<b>terrain</b> " + terrain);
-  modal.find(".modal-arch_support").html("<b>arch_support</b> " + arch_support);
-  modal.find(".modal-men_weight").html("<b>men_weight</b> " + men_weight);
-  modal.find(".modal-women_weight").html("<b>women_weight</b> " + women_weight);
+  modal.find(".modal-shoeName").html("" + shoeName);
+  modal.find(".modal-shoeImage").attr("src", shoeImage);
+  modal.find(".modal-similarShoes").html("" + similarShoes);
+  modal.find(".modal-corescore").html("" + corescore);
+  modal.find(".modal-similarity").html("" + similarity);
+  modal.find(".modal-relevantTerms").html("" + relevantTerms);
+  modal.find(".modal-amazonLink").attr("href", amazonLink);
+  modal.find(".modal-terrain").html("<b>Terrain:</b>" + terrain);
+  modal.find(".modal-arch_support").html("<b>Arch:</b>" + arch_support);
+  modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
+  modal.find(".modal-women_weight").html("<b>Women's weight:</b< " + women_weight);
 });
 
 let scrollToResults = () => {
