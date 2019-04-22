@@ -207,6 +207,9 @@ body {
     #custom-search-content .item-group .input-item img {
       height: 100px;
       width: 100px; }
+    #custom-search-content .item-group .input-item .arches {
+      height: 150px;
+      width: 90px; }
 
 #shoe-modal figure img {
   max-width: 90%;
