@@ -209,6 +209,15 @@ $(document).on("click", '.card', function () {
 
   }
 
+  //If men_weight or women_weight is blank, show N/A 
+  if (men_weight === " ") {
+    men_weight = "N/A";
+  }
+
+  if (women_weight === " ") {
+    women_weight = "N/A";
+  }
+
   // populate modal 
   let modal = $(".modal-content");
   modal.find(".modal-shoeName").html("" + shoeName);
