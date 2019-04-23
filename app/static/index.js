@@ -176,7 +176,13 @@ $(document).on("click", '.card', function () {
   //delete the graph
   $("#modal_graph").remove();
 
+  //remove hide attribute from relevant sentence
+  $(".relevant-sentence").removeClass("hide");
+
   if (card_class === "card similar") {
+
+    //hide the relevant sentence
+    $(".relevant-sentence").attr("class", "hide");
 
     //remove the hide attribute from svg
     $("#modal_graph").removeClass("hide");
@@ -361,7 +367,7 @@ function create_bar_chart(chart_data_raw) {
       return xScale(d[0]);
     })
     .attr("y", function (d) {
-      return yScale(d[1]) + 20;
+      return yScale(d[1]);
     })
     .attr("stroke", function (d) {
       return "black";
@@ -410,7 +416,7 @@ function create_bar_chart(chart_data_raw) {
     .attr("x", function (d) {
       return xScale(d[0]) + bar_width / 2;
     })
-    .attr("y", 30);
+    .attr("y", 20);
 
   //Create Title
   svg.append("text")

@@ -300,4 +300,12 @@ body {
   text-align: center;
 }
 
+.hide {
+  display: none;
+}
+
+.modal-svg {
+  margin: 10px;
+}
+
 /*# sourceMappingURL=index.css.map */
