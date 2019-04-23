@@ -173,9 +173,6 @@ $(document).on("click", '.card', function () {
 
   console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
-  //add hide attribute to svg
-  // $("#modal_graph").addClass("hide");
-
   //delete the graph
   $("#modal_graph").remove();
 
@@ -210,6 +207,15 @@ $(document).on("click", '.card', function () {
     //create bar chart
     create_bar_chart(input);
 
+  }
+
+  //If men_weight or women_weight is blank, show N/A 
+  if (men_weight === " ") {
+    men_weight = "N/A";
+  }
+
+  if (women_weight === " ") {
+    women_weight = "N/A";
   }
 
   // populate modal 
@@ -304,9 +310,11 @@ function create_bar_chart(chart_data_raw) {
   const margin = { top: 30, right: 30, bottom: 30, left: 30 };
 
   //modal-content
-  d3.select(".modal-content")
+  // d3.select(".modal-content")
+  d3.select(".modal-svg")
     .append("svg")
     .attr("id", "modal_graph")
+    // .attr("class", "center")
     .attr("height", 300)
     .attr("width", 500);
 
