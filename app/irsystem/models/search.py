@@ -460,7 +460,7 @@ def CompleteQuery(query, tokenize=tokenize1):
 
     return topwords
 
-def findShoe(shoename, shoename_to_index=shoename_to_index,similar = similar, sdict = sdict):
+def findShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
     idx = shoename_to_index[shoename.lower()]
     dict1 = {}
     dict1['name']=shoename
