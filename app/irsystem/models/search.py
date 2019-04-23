@@ -3,22 +3,22 @@ import numpy as np
 import re, json, os, nltk, csv
 import pickle
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-#from ... import settings
+from ... import settings
 #from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 #ps = PorterStemmer()
 
-#path = os.path.join(settings.APP_STATIC, "v1.tsv")
-path = "../../static/v1.tsv"
+path = os.path.join(settings.APP_STATIC, "v1.tsv")
+# path = "../../static/v1.tsv"
 with open(path) as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
     for row in reader:
         sdict[row['shoeNumber']] = row
         
-#path1 = os.path.join(settings.APP_STATIC, "v2.tsv")
-path1 = "../../static/v2.tsv"
+path1 = os.path.join(settings.APP_STATIC, "v2.tsv")
+# path1 = "../../static/v2.tsv"
 with open(path1) as tsvfile2:
     reader = csv.DictReader(tsvfile2, dialect='excel-tab')
     rdict = {}
@@ -294,7 +294,12 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
 
 #NOT CALLING precompute() now, loading and unpickling instead
 #similar, shoename_to_index, titles = Precompute()
-unpickled_dictionary = pickle.load( open( "big_dictionary.p", "rb" ) )
+
+big_dict_path = os.path.join(settings.APP_MODELS, "big_dictionary.p")
+print (big_dict_path)
+with open(big_dict_path, "rb") as pickle_file:
+    unpickled_dictionary = pickle.load(pickle_file)
+# unpickled_dictionary = pickle.load( open( "big_dictionary.p", "rb" ) )
 similar = unpickled_dictionary['similar']
 shoename_to_index = unpickled_dictionary['shoename_to_index']
 titles = unpickled_dictionary['titles']
