@@ -181,7 +181,12 @@ $(document).on("click", '.card', function () {
   })
 
   //split the sentence into two lines
-  
+  let index = relevantSentence.indexOf(".,");
+  //if there are two sentences
+  if (index !== -1) {
+    var first_sentence = relevantSentence.slice(0,index+1);
+    var second_sentence = relevantSentence.slice(index+2);
+  }
 
   //delete the graph
   $("#modal_graph").remove();
@@ -242,7 +247,14 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-corescore").html("" + corescore);
   modal.find(".modal-similarity").html("" + similarity);
   modal.find(".modal-relevantTerms").html("" + relevantTerms);
-  modal.find(".modal-relevantSentence").html("" + relevantSentence);
+  if (index === -1) {
+    //one sentence
+    modal.find(".modal-relevantSentence1").html("" + relevantSentence);
+  } else {
+    //two sentences
+    modal.find(".modal-relevantSentence1").html("" + first_sentence);
+    modal.find(".modal-relevantSentence2").html("" + second_sentence);
+  }
   modal.find(".modal-amazonLink").attr("href", amazonLink);
   modal.find(".modal-terrain").html("<b>Terrain:</b>" + terrain);
   modal.find(".modal-arch_support").html("<b>Arch:</b>" + arch_support);
