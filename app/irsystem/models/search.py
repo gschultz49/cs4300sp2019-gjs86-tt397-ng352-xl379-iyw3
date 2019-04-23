@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 #ps = PorterStemmer()
 
-path = os.path.join(settings.APP_STATIC, "v1.tsv")
+path = os.path.join(settings.APP_STATIC, "4_15_2019.tsv")
 # path = "../../static/v1.tsv"
 with open(path) as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
@@ -308,7 +308,7 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
     user_dict = u_input
 
     if q == "":
-        topresult=np.arange(800)
+        topresult=np.arange(700)
         topresults = []
         gender = user_dict['gender']
         if gender == "Men":
@@ -317,7 +317,7 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
             g = "women_weight"
         
         i = 0
-        while len(topresults) < numtop and i < 800:
+        while len(topresults) < numtop and i < 700:
             
             arch = sdict[str(topresult[i])]['arch_support'].lower()
             if (user_dict["arch_support"][0] != '' or user_dict["arch_support"][1] != '' or user_dict["arch_support"][2] != ''):

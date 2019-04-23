@@ -9,7 +9,7 @@ import pickle
 
 #ps = PorterStemmer()
 
-path = "../../static/v1.tsv"
+path = "../../static/4_15_2019.tsv"
 with open(path) as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
