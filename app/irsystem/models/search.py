@@ -326,6 +326,12 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
     
     topresults = []
     
+    gender = user_dict['gender']
+    if gender == "Men":
+        g = "men_weight"
+    else:
+        g = "women_weight"
+    
     i = 0
     while len(topresults) < numtop and i < 100:
         if len(user_dict["arch_support"]) != 3 and user_dict["arch_support"] != "N/A" and user_dict['arch_support'] != sdict[str(topresult[i])]['arch_support']:
@@ -338,9 +344,13 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
                 continue
         if len(user_dict["terrain"]) != 2 and user_dict["terrain"] != "N/A" and user_dict["terrain"] != sdict[str(topresult[i])]['terrain']:
             i += 1
+            continue 
+        if sdict[str(topresult[i])][g] != '' and float(user_dict['weight'][:-2]) < float(sdict[str(topresult[i])][g][:-2]):
+            i += 1
             continue
         topresults.append(topresult[i])
         i +=1
+        
       
     
     sentdict = {}

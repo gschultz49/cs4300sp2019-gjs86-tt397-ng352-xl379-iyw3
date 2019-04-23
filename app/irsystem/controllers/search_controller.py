@@ -8,6 +8,12 @@ def _search (f, query):
 	print (results)
 	return results
 
+def _searchs (f, query):
+	print (query)
+	results = json.dumps(f(query))
+	print (results)
+	return results
+
 def _generate_dictionary (request, termlist, d={}):
 	d = {}
 	for t in termlist:
@@ -21,7 +27,7 @@ def _generate_dictionary (request, termlist, d={}):
 @irsystem.route('/similar_search')
 def similar_search():
 	print ("IN SIMILAR SEARCH")
-	return _search (FindSimilarShoes, request.args.get("search"))
+	return _searchs (FindSimilarShoes, request.args.get("search"))
 
 
 # used for ajax retrieval
