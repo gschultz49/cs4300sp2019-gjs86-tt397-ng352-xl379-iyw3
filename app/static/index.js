@@ -173,9 +173,6 @@ $(document).on("click", '.card', function () {
 
   console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
-  //add hide attribute to svg
-  // $("#modal_graph").addClass("hide");
-
   //delete the graph
   $("#modal_graph").remove();
 
