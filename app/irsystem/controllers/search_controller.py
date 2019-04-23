@@ -50,7 +50,7 @@ def custom_search():
 	}
 
 	data = _generate_dictionary(request, terms)
-	
+	print(data)
 	#data = "soft" #hardcode to test
 	
 	# FIX THIS FUNC, NOT WORKING
