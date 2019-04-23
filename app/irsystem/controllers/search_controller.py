@@ -29,18 +29,6 @@ def _generate_dictionary(request, termsDict):
 	print (termsDict)
 	return termsDict
 
-
-	# for t in termlist:
-	# 	print (request.args)
-	# 	if t in request.args:
-	# 		if t[-2:] == "[]":
-	# 			d[t[:-2]] = request.args.get(t)
-	# 		else:
-	# 			d[t] = request.args.get(t)
-	# 	else:
-	# 		d[t] = "N/A"
-	# return d
-
 # used for ajax retrieval
 @irsystem.route('/similar_search')
 def similar_search():
