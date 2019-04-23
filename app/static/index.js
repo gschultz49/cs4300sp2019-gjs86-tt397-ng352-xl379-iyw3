@@ -173,6 +173,10 @@ $(document).on("click", '.card', function () {
 
   console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
+  //highlight the relevant terms in relevant sentence
+  console.log("relevant terms are: " + relevantTerms);
+  relevantSentence = relevantSentence.split(relevantTerms).join('<b class="highlight">' + relevantTerms + "</b>");
+
   //delete the graph
   $("#modal_graph").remove();
 
