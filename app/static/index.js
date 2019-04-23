@@ -310,9 +310,11 @@ function create_bar_chart(chart_data_raw) {
   const margin = { top: 30, right: 30, bottom: 30, left: 30 };
 
   //modal-content
-  d3.select(".modal-content")
+  // d3.select(".modal-content")
+  d3.select(".modal-svg")
     .append("svg")
     .attr("id", "modal_graph")
+    // .attr("class", "center")
     .attr("height", 300)
     .attr("width", 500);
 
