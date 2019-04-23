@@ -4,13 +4,13 @@ let $SCRIPT_ROOT = ""
 // reload for click on header
 let reload_page = () => location.reload();
 
-// returns whether a checkbox is checked or not
+// returns text if a checkbox is checked or not
 let is_checked = (selector) => {
   if ($(selector).prop("checked") == true) {
-    return true;
+    return $(selector).val()
   }
   else {
-    return false;
+    return "";
   }
 }
 
@@ -84,6 +84,7 @@ const custom_shoe_template = (shoe) => {
         <p class="card-relevantTerms"> ${shoe.relevantTerms}</p>
         <p class="card-amazonLink"> ${shoe.amazonLink}</p>
         <p class="card-terrain"> ${shoe.terrain}</p>
+        <p class="card-relevantSentence"> ${shoe.relevantSentence}</p>
         <p class="card-arch_support"> ${shoe.arch_support}</p>
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
@@ -136,11 +137,8 @@ let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
   
   if (endpoint == "/custom_search"){
     // find more values and add to dictionary here...
-    search_dictionary["trail"] = is_checked("#trail");
-    search_dictionary["road"] = is_checked ("#road");
-    search_dictionary["neutral"] = is_checked ("#neutral");
-    search_dictionary["stability"] = is_checked ("#stability");
-    search_dictionary["motion_control"] = is_checked ("#motion_control");
+    search_dictionary["terrain"] = [is_checked("#trail"), is_checked("#road")]
+    search_dictionary["arch_support"] = [is_checked("#neutral"), is_checked("#stability"), is_checked("#motion_control") ]
     search_dictionary["gender"] = $(".weight :selected").val();
     search_dictionary["weight"] = $("#weight-range").val();
   }
@@ -165,12 +163,13 @@ $(document).on("click", '.card', function () {
   let similarShoes = card.find(".card-similarShoes").text();
   let corescore = card.find(".card-corescore").text();
   let similarity = card.find(".card-similarity").text();
+  let relevantTerms = card.find(".card-relevantTerms").text();
+  let relevantSentence = card.find(".card-relevantSentence").text();
   let amazonLink = card.find(".card-amazonLink").text();
   let terrain = card.find(".card-terrain").text();
   let arch_support = card.find(".card-arch_support").text();
   let men_weight = card.find(".card-men_weight").text();
   let women_weight = card.find(".card-women_weight").text();
-  let relevantTerms = card.find(".card-relevantTerms").text();
 
   console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
@@ -220,6 +219,8 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-similarShoes").html("" + similarShoes);
   modal.find(".modal-corescore").html("" + corescore);
   modal.find(".modal-similarity").html("" + similarity);
+  modal.find(".modal-relevantTerms").html("" + relevantTerms);
+  modal.find(".modal-relevantSentence").html("" + relevantSentence);
   modal.find(".modal-amazonLink").attr("href", amazonLink);
   modal.find(".modal-terrain").html("<b>Terrain:</b>" + terrain);
   modal.find(".modal-arch_support").html("<b>Arch:</b>" + arch_support);

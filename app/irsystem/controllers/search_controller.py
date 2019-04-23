@@ -4,7 +4,7 @@ from app.irsystem.models.search import *
 # helper, does searching
 def _search (f, query):
 	print (query)
-	results = json.dumps(f(query))
+	results = json.dumps(f(query['search'],query))
 	print (results)
 	return results
 
@@ -31,16 +31,19 @@ def custom_search():
 	# define terms to filter for here, if not in request value is "N/A"
 	terms = [
 		"search",
+		"terrain",
 		"arch_support",
-		"terrain"
+		"gender",
+		"weight"
 	]
 	data = _generate_dictionary(request, terms)
 	print (data)
+	print (data)
 	
-	data = "soft" #hardcode to test
+	#data = "soft" #hardcode to test
 	
 	# FIX THIS FUNC, NOT WORKING
-	return _search(FindQuery, data)
+	return _search(FindQuery,data)
 
 
 @irsystem.route('/', methods=['GET'])

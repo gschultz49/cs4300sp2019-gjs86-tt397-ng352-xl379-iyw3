@@ -1,6 +1,7 @@
 # IR system goes here
 import numpy as np
 import re, json, os, nltk, csv
+import pickle
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from ... import settings
 #from nltk.stem import PorterStemmer
@@ -9,6 +10,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 #ps = PorterStemmer()
 
 path = os.path.join(settings.APP_STATIC, "v1.tsv")
+# path = "../../static/v1.tsv"
 with open(path) as csvfile:
     reader = csv.DictReader(csvfile, dialect='excel-tab')
     sdict = {}
@@ -16,6 +18,7 @@ with open(path) as csvfile:
         sdict[row['shoeNumber']] = row
         
 path1 = os.path.join(settings.APP_STATIC, "v2.tsv")
+# path1 = "../../static/v2.tsv"
 with open(path1) as tsvfile2:
     reader = csv.DictReader(tsvfile2, dialect='excel-tab')
     rdict = {}
@@ -289,8 +292,17 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
 
     return similar, shoename_to_index, titles
 
+#NOT CALLING precompute() now, loading and unpickling instead
+#similar, shoename_to_index, titles = Precompute()
 
-similar, shoename_to_index, titles = Precompute()
+big_dict_path = os.path.join(settings.APP_MODELS, "big_dictionary.p")
+print (big_dict_path)
+with open(big_dict_path, "rb") as pickle_file:
+    unpickled_dictionary = pickle.load(pickle_file)
+# unpickled_dictionary = pickle.load( open( "big_dictionary.p", "rb" ) )
+similar = unpickled_dictionary['similar']
+shoename_to_index = unpickled_dictionary['shoename_to_index']
+titles = unpickled_dictionary['titles']
 
 
 def FindSimilarShoes(shoename, information_dict=similar, shoename_to_index=shoename_to_index):
@@ -340,13 +352,15 @@ def CompleteName(q, titles=titles):
     return possible[:15]
 
 
-u_input = {}
-u_input['arch_support'] = "N/A"
-u_input['terrain'] = "N/A"
-
-def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
+    u_input = {}
+    u_input['arch_support'] = "N/A"
+    u_input['terrain'] = "N/A"
+    
+def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
 
+    user_dict = u_input
+    
     newdictlist = []
     for i in np.arange(len(sdict)):
         newdictlist.append(sdict[str(i)]['useful'])
@@ -368,15 +382,20 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
     
     #topresults = topresult[:numtop]
     
-    user_dict = u_input
+    
     topresults = []
     
     i = 0
     while len(topresults) < numtop and i < 100:
-        if user_dict["arch_support"] != "N/A" and user_dict['arch_support'] != sdict[str(topresult[i])]['arch_support']:
-            i += 1
-            continue
-        if user_dict["terrain"] != "N/A" and user_dict["terrain"] != sdict[str(topresult[i])]['terrain']:
+        if len(user_dict["arch_support"]) != 3 and user_dict["arch_support"] != "N/A" and user_dict['arch_support'] != sdict[str(topresult[i])]['arch_support']:
+            if len(user_dict["arch_support"]) != 2:
+                i += 1
+                continue
+            if (len(user_dict["arch_support"]) == 2 and user_dict["arch_support"][0] != sdict[str(topresult[i])]['arch_support'] 
+            and user_dict["arch_support"][1] != sdict[str(topresult[i])]['arch_support']):
+                i += 1
+                continue
+        if len(user_dict["terrain"]) != 2 and user_dict["terrain"] != "N/A" and user_dict["terrain"] != sdict[str(topresult[i])]['terrain']:
             i += 1
             continue
         topresults.append(topresult[i])
