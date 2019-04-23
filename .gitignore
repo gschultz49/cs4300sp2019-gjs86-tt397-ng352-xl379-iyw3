@@ -8,4 +8,4 @@ vagrant/a4keypair.pem
 .sass-cache/
 .ipynb_checkpoints/
 *.ipynb
-.vscode
+.vscode/
