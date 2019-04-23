@@ -8,14 +8,31 @@ def _search (f, query):
 	print (results)
 	return results
 
-def _generate_dictionary (request, termlist, d={}):
-	d = {}
-	for t in termlist:
-		if t in request.args:
-			d[t] = request.args.get(t)
+def _generate_dictionary (request, termsDict):
+	ISARRAY = ["terrain", "arch_support"]
+	for t in termsDict:
+		print (request.args)
+		if t in request.args or t in ISARRAY:
+			if type(termsDict[t]) == list: 
+				termsDict[t] = request.args.getlist(t+"[]")
+			else:
+				termsDict[t] = request.args.get(t)
 		else:
-			d[t] = "N/A"
-	return d
+			termsDict[t] ="N/A"
+	print (termsDict)
+	return termsDict
+
+
+	# for t in termlist:
+	# 	print (request.args)
+	# 	if t in request.args:
+	# 		if t[-2:] == "[]":
+	# 			d[t[:-2]] = request.args.get(t)
+	# 		else:
+	# 			d[t] = request.args.get(t)
+	# 	else:
+	# 		d[t] = "N/A"
+	# return d
 
 # used for ajax retrieval
 @irsystem.route('/similar_search')
@@ -29,16 +46,15 @@ def similar_search():
 def custom_search():
 	print ("IN CUSTOM SEARCH")
 	# define terms to filter for here, if not in request value is "N/A"
-	terms = [
-		"search",
-		"terrain",
-		"arch_support",
-		"gender",
-		"weight"
-	]
+	terms = {
+		"search": None,
+		"terrain":[],
+		"arch_support": [],
+		"gender": None,
+		"weight": None
+	}
+
 	data = _generate_dictionary(request, terms)
-	print (data)
-	print (data)
 	
 	#data = "soft" #hardcode to test
 	
