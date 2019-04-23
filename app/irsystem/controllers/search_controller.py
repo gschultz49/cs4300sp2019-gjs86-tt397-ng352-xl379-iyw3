@@ -4,7 +4,7 @@ from app.irsystem.models.search import *
 # helper, does searching
 def _search (f, query):
 	print (query)
-	results = json.dumps(f(query))
+	results = json.dumps(f(query['search'],query))
 	print (results)
 	return results
 
@@ -40,10 +40,10 @@ def custom_search():
 	print (data)
 	print (data)
 	
-	data = "soft" #hardcode to test
+	#data = "soft" #hardcode to test
 	
 	# FIX THIS FUNC, NOT WORKING
-	return _search(FindQuery, data)
+	return _search(FindQuery,data)
 
 
 @irsystem.route('/', methods=['GET'])
