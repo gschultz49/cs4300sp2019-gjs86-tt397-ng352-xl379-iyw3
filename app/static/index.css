@@ -272,6 +272,8 @@ body {
   font-style: oblique;
 }
 #shoe-modal .modal-center-grid {
+  margin-left: 10px;
+  margin-right: 10px;
   text-align: center;
   padding: 2% 0;
 }

@@ -180,6 +180,9 @@ $(document).on("click", '.card', function () {
     relevantSentence = relevantSentence.split(d).join('<b class="highlight">' + d + "</b>");
   })
 
+  //split the sentence into two lines
+  
+
   //delete the graph
   $("#modal_graph").remove();
 
