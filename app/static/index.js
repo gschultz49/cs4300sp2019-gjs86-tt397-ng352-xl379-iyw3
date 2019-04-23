@@ -239,6 +239,22 @@ $(document).on("click", '.card', function () {
     women_weight = "N/A";
   }
 
+  console.log(terrain);
+  console.log(arch_support);
+
+  var terrain_to_image = {
+    "Road": "/static/road.png",
+    "Trail": "/static/trail.png"
+  }
+
+  var arch_to_image = {
+    "Neutral": "/static/high_arch.png",
+    "Stability": "/static/normal_arch.png",
+    "Motion Support": "/static/flat_arch.png"
+  };
+  console.log(terrain_to_image[terrain.trim()]);
+  console.log(arch_to_image[arch_support.trim()]);
+
   // populate modal 
   let modal = $(".modal-content");
   modal.find(".modal-shoeName").html("" + shoeName);
@@ -255,9 +271,11 @@ $(document).on("click", '.card', function () {
     modal.find(".modal-relevantSentence1").html("" + first_sentence);
     modal.find(".modal-relevantSentence2").html("" + second_sentence);
   }
-  modal.find(".modal-amazonLink").attr("href", amazonLink);
   modal.find(".modal-terrain").html("<b>Terrain:</b>" + terrain);
+  modal.find("#image-terrain").attr("src", terrain_to_image[terrain.trim()]);
   modal.find(".modal-arch_support").html("<b>Arch:</b>" + arch_support);
+  modal.find("#image-arch_support").attr("src", arch_to_image[arch_support.trim()]);
+  modal.find(".modal-amazonLink").attr("href", amazonLink);
   modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
   modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight);
   modal.find(".modal-relevantTerms").html("" + relevantTerms);
