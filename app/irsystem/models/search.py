@@ -382,10 +382,15 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
     
     i = 0
     while len(topresults) < numtop and i < 100:
-        if user_dict["arch_support"] != "N/A" and user_dict['arch_support'] != sdict[str(topresult[i])]['arch_support']:
-            i += 1
-            continue
-        if user_dict["terrain"] != "N/A" and user_dict["terrain"] != sdict[str(topresult[i])]['terrain']:
+        if len(user_dict["arch_support"]) != 3 and user_dict["arch_support"] != "N/A" and user_dict['arch_support'] != sdict[str(topresult[i])]['arch_support']:
+            if len(user_dict["arch_support"]) != 2:
+                i += 1
+                continue
+            if (len(user_dict["arch_support"]) == 2 and user_dict["arch_support"][0] != sdict[str(topresult[i])]['arch_support'] 
+            and user_dict["arch_support"][1] != sdict[str(topresult[i])]['arch_support']):
+                i += 1
+                continue
+        if len(user_dict["terrain"]) != 2 and user_dict["terrain"] != "N/A" and user_dict["terrain"] != sdict[str(topresult[i])]['terrain']:
             i += 1
             continue
         topresults.append(topresult[i])
