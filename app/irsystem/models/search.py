@@ -304,84 +304,116 @@ def CompleteName(q, titles=titles):
     
 def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
-
+    
     user_dict = u_input
-    
-    newdictlist = []
-    for i in np.arange(len(sdict)):
-        newdictlist.append(sdict[str(i)]['useful1'])
-    newdictlist.append(q)
 
-    doc_by_vocab1 = tfidf_vec1.fit_transform(newdictlist).toarray()
-    index_to_vocab1 = {i: v for i, v in enumerate(
-        tfidf_vec1.get_feature_names())}
-    vocab_to_index1 = {v: i for i, v in index_to_vocab1.items()}
-
-    cossim1 = np.zeros(len(sdict))
-    for i in np.arange(len(sdict)):
-            cossim1[i] = get_sim(i, len(sdict), doc_by_vocab1)
-    
-    if np.argmax(cossim1) == 0:
-        return []
-    
-    topresult = np.flip(np.argsort(cossim1))
-    
-    #topresults = topresult[:numtop]
-    
-    
-    topresults = []
-    
-    gender = user_dict['gender']
-    if gender == "Men":
-        g = "men_weight"
-    else:
-        g = "women_weight"
-    
-    i = 0
-    while len(topresults) < numtop and i < 100:
+    if q == "":
+        topresult=np.arange(800)
+        topresults = []
+        gender = user_dict['gender']
+        if gender == "Men":
+            g = "men_weight"
+        else:
+            g = "women_weight"
         
-        arch = sdict[str(topresult[i])]['arch_support'].lower()
-        if (user_dict["arch_support"][0] != '' or user_dict["arch_support"][1] != '' or user_dict["arch_support"][2] != ''):
-            if user_dict["arch_support"][0] != arch and user_dict["arch_support"][1] != arch and user_dict["arch_support"][2] != arch:
+        i = 0
+        while len(topresults) < numtop and i < 800:
+            
+            arch = sdict[str(topresult[i])]['arch_support'].lower()
+            if (user_dict["arch_support"][0] != '' or user_dict["arch_support"][1] != '' or user_dict["arch_support"][2] != ''):
+                if user_dict["arch_support"][0] != arch and user_dict["arch_support"][1] != arch and user_dict["arch_support"][2] != arch:
+                    i += 1
+                    continue
+            
+            terr = sdict[str(topresult[i])]['terrain'].lower()
+            
+            if user_dict["terrain"][0] != '' or user_dict["terrain"][1] != '':
+                if user_dict["terrain"][0] != terr and user_dict["terrain"][1]  != terr:
+                    i += 1
+                    continue 
+            if sdict[str(topresult[i])][g] != '' and float(user_dict['weight']) < float(sdict[str(topresult[i])][g][:-2]):
                 i += 1
                 continue
+            topresults.append(topresult[i])
+            i +=1
         
-        terr = sdict[str(topresult[i])]['terrain'].lower()
         
-        if user_dict["terrain"][0] != '' or user_dict["terrain"][1] != '':
-            if user_dict["terrain"][0] != terr and user_dict["terrain"][1]  != terr:
+    else:
+        newdictlist = []
+        for i in np.arange(len(sdict)):
+            newdictlist.append(sdict[str(i)]['useful1'])
+        newdictlist.append(q)
+    
+        doc_by_vocab1 = tfidf_vec1.fit_transform(newdictlist).toarray()
+        index_to_vocab1 = {i: v for i, v in enumerate(
+            tfidf_vec1.get_feature_names())}
+        vocab_to_index1 = {v: i for i, v in index_to_vocab1.items()}
+    
+        cossim1 = np.zeros(len(sdict))
+        for i in np.arange(len(sdict)):
+                cossim1[i] = get_sim(i, len(sdict), doc_by_vocab1)
+        
+        if np.argmax(cossim1) == 0:
+            return []
+        
+        topresult = np.flip(np.argsort(cossim1))
+        
+        #topresults = topresult[:numtop]
+        
+        
+        topresults = []
+        
+        gender = user_dict['gender']
+        if gender == "Men":
+            g = "men_weight"
+        else:
+            g = "women_weight"
+        
+        i = 0
+        while len(topresults) < numtop and i < 100:
+            
+            arch = sdict[str(topresult[i])]['arch_support'].lower()
+            if (user_dict["arch_support"][0] != '' or user_dict["arch_support"][1] != '' or user_dict["arch_support"][2] != ''):
+                if user_dict["arch_support"][0] != arch and user_dict["arch_support"][1] != arch and user_dict["arch_support"][2] != arch:
+                    i += 1
+                    continue
+            
+            terr = sdict[str(topresult[i])]['terrain'].lower()
+            
+            if user_dict["terrain"][0] != '' or user_dict["terrain"][1] != '':
+                if user_dict["terrain"][0] != terr and user_dict["terrain"][1]  != terr:
+                    i += 1
+                    continue 
+            if sdict[str(topresult[i])][g] != '' and float(user_dict['weight']) < float(sdict[str(topresult[i])][g][:-2]):
                 i += 1
-                continue 
-        if sdict[str(topresult[i])][g] != '' and float(user_dict['weight']) < float(sdict[str(topresult[i])][g][:-2]):
-            i += 1
-            continue
-        topresults.append(topresult[i])
-        i +=1
+                continue
+            topresults.append(topresult[i])
+            i +=1
         
       
     
-    sentdict = {}
-    for i in topresults:
-        sentdict[i] = {}
-        num = 0
-        for sent in sdict[str(i)]['good']:
-            sentdict[i][num] = sent
-            num += 1
-        sentdict[i][num] = q
-
-        doc_by_vocab_sent = tfidf_vec1.fit_transform(
-            [sentdict[i][d] for d in sentdict[i]]).toarray()
-        index_to_vocab_sent = {i: v for i, v in enumerate(
-            tfidf_vec1.get_feature_names())}
-        vocab_to_index_sent = {v: i for i, v in index_to_vocab_sent.items()}
-        cossim_sent = np.zeros(len(sdict[str(i)]['good']))
-        for j in np.arange(len(sdict[str(i)]['good'])):
-            cossim_sent[j] = get_sim(j, len(sentdict[i])-1, doc_by_vocab_sent)
-        index = np.argsort(-cossim_sent)[:2]
-        sentdict[i]['sent'] = []
-        for ind in index:
-            if (cossim_sent[ind] > 0):
-                sentdict[i]['sent'].append(sdict[str(i)]['good'][ind])
+        sentdict = {}
+        for i in topresults:
+            sentdict[i] = {}
+            num = 0
+            for sent in sdict[str(i)]['good']:
+                sentdict[i][num] = sent
+                num += 1
+            sentdict[i][num] = q
+    
+            doc_by_vocab_sent = tfidf_vec1.fit_transform(
+                [sentdict[i][d] for d in sentdict[i]]).toarray()
+            index_to_vocab_sent = {i: v for i, v in enumerate(
+                tfidf_vec1.get_feature_names())}
+            vocab_to_index_sent = {v: i for i, v in index_to_vocab_sent.items()}
+            cossim_sent = np.zeros(len(sdict[str(i)]['good']))
+            for j in np.arange(len(sdict[str(i)]['good'])):
+                cossim_sent[j] = get_sim(j, len(sentdict[i])-1, doc_by_vocab_sent)
+            index = np.argsort(-cossim_sent)[:2]
+            sentdict[i]['sent'] = []
+            for ind in index:
+                if (cossim_sent[ind] > 0):
+                    sentdict[i]['sent'].append(sdict[str(i)]['good'][ind])
 
     tops = {}
     for i in np.arange(len(topresults)):
@@ -389,15 +421,22 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
         tops[i]['shoeName'] = sdict[str(topresults[i])]['shoeName']
         tops[i]['shoeImage'] = sdict[str(topresults[i])]['shoe_image']
         tops[i]['amazonLink'] = sdict[str(topresults[i])]['amazonLink']
-        tops[i]['similarity'] = round(cossim1[topresults[i]], 4)
         tops[i]['corescore'] = sdict[str(topresults[i])]['corescore']
-        tops[i]['relevantTerms'] = top_terms(len(
-            sdict), topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[0]
-        tops[i]['scores'] = top_terms(len(
-            sdict), topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[1]
-        tops[i]['termsAndScores'] = top_terms(len(
-            sdict), topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[2]
-        tops[i]['relevantSentence'] = sentdict[topresults[i]]['sent']
+        if q != "":
+            tops[i]['similarity'] = round(cossim1[topresults[i]], 4)
+            tops[i]['relevantTerms'] = top_terms(len(
+                sdict), topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[0]
+            tops[i]['scores'] = top_terms(len(
+                sdict), topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[1]
+            tops[i]['termsAndScores'] = top_terms(len(
+                sdict), topresults[i], doc_by_vocab1, index_to_vocab1, top_k=len(tokenize1(q)))[2]
+            tops[i]['relevantSentence'] = sentdict[topresults[i]]['sent']
+        else:
+            tops[i]['similarity'] = 0
+            tops[i]['relevantTerms'] = []
+            tops[i]['scores'] = []
+            tops[i]['termsAndScores'] = []
+            tops[i]['relevantSentence'] = []
         tops[i]['terrain'] = sdict[str(topresults[i])]['terrain']
         tops[i]['men_weight'] = sdict[str(topresults[i])]['men_weight']
         tops[i]['women_weight'] = sdict[str(topresults[i])]['women_weight']
@@ -414,13 +453,17 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
         tops[item]['similarShoes'] = sim_shoes
 
     array = []
-    
-    maxnum = len(tokenize1(q))
-    
-    for num in np.flip(np.arange(maxnum)+1):
+    if q != "":
+        maxnum = len(tokenize1(q))
+        
+        for num in np.flip(np.arange(maxnum)+1):
+            for item in tops:
+                if len(tops[item]['relevantTerms'])==num:
+                    array.append(tops[item])
+    else:
         for item in tops:
-            if len(tops[item]['relevantTerms'])==num:
-                array.append(tops[item])
+            array.append(tops[item])
+            
     return array
 
 
