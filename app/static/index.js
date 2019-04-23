@@ -173,9 +173,12 @@ $(document).on("click", '.card', function () {
 
   console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
+  //divide the relevant terms into a list
+  relevantTerms = relevantTerms.trim().split(",");
   //highlight the relevant terms in relevant sentence
-  console.log("relevant terms are: " + relevantTerms);
-  relevantSentence = relevantSentence.split(relevantTerms).join('<b class="highlight">' + relevantTerms + "</b>");
+  relevantTerms.forEach(d=>{
+    relevantSentence = relevantSentence.split(d).join('<b class="highlight">' + d + "</b>");
+  })
 
   //delete the graph
   $("#modal_graph").remove();
