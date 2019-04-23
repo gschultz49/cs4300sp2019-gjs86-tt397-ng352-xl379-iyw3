@@ -214,16 +214,21 @@ for item in sdict:
             sent = sent + "."
             sdict[item]['good'].append(sent)
     
-    t = tokenize1(reviews)
-    for token in t:
-        sdict[item]['tokens'].append(token)
-    
     for sent in sdict[item]['good']:
         t = tokenize1(sent)
         for token in t:
             sdict[item]['tokens'].append(token)
            # allw.append(token)
-            
+    
+    sdict[item]['useful1'] = ""
+    
+    for t in sdict[item]['tokens']:
+        sdict[item]['useful1'] = sdict[item]['useful1'] + ' ' + t
+    
+    t = tokenize1(reviews)
+    for token in t:
+        sdict[item]['tokens'].append(token)
+        
 
     newunwant = [term.strip() for term in unwantedlist]
 
@@ -304,7 +309,7 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
     
     newdictlist = []
     for i in np.arange(len(sdict)):
-        newdictlist.append(sdict[str(i)]['useful'])
+        newdictlist.append(sdict[str(i)]['useful1'])
     newdictlist.append(q)
 
     doc_by_vocab1 = tfidf_vec1.fit_transform(newdictlist).toarray()
@@ -334,16 +339,17 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
     
     i = 0
     while len(topresults) < numtop and i < 100:
-        if len(user_dict["arch_support"]) != 0:
-            arch = sdict[str(topresult[i])]['arch_support'].lower()
-            if ((user_dict["arch_support"][0] != '' and user_dict['arch_support'][0] !=  arch) and (user_dict["arch_support"][1] != '' and user_dict['arch_support'][1] !=  arch)
-            and (user_dict["arch_support"][2] != '' and user_dict['arch_support'][2] !=  arch)):
+        
+        arch = sdict[str(topresult[i])]['arch_support'].lower()
+        if (user_dict["arch_support"][0] != '' or user_dict["arch_support"][1] != '' or user_dict["arch_support"][2] != ''):
+            if user_dict["arch_support"][0] != arch and user_dict["arch_support"][1] != arch and user_dict["arch_support"][2] != arch:
                 i += 1
                 continue
-        if len(user_dict['terrain']) != 0:
-            terr = sdict[str(topresult[i])]['terrain'].lower()
-            if ((user_dict["terrain"][0] != '' and user_dict["terrain"][0] != sdict[str(topresult[i])]['terrain']) and
-            (user_dict["terrain"][0] != '' and user_dict["terrain"][0] != sdict[str(topresult[i])]['terrain'])):
+        
+        terr = sdict[str(topresult[i])]['terrain'].lower()
+        
+        if user_dict["terrain"][0] != '' or user_dict["terrain"][1] != '':
+            if user_dict["terrain"][0] != terr and user_dict["terrain"][1]  != terr:
                 i += 1
                 continue 
         if sdict[str(topresult[i])][g] != '' and float(user_dict['weight']) < float(sdict[str(topresult[i])][g][:-2]):
@@ -453,3 +459,15 @@ def CompleteQuery(query, tokenize=tokenize1):
         topwords.append(item[0])
 
     return topwords
+
+def findShoe(shoename, shoename_to_index=shoename_to_index,similar = similar, sdict = sdict):
+    idx = shoename_to_index[shoename.lower()]
+    dict1 = {}
+    dict1['name']=shoename
+    dict1['shoeImage'] = sdict[str(idx)]['shoe_image']
+    dict1['amazonLink'] = sdict[str(idx)]['amazonLink']
+    dict1['terrain'] = sdict[str(idx)]['terrain']
+    dict1['arch_support'] = sdict[str(idx)]['arch_support']
+    dict1['women_weight'] = sdict[str(idx)]['women_weight']
+    dict1['men_weight'] = sdict[str(idx)]['men_weight']
+    return dict1
