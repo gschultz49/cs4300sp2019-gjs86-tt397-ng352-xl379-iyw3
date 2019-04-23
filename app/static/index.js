@@ -44,7 +44,7 @@ const results_text =
 // template generator for shoes found under the EXACT NAME MATCHING SECTION
 const similar_shoe_template = (shoe) => {
   return `
-    <div class="card" data-toggle="modal" data-target="#shoe-modal">
+    <div class="card similar" data-toggle="modal" data-target="#shoe-modal">
       <figure>
         <img class="card-shoeImage" src="${shoe.shoeImage}">
       </figure>
@@ -70,7 +70,7 @@ const similar_shoe_template = (shoe) => {
 // template generator for shoes found under the MULTI PART INPUT section
 const custom_shoe_template = (shoe) => {
   return `
-    <div class="card" data-toggle="modal" data-target="#shoe-modal">
+    <div class="card custom" data-toggle="modal" data-target="#shoe-modal">
       <figure>
         <img class="card-shoeImage" src="${shoe.shoeImage}">
       </figure>
@@ -154,44 +154,64 @@ $(document).on("click", '.card', function () {
   // when user selects a specific card, grab its attributes to populate the modal
   let card = $(this);
   console.log("CLICKED");
+
+  //change data that is gathered from the card based on modal
+  let card_class = card.attr("class");
+  console.log("card class is ", card_class);
+
   // get contents of clicked shoe
   let shoeName = card.find(".card-shoeName").text();
   let shoeImage = card.find(".card-shoeImage").attr("src");
   let similarShoes = card.find(".card-similarShoes").text();
   let corescore = card.find(".card-corescore").text();
   let similarity = card.find(".card-similarity").text();
-  let relevantTerms = card.find(".card-relevantTerms").text();
   let amazonLink = card.find(".card-amazonLink").text();
   let terrain = card.find(".card-terrain").text();
   let arch_support = card.find(".card-arch_support").text();
   let men_weight = card.find(".card-men_weight").text();
   let women_weight = card.find(".card-women_weight").text();
-  let graph_text = card.find(".card-graph").text();
+  let relevantTerms = card.find(".card-relevantTerms").text();
 
-  console.log(shoeName, shoeImage, similarShoes, corescore, similarity, relevantTerms, terrain, arch_support, men_weight, women_weight);
-  // console.log(graph_text);
+  console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
-  //create input for creating bar chart from graph text
-  let input = [];
-  let counter = 0;
-  let accum = [];
-  graph_text.split(",").forEach(d=>{
-    if (counter === 0) {
-      accum.push(d);
-      counter += 1;
-    } else if (counter === 1) {
-      accum.push(parseFloat(d));
-      input.push(accum);
-      accum = [];
-      counter = 0;
-    }
-  });
+  //add hide attribute to svg
+  // $("#modal_graph").addClass("hide");
 
-  //empty element before drawing
-  $("#modal_graph").empty();
+  //delete the graph
+  $("#modal_graph").remove();
+
+  if (card_class === "card similar") {
+
+    //remove the hide attribute from svg
+    $("#modal_graph").removeClass("hide");
+
+    console.log("search for card similar");
+    let graph_text = card.find(".card-graph").text();
+    console.log(graph_text);
+
+    //create input for creating bar chart from graph text
+    let input = [];
+    let counter = 0;
+    let accum = [];
+    graph_text.split(",").forEach(d=>{
+      if (counter === 0) {
+        accum.push(d);
+        counter += 1;
+      } else if (counter === 1) {
+        accum.push(parseFloat(d));
+        input.push(accum);
+        accum = [];
+        counter = 0;
+      }
+    });
+
+    //empty element before drawing
+    $("#modal_graph").empty();
   
-  //create bar chart
-  create_bar_chart(input);
+    //create bar chart
+    create_bar_chart(input);
+
+  }
 
   // populate modal 
   let modal = $(".modal-content");
@@ -200,12 +220,13 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-similarShoes").html("" + similarShoes);
   modal.find(".modal-corescore").html("" + corescore);
   modal.find(".modal-similarity").html("" + similarity);
-  modal.find(".modal-relevantTerms").html("" + relevantTerms);
   modal.find(".modal-amazonLink").attr("href", amazonLink);
   modal.find(".modal-terrain").html("<b>Terrain:</b>" + terrain);
   modal.find(".modal-arch_support").html("<b>Arch:</b>" + arch_support);
   modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
   modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight);
+  modal.find(".modal-relevantTerms").html("" + relevantTerms);
+
 });
 
 let scrollToResults = () => {
@@ -277,9 +298,16 @@ $(document).on("click", '.card-example', function () {
 
 //generate bar chart
 function create_bar_chart(chart_data_raw) {
-  //chart_data_raw is a 2-d array with [shoe name, score]
 
+  //chart_data_raw is a 2-d array with [shoe name, score]
   const margin = { top: 30, right: 30, bottom: 30, left: 30 };
+
+  //modal-content
+  d3.select(".modal-content")
+    .append("svg")
+    .attr("id", "modal_graph")
+    .attr("height", 300)
+    .attr("width", 500);
 
   let svg = d3.select("#modal_graph");
   let height = svg.attr("height");
