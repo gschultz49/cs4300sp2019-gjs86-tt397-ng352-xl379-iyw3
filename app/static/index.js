@@ -239,9 +239,6 @@ $(document).on("click", '.card', function () {
     women_weight = "N/A";
   }
 
-  console.log(terrain);
-  console.log(arch_support);
-
   var terrain_to_image = {
     "Road": "/static/road.png",
     "Trail": "/static/trail.png"
@@ -252,8 +249,6 @@ $(document).on("click", '.card', function () {
     "Stability": "/static/normal_arch.png",
     "Motion Support": "/static/flat_arch.png"
   };
-  console.log(terrain_to_image[terrain.trim()]);
-  console.log(arch_to_image[arch_support.trim()]);
 
   // populate modal 
   let modal = $(".modal-content");
@@ -279,6 +274,8 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
   modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight);
   modal.find(".modal-relevantTerms").html("" + relevantTerms);
+
+  console.log("Modal updated");
 
 });
 
