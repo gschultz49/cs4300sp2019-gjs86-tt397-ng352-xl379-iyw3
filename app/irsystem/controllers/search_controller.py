@@ -1,5 +1,6 @@
 from . import *  
 from app.irsystem.models.search import *
+from flask import jsonify
 
 # helper, does searching
 def _search (f, query):
@@ -48,6 +49,23 @@ def similar_search():
 	return _searchs (FindSimilarShoes, request.args.get("search"))
 
 
+def autosuggester(q, f):
+	return jsonify (f(q))
+
+# Similar shoe autosuggester
+@irsystem.route('/similar_shoe_autosuggest')
+def similar_shoe_autosuggest():
+	print("SIMILAR SHOE AUTOSUGGEST")
+	return autosuggester(request.args.get("q"), CompleteName)
+
+# Similar shoe autosuggester
+@irsystem.route('/custom_shoe_autosuggest')
+def custom_shoe_autosuggest():
+	print("CUSTOM SHOE AUTOSUGGEST")
+	# change this function !
+	return autosuggester(request.args.get("q"), CompleteName)
+
+
 # used for ajax retrieval
 @irsystem.route('/custom_search')
 def custom_search():
@@ -67,6 +85,8 @@ def custom_search():
 	
 	# FIX THIS FUNC, NOT WORKING
 	return _search(FindQuery,data)
+
+
 
 
 @irsystem.route('/', methods=['GET'])
