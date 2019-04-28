@@ -6,15 +6,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from ... import settings
 #from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
-<<<<<<< HEAD
-# import autocomplete
-=======
-<<<<<<< HEAD
-# import autocomplete
-=======
 from collections import Counter
->>>>>>> 340078460e6a9586a27afe1792cfeb2a4a4756bf
->>>>>>> 1b837251bcad12074b1ceede362529578bdb4a72
 
 #ps = PorterStemmer()
 
@@ -524,18 +516,13 @@ def findShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
     dict1['men_weight'] = sdict[str(idx)]['men_weight']
     return dict1
 
-<<<<<<< HEAD
-# train autocomplete models on big.txt
-# autocomplete.load()
-=======
-
 ### Autocomplete ###
 # helper function
 def norm_rsplit(text,n):
     return text.lower().rsplit(' ', n)[-n:]
 
 # load models
-load_path = 'models_compressed.pkl'
+load_path = os.path.join(settings.APP_MODELS, 'models_compressed.pkl')
 models = pickle.load(open(load_path,'rb'))
 WORDS_MODEL = models['words_model']
 WORD_TUPLES_MODEL = models['word_tuples_model']
@@ -622,9 +609,7 @@ def split_predict(text, top_n=10):
     text = norm_rsplit(text, 2)
     return predict(*text, top_n=top_n)
 
->>>>>>> 1b837251bcad12074b1ceede362529578bdb4a72
-
-def completeWord(user_input):
+def CompleteWord(user_input):
     words = user_input.split(" ")
     if len(words) < 2:
         result = predict(words[0], "")

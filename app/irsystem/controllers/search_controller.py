@@ -63,7 +63,7 @@ def similar_shoe_autosuggest():
 def custom_shoe_autosuggest():
 	print("CUSTOM SHOE AUTOSUGGEST")
 	# change this function !
-	return autosuggester(request.args.get("q"), CompleteName)
+	return autosuggester(request.args.get("q"), CompleteWord)
 
 
 # used for ajax retrieval
