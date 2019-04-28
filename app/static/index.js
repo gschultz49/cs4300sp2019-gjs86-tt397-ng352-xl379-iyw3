@@ -1,4 +1,3 @@
-
 let $SCRIPT_ROOT = ""
 
 // reload for click on header
@@ -286,8 +285,39 @@ let scrollToResults = () => {
     }, 1100);
 };
 
+// conducts query autosuggest based on the inputted dictionary keys
+let autosuggest = (d) => {
+  let {id, endpoint, name} = d;
+  $(id).typeahead({
+    hint: true,
+    highlight: true,
+    minLength: 1
+  },
+    {
+      name: name,
+      source: function (query, syncResults, asyncResults) {
+        $.get(endpoint, { "q": query }, function (data) {
+          asyncResults(data)
+        })
+      }
+    });
+}
 
-$(document).ready(function () {
+
+$(document).ready(function () { 
+
+  // autosuggest for similar shoes
+  autosuggest({
+    id: "#similar-search-text", 
+    endpoint: "/similar_shoe_autosuggest", 
+    name: "similar_shoe_autosuggest"
+  });
+  // autosuggest for custom shoes
+  autosuggest({
+    id: "#custom-search-text",
+    endpoint: "/custom_shoe_autosuggest",
+    name: "custom_shoe_autosuggest"
+  });
 
   // on click of header, go back to splash
   $(".header h1").bind('click', function () {
