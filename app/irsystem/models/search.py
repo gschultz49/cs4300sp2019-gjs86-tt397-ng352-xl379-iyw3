@@ -6,11 +6,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from ... import settings
 #from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
-<<<<<<< HEAD
-# import autocomplete
-=======
 from collections import Counter
->>>>>>> 340078460e6a9586a27afe1792cfeb2a4a4756bf
 
 #ps = PorterStemmer()
 
@@ -527,7 +523,7 @@ def norm_rsplit(text,n):
     return text.lower().rsplit(' ', n)[-n:]
 
 # load models
-load_path = 'models_compressed.pkl'
+load_path = os.path.join(settings.APP_MODELS, 'models_compressed.pkl')
 models = pickle.load(open(load_path,'rb'))
 WORDS_MODEL = models['words_model']
 WORD_TUPLES_MODEL = models['word_tuples_model']
@@ -615,7 +611,7 @@ def split_predict(text, top_n=10):
     return predict(*text, top_n=top_n)
 
 
-def completeWord(user_input):
+def CompleteWord(user_input):
     words = user_input.split(" ")
     if len(words) < 2:
         result = predict(words[0], "")
