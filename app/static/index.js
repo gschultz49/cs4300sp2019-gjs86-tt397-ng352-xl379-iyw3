@@ -351,10 +351,11 @@ $(document).ready(function () {
     }
   });
 
-  // should we have a button?
-  // $('#go').bind('click', function () {
-  //   input_handler("/custom_search");
-  // });
+  //Handle for click of button for similar shoe
+  $("#similar-search-button").on("click", function(e){
+    console.log("button clicked for similar");
+    input_handler("#similar-search-text", "/similar_search");
+  });
 
   // Handle for click of enter for custom searched shoe
   $("#custom-search-text").on('keypress', function (e) {

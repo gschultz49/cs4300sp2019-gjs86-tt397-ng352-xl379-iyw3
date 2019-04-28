@@ -58,16 +58,23 @@ body {
   height: 7.5rem;
 }
 
-.search-bar {
-  grid-area: search;
-}
-
 .searchbox {
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-areas: ". search .";
   margin-top: 50px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#similar-search-button {
+  background-color: #5bc0dd;
+  color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 200%;
+  font-size: 20px;
 }
 
 .custom-search-button {
