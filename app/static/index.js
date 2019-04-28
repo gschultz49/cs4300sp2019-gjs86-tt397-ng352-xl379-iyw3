@@ -273,6 +273,7 @@ $(document).on("click", '.card', function () {
   if (index === -1) {
     //one sentence
     modal.find(".modal-relevantSentence1").html("" + relevantSentence);
+    modal.find(".modal-relevantSentence2").html("");
   } else {
     //two sentences
     modal.find(".modal-relevantSentence1").html("" + first_sentence);
@@ -284,10 +285,7 @@ $(document).on("click", '.card', function () {
   modal.find("#image-arch_support").attr("src", arch_to_image[arch_support.trim()]);
   modal.find(".modal-amazonLink").attr("href", amazonLink);
   modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
-  modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight);
-  modal.find(".modal-relevantTerms").html("" + relevantTerms);
-
-  //empty all variables
+  modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight); 
 
   console.log("Modal updated");
 
