@@ -76,7 +76,8 @@ def custom_search():
 		"terrain":[],
 		"arch_support": [],
 		"gender": None,
-		"weight": None
+		"weight": None,
+		"price": 1000
 	}
 
 	data = _generate_dictionary(request, terms)
