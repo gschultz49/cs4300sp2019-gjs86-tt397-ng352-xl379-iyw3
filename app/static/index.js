@@ -170,16 +170,24 @@ $(document).on("click", '.card', function () {
   let men_weight = card.find(".card-men_weight").text();
   let women_weight = card.find(".card-women_weight").text();
 
-  console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
+  // console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
   //divide the relevant terms into a list
   relevantTerms = relevantTerms.trim().split(",");
+  
   //highlight the relevant terms in relevant sentence
+  let searchTerms = [];
   relevantTerms.forEach(d=>{
-    relevantSentence = relevantSentence.split(d).join('<b class="highlight">' + d + "</b>");
-  })
+    console.log(d);
+    var replace1 = d;
+    var replace2 = d.charAt(0).toUpperCase() + d.slice(1);
+    console.log(replace2);
+    var re1 = new RegExp(replace1, "g");
+    var re2 = new RegExp(replace2, "g");
+    relevantSentence = relevantSentence.replace(re1, '<b class="highlight">' + replace1 + "</b>");
+    relevantSentence = relevantSentence.replace(re2, '<b class="highlight">' + replace2 + "</b>");
+  });
 
-  //split the sentence into two lines
   let index = relevantSentence.indexOf(".,");
   //if there are two sentences
   if (index !== -1) {
@@ -248,6 +256,8 @@ $(document).on("click", '.card', function () {
     "Stability": "/static/normal_arch.png",
     "Motion Support": "/static/flat_arch.png"
   };
+
+  relevantTerms = relevantTerms.join(", ");
 
   // populate modal 
   let modal = $(".modal-content");
@@ -344,6 +354,12 @@ $(document).ready(function () {
       input_handler("#custom-search-text", "/custom_search");
     }
   });
+
+  //Handle for click on buttom for custom searched shoe
+  $(".custom-search-button").on("click", function(e){
+    console.log("button clicked for custom");
+    input_handler("#custom-search-text", "/custom_search");
+  })
 
   // transition between modes from splash
   let render_search_section = (search_content_id) => {
