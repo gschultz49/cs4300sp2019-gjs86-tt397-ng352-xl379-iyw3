@@ -34,8 +34,8 @@ def is_positive(text):
     negative sentiment: compound score <= -0.05
     """    
     # sample output {'compound': -0.1458, 'pos': 0.267, 'neg': 0.315, 'neu': 0.418}
-    score = analyzer.polarity_scores(text)['compound']
-    return score >= 0.05
+    score = analyzer.polarity_scores(text)['neg']
+    return score == 0
 
 
 def tokenize(text):
