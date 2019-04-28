@@ -61,6 +61,7 @@ const similar_shoe_template = (shoe) => {
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
         <p class="card-graph"> ${shoe.term_and_score.splice(0, 5).map(function (d) { return d.toString() }).join(",")} </p>
+        <p class="card-price"> ${shoe.price}</p>
       </div>
     </div>
   `
@@ -87,6 +88,7 @@ const custom_shoe_template = (shoe) => {
         <p class="card-arch_support"> ${shoe.arch_support}</p>
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
+        <p class="card-price"> ${shoe.price}</p>
       </div>
     </div>
   `
@@ -169,6 +171,9 @@ $(document).on("click", '.card', function () {
   let arch_support = card.find(".card-arch_support").text();
   let men_weight = card.find(".card-men_weight").text();
   let women_weight = card.find(".card-women_weight").text();
+  let price = card.find(".card-price").text();
+
+  console.log(price);
 
   // console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
