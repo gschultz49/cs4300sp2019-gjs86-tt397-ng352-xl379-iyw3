@@ -67,7 +67,6 @@ body {
   }
 }
 
-
 .search-bar {
     grid-area: search;
 }
@@ -80,6 +79,16 @@ body {
     ". search .";
   margin-top: 50px;
   @extend %input-text;
+}
+
+.custom-search-button {
+  margin-bottom: 20px;
+  width: 20%;
+  height: 5%;
+}
+
+.custom-search-button:hover {
+  background: #eee;
 }
 
 #similar-search-content{
