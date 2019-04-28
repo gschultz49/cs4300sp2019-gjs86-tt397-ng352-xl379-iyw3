@@ -258,6 +258,8 @@ $(document).on("click", '.card', function () {
     "Motion Support": "/static/flat_arch.png"
   };
 
+  relevantTerms = relevantTerms.join(", ");
+
   // populate modal 
   let modal = $(".modal-content");
   modal.find(".modal-shoeName").html("" + shoeName);
