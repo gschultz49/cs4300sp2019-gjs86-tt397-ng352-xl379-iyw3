@@ -175,19 +175,23 @@ $(document).on("click", '.card', function () {
   //divide the relevant terms into a list
   relevantTerms = relevantTerms.trim().split(",");
 
+  console.log(relevantTerms);
+
   //highlight the relevant terms in relevant sentence
-  relevantTerms.forEach(d=>{
-    if (relevantSentence !== "") {
-      console.log(d);
-      var replace1 = d;
-      var replace2 = d.charAt(0).toUpperCase() + d.slice(1);
-      console.log(replace2);
-      var re1 = new RegExp(replace1, "g");
-      var re2 = new RegExp(replace2, "g");
-      relevantSentence = relevantSentence.replace(re1, '<b class="highlight">' + replace1 + "</b>");
-      relevantSentence = relevantSentence.replace(re2, '<b class="highlight">' + replace2 + "</b>");
-      }
-  });
+  if (relevantTerms[0] !== "") {
+    relevantTerms.forEach(d=>{
+      if (relevantSentence !== "") {
+        var replace1 = d;
+        var replace2 = d.charAt(0).toUpperCase() + d.slice(1);
+        var re1 = new RegExp(replace1, "g");
+        var re2 = new RegExp(replace2, "g");
+        relevantSentence = relevantSentence.replace(re1, '<b class="highlight">' + replace1 + "</b>");
+        relevantSentence = relevantSentence.replace(re2, '<b class="highlight">' + replace2 + "</b>");
+        }
+    });
+  }
+
+  console.log(relevantSentence);
 
   let index = relevantSentence.indexOf(".,");
   //if there are two sentences
