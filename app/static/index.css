@@ -68,6 +68,16 @@ body {
   margin-right: 25%;
 }
 
+#similar-search-text {
+  font-size: 20px;
+}
+
+.form-control {
+  font-size: 20px;
+  position: relative;
+  display: inline-block;
+}
+
 #similar-search-button {
   background-color: #5bc0dd;
   color: white;
@@ -78,9 +88,15 @@ body {
 }
 
 .custom-search-button {
+  font-size: 20px;
   margin-bottom: 20px;
+  margin-left: 40%;
+  margin-right: 40%;
   width: 20%;
   height: 5%;
+  background-color: #5bc0dd;
+  color: white;
+  border-radius: 10px;
 }
 
 .custom-search-button:hover {
