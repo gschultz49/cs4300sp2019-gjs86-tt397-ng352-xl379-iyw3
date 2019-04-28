@@ -486,7 +486,7 @@ function create_bar_chart(chart_data_raw) {
       return xScale(d[0]) + bar_width / 2;
     })
     .attr("y", function (d) {
-      return yScale(d[1]) + 40;
+      return yScale(d[1]) + 15;
     })
     .attr("alignment-baseline", "middle")
     .attr('text-anchor', "middle")
