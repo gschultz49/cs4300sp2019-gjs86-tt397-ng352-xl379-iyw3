@@ -516,7 +516,6 @@ def findShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
     dict1['men_weight'] = sdict[str(idx)]['men_weight']
     return dict1
 
-
 ### Autocomplete ###
 # helper function
 def norm_rsplit(text,n):
@@ -609,7 +608,6 @@ def split_predict(text, top_n=10):
     choosing the number of suggestions to return (default is 10)"""
     text = norm_rsplit(text, 2)
     return predict(*text, top_n=top_n)
-
 
 def CompleteWord(user_input):
     words = user_input.split(" ")
