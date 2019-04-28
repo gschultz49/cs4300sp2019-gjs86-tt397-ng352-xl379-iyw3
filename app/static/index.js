@@ -329,6 +329,8 @@ $(document).ready(function () {
     name: "custom_shoe_autosuggest"
   });
 
+
+
   // on click of header, go back to splash
   $(".header h1").bind('click', function () {
     reload_page();

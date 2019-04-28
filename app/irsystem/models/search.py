@@ -6,7 +6,11 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from ... import settings
 #from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
+<<<<<<< HEAD
+# import autocomplete
+=======
 from collections import Counter
+>>>>>>> 340078460e6a9586a27afe1792cfeb2a4a4756bf
 
 #ps = PorterStemmer()
 
