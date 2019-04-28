@@ -6,7 +6,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from ... import settings
 #from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
-import autocomplete
+# import autocomplete
 
 #ps = PorterStemmer()
 
@@ -517,7 +517,7 @@ def findShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
     return dict1
 
 # train autocomplete models on big.txt
-autocomplete.load()
+# autocomplete.load()
 
 def completeWord(user_input):
     words = user_input.split(" ")
