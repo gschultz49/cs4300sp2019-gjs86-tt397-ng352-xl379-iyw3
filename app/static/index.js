@@ -173,7 +173,7 @@ $(document).on("click", '.card', function () {
   let women_weight = card.find(".card-women_weight").text();
   let price = card.find(".card-price").text();
 
-  console.log(price);
+  console.log(price.trim());
 
   // console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
@@ -274,6 +274,7 @@ $(document).on("click", '.card', function () {
   // populate modal 
   let modal = $(".modal-content");
   modal.find(".modal-shoeName").html("" + shoeName);
+  modal.find(".modal-price").html("" + "$" + price.trim());
   modal.find(".modal-shoeImage").attr("src", shoeImage);
   modal.find(".modal-similarShoes").html("" + similarShoes);
   modal.find(".modal-corescore").html("" + corescore);
