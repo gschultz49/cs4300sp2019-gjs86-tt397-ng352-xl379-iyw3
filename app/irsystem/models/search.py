@@ -6,7 +6,15 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from ... import settings
 #from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
+<<<<<<< HEAD
 # import autocomplete
+=======
+<<<<<<< HEAD
+# import autocomplete
+=======
+from collections import Counter
+>>>>>>> 340078460e6a9586a27afe1792cfeb2a4a4756bf
+>>>>>>> 1b837251bcad12074b1ceede362529578bdb4a72
 
 #ps = PorterStemmer()
 
@@ -516,13 +524,110 @@ def findShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
     dict1['men_weight'] = sdict[str(idx)]['men_weight']
     return dict1
 
+<<<<<<< HEAD
 # train autocomplete models on big.txt
 # autocomplete.load()
+=======
+
+### Autocomplete ###
+# helper function
+def norm_rsplit(text,n):
+    return text.lower().rsplit(' ', n)[-n:]
+
+# load models
+load_path = 'models_compressed.pkl'
+models = pickle.load(open(load_path,'rb'))
+WORDS_MODEL = models['words_model']
+WORD_TUPLES_MODEL = models['word_tuples_model']
+
+NEARBY_KEYS = {
+    'a': 'qwsz',
+    'b': 'vghn',
+    'c': 'xdfv',
+    'd': 'erfcxs',
+    'e': 'rdsw',
+    'f': 'rtgvcd',
+    'g': 'tyhbvf',
+    'h': 'yujnbg',
+    'j': 'uikmnh',
+    'k': 'iolmj',
+    'l': 'opk',
+    'm': 'njk',
+    'n': 'bhjm',
+    'o': 'iklp',
+    'p': 'ol',
+    'q': 'wa',
+    'r': 'edft',
+    's': 'wedxza',
+    't': 'rfgy',
+    'u': 'yhji',
+    'v': 'cfgb',
+    'w': 'qase',
+    'x': 'zsdc',
+    'y': 'tghu',
+    'z': 'asx'
+    }
+
+
+def this_word(word, top_n=10):
+    """given an incomplete word, return top n suggestions based off
+    frequency of words prefixed by said input word"""
+    return [(k, v) for k, v in WORDS_MODEL.most_common()
+                if k.startswith(word)][:top_n]
+
+
+predict_currword = this_word
+
+
+def this_word_given_last(first_word, second_word, top_n=10):
+    """given a word, return top n suggestions determined by the frequency of
+    words prefixed by the input GIVEN the occurence of the last word"""
+
+    #Hidden step
+    possible_second_words = [second_word[:-1]+char
+                             for char in NEARBY_KEYS[second_word[-1]]
+                             if len(second_word) > 2]
+
+    possible_second_words.append(second_word)
+
+    probable_words = {w:c for w, c in
+                      WORD_TUPLES_MODEL[first_word.lower()].items()
+                      for sec_word in possible_second_words
+                      if w.startswith(sec_word)}
+
+    return Counter(probable_words).most_common(top_n)
+
+
+predict_currword_given_lastword = this_word_given_last
+
+
+def predict(first_word, second_word, top_n=10):
+    """given the last word and the current word to complete, we call
+    predict_currword or predict_currword_given_lastword to retrive most n
+    probable suggestions.
+    """
+
+    if first_word and second_word:
+        return predict_currword_given_lastword(first_word,
+                                                   second_word,
+                                                   top_n=top_n)
+    else:
+        return predict_currword(first_word, top_n)
+
+
+def split_predict(text, top_n=10):
+    """takes in string and will right split accordingly.
+    Optionally, you can provide keyword argument "top_n" for
+    choosing the number of suggestions to return (default is 10)"""
+    text = norm_rsplit(text, 2)
+    return predict(*text, top_n=top_n)
+
+>>>>>>> 1b837251bcad12074b1ceede362529578bdb4a72
 
 def completeWord(user_input):
     words = user_input.split(" ")
     if len(words) < 2:
-        result = autocomplete.predict(words[0], "")
+        result = predict(words[0], "")
     else:
-        result = autocomplete.split_predict(user_input)
+        result = split_predict(user_input)
     return [e[0] for e in result]

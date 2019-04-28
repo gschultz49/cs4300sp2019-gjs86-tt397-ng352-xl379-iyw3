@@ -58,7 +58,7 @@ def similar_shoe_autosuggest():
 	print("SIMILAR SHOE AUTOSUGGEST")
 	return autosuggester(request.args.get("q"), CompleteName)
 
-# Similar shoe autosuggester
+# Custom shoe autosuggester
 @irsystem.route('/custom_shoe_autosuggest')
 def custom_shoe_autosuggest():
 	print("CUSTOM SHOE AUTOSUGGEST")
