@@ -532,6 +532,7 @@ def findShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
     dict1['arch_support'] = sdict[str(idx)]['arch_support']
     dict1['women_weight'] = sdict[str(idx)]['women_weight']
     dict1['men_weight'] = sdict[str(idx)]['men_weight']
+    dict1['price'] = sdict[str(idx)]['price']
     return dict1
 
 ### Autocomplete ###
