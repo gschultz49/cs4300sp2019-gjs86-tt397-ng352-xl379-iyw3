@@ -9,8 +9,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 <<<<<<< HEAD
 # import autocomplete
 =======
+<<<<<<< HEAD
+# import autocomplete
+=======
 from collections import Counter
 >>>>>>> 340078460e6a9586a27afe1792cfeb2a4a4756bf
+>>>>>>> 1b837251bcad12074b1ceede362529578bdb4a72
 
 #ps = PorterStemmer()
 
@@ -520,6 +524,10 @@ def findShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
     dict1['men_weight'] = sdict[str(idx)]['men_weight']
     return dict1
 
+<<<<<<< HEAD
+# train autocomplete models on big.txt
+# autocomplete.load()
+=======
 
 ### Autocomplete ###
 # helper function
@@ -614,6 +622,7 @@ def split_predict(text, top_n=10):
     text = norm_rsplit(text, 2)
     return predict(*text, top_n=top_n)
 
+>>>>>>> 1b837251bcad12074b1ceede362529578bdb4a72
 
 def completeWord(user_input):
     words = user_input.split(" ")

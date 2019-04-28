@@ -310,6 +310,12 @@ body {
   text-align: center;
   padding: 5% 10%;
 }
+#shoe-modal #image-terrain {
+  max-width: 100%;
+}
+#shoe-modal #image-arch_support {
+  width: 40%;
+}
 
 .center {
   text-align: center;
