@@ -174,18 +174,19 @@ $(document).on("click", '.card', function () {
 
   //divide the relevant terms into a list
   relevantTerms = relevantTerms.trim().split(",");
-  
+
   //highlight the relevant terms in relevant sentence
-  let searchTerms = [];
   relevantTerms.forEach(d=>{
-    console.log(d);
-    var replace1 = d;
-    var replace2 = d.charAt(0).toUpperCase() + d.slice(1);
-    console.log(replace2);
-    var re1 = new RegExp(replace1, "g");
-    var re2 = new RegExp(replace2, "g");
-    relevantSentence = relevantSentence.replace(re1, '<b class="highlight">' + replace1 + "</b>");
-    relevantSentence = relevantSentence.replace(re2, '<b class="highlight">' + replace2 + "</b>");
+    if (relevantSentence !== "") {
+      console.log(d);
+      var replace1 = d;
+      var replace2 = d.charAt(0).toUpperCase() + d.slice(1);
+      console.log(replace2);
+      var re1 = new RegExp(replace1, "g");
+      var re2 = new RegExp(replace2, "g");
+      relevantSentence = relevantSentence.replace(re1, '<b class="highlight">' + replace1 + "</b>");
+      relevantSentence = relevantSentence.replace(re2, '<b class="highlight">' + replace2 + "</b>");
+      }
   });
 
   let index = relevantSentence.indexOf(".,");
@@ -257,6 +258,8 @@ $(document).on("click", '.card', function () {
     "Motion Support": "/static/flat_arch.png"
   };
 
+  console.log(arch_support.trim());
+
   relevantTerms = relevantTerms.join(", ");
 
   // populate modal 
@@ -283,6 +286,8 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
   modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight);
   modal.find(".modal-relevantTerms").html("" + relevantTerms);
+
+  //empty all variables
 
   console.log("Modal updated");
 
