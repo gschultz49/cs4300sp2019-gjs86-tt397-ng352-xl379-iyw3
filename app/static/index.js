@@ -325,6 +325,12 @@ $(document).ready(function () {
     }
   });
 
+  //Handle for click on buttom for custom searched shoe
+  $(".custom-search-button").on("click", function(e){
+    console.log("button clicked for custom");
+    input_handler("#custom-search-text", "/custom_search");
+  })
+
   // transition between modes from splash
   let render_search_section = (search_content_id) => {
     $(".landing-cards").fadeOut("slow", function () {
