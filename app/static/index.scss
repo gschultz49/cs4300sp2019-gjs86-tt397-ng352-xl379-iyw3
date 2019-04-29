@@ -37,6 +37,16 @@ $card-white: #fff;
   }
 }
 
+@-webkit-keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+  
+  to {
+    -webkit-mask-position: -50%;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -54,6 +64,22 @@ body {
   text-align: center;
 }
 
+.effect-grow{
+  img{
+    transition: all .5s;
+  }
+  &:hover{
+    img{
+      transition: transform .5s;
+      transform: scale(1.5);
+    }   
+  }
+}
+
+
+
+
+
 .header{
   margin-top: 3%;
   
@@ -64,6 +90,7 @@ body {
   }
   img{
     height: 7.5rem;
+    
   }
 }
 

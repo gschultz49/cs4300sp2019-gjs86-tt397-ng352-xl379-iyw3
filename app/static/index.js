@@ -142,6 +142,7 @@ let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
     search_dictionary["weight"] = $("#weight-range").val();
   }
   console.log(inputbox, endpoint, search_dictionary); 
+  // ADD INDIVIDUAL SHOE FUNCTIONALITY HERE
   clear_and_search(endpoint, search_dictionary);
   scrollToResults();
   return false;
