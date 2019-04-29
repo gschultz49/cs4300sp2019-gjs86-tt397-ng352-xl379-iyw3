@@ -2,20 +2,23 @@ from . import *
 from app.irsystem.models.search import *
 from flask import jsonify
 
+# helper
+def autosuggester(q, f):
+	return jsonify(f(q))
+
 # helper, does searching
 def _search (f, query):
 	print (query)
 	results = json.dumps(f(query['search'],query))
-	print (results)
+	# print (results)
 	return results
 
 
 def _searchs (f, query):
 	print (query)
 	results = json.dumps(f(query))
-	print (results)
+	# print (results)
 	return results
-
 
 def _generate_dictionary(request, termsDict):
 	ISARRAY = ["terrain", "arch_support"]
@@ -27,30 +30,22 @@ def _generate_dictionary(request, termsDict):
 				termsDict[t] = request.args.get(t)
 		else:
 			termsDict[t] ="N/A"
-	print (termsDict)
+	# print (termsDict)
 	return termsDict
 
 
-	# for t in termlist:
-	# 	print (request.args)
-	# 	if t in request.args:
-	# 		if t[-2:] == "[]":
-	# 			d[t[:-2]] = request.args.get(t)
-	# 		else:
-	# 			d[t] = request.args.get(t)
-	# 	else:
-	# 		d[t] = "N/A"
-	# return d
-
-# used for ajax retrieval
+# Grabs multiple similar shoes
 @irsystem.route('/similar_search')
 def similar_search():
 	print ("IN SIMILAR SEARCH")
 	return _searchs (FindSimilarShoes, request.args.get("search"))
 
+# Grabs a single shoe for similar search
+@irsystem.route('/similar_search_individual')
+def similar_search_individual():
+	return _searchs(FindShoe, request.args.get("search"))
 
-def autosuggester(q, f):
-	return jsonify (f(q))
+
 
 # Similar shoe autosuggester
 @irsystem.route('/similar_shoe_autosuggest')
@@ -64,7 +59,6 @@ def custom_shoe_autosuggest():
 	print("CUSTOM SHOE AUTOSUGGEST")
 	# change this function !
 	return autosuggester(request.args.get("q"), CompleteWord)
-
 
 # used for ajax retrieval
 @irsystem.route('/custom_search')
@@ -81,13 +75,7 @@ def custom_search():
 	}
 
 	data = _generate_dictionary(request, terms)
-	
-	#data = "soft" #hardcode to test
-	
-	# FIX THIS FUNC, NOT WORKING
 	return _search(FindQuery,data)
-
-
 
 
 @irsystem.route('/', methods=['GET'])

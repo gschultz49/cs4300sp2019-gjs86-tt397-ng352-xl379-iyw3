@@ -29,14 +29,38 @@ let render_empty = () => {
   $(".shoes-grid").append(empty);
 }
 
+const render_individual_shoe_similar_search = (shoe) => {
+  return `
+  <div class="individual_shoe_content">
+      <div class="shoe_content_item">
+        <img
+          src=${shoe.shoeImage}>
+      </div>
+      <div class="shoe_content_item">
+        <h4 id="individual_shoe_name"> ${shoe.name}</h4>
+        <div class="equi_two">
+          <h4 id="individual_shoe_terrain"> <b>Terrain:</b> <span>${shoe.terrain}</span></h4>
+          <h4 id="individual_shoe_arch"> <b>Arch:</b> <span>${shoe.arch_support}</span></h4>
+        </div>
+        <div class="equi_two">
+          <h4 id="individual_shoe_mweight"><b>Mens weight:</b> <span>${shoe.men_weight.length > 1 ? shoe.men_weight : "N/A"}</span></h4>
+          <h4 id="individual_shoe_wweight"><b>Womens weight:</b> <span>${shoe.women_weight.length > 1 ? shoe.men_weight : "N/A"}</span></h4>
+        </div>
+      </div>
+    </div>
+  `
+}
+
 // Results HTML
 const results_text =
   `
   <div class="header" >
     <h1 style="cursor:initial">
+    <a href="#">
       <img class="logo" src="/static/logo.png">
         Your Solemates
       <img class="logo" src="/static/logo.png">
+    </a>
     </h1>
   </div>
   `
@@ -98,6 +122,10 @@ const custom_shoe_template = (shoe) => {
   `
 };
   
+let render_individual_shoe = (search_dictionary) => {
+  let {search} = search_dictionary;
+  console.log(search);
+};
 
 // rendering template for a card
 let render_card = (endpoint, shoe) => {
@@ -118,6 +146,18 @@ let ajax_retrieve = (endpoint, search_dictionary) => {
     (data.length > 0) ? data.map(c => render_card(endpoint, c)) : render_empty();
   });
 };
+
+let ajax_retrieve_individual = (endpoint, search_dictionary) => {
+  // retrieve data via GET request
+  $.getJSON($SCRIPT_ROOT + endpoint,
+    search_dictionary
+    , function (single) {
+      // should only be 1 result here
+      let singular_card = render_individual_shoe_similar_search(single);
+      $(".individual_shoe").empty();
+      $(".individual_shoe").append(singular_card);
+    });
+}
 
 // wrapper, clears the data and fetches results
 let clear_and_search = (endpoint, search_dictionary) => {
@@ -145,8 +185,12 @@ let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
     search_dictionary["gender"] = $(".weight :selected").val();
     search_dictionary["weight"] = $("#weight-range").val();
   }
-  // console.log(inputbox, endpoint, search_dictionary); 
-  // ADD INDIVIDUAL SHOE FUNCTIONALITY HERE
+  
+  // If this is similar search, render the individual shoe
+  if (endpoint == "/similar_search"){
+    $(".individual_shoe").show();
+    ajax_retrieve_individual("/similar_search_individual", search_dictionary);
+  }
   clear_and_search(endpoint, search_dictionary);
   scrollToResults();
   return false;
@@ -158,7 +202,6 @@ $(document).on("click", '.card', function () {
 
   //change data that is gathered from the card based on modal
   let card_class = card.attr("class");
-  // console.log("card class is ", card_class);
 
   // get contents of clicked shoe
   let shoeName = card.find(".card-shoeName").text();
@@ -216,7 +259,7 @@ $(document).on("click", '.card', function () {
     $("#modal_graph").removeClass("hide");
 
     let graph_text = card.find(".card-graph").text();
-    console.log(graph_text);
+    // console.log(graph_text);
 
     //create input for creating bar chart from graph text
     let input = [];
@@ -273,7 +316,7 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-corescore").html("" + corescore);
   modal.find(".modal-similarity").html("" + similarity);
   modal.find(".modal-relevantTerms").html("" + relevantTerms);
-  console.log(relevantTerms);
+  // console.log(relevantTerms);
   if (index === -1) {
     //one sentence
     modal.find(".modal-relevantSentence1").html("" + relevantSentence);
@@ -299,7 +342,12 @@ let scrollToResults = () => {
   $("html, body").animate({
      scrollTop: ($(".results_text").offset().top - 50)
     }, 1100);
+    return false;
 };
+let scrollToTop = () => {
+  $("html, body").animate({ scrollTop: 0 }, 1100);
+  return false;
+}
 
 // conducts query autosuggest based on the inputted dictionary keys
 let autosuggest = (d) => {
@@ -327,6 +375,11 @@ $(document).ready(function () {
     side: "right"
   });
 
+  // $('.similar-shoe-name-event').tooltipster({
+  //   theme: ['tooltipster-punk', "tooltipster-punk-customized"],
+  //   side: "right"
+  // });
+
   // autosuggest for similar shoes
   autosuggest({
     id: "#similar-search-text", 
@@ -339,8 +392,6 @@ $(document).ready(function () {
     endpoint: "/custom_shoe_autosuggest",
     name: "custom_shoe_autosuggest"
   });
-
-
 
   // on click of header, go back to splash
   $(".header h1").bind('click', function () {
@@ -407,15 +458,42 @@ $(document).on("click", '.card-example', function () {
   input_handler("#input-text", "/similar_search", { search: shoeName });
 });
 
-// Handler for similar shoes autoclicker
-$(document).on("click", ".similar-shoe-name-event", function () {
-  console.log("yay we running ");
-  $("#shoe-modal").modal("hide");
-  let shoeName = $(this).text().trim();
-  $("#input").val(shoeName);
-  input_handler("#input-text", "/similar_search", { search: shoeName });
-});
 
+let autoclicker = (name) =>{
+  $("#shoe-modal").modal("hide");
+  $("#input").val(name);
+  input_handler("#input-text", "/similar_search", { search: name });
+}
+
+// Handler for similar shoes autoclicker
+$(document).on("click", ".similar-shoe-name-event" , function (){
+  console.log("linked click");
+  let shoeName = $(this).text().trim();
+  autoclicker(shoeName);
+})
+// Handler for similar shoes autoclicker
+$(document).on("click", ".modal-shoeName" , function (){
+  let shoeName = $(this).text().trim();
+  autoclicker(shoeName);
+})
+
+$(document).on("click", ".header a", function () {
+  scrollToTop();
+})
+
+
+
+// Handler for similar shoes autoclicker
+// $(".similar-shoe-name-event , .modal-shoeName").click(function (){
+//   console.log("clicked!");
+  
+// });
+// $(document).on("click", ".similar-shoe-name-event", function () {
+//   $("#shoe-modal").modal("hide");
+//   let shoeName = $(this).text().trim();
+//   $("#input").val(shoeName);
+//   input_handler("#input-text", "/similar_search", { search: shoeName });
+// });
 
 //generate bar chart
 function create_bar_chart(chart_data_raw) {
