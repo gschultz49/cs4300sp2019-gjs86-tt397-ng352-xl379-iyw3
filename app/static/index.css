@@ -269,6 +269,18 @@ body {
       height: 150px;
       width: 90px; }
 
+.shoe-highlight {
+  color: #337ab7;
+  cursor: pointer; }
+  .shoe-highlight:hover {
+    text-decoration: underline; }
+
+.shoe-span-highlight span {
+  color: #337ab7; }
+  .shoe-span-highlight span:hover {
+    text-decoration: underline;
+    cursor: pointer; }
+
 #shoe-modal {
   word-wrap: break-word; }
   #shoe-modal figure img {
@@ -280,11 +292,7 @@ body {
   #shoe-modal .modal-shoeName {
     text-align: center;
     font-style: oblique;
-    font-size: 4.5rem;
-    color: #337ab7;
-    cursor: pointer; }
-    #shoe-modal .modal-shoeName:hover {
-      text-decoration: underline; }
+    font-size: 4.5rem; }
   #shoe-modal .modal-center-grid {
     margin-left: 10px;
     margin-right: 10px;
@@ -299,11 +307,6 @@ body {
     #shoe-modal .item-box img {
       height: 100px;
       width: 100px; }
-  #shoe-modal span {
-    color: #337ab7; }
-    #shoe-modal span:hover {
-      text-decoration: underline;
-      cursor: pointer; }
   #shoe-modal .other-shoes {
     text-align: center;
     padding: 5% 10%; }

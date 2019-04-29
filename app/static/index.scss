@@ -414,6 +414,27 @@ body {
 
 
 
+
+
+.shoe-highlight{
+  color: $span-blue;
+    cursor: pointer;
+    &:hover{
+      text-decoration:  underline;
+    }
+}
+
+.shoe-span-highlight{
+  span{
+    color:$span-blue;
+    &:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+
 #shoe-modal{
   word-wrap: break-word;
   figure{
@@ -429,14 +450,18 @@ body {
     text-align: center;
     font-style: oblique;
     font-size: 4.5rem;
-    color: $span-blue;
-    cursor: pointer;
-    &:hover{
-      // opacity: .5;
-      text-decoration:  underline;
-      // transition all .5s;
-    }
+    // cursor: pointer;
+    // &:hover{
+    //   text-decoration:  underline;
+    // }
   }
+  // span{
+  //   color:$span-blue;
+  //   &:hover{
+  //     text-decoration: underline;
+  //     cursor: pointer;
+  //   }
+  // }
   .modal-center-grid{
     margin-left: 10px;
     margin-right: 10px;
@@ -455,13 +480,6 @@ body {
         width:100px;
       }
     }
-  span{
-    color:$span-blue;
-    &:hover{
-      text-decoration: underline;
-      cursor: pointer;
-    }
-  }
   .other-shoes{
     text-align: center;
     padding: 5% 10%;
