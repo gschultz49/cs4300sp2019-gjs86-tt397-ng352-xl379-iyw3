@@ -143,6 +143,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 10px;
 }
 .card .card-caption, .card-example .card-caption {
   text-align: center;
@@ -193,6 +194,9 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas: ". similar-search  custom-search .";
   margin-top: 50px;
+}
+.landing-cards div {
+  border-radius: 10px;
 }
 .landing-cards img {
   padding: 15px;
@@ -282,7 +286,8 @@ body {
 }
 #custom-search-content .weight {
   color: #fff;
-  background-color: #808cd3;
+  background-color: #ff0100;
+  border: 1px #ff0100;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;

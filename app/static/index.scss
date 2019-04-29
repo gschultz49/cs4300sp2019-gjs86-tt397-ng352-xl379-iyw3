@@ -5,6 +5,7 @@ $header-font-family: 'Marck Script', cursive;
 $body-font-family: "Open Sans";
 $background-color: #f1f1f1;
 $card-white: #fff;
+$heart-red: #ff0100;
 
 %box-hover{
   -webkit-transition: box-shadow .3 cubic-bezier(.25,.8,.25,1); /* Safari */
@@ -169,6 +170,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 10px;
   @extend %box-hover;
   .card-caption{
     text-align: center;
@@ -235,6 +237,11 @@ body {
   grid-template-areas:
     ". similar-search  custom-search .";
   margin-top: 50px;
+  
+  div{
+    border-radius: 10px;
+  }
+  
   img {
     padding:15px;
     width: 50%;
@@ -352,7 +359,8 @@ body {
   .weight{
    color: #fff;
   //  background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
-   background-color: #808cd3;
+   background-color: $heart-red;
+   border: 1px $heart-red;
    -webkit-border-radius: 20px;
    -moz-border-radius: 20px;
    border-radius: 20px;
