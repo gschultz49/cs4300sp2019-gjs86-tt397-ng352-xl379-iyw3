@@ -351,7 +351,7 @@ let scrollToResults = () => {
     return false;
 };
 let scrollToTop = () => {
-  $("html, body").animate({ scrollTop: 0 }, 1100t);
+  $("html, body").animate({ scrollTop: 0 }, 1100);
   return false;
 }
 
