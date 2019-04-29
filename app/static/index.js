@@ -40,7 +40,10 @@ const results_text =
     </h1>
   </div>
   `
-
+// adds the event class for the similar shoes
+let similarShoeFormatter = (shoeName) => {
+  return ` <span class='similar-shoe-name-event'>${shoeName}</span>`
+}
 // template generator for shoes found under the EXACT NAME MATCHING SECTION
 const similar_shoe_template = (shoe) => {
   return `
@@ -52,7 +55,7 @@ const similar_shoe_template = (shoe) => {
         <h3 class="card-shoeName"> ${shoe.shoeName}</h3>
       </div>
       <div class="additional-data">
-        <p class="card-similarShoes"> ${shoe.similarShoes}</p>
+        <p class="card-similarShoes"> ${shoe.similarShoes.map(similarShoeFormatter)} </p>
         <p class="card-corescore"> ${shoe.corescore}</p>
         <p class="card-similarity"> ${shoe.similarity}</p>
         <p class="card-relevantTerms"> ${shoe.relevantTerms}</p>
@@ -272,7 +275,7 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-shoeName").html("" + shoeName);
   modal.find(".modal-price").html("" + "$" + price.trim());
   modal.find(".modal-shoeImage").attr("src", shoeImage);
-  modal.find(".modal-similarShoes").html("" + similarShoes);
+  modal.find(".modal-similarShoes").html("" + similarShoes.split(",").map(similarShoeFormatter));
   modal.find(".modal-corescore").html("" + corescore);
   modal.find(".modal-similarity").html("" + similarity);
   modal.find(".modal-relevantTerms").html("" + relevantTerms);
@@ -406,6 +409,15 @@ $(document).ready(function () {
 $(document).on("click", '.card-example', function () {
   let card = $(this);
   let shoeName = card.find("div > .shoeName").text().trim();
+  $("#input").val(shoeName);
+  input_handler("#input-text", "/similar_search", { search: shoeName });
+});
+
+// Handler for similar shoes autoclicker
+$(document).on("click", ".similar-shoe-name-event", function () {
+  console.log("yay we running ");
+  $("#shoe-modal").modal("hide");
+  let shoeName = $(this).text().trim();
   $("#input").val(shoeName);
   input_handler("#input-text", "/similar_search", { search: shoeName });
 });

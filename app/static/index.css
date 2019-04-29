@@ -235,7 +235,8 @@ body {
     cursor: pointer; }
   #custom-search-content .weight {
     color: #fff;
-    background-color: #808cd3;
+    background-color: #ff0100;
+    border: 1px #ff0100;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
