@@ -427,6 +427,7 @@ body {
   }
   .shoeName-price {
     margin-bottom: 30px;
+    display: flex;
   }
   .modal-shoeName {
     text-align: center;
@@ -435,7 +436,7 @@ body {
     width: 50%;
     color: $span-blue;
     cursor: pointer;
-    float: left;
+    // float: left;
     &:hover{
       // opacity: .5;
       text-decoration:  underline;
@@ -443,7 +444,7 @@ body {
     }
   }
   .modal-price {
-    float: left;
+    // float: left;
     width: 10%;
     margin-right: 15%;
     margin-left: 20px;
