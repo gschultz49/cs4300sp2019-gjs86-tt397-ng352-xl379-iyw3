@@ -6,6 +6,7 @@ $body-font-family: "Open Sans";
 $background-color: #f1f1f1;
 $card-white: #fff;
 $heart-red: #ff0100;
+$span-blue: #337ab7;
 
 %box-hover{
   -webkit-transition: box-shadow .3 cubic-bezier(.25,.8,.25,1); /* Safari */
@@ -91,7 +92,14 @@ body {
   }
   img{
     height: 7.5rem;
-    
+  }
+  a{
+    text-decoration: none;
+    color:initial;
+    transition: opacity .3s;
+    &:hover{
+      opacity: .5;
+    }
   }
 }
 
@@ -421,6 +429,14 @@ body {
   .modal-shoeName {
     text-align: center;
     font-style: oblique;
+    font-size: 4.5rem;
+    color: $span-blue;
+    cursor: pointer;
+    &:hover{
+      // opacity: .5;
+      text-decoration:  underline;
+      // transition all .5s;
+    }
   }
   .modal-center-grid{
     margin-left: 10px;
@@ -441,7 +457,7 @@ body {
       }
     }
   span{
-    color:#337ab7;
+    color:$span-blue;
     &:hover{
       text-decoration: underline;
       cursor: pointer;
@@ -486,4 +502,44 @@ body {
   border-bottom: 6px solid #5bc0dd;
   height:200px;
   width:300px;
+}
+
+.individual_shoe_content{
+  display: flex;
+  flex-flow: row wrap;
+}
+.shoe_content_item{
+  flex-basis:50%;
+}
+
+.individual_shoe{
+  display:none;
+  margin: 5% auto;
+  width: 50%; 
+  height: 35%;
+  background-color: $card-white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 3x solid  grey;
+  border-radius: 10px;
+  padding: 3%;
+  text-align: center;
+
+  img{
+    max-height: 90%;
+    max-width: 100%;
+  }
+
+  #individual_shoe_name{
+    font-style: italic; 
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+}
+
+.equi_two{
+  // display:flex;
+  margin: 5px auto;
 }
