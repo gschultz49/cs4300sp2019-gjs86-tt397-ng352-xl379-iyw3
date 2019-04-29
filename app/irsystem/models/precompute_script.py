@@ -34,8 +34,8 @@ def is_positive(text):
     negative sentiment: compound score <= -0.05
     """    
     # sample output {'compound': -0.1458, 'pos': 0.267, 'neg': 0.315, 'neu': 0.418}
-    score = analyzer.polarity_scores(text)['compound']
-    return score >= 0.05
+    score = analyzer.polarity_scores(text)['neg']
+    return score == 0
 
 
 def tokenize(text):
@@ -200,14 +200,17 @@ def Precompute(sdict=sdict, rdict = rdict, is_positive = is_positive, tokenize =
                 blist.append(s)
 
         unwantedlist = [' consumers ', ' purchasers ', ' said ', ' user ', ' consumer ', ' purchaser ', ' buyers ',
-                        ' buyer ', ' his ', ' was ', ' review ', ' comment ', ' reviews ',
-                        ' reviewers ', ' reviewer ', ' wearer ', ' wearers ', ' commented ',
-                        ' thought ', ' mentioned ', ' felt ', ' this ', ' users ', ' has ', ' feel ', ' admired ',
-                        ' testers ', ' tester ', ' comments ', 's', "good", 'pair', 'definitely','t','like','very','ha','just',
-                       'stated', 'shoes', 'pair', 'shoe', 'pairs', 'model', 'saucony','previous','pros','cons','ye','didn','wasn','ve','t','k',
-                       'feels','consider','considers','mistake','earlier','installment','old','d','don','compared','compare','went','e','gt','v',
-                       'version','asics','clifton','buy','bought','d','a','b','c','f','g','h','i','j','l','m','n','o','p','q','r','u','w','x','y',
-                       'z','read','gets','maybe','really','amazon','footwear','product','em','purchase','used','purchased', 'great']
+                    ' buyer ', ' his ', ' was ', ' review ', ' comment ', ' reviews ',
+                    ' reviewers ', ' reviewer ', ' wearer ', ' wearers ', ' commented ',
+                    ' thought ', ' mentioned ', ' felt ', ' this ', ' users ', ' has ', ' feel ', ' admired ',
+                    ' testers ', ' tester ', ' comments ', 's', "good", 'pair', 'definitely','t','like','very','ha','just',
+                   'stated', 'shoes', 'pair', 'shoe', 'pairs', 'model', 'saucony','previous','pros','cons','ye','didn','wasn','ve','t','k',
+                   'feels','consider','considers','mistake','earlier','installment','old','d','don','compared','compare','went','e','gt','v',
+                   'version','asics','clifton','buy','bought','d','a','b','c','f','g','h','i','j','l','m','n','o','p','q','r','u','w','x','y',
+                   'z','read','gets','maybe','really','amazon','footwear','product','em','purchase','used','purchased', 'great', 'irritating','ade', 'fa',
+                   'non', 'noted','people', 'tested', 'wrote','complaints','conscious', 'actually', 'individual', 'individuals', 'ua', 'nice', 'flaws', 'e',
+                   'xd', 'nb', 'issues', 'according','agreed','noticed', 'observations', 'problems', 'problem','aside','lot', 'iso', 'likely', 'did',
+                   'using']
 
         for sent in list1:
             if len(sent) > 0:

@@ -215,7 +215,10 @@ for item in sdict:
                    'stated', 'shoes', 'pair', 'shoe', 'pairs', 'model', 'saucony','previous','pros','cons','ye','didn','wasn','ve','t','k',
                    'feels','consider','considers','mistake','earlier','installment','old','d','don','compared','compare','went','e','gt','v',
                    'version','asics','clifton','buy','bought','d','a','b','c','f','g','h','i','j','l','m','n','o','p','q','r','u','w','x','y',
-                   'z','read','gets','maybe','really','amazon','footwear','product','em','purchase','used','purchased', 'great']
+                   'z','read','gets','maybe','really','amazon','footwear','product','em','purchase','used','purchased', 'great', 'irritating','ade', 'fa',
+                   'non', 'noted','people', 'tested', 'wrote','complaints','conscious', 'actually', 'individual', 'individuals', 'ua', 'nice', 'flaws', 'e',
+                   'xd', 'nb', 'issues', 'according','agreed','noticed', 'observations', 'problems', 'problem','aside','lot', 'iso', 'likely', 'did',
+                   'using']
 
     for sent in list1:
         if len(sent) > 0:
@@ -315,7 +318,7 @@ u_input['arch_support'] = ['', '', '']
 u_input['terrain'] = ['', '']
 u_input['gender'] = 'Men'
 u_input['weight'] = 10
-u_input['price'] = 500
+u_input['price'] = [0,200]
     
 def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
@@ -325,12 +328,6 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
     if q == "":
         topresult=np.arange(700)
         topresults = []
-        gender = user_dict['gender']
-        if gender == "Men":
-            g = "men_weight"
-        else:
-            g = "women_weight"
-        
         i = 0
         while len(topresults) < numtop and i < 700:
             
@@ -346,10 +343,7 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
                 if user_dict["terrain"][0] != terr and user_dict["terrain"][1]  != terr:
                     i += 1
                     continue 
-            if sdict[str(topresult[i])][g] != '' and float(user_dict['weight']) < float(sdict[str(topresult[i])][g][:-2]):
-                i += 1
-                continue
-            if sdict[str(topresult[i])]['price']  > user_dict['price']:
+            if sdict[str(topresult[i])]['price']  < user_dict['price'][0] or sdict[str(topresult[i])]['price']  > user_dict['price'][1]:
                 i += 1
                 continue
             topresults.append(topresult[i])
