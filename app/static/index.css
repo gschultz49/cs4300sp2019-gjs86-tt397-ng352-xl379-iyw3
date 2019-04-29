@@ -45,9 +45,11 @@ body {
 
 .effect-grow img {
   transition: all .5s; }
-.effect-grow:hover img {
-  transition: transform .5s;
-  transform: scale(1.5); }
+.effect-grow:hover {
+  animation: heartbeat 1s infinite; }
+  .effect-grow:hover img {
+    transition: transform .5s;
+    transform: scale(1.5); }
 
 .header {
   margin-top: 3%; }
@@ -374,6 +376,7 @@ body {
     font-weight: bold; }
 
 .equi_two {
+  display: inline-block;
   margin: 5px auto; }
 
 #price-slider {

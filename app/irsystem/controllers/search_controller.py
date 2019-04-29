@@ -74,6 +74,7 @@ def custom_search():
 	}
 
 	data = _generate_dictionary(request, terms)
+	print (data)
 	return _search(FindQuery,data)
 
 
