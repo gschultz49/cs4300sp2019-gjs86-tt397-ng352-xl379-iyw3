@@ -170,6 +170,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 10px;
   @extend %box-hover;
   .card-caption{
     text-align: center;
@@ -236,6 +237,11 @@ body {
   grid-template-areas:
     ". similar-search  custom-search .";
   margin-top: 50px;
+  
+  div{
+    border-radius: 10px;
+  }
+  
   img {
     padding:15px;
     width: 50%;

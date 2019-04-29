@@ -117,7 +117,8 @@ body {
   background-color: #fff;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  border-radius: 10px; }
   .card-example .card-caption, .card .card-caption {
     text-align: center;
     padding-top: 10px; }
@@ -158,6 +159,8 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas: ". similar-search  custom-search .";
   margin-top: 50px; }
+  .landing-cards div {
+    border-radius: 10px; }
   .landing-cards img {
     padding: 15px;
     width: 50%;
