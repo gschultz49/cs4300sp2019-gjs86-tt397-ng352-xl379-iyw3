@@ -19,10 +19,11 @@ let terrain_to_image = (name) => {
 
 // no results found
 let render_empty = () => {
+  let input_box = $("#similar-search-text").val();
   let empty =
     `
   <div class="empty">
-    <h3> No results found :( </h3>
+    <h3> No results found for '${input_box}' :( </h3>
   </div>
   `
   $(".shoes-grid").append(empty);
