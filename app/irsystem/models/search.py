@@ -26,6 +26,15 @@ with open(path1) as tsvfile2:
     for row in reader:
         rdict[row['shoeName']] = row
         
+path2 = os.path.join(settings.APP_STATIC, "Final_shoe_prices.tsv")
+# path1 = "../../static/v2.tsv"
+with open(path2) as tsvfile3:
+    reader = csv.DictReader(tsvfile3, dialect='excel-tab')
+    pdict = {}
+    for row in reader:
+        pdict[row['shoeName']] = row
+        
+        
 # Build analyzer
 analyzer = SentimentIntensityAnalyzer()
 
@@ -37,8 +46,8 @@ def is_positive(text):
     negative sentiment: compound score <= -0.05
     """    
     # sample output {'compound': -0.1458, 'pos': 0.267, 'neg': 0.315, 'neu': 0.418}
-    score = analyzer.polarity_scores(text)['compound']
-    return score >= 0.05
+    score = analyzer.polarity_scores(text)['neg']
+    return score == 0
 
 
 def tokenize(text):
@@ -185,7 +194,8 @@ for item in sdict:
     sdict[item]['name'] = tokenize1(name)
     shoename_to_index[name.lower()] = int(sdict[item]['shoeNumber'])
     index_to_shoename[sdict[item]['shoeNumber']] = name.lower()
-    
+    sdict[item]['price'] = pdict[name]['shoePrice'] 
+
     reviews = ""
     features = []
     if name in rdict:   
@@ -264,6 +274,7 @@ def FindSimilarShoes(shoename, information_dict=similar, shoename_to_index=shoen
     for i in datadict:
         newdict[i] = {}
         newdict[i]['shoeName'] = datadict[i]['shoeName']
+        newdict[i]['price'] = pdict[newdict[i]['shoeName']]['shoePrice']
         newind = shoename_to_index[datadict[i]['shoeName'].lower()]
         newdict[i]['shoeImage'] = datadict[i]['shoeImage']
         newdict[i]['amazonLink'] = datadict[i]['amazonLink']
@@ -299,11 +310,14 @@ def CompleteName(q, titles=titles):
     return possible[:15]
 
 
-    u_input = {}
-    u_input['arch_support'] = "N/A"
-    u_input['terrain'] = "N/A"
+u_input = {}
+u_input['arch_support'] = ['', '', '']
+u_input['terrain'] = ['', '']
+u_input['gender'] = 'Men'
+u_input['weight'] = 10
+u_input['price'] = 500
     
-def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
+def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_dict=similar, shoename_to_index=shoename_to_index, tfidf_vec1=tfidf_vec1, top_terms=top_terms):
     """ Given a query, outputs the top 6 related shoes    """
     
     user_dict = u_input
@@ -333,6 +347,9 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
                     i += 1
                     continue 
             if sdict[str(topresult[i])][g] != '' and float(user_dict['weight']) < float(sdict[str(topresult[i])][g][:-2]):
+                i += 1
+                continue
+            if sdict[str(topresult[i])]['price']  > user_dict['price']:
                 i += 1
                 continue
             topresults.append(topresult[i])
@@ -423,6 +440,7 @@ def FindQuery(q, u_input, sdict=sdict, numtop=18, get_sim=get_sim, information_d
         tops[i]['shoeImage'] = sdict[str(topresults[i])]['shoe_image']
         tops[i]['amazonLink'] = sdict[str(topresults[i])]['amazonLink']
         tops[i]['corescore'] = sdict[str(topresults[i])]['corescore']
+        tops[i]['price'] = sdict[str(topresults[i])]['price']
         if q != "":
             tops[i]['similarity'] = round(cossim1[topresults[i]], 4)
             tops[i]['relevantTerms'] = top_terms(len(
@@ -514,6 +532,7 @@ def findShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
     dict1['arch_support'] = sdict[str(idx)]['arch_support']
     dict1['women_weight'] = sdict[str(idx)]['women_weight']
     dict1['men_weight'] = sdict[str(idx)]['men_weight']
+    dict1['price'] = sdict[str(idx)]['price']
     return dict1
 
 ### Autocomplete ###

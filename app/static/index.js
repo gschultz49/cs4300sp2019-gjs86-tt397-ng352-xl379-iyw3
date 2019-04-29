@@ -61,6 +61,7 @@ const similar_shoe_template = (shoe) => {
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
         <p class="card-graph"> ${shoe.term_and_score.splice(0, 5).map(function (d) { return d.toString() }).join(",")} </p>
+        <p class="card-price"> ${shoe.price}</p>
       </div>
     </div>
   `
@@ -87,6 +88,7 @@ const custom_shoe_template = (shoe) => {
         <p class="card-arch_support"> ${shoe.arch_support}</p>
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
+        <p class="card-price"> ${shoe.price}</p>
       </div>
     </div>
   `
@@ -170,25 +172,32 @@ $(document).on("click", '.card', function () {
   let arch_support = card.find(".card-arch_support").text();
   let men_weight = card.find(".card-men_weight").text();
   let women_weight = card.find(".card-women_weight").text();
+  let price = card.find(".card-price").text();
+
+  console.log(price.trim());
 
   // console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
   //divide the relevant terms into a list
   relevantTerms = relevantTerms.trim().split(",");
 
+  console.log(relevantTerms);
+
   //highlight the relevant terms in relevant sentence
-  relevantTerms.forEach(d=>{
-    if (relevantSentence !== "") {
-      console.log(d);
-      var replace1 = d;
-      var replace2 = d.charAt(0).toUpperCase() + d.slice(1);
-      console.log(replace2);
-      var re1 = new RegExp(replace1, "g");
-      var re2 = new RegExp(replace2, "g");
-      relevantSentence = relevantSentence.replace(re1, '<b class="highlight">' + replace1 + "</b>");
-      relevantSentence = relevantSentence.replace(re2, '<b class="highlight">' + replace2 + "</b>");
-      }
-  });
+  if (relevantTerms[0] !== "") {
+    relevantTerms.forEach(d=>{
+      if (relevantSentence !== "") {
+        var replace1 = d;
+        var replace2 = d.charAt(0).toUpperCase() + d.slice(1);
+        var re1 = new RegExp(replace1, "g");
+        var re2 = new RegExp(replace2, "g");
+        relevantSentence = relevantSentence.replace(re1, '<b class="highlight">' + replace1 + "</b>");
+        relevantSentence = relevantSentence.replace(re2, '<b class="highlight">' + replace2 + "</b>");
+        }
+    });
+  }
+
+  console.log(relevantSentence);
 
   let index = relevantSentence.indexOf(".,");
   //if there are two sentences
@@ -266,6 +275,7 @@ $(document).on("click", '.card', function () {
   // populate modal 
   let modal = $(".modal-content");
   modal.find(".modal-shoeName").html("" + shoeName);
+  modal.find(".modal-price").html("" + "$" + price.trim());
   modal.find(".modal-shoeImage").attr("src", shoeImage);
   modal.find(".modal-similarShoes").html("" + similarShoes);
   modal.find(".modal-corescore").html("" + corescore);
@@ -274,6 +284,7 @@ $(document).on("click", '.card', function () {
   if (index === -1) {
     //one sentence
     modal.find(".modal-relevantSentence1").html("" + relevantSentence);
+    modal.find(".modal-relevantSentence2").html("");
   } else {
     //two sentences
     modal.find(".modal-relevantSentence1").html("" + first_sentence);
@@ -285,10 +296,7 @@ $(document).on("click", '.card', function () {
   modal.find("#image-arch_support").attr("src", arch_to_image[arch_support.trim()]);
   modal.find(".modal-amazonLink").attr("href", amazonLink);
   modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
-  modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight);
-  modal.find(".modal-relevantTerms").html("" + relevantTerms);
-
-  //empty all variables
+  modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight); 
 
   console.log("Modal updated");
 
@@ -350,10 +358,11 @@ $(document).ready(function () {
     }
   });
 
-  // should we have a button?
-  // $('#go').bind('click', function () {
-  //   input_handler("/custom_search");
-  // });
+  //Handle for click of button for similar shoe
+  $("#similar-search-button").on("click", function(e){
+    console.log("button clicked for similar");
+    input_handler("#similar-search-text", "/similar_search");
+  });
 
   // Handle for click of enter for custom searched shoe
   $("#custom-search-text").on('keypress', function (e) {
@@ -484,7 +493,7 @@ function create_bar_chart(chart_data_raw) {
       return xScale(d[0]) + bar_width / 2;
     })
     .attr("y", function (d) {
-      return yScale(d[1]) + 40;
+      return yScale(d[1]) + 15;
     })
     .attr("alignment-baseline", "middle")
     .attr('text-anchor', "middle")

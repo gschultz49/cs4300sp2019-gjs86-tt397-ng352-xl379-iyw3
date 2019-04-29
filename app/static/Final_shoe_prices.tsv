@@ -1,0 +1,900 @@
+shoeNumber	shoeName	shoeUrl	shoePrice
+0	Nike Air Zoom Pegasus 35	https://runrepeat.com/nike-air-zoom-pegasus-35	72
+1	Adidas Ultra Boost	https://runrepeat.com/adidas-ultra-boost	69
+2	Asics Gel Kayano 25	https://runrepeat.com/asics-gel-kayano-25	120
+3	Nike Epic React Flyknit	https://runrepeat.com/nike-epic-react-flyknit	80
+4	Asics Gel Venture 6	https://runrepeat.com/asics-gel-venture-6	30
+5	Brooks Adrenaline GTS 18	https://runrepeat.com/brooks-adrenaline-gts-18	60
+6	Brooks Glycerin 16	https://runrepeat.com/brooks-glycerin-16	85
+7	Under Armour Charged Bandit 3	https://runrepeat.com/under-armour-charged-bandit-3	50
+8	Nike Free RN 2018	https://runrepeat.com/nike-free-rn-2018	65
+9	On Cloud	https://runrepeat.com/on-cloud	84
+10	Nike Air Zoom Vomero 14	https://runrepeat.com/nike-air-zoom-vomero-14	98
+11	Nike Revolution 4	https://runrepeat.com/nike-revolution-4	40
+12	Saucony Kinvara 9	https://runrepeat.com/saucony-kinvara-9	100
+13	Nike Odyssey React	https://runrepeat.com/nike-odyssey-react	65
+14	Mizuno Wave Rider 22	https://runrepeat.com/mizuno-wave-rider-22	120
+15	Nike Air Zoom Winflo 5	https://runrepeat.com/nike-air-zoom-winflo-5	60
+16	Nike Zoom Fly Flyknit	https://runrepeat.com/nike-zoom-fly-flyknit	104
+17	Adidas Solar Glide	https://runrepeat.com/adidas-solar-glide	48
+18	Brooks Launch 5	https://runrepeat.com/brooks-launch-5	50
+19	Asics Gel Contend 4	https://runrepeat.com/asics-gel-contend-4	40
+20	Nike Zoom Fly SP	https://runrepeat.com/nike-zoom-fly-sp	63
+21	Saucony Guide ISO	https://runrepeat.com/saucony-guide-iso	51
+22	Brooks Ghost 11	https://runrepeat.com/brooks-ghost-11	105
+23	Nike Free RN Flyknit 2018	https://runrepeat.com/nike-free-rn-flyknit-2018	60
+24	New Balance 990 v4	https://runrepeat.com/new-balance-990-v4	75
+25	Brooks Ghost 10	https://runrepeat.com/brooks-ghost-10	80
+26	Asics Gel Cumulus 20	https://runrepeat.com/asics-gel-cumulus-20	68
+27	Salomon Speedcross 4	https://runrepeat.com/salomon-speedcross-4	86
+28	Nike Zoom Fly	https://runrepeat.com/nike-zoom-fly	90
+29	Asics Roadhawk FF	https://runrepeat.com/asics-roadhawk-ff	47
+30	Asics Gel Kayano 24	https://runrepeat.com/asics-gel-kayano-24	70
+31	Nike Air Zoom Pegasus 34	https://runrepeat.com/nike-air-zoom-pegasus-34	65
+32	Altra Escalante	https://runrepeat.com/altra-escalante	86
+33	Asics Patriot 10	https://runrepeat.com/asics-patriot-10	33
+34	Nike Zoom Pegasus Turbo	https://runrepeat.com/nike-zoom-pegasus-turbo	144
+35	Asics Gel Nimbus 20	https://runrepeat.com/asics-gel-nimbus-20	77
+36	Nike Downshifter 7	https://runrepeat.com/nike-downshifter-7	34
+37	Adidas Solar Drive	https://runrepeat.com/adidas-solar-drive	48
+38	Nike Air Zoom Vomero 14	https://runrepeat.com/nike-air-zoom-vomero-14	98
+39	Merrell Vapor Glove 3	https://runrepeat.com/merrell-vapor-glove-3	53
+40	Adidas Solar Boost	https://runrepeat.com/adidas-solar-boost	85
+41	Hoka One One Clifton 5	https://runrepeat.com/hoka-one-one-clifton-5	130
+42	Brooks Glycerin 15	https://runrepeat.com/brooks-glycerin-15	70
+43	Adidas Pure Boost	https://runrepeat.com/adidas-pure-boost	35
+44	Nike LunarGlide 9	https://runrepeat.com/nike-lunarglide-9	35
+45	Altra Escalante Racer	https://runrepeat.com/altra-escalante-racer	109
+46	Asics Gel FujiTrabuco 6	https://runrepeat.com/asics-gel-fujitrabuco-6	35
+47	Adidas Pure Boost DPR	https://runrepeat.com/adidas-pure-boost-dpr	64
+48	Nike Flex Experience RN 7	https://runrepeat.com/nike-flex-experience-rn-7	34
+49	Adidas Pure Boost Go	https://runrepeat.com/adidas-pure-boost-go	54
+50	Adidas Ultra Boost 19	https://runrepeat.com/adidas-ultra-boost-19	120
+51	Adidas AlphaBounce Beyond	https://runrepeat.com/adidas-alphabounce-beyond	47
+52	Nike Air Zoom Structure 21	https://runrepeat.com/nike-air-zoom-structure-21	65
+53	Merrell Trail Glove 4	https://runrepeat.com/merrell-trail-glove-4	83
+54	Brooks Adrenaline GTS 19	https://runrepeat.com/brooks-adrenaline-gts-19	130
+55	Adidas Ultraboost Clima	https://runrepeat.com/adidas-ultraboost-clima	99
+56	Asics DynaFlyte 2	https://runrepeat.com/asics-dynaflyte-2	60
+57	Brooks Ravenna 9	https://runrepeat.com/brooks-ravenna-9	71
+58	Adidas Solar Glide ST	https://runrepeat.com/adidas-solar-glide-st	47
+59	Saucony Triumph ISO 4	https://runrepeat.com/saucony-triumph-iso-4	59
+60	Hoka One One Bondi 5	https://runrepeat.com/hoka-one-one-bondi-5	95
+61	New Balance 880 v8	https://runrepeat.com/new-balance-880-v8	125
+62	Asics Roadhawk FF 2	https://runrepeat.com/asics-roadhawk-ff-2	50
+63	New Balance Fresh Foam Beacon	https://runrepeat.com/new-balance-fresh-foam-beacon	100
+64	Under Armour HOVR Sonic	https://runrepeat.com/under-armour-hovr-sonic	80
+65	Saucony Freedom ISO	https://runrepeat.com/saucony-freedom-iso	50
+66	Salomon Speedcross 4 GTX	https://runrepeat.com/salomon-speedcross-4-gtx	160
+67	Saucony Liberty ISO	https://runrepeat.com/saucony-liberty-iso	139
+68	Asics Gel Excite 4	https://runrepeat.com/asics-gel-excite-4	30
+69	Nike Legend React	https://runrepeat.com/nike-legend-react	54
+70	Saucony Freedom ISO 2	https://runrepeat.com/saucony-freedom-iso-2	89
+71	New Balance Fresh Foam 1080 v8	https://runrepeat.com/new-balance-fresh-foam-1080-v8	70
+72	Nike Free 5.0	https://runrepeat.com/nike-free	55
+73	Salomon Sense Ride	https://runrepeat.com/salomon-sense-ride	80
+74	Hoka One One Torrent	https://runrepeat.com/hoka-one-one-torrent	120
+75	Nike Air Zoom Winflo 4	https://runrepeat.com/nike-air-zoom-winflo-4	63
+76	Asics Noosa FF	https://runrepeat.com/asics-noosa-ff	65
+77	Adidas Ultra Boost All Terrain	https://runrepeat.com/adidas-ultra-boost-all-terrain	110
+78	Saucony Peregrine 8	https://runrepeat.com/saucony-peregrine-8	60
+79	Saucony Ride 10	https://runrepeat.com/saucony-ride-10	54
+80	Asics GT 2000 6	https://runrepeat.com/asics-gt-2000-6	60
+81	Mizuno Wave Inspire 14	https://runrepeat.com/mizuno-wave-inspire-14	55
+82	Brooks Revel	https://runrepeat.com/brooks-revel	65
+83	Adidas AlphaBounce	https://runrepeat.com/adidas-alphabounce	50
+84	New Balance Fresh Foam 1080 v9	https://runrepeat.com/new-balance-fresh-foam-1080-v9	120
+85	Adidas Ultra Boost Uncaged	https://runrepeat.com/adidas-ultra-boost-uncaged	108
+86	Nike Epic React Flyknit 2	https://runrepeat.com/nike-epic-react-flyknit-2	90
+87	Altra Duo	https://runrepeat.com/altra-duo	74
+88	Nike Air Zoom Vomero 13	https://runrepeat.com/nike-air-zoom-vomero-13	84
+89	Hoka One One Clifton 1	https://runrepeat.com/hoka-one-one-clifton-1	80
+90	Adidas Ultra Boost Laceless	https://runrepeat.com/adidas-ultra-boost-laceless	68
+91	Nike Air Zoom Pegasus 35 Shield	https://runrepeat.com/nike-air-zoom-pegasus-35-shield	91
+92	Asics Gel Contend 5	https://runrepeat.com/asics-gel-contend-5	33
+93	New Balance Fresh Foam Zante v4	https://runrepeat.com/new-balance-fresh-foam-zante-v4	50
+94	Asics Gel Quantum 90	https://runrepeat.com/asics-gel-quantum-90	62
+95	Hoka One One Cavu	https://runrepeat.com/hoka-one-one-cavu	67
+96	Nike Zoom Strike	https://runrepeat.com/nike-zoom-strike	49
+97	Adidas Terrex Agravic	https://runrepeat.com/adidas-terrex-agravic	55
+98	Inov-8 Roclite 290	https://runrepeat.com/inov-8-roclite-290	69
+99	Adidas Ultra Boost ST	https://runrepeat.com/adidas-ultra-boost-st	80
+100	Brooks Levitate	https://runrepeat.com/brooks-levitate	67
+101	Adidas Adizero Adios Boost 3.0	https://runrepeat.com/adidas-adizero-adios-boost	50
+102	Adidas Adizero Adios 4	https://runrepeat.com/adidas-adizero-adios-4	99
+103	Nike Flex RN 2018	https://runrepeat.com/nike-flex-rn-2018	45
+104	Adidas Duramo 9	https://runrepeat.com/adidas-duramo-9	33
+105	Salomon Sense Pro Max	https://runrepeat.com/salomon-sense-pro-max	90
+106	Merrell Bare Access Flex	https://runrepeat.com/merrell-bare-access-flex	46
+107	Adidas Terrex Tracerocker	https://runrepeat.com/adidas-terrex-tracerocker	51
+108	Adidas Supernova Glide Boost 8	https://runrepeat.com/adidas-supernova-glide-boost	90
+109	Asics Gel Kenun	https://runrepeat.com/asics-gel-kenun	40
+110	Nike Zoom All Out Low	https://runrepeat.com/nike-zoom-all-out-low	60
+111	Asics GT 1000 7	https://runrepeat.com/asics-gt-1000-7	51
+112	Hoka One One Mach	https://runrepeat.com/hoka-one-one-mach	75
+113	Hoka One One Speedgoat 3	https://runrepeat.com/hoka-one-one-speedgoat-3	140
+114	Under Armour Micro G Pursuit	https://runrepeat.com/under-armour-micro-g-pursuit	30
+115	Asics GT 1000 4	https://runrepeat.com/asics-gt-1000	35
+116	Skechers GOrun Ride 7	https://runrepeat.com/skechers-gorun-ride-7	63
+117	Adidas Adizero Tempo 9	https://runrepeat.com/adidas-adizero-tempo-9	31
+118	Adidas Adizero Boston Boost 6	https://runrepeat.com/adidas-adizero-boston-boost	50
+119	Asics DynaFlyte	https://runrepeat.com/asics-dynaflyte	49
+120	Hoka One One Gaviota	https://runrepeat.com/hoka-one-one-gaviota	90
+121	Adidas Questar TND	https://runrepeat.com/adidas-questar-tnd	38
+122	Hoka One One Arahi	https://runrepeat.com/hoka-one-one-arahi	130
+123	New Balance Fresh Foam Cruz	https://runrepeat.com/new-balance-fresh-foam-cruz	30
+124	Asics FuzeX	https://runrepeat.com/asics-fuzex	80
+125	Asics Gel Nimbus 21	https://runrepeat.com/asics-gel-nimbus-21	120
+126	Under Armour SpeedForm Intake 2	https://runrepeat.com/under-armour-speedform-intake-2	70
+127	Brooks Cascadia 12	https://runrepeat.com/brooks-cascadia-12	90
+128	Hoka One One Clifton 4	https://runrepeat.com/hoka-one-one-clifton-4	85
+129	New Balance 1400 v6	https://runrepeat.com/new-balance-1400-v6	49
+130	Hoka One One Bondi 6	https://runrepeat.com/hoka-one-one-bondi-6	150
+131	La Sportiva Bushido	https://runrepeat.com/la-sportiva-bushido	50
+132	Hoka One One Arahi 2	https://runrepeat.com/hoka-one-one-arahi-2	104
+133	On Cloudflow	https://runrepeat.com/on-cloudflow	140
+134	Adidas Terrex Agravic Speed	https://runrepeat.com/adidas-terrex-agravic-speed	68
+135	Adidas Questar Ride	https://runrepeat.com/adidas-questar-ride	42
+136	Asics Gel Exalt 4	https://runrepeat.com/asics-gel-exalt-4	35
+137	Asics DynaFlyte 3	https://runrepeat.com/asics-dynaflyte-3	130
+138	Salomon XA Pro 3D GTX	https://runrepeat.com/salomon-xa-pro-3d-gtx	129
+139	New Balance Fresh Foam Arishi	https://runrepeat.com/new-balance-fresh-foam-arishi	30
+140	Nike Air VaporMax Flyknit	https://runrepeat.com/nike-air-vapormax-flyknit	150
+141	Nike LunarGlide 8	https://runrepeat.com/nike-lunarglide-8	65
+142	Adidas Supernova	https://runrepeat.com/adidas-supernova	44
+143	Nike Air Zoom Terra Kiger 4	https://runrepeat.com/nike-air-zoom-terra-kiger-4	95
+144	New Balance 1500 v4	https://runrepeat.com/new-balance-1500-v4	42
+145	Adidas Solar Drive ST	https://runrepeat.com/adidas-solar-drive-st	89
+146	Mizuno Wave Sky	https://runrepeat.com/mizuno-wave-sky	82
+147	Skechers GOrun 600	https://runrepeat.com/skechers-gorun-600	32
+148	Saucony Breakthru 4	https://runrepeat.com/saucony-breakthru-4	45
+149	Nike Air Zoom Wildhorse 4	https://runrepeat.com/nike-air-zoom-wildhorse-4	77
+150	Altra Timp	https://runrepeat.com/altra-timp	85
+151	Mizuno Wave Inspire 15	https://runrepeat.com/mizuno-wave-inspire-15	130
+152	Salomon X-Mission 3	https://runrepeat.com/salomon-x-mission-3	69
+153	Saucony Cohesion 11	https://runrepeat.com/saucony-cohesion-11	33
+154	Saucony Ride ISO	https://runrepeat.com/saucony-ride-iso	73
+155	Nike Free RN 2017	https://runrepeat.com/nike-free-rn-2017	67
+156	Nike Odyssey React Shield	https://runrepeat.com/nike-odyssey-react-shield	91
+157	Asics GT 2000 5	https://runrepeat.com/asics-gt-2000-5	50
+158	New Balance Fresh Foam Hierro v3	https://runrepeat.com/new-balance-fresh-foam-hierro-v3	68
+159	Saucony Omni ISO	https://runrepeat.com/saucony-omni-iso	130
+160	Nike Free RN Flyknit	https://runrepeat.com/nike-free-rn-flyknit	90
+161	Asics Gel DS Trainer 23	https://runrepeat.com/asics-gel-ds-trainer-23	65
+162	Mizuno Wave Shadow	https://runrepeat.com/mizuno-wave-shadow	53
+163	Salomon S-Lab XA Amphib	https://runrepeat.com/salomon-s-lab-xa-amphib	180
+164	Under Armour Threadborne Blur	https://runrepeat.com/under-armour-threadborne-blur	42
+165	Altra Escalante 1.5	https://runrepeat.com/altra-escalante-15	129
+166	Nike Free RN	https://runrepeat.com/nike-free-rn	55
+167	Nike Flyknit Racer	https://runrepeat.com/nike-flyknit-racer	60
+168	Asics Gel Cumulus 19	https://runrepeat.com/asics-gel-cumulus-19	50
+169	Asics Gel Venture 5	https://runrepeat.com/asics-gel-venture	40
+170	Salomon Speedcross 5	https://runrepeat.com/salomon-speedcross-5	130
+171	New Balance 890 v6	https://runrepeat.com/new-balance-890-v6	50
+172	Salomon XA Elevate	https://runrepeat.com/salomon-xa-elevate	65
+173	Saucony Kinvara 10	https://runrepeat.com/saucony-kinvara-10	98
+174	Adidas AlphaBounce Instinct	https://runrepeat.com/adidas-alphabounce-instinct	48
+175	Adidas Runfalcon	https://runrepeat.com/adidas-runfalcon	48
+176	Salomon XA Pro 3D	https://runrepeat.com/salomon-xa-pro-3d	125
+177	Altra Torin 3.0	https://runrepeat.com/altra-torin-30	75
+178	Nike Renew Arena	https://runrepeat.com/nike-renew-arena	47
+179	Nike Flex RN 2017	https://runrepeat.com/nike-flex-rn-2017	50
+180	Adidas Terrex Tracerocker GTX	https://runrepeat.com/adidas-terrex-tracerocker-gtx	63
+181	Mizuno Wave Sky 2	https://runrepeat.com/mizuno-wave-sky-2	150
+182	Saucony Hurricane ISO 4	https://runrepeat.com/saucony-hurricane-iso-4	54
+183	Salomon Sonic RA Max	https://runrepeat.com/salomon-sonic-ra-max	78
+184	Asics Gel Quantum 360 Knit	https://runrepeat.com/asics-gel-quantum-360-knit	120
+185	Asics Gel Quantum 360	https://runrepeat.com/asics-gel-quantum-360	98
+186	Under Armour Charged Escape 2	https://runrepeat.com/under-armour-charged-escape-2	68
+187	Saucony Omni 16	https://runrepeat.com/saucony-omni-16	59
+188	Asics GT Xpress	https://runrepeat.com/asics-gt-xpress	36
+189	Mizuno Wave Horizon 2	https://runrepeat.com/mizuno-wave-horizon-2	56
+190	Adidas Adizero Prime LTD	https://runrepeat.com/adidas-adizero-prime-ltd	56
+191	Altra Lone Peak 4.0	https://runrepeat.com/altra-lone-peak-40	119
+192	Altra Torin 3.5 Knit	https://runrepeat.com/altra-torin-35-knit	89
+193	Brooks PureCadence 7	https://runrepeat.com/brooks-purecadence-7	68
+194	Asics Dynamis	https://runrepeat.com/asics-dynamis	65
+195	New Balance 1260 v7	https://runrepeat.com/new-balance-1260-v7	48
+196	Adidas Pureboost RBL	https://runrepeat.com/adidas-pureboost-rbl	85
+197	Saucony Guide 10	https://runrepeat.com/saucony-guide-10	77
+198	Nike Free RN Motion Flyknit 2017	https://runrepeat.com/nike-free-rn-motion-flyknit-2017	65
+199	On Cloud X	https://runrepeat.com/on-cloud-x	110
+200	Under Armour Micro G Assert 7	https://runrepeat.com/under-armour-micro-g-assert-7	44
+201	Hoka One One Elevon	https://runrepeat.com/hoka-one-one-elevon	160
+202	Brooks Pureflow 7	https://runrepeat.com/brooks-pureflow-7	75
+203	Puma Jamming	https://runrepeat.com/puma-jamming	68
+204	Salomon Sonic RA	https://runrepeat.com/salomon-sonic-ra	50
+205	Adidas Energy Boost 3	https://runrepeat.com/adidas-energy-boost	64
+206	Saucony Fastwitch 8	https://runrepeat.com/saucony-fastwitch-8	64
+207	Adidas Ultra Boost Parley	https://runrepeat.com/adidas-ultra-boost-parley	110
+208	Asics Gecko XT	https://runrepeat.com/asics-gecko-xt	55
+209	Brooks Levitate 2	https://runrepeat.com/brooks-levitate-2	140
+210	Hoka One One Speedgoat 2	https://runrepeat.com/hoka-one-one-speedgoat-2	140
+211	Altra Paradigm 4.0	https://runrepeat.com/altra-paradigm-40	90
+212	Asics Gel Nimbus 18	https://runrepeat.com/asics-gel-nimbus	100
+213	Nike Renew Rival	https://runrepeat.com/nike-renew-rival	40
+214	Adidas AlphaBounce RC	https://runrepeat.com/adidas-alphabounce-rc	30
+215	Nike Air VaporMax Flyknit 2	https://runrepeat.com/nike-air-vapormax-flyknit-2	109
+216	Mizuno Wave Rider 21	https://runrepeat.com/mizuno-wave-rider-21	90
+217	New Balance Fresh Foam Vongo v3	https://runrepeat.com/new-balance-fresh-foam-vongo-v3	95
+218	Zoot Ultra Kiawe 2.0	https://runrepeat.com/zoot-ultra-kiawe	30
+219	Adidas Rockadia Trail	https://runrepeat.com/adidas-rockadia-trail	37
+220	Nike LunarEpic Low Flyknit 2	https://runrepeat.com/nike-lunarepic-low-flyknit-2	84
+221	Altra Provision 3.0	https://runrepeat.com/altra-provision-3-0	120
+222	Brooks Transcend 5	https://runrepeat.com/brooks-transcend-5	95
+223	Asics GT 1000 6	https://runrepeat.com/asics-gt-1000-6	40
+224	Mizuno WaveKnit R2	https://runrepeat.com/mizuno-waveknit-r2	130
+225	Asics Gel Torrance	https://runrepeat.com/asics-gel-torrance	30
+226	Nike Zoom Streak 6	https://runrepeat.com/nike-zoom-streak-6	75
+227	New Balance FuelCore Coast v4	https://runrepeat.com/new-balance-fuelcore-coast-v4	40
+228	Asics Noosa FF 2	https://runrepeat.com/asics-noosa-ff-2	65
+229	New Balance Fresh Foam Kaymin	https://runrepeat.com/new-balance-fresh-foam-kaymin	60
+230	Asics Gel Nimbus 19	https://runrepeat.com/asics-gel-nimbus-19	60
+231	Nike Air Max Sequent 4	https://runrepeat.com/nike-air-max-sequent-4	59
+232	Brooks Caldera 2	https://runrepeat.com/brooks-caldera-2	129
+233	Asics Gel Kahana 8	https://runrepeat.com/asics-gel-kahana-8	42
+234	Nike Air Max 2017	https://runrepeat.com/nike-air-max-2017	105
+235	Asics GT 2000 7	https://runrepeat.com/asics-gt-2000-7	110
+236	Adidas Questar Trail	https://runrepeat.com/adidas-questar-trail	35
+237	Asics Alpine XT	https://runrepeat.com/asics-alpine-xt	45
+238	Asics Gel Pulse 9	https://runrepeat.com/asics-gel-pulse-9	60
+239	Under Armour SpeedForm Gemini 3	https://runrepeat.com/under-armour-speedform-gemini-3	52
+240	Brooks Anthem	https://runrepeat.com/brooks-anthem	60
+241	Brooks Glycerin 17	https://runrepeat.com/brooks-glycerin-17	140
+242	New Balance Fresh Foam Zante v3	https://runrepeat.com/new-balance-fresh-foam-zante-v3	60
+243	Nike Air Zoom Structure 22	https://runrepeat.com/nike-air-zoom-structure-22	78
+244	Reebok Fast Flexweave	https://runrepeat.com/reebok-fast-flexweave	32
+245	Asics Gel Scram 4	https://runrepeat.com/asics-gel-scram-4	45
+246	Adidas Adizero Sub 2	https://runrepeat.com/adidas-adizero-sub-2	90
+247	Asics Metarun	https://runrepeat.com/asics-metarun	237
+248	Merrell Agility Synthesis Flex	https://runrepeat.com/merrell-agility-synthesis-flex	82
+249	Nike Revolution 3	https://runrepeat.com/nike-revolution-3	45
+250	Adidas Terrex Swift R GTX	https://runrepeat.com/adidas-terrex-swift-r-gtx	115
+251	Altra Superior 3.5	https://runrepeat.com/altra-superior-35	65
+252	Asics Gel Fujirado	https://runrepeat.com/asics-gel-fujirado	70
+253	La Sportiva Akasha	https://runrepeat.com/la-sportiva-akasha	83
+254	Under Armour Charged Bandit 4	https://runrepeat.com/under-armour-charged-bandit-4	28
+255	Asics Amplica	https://runrepeat.com/asics-amplica	30
+256	Adidas Supernova ST	https://runrepeat.com/adidas-supernova-st	52
+257	Adidas Supernova GTX	https://runrepeat.com/adidas-supernova-gtx	80
+258	Vivobarefoot Stealth II	https://runrepeat.com/vivobarefoot-stealth-ii	146
+259	New Balance Fresh Foam Vongo	https://runrepeat.com/new-balance-fresh-foam-vongo	75
+260	Nike Air Zoom Vomero 12	https://runrepeat.com/nike-air-zoom-vomero-12	75
+261	Reebok Speedlux 3.0	https://runrepeat.com/reebok-speedlux-30	25
+262	On Cloudventure	https://runrepeat.com/on-cloudventure	100
+263	Adidas Galaxy Trail	https://runrepeat.com/adidas-galaxy-trail	39
+264	Adidas Energy Cloud 2	https://runrepeat.com/adidas-energy-cloud-2	40
+265	Adidas Terrex Agravic GTX	https://runrepeat.com/adidas-terrex-agravic-gtx	66
+266	Asics Gel Kayano 23	https://runrepeat.com/asics-gel-kayano-23	75
+267	Asics FuzeX Lyte 2	https://runrepeat.com/asics-fuzex-lyte-2	55
+268	Inov-8 Mudclaw 300	https://runrepeat.com/inov-8-mudclaw-300	109
+269	Asics Gel DS Trainer 22	https://runrepeat.com/asics-gel-ds-trainer-22	54
+270	Nike Air Max 2016	https://runrepeat.com/nike-air-max	120
+271	Jordan 88 Racer	https://runrepeat.com/jordan-88-racer	60
+272	New Balance Fresh Foam Lazr Hyposkin	https://runrepeat.com/new-balance-fresh-foam-lazr-hyposkin	36
+273	Salomon Sonic RA Pro	https://runrepeat.com/salomon-sonic-ra-pro	50
+274	Saucony Zealot ISO 3	https://runrepeat.com/saucony-zealot-iso-3	48
+275	Asics Gel DS Trainer 24	https://runrepeat.com/asics-gel-ds-trainer-24	108
+276	Mizuno Wave Catalyst 2	https://runrepeat.com/mizuno-wave-catalyst-2	62
+277	Mizuno Wave Prophecy 7	https://runrepeat.com/mizuno-wave-prophecy-7	105
+278	Adidas Terrex CMTK GTX	https://runrepeat.com/adidas-terrex-cmtk-gtx	66
+279	Altra Lone Peak 3.5	https://runrepeat.com/altra-lone-peak-35	68
+280	Hoka One One Tracer 2	https://runrepeat.com/hoka-one-one-tracer-2	123
+281	Adidas Duramo 8	https://runrepeat.com/adidas-duramo-8	35
+282	Nike Free RN Commuter 2018	https://runrepeat.com/nike-free-rn-commuter-2018	75
+283	Saucony Triumph ISO 2	https://runrepeat.com/saucony-triumph-iso	76
+284	Merrell All Out Crush 2	https://runrepeat.com/merrell-all-out-crush-2	50
+285	Asics Gel Vanisher	https://runrepeat.com/asics-gel-vanisher	40
+286	Asics Patriot 8	https://runrepeat.com/asics-patriot-8	55
+287	Asics Gel Flux 5	https://runrepeat.com/asics-gel-flux-5	30
+288	Under Armour SpeedForm Velociti	https://runrepeat.com/under-armour-speedform-velociti	46
+289	Inov-8 Roclite 305	https://runrepeat.com/inov-8-roclite-305	74
+290	Asics Gel Quantum 180 3	https://runrepeat.com/asics-gel-quantum-180-3	60
+291	Saucony Cohesion 10	https://runrepeat.com/saucony-cohesion-10	30
+292	Brooks Revel 2	https://runrepeat.com/brooks-revel-2	80
+293	Asics Gel Kayano 22	https://runrepeat.com/asics-gel-kayano	65
+294	Brooks Beast 18	https://runrepeat.com/brooks-beast-18	154
+295	Brooks Bedlam	https://runrepeat.com/brooks-bedlam	140
+296	Hoka One One Challenger 5 ATR	https://runrepeat.com/hoka-one-one-challenger-5-atr	110
+297	Brooks Ravenna 10	https://runrepeat.com/brooks-ravenna-10	110
+298	Asics Gel Kayano 25 SP	https://runrepeat.com/asics-gel-kayano-25-sp	120
+299	Nike Free RN Flyknit 2017	https://runrepeat.com/nike-free-rn-flyknit-2017	50
+300	Adidas Aerobounce 2	https://runrepeat.com/adidas-aerobounce-2	34
+301	Asics Gel Fortitude 7	https://runrepeat.com/asics-gel-fortitude	75
+302	Nike Flyknit Lunar 3	https://runrepeat.com/nike-flyknit-lunar-3	85
+303	Adidas Ultraboost Uncaged Parley	https://runrepeat.com/adidas-ultraboost-uncaged-parley	139
+304	Puma Hybrid Rocket Runner	https://runrepeat.com/puma-hybrid-rocket-runner	48
+305	Adidas Energy Cloud	https://runrepeat.com/adidas-energy-cloud	40
+306	Under Armour SpeedForm Slingshot 2	https://runrepeat.com/under-armour-speedform-slingshot-2	34
+307	Saucony Breakthru 3	https://runrepeat.com/saucony-breakthru-3	40
+308	Merrell Agility Peak Flex	https://runrepeat.com/merrell-agility-peak-flex	130
+309	Brooks Adrenaline GTS 17	https://runrepeat.com/brooks-adrenaline-gts-17	80
+310	Asics Gel Foundation 13	https://runrepeat.com/asics-gel-foundation-13	70
+311	Asics Gel Quantum 360 4	https://runrepeat.com/asics-gel-quantum-360-4	94
+312	Under Armour SpeedForm Europa	https://runrepeat.com/under-armour-speedform-europa	49
+313	Under Armour Dash RN 2	https://runrepeat.com/under-armour-dash-rn-2	50
+314	Nike Air Zoom Pegasus 32	https://runrepeat.com/nike-air-zoom-pegasus	72
+315	Nike Air Max Sequent 3	https://runrepeat.com/nike-air-max-sequent-3	40
+316	Nike LunarSolo	https://runrepeat.com/nike-lunarsolo	51
+317	Altra Olympus 3.0	https://runrepeat.com/altra-olympus-30	120
+318	Brooks Ricochet	https://runrepeat.com/brooks-ricochet	120
+319	Skechers GOrun Mojo	https://runrepeat.com/skechers-gorun-mojo	30
+320	Altra Solstice	https://runrepeat.com/altra-solstice	55
+321	On Cloudsurfer	https://runrepeat.com/on-cloudsurfer	95
+322	Under Armour HOVR Phantom Connected	https://runrepeat.com/under-armour-hovr-phantom-connected	125
+323	La Sportiva Akyra	https://runrepeat.com/la-sportiva-akyra	140
+324	New Balance Vazee Rush v2	https://runrepeat.com/new-balance-vazee-rush-v2	45
+325	Altra Olympus 2.5	https://runrepeat.com/altra-olympus-25	120
+326	Asics Gel Cumulus 18	https://runrepeat.com/asics-gel-cumulus-18	50
+327	Salomon Ultra Pro	https://runrepeat.com/salomon-ultra-pro	96
+328	Adidas Mana Bounce 2	https://runrepeat.com/adidas-mana-bounce-2	63
+329	Altra King MT	https://runrepeat.com/altra-king-mt	140
+330	New Balance Vazee Pace v2	https://runrepeat.com/new-balance-vazee-pace-v2	55
+331	Nike Air Zoom Pegasus 33	https://runrepeat.com/nike-air-zoom-pegasus-33	55
+332	Asics Comutora	https://runrepeat.com/asics-comutora	30
+333	Saucony Triumph ISO 5	https://runrepeat.com/saucony-triumph-iso-5	160
+334	Saucony Excursion TR 12	https://runrepeat.com/saucony-excursion-tr-12	40
+335	Under Armour Charged Rogue	https://runrepeat.com/under-armour-charged-rogue	47
+336	Reebok All Terrain Craze	https://runrepeat.com/reebok-all-terrain-craze	78
+337	New Balance Cypher Run	https://runrepeat.com/new-balance-cypher-run	30
+338	Asics Gel 451	https://runrepeat.com/asics-gel-451	65
+339	Brooks Cascadia 13	https://runrepeat.com/brooks-cascadia-13	101
+340	Inov-8 Roadclaw 275 v2	https://runrepeat.com/inov-8-roadclaw-275-v2	74
+341	Nike Air Zoom Winflo 5 Run Shield	https://runrepeat.com/nike-air-zoom-winflo-5-run-shield	70
+342	Brooks Launch 6	https://runrepeat.com/brooks-launch-6	100
+343	Adidas Aerobounce PR	https://runrepeat.com/adidas-aerobounce-pr	31
+344	Brooks Hyperion	https://runrepeat.com/brooks-hyperion	96
+345	Merrell Trail Glove 4 Knit	https://runrepeat.com/merrell-trail-glove-4-knit	53
+346	Nike Zoom All Out Low 2	https://runrepeat.com/nike-zoom-all-out-low-2	60
+347	Asics Gel FujiTrabuco 7	https://runrepeat.com/asics-gel-fujitrabuco-7	120
+348	Nike Air Zoom Structure 20	https://runrepeat.com/nike-air-zoom-structure-20	100
+349	Nike Air Max Sequent 2	https://runrepeat.com/nike-air-max-sequent-2	53
+350	Brooks Asteria	https://runrepeat.com/brooks-asteria	85
+351	Altra Timp 1.5	https://runrepeat.com/altra-timp-15	128
+352	Puma Carson 2 Knit	https://runrepeat.com/puma-carson-2-knit	26
+353	Nike Free RN 2018 Shield	https://runrepeat.com/nike-free-rn-2018-shield	50
+354	Topo Athletic MT-2	https://runrepeat.com/topo-athletic-mt-2	70
+355	Reebok Floatride Run Fast	https://runrepeat.com/reebok-floatride-run-fast	110
+356	La Sportiva Ultra Raptor	https://runrepeat.com/la-sportiva-ultra-raptor	130
+357	Saucony Cohesion 12	https://runrepeat.com/saucony-cohesion-12	35
+358	Inov-8 X-Talon 230	https://runrepeat.com/inov-8-x-talon-230	87
+359	Asics Gel Moya	https://runrepeat.com/asics-gel-moya	35
+360	Adidas Cosmic 2.0 SL	https://runrepeat.com/adidas-cosmic-20-sl	37
+361	Hoka One One Vanquish 3	https://runrepeat.com/hoka-one-one-vanquish-3	170
+362	Saucony Kineta Relay	https://runrepeat.com/saucony-kineta-relay	32
+363	Puma Ignite EvoKNIT	https://runrepeat.com/puma-ignite-evoknit	55
+364	New Balance FuelCell Impulse	https://runrepeat.com/new-balance-fuelcell-impulse	80
+365	Nike Air Zoom Elite 9	https://runrepeat.com/nike-air-zoom-elite-9	60
+366	Hoka One One Stinson ATR 4	https://runrepeat.com/hoka-one-one-stinson-atr-4	160
+367	Asics NitroFuze	https://runrepeat.com/asics-nitrofuze	35
+368	Skechers GOrun Forza 3	https://runrepeat.com/skechers-gorun-forza-3	45
+369	On Cloudflyer	https://runrepeat.com/on-cloudflyer	160
+370	Hoka One One Hupana 2	https://runrepeat.com/hoka-one-one-hupana-2	115
+371	Mizuno Synchro MX	https://runrepeat.com/mizuno-synchro-mx	72
+372	Under Armour SpeedForm Gemini Vent	https://runrepeat.com/under-armour-speedform-gemini-vent	42
+373	Inov-8 Trailroc 285	https://runrepeat.com/inov-8-trailroc-285	87
+374	Nike Air Max Dynasty 2	https://runrepeat.com/nike-air-max-dynasty-2	60
+375	New Balance Fresh Foam Cruz v2 Sport	https://runrepeat.com/new-balance-fresh-foam-cruz-v2-sport	35
+376	New Balance 860 v8	https://runrepeat.com/new-balance-860-v8	65
+377	Adidas Kanadia 8	https://runrepeat.com/adidas-kanadia-8	75
+378	Adidas Purebounce+	https://runrepeat.com/adidas-purebounce	42
+379	Adidas Galaxy 3	https://runrepeat.com/adidas-galaxy-3	30
+380	Nike Air Zoom Streak LT 4	https://runrepeat.com/nike-air-zoom-streak-lt-4	65
+381	Nike Air Max Advantage	https://runrepeat.com/nike-air-max-advantage	50
+382	Mizuno Wave Creation 19	https://runrepeat.com/mizuno-wave-creation-19	70
+383	Asics Comutora MX	https://runrepeat.com/asics-comutora-mx	30
+384	Brooks Beast 16	https://runrepeat.com/brooks-beast-16	100
+385	Brooks Launch 4	https://runrepeat.com/brooks-launch-4	50
+386	Saucony Guide 8	https://runrepeat.com/saucony-guide-8	86
+387	Asics FuzeTora	https://runrepeat.com/asics-fuzetora	37
+388	Nike Lunar Apparent	https://runrepeat.com/nike-lunar-apparent	39
+389	Asics NitroFuze 2	https://runrepeat.com/asics-nitrofuze-2	37
+390	Nike Free RN Distance 2	https://runrepeat.com/nike-free-rn-distance-2	70
+391	Asics GT 3000 5	https://runrepeat.com/asics-gt-3000-5	60
+392	The North Face Ultra 109 GTX	https://runrepeat.com/the-north-face-ultra-109-gtx	83
+393	Salomon Sense Pro 3	https://runrepeat.com/salomon-sense-pro-3	130
+394	Saucony Koa ST	https://runrepeat.com/saucony-koa-st	60
+395	Altra King MT 1.5	https://runrepeat.com/altra-king-mt-15	80
+396	New Balance 1540 v2	https://runrepeat.com/new-balance-1540	160
+397	New Balance 860 v9	https://runrepeat.com/new-balance-860-v9	116
+398	Saucony Guide ISO 2	https://runrepeat.com/saucony-guide-iso-2	106
+399	Adidas Pureboost RBL LTD	https://runrepeat.com/adidas-pureboost-rbl-ltd	81
+400	Topo Athletic Fli-Lyte 2	https://runrepeat.com/topo-athletic-fli-lyte-2	50
+401	Nike Air VaporMax Run Utility	https://runrepeat.com/nike-air-vapormax-run-utility	170
+402	New Balance Summit Unknown	https://runrepeat.com/new-balance-summit-unknown	37
+403	Newton Gravity 7	https://runrepeat.com/newton-gravity-7	175
+404	Brooks Defyance 9	https://runrepeat.com/brooks-defyance	120
+405	New Balance Fresh Foam Vongo v2	https://runrepeat.com/new-balance-fresh-foam-vongo-v2	69
+406	Nike LunarEpic Flyknit Shield	https://runrepeat.com/nike-lunarepic-flyknit-shield	148
+407	Vibram FiveFingers V-Run	https://runrepeat.com/vibram-fivefingers-v-run	105
+408	Adidas Adizero Prime	https://runrepeat.com/adidas-adizero-prime	84
+409	Merrell All Out Charge	https://runrepeat.com/merrell-all-out-charge	63
+410	Inov-8 Trail Talon 235	https://runrepeat.com/inov-8-trail-talon-235	82
+411	Adidas Supernova Trail	https://runrepeat.com/adidas-supernova-trail	64
+412	Topo Athletic Hydroventure	https://runrepeat.com/topo-athletic-hydroventure	85
+413	Skechers GOrun 5	https://runrepeat.com/skechers-gorun-5	70
+414	Asics Kanmei MX	https://runrepeat.com/asics-kanmei-mx	40
+415	Asics Gel Flux 4	https://runrepeat.com/asics-gel-flux-4	40
+416	Saucony Zealot ISO	https://runrepeat.com/saucony-zealot-iso	80
+417	Under Armour Charged Escape	https://runrepeat.com/under-armour-charged-escape	40
+418	Saucony Kinvara 8	https://runrepeat.com/saucony-kinvara-8	100
+419	New Balance 510 v4	https://runrepeat.com/new-balance-510-v4	26
+420	New Balance 510 v4	https://runrepeat.com/new-balance-510-v4	26
+421	Vivobarefoot Primus Lux	https://runrepeat.com/vivobarefoot-primus-lux	120
+422	Nike Air Max Fury	https://runrepeat.com/nike-air-max-fury	48
+423	Nike Free RN Motion Flyknit 2018	https://runrepeat.com/nike-free-rn-motion-flyknit-2018	69
+424	Merrell Bare Access Flex Knit	https://runrepeat.com/merrell-bare-access-flex-knit	58
+425	Salomon Speedtrak	https://runrepeat.com/salomon-speedtrak	69
+426	Vivobarefoot Primus Lite	https://runrepeat.com/vivobarefoot-primus-lite	128
+427	Asics Gel Quantum 180 2	https://runrepeat.com/asics-gel-quantum-180-2	83
+428	Nike Free Flyknit 3.0	https://runrepeat.com/nike-free-flyknit-3-0	130
+429	Saucony Excursion TR 9	https://runrepeat.com/saucony-excursion-tr	49
+430	Nike Air Zoom Pegasus 34 Shield	https://runrepeat.com/nike-air-zoom-pegasus-34-shield	110
+431	Nike Flex RN 2016	https://runrepeat.com/nike-flex-rn-2016	53
+432	Asics FuzeTora Twist	https://runrepeat.com/asics-fuzetora-twist	40
+433	Skechers GOrun MaxTrail 5 Ultra	https://runrepeat.com/skechers-gorun-maxtrail-5-ultra	49
+434	Asics Gel Kayano 25 Lite-Show	https://runrepeat.com/asics-gel-kayano-25-lite-show	120
+435	Altra Provision 3.5	https://runrepeat.com/altra-provision-35	90
+436	Adidas Terrex Agravic XT GTX	https://runrepeat.com/adidas-terrex-agravic-xt-gtx	112
+437	The North Face Ultra 110 GTX	https://runrepeat.com/the-north-face-ultra-110-gtx	110
+438	Nike LunarEpic Flyknit	https://runrepeat.com/nike-lunarepic-flyknit	125
+439	Nike LunarConverge	https://runrepeat.com/nike-lunarconverge	44
+440	Asics Gel Quantum Infinity	https://runrepeat.com/asics-gel-quantum-infinity	180
+441	Saucony Ride 9	https://runrepeat.com/saucony-ride-9	73
+442	Adidas Ultra Boost ST Parley	https://runrepeat.com/adidas-ultra-boost-st-parley	135
+443	Hoka One One Hupana	https://runrepeat.com/hoka-one-one-hupana	86
+444	Asics Kanmei	https://runrepeat.com/asics-kanmei	35
+445	Adidas Vigor Bounce	https://runrepeat.com/adidas-vigor-bounce	30
+446	Nike Downshifter 6	https://runrepeat.com/nike-downshifter	60
+447	Nike Air Max 2015	https://runrepeat.com/nike-air-max-2015	119
+448	Skechers GOrun 6	https://runrepeat.com/skechers-gorun-6	55
+449	Asics Tartherzeal 6	https://runrepeat.com/asics-tartherzeal-6	140
+450	Adidas AlphaBounce RC 2.0	https://runrepeat.com/adidas-alphabounce-rc-20	35
+451	Adidas Response Trail	https://runrepeat.com/adidas-response-trail	40
+452	Vivobarefoot Primus Trail FG	https://runrepeat.com/vivobarefoot-primus-trail-fg	150
+453	New Balance FuelCell	https://runrepeat.com/new-balance-fuelcell	80
+454	Inov-8 TerraUltra G 260	https://runrepeat.com/inov-8-terraultra-g-260	150
+455	New Balance FuelCore Coast v3	https://runrepeat.com/new-balance-fuelcore-coast-v3	27
+456	La Sportiva Mutant	https://runrepeat.com/la-sportiva-mutant	120
+457	Asics GT 2000 6 Trail	https://runrepeat.com/asics-gt-2000-6-trail	72
+458	Asics GT 2000 6 Lite-Show	https://runrepeat.com/asics-gt-2000-6-lite-show	70
+459	Vibram FiveFingers V-Trail	https://runrepeat.com/vibram-fivefingers-v-trail	80
+460	361 Degrees Meraki	https://runrepeat.com/361-degrees-meraki	70
+461	Adidas Adistar Boost ESM	https://runrepeat.com/adidas-adistar-boost-esm	74
+462	Asics HyperGel SAI	https://runrepeat.com/asics-hypergel-sai	45
+463	Salomon Sense Marin	https://runrepeat.com/salomon-sense-marin	83
+464	Asics FuzeX Lyte	https://runrepeat.com/asics-fuzex-lyte	60
+465	Nike Air VaporMax Flyknit Utility	https://runrepeat.com/nike-air-vapormax-flyknit-utility	146
+466	Mizuno Wave Shadow 2	https://runrepeat.com/mizuno-wave-shadow-2	110
+467	Inov-8 Roclite 315	https://runrepeat.com/inov-8-roclite-315	80
+468	Zoot Solana 2	https://runrepeat.com/zoot-solana	30
+469	Merrell Agility Peak Flex 2 E-Mesh	https://runrepeat.com/merrell-agility-peak-flex-2-e-mesh	42
+470	Reebok Zigwild TR 5.0	https://runrepeat.com/reebok-zigwild-tr-50	60
+471	Under Armour Charged Bandit 2	https://runrepeat.com/under-armour-charged-bandit-2	60
+472	Salomon XA Elevate GTX	https://runrepeat.com/salomon-xa-elevate-gtx	96
+473	Reebok Harmony Road 2	https://runrepeat.com/reebok-harmony-road-2	42
+474	Reebok Print Run 3.0	https://runrepeat.com/reebok-print-run-30	29
+475	Nike Air VaporMax Flyknit Moc 2	https://runrepeat.com/nike-air-vapormax-flyknit-moc-2	150
+476	Nike Air Zoom Pegasus 34 FlyEase	https://runrepeat.com/nike-air-zoom-pegasus-34-flyease	70
+477	Hoka One One Arahi 3	https://runrepeat.com/hoka-one-one-arahi-3	130
+478	Brooks Glycerin 14	https://runrepeat.com/brooks-glycerin-14	120
+479	Adidas Element Race	https://runrepeat.com/adidas-element-race	42
+480	Hoka One One Challenger 3 ATR	https://runrepeat.com/hoka-one-one-challenger-3-atr	130
+481	Asics GT 1000 5	https://runrepeat.com/asics-gt-1000-5	49
+482	Asics Gel Fortitude 8	https://runrepeat.com/asics-gel-fortitude-8	60
+483	Nike LunarTempo 2	https://runrepeat.com/nike-lunartempo	90
+484	Adidas Response 3	https://runrepeat.com/adidas-response-3	35
+485	Asics Gel Venture 6 MX	https://runrepeat.com/asics-gel-venture-6-mx	35
+486	Skechers GOrun 400	https://runrepeat.com/skechers-gorun-400	38
+487	Nike LunarStelos	https://runrepeat.com/nike-lunarstelos	59
+488	New Balance FuelCore Rush v3	https://runrepeat.com/new-balance-fuelcore-rush-v3	50
+489	Hoka One One Challenger 4 ATR	https://runrepeat.com/hoka-one-one-challenger-4-atr	104
+490	Salomon XA Enduro	https://runrepeat.com/salomon-xa-enduro	88
+491	New Balance 510 v3	https://runrepeat.com/new-balance-510-v3	53
+492	Salomon Wings Pro 2	https://runrepeat.com/salomon-wings-pro	112
+493	Nike Zoom Vaporfly 4% Flyknit	https://runrepeat.com/nike-zoom-vaporfly-4-flyknit	250
+494	Vibram FiveFingers KSO EVO	https://runrepeat.com/vibram-fivefingers-kso-evo	80
+495	Salomon Sonic Aero	https://runrepeat.com/salomon-sonic-aero	60
+496	Altra One v3	https://runrepeat.com/altra-one-v3	50
+497	Nike Rise React Flyknit	https://runrepeat.com/nike-rise-react-flyknit	116
+498	Nike Air Zoom Vomero 11	https://runrepeat.com/nike-air-zoom-vomero	100
+499	Saucony Excursion TR 11	https://runrepeat.com/saucony-excursion-tr-11	50
+500	Under Armour Threadborne Slingflex	https://runrepeat.com/under-armour-threadborne-slingflex	46
+501	Inov-8 Roadclaw 275	https://runrepeat.com/inov-8-roadclaw-275	70
+502	La Sportiva Helios 2.0	https://runrepeat.com/la-sportiva-helios-2-0	50
+503	Nike Air Zoom All Out Flyknit	https://runrepeat.com/nike-air-zoom-flyknit	110
+504	Merrell Trail Glove 4 Shield	https://runrepeat.com/merrell-trail-glove-4-shield	70
+505	Xero Shoes Prio	https://runrepeat.com/xero-shoes-prio	90
+506	Nike Free RN Commuter 2017	https://runrepeat.com/nike-free-rn-commuter-2017	85
+507	Puma Carson 2 X Knit	https://runrepeat.com/puma-carson-2-x-knit	47
+508	Saucony Type A8	https://runrepeat.com/saucony-type-a8	45
+509	Scott Kinabalu Supertrac	https://runrepeat.com/scott-kinabalu-supertrac	90
+510	Brooks Mazama	https://runrepeat.com/brooks-mazama	103
+511	Under Armour Micro G Speed Swift 2	https://runrepeat.com/under-armour-micro-g-speed-swift-2	46
+512	Adidas Pure Boost Clima	https://runrepeat.com/adidas-pure-boost-clima	92
+513	Altra Lone Peak 3.5 Mid Mesh	https://runrepeat.com/altra-lone-peak-35-mid-mesh	130
+514	Zoot Carlsbad	https://runrepeat.com/zoot-carlsbad	40
+515	Puma Carson 2	https://runrepeat.com/puma-carson-2	23
+516	361 Degrees Strata 2	https://runrepeat.com/361-degrees-strata-2	75
+517	Mizuno Wave Horizon	https://runrepeat.com/mizuno-wave-horizon	65
+518	Zoot Del Mar	https://runrepeat.com/zoot-del-mar	30
+519	Saucony Ride 8	https://runrepeat.com/saucony-ride	80
+520	Nike Air Zoom Elite 10	https://runrepeat.com/nike-air-zoom-elite-10	80
+521	Hoka One One Clayton 2	https://runrepeat.com/hoka-one-one-clayton-2	89
+522	Under Armour Charged Lightning	https://runrepeat.com/under-armour-charged-lightning	50
+523	Hoka One One Speed Instinct 2	https://runrepeat.com/hoka-one-one-speed-instinct-2	80
+524	Inov-8 RoadTalon 240	https://runrepeat.com/inov-8-roadtalon-240	71
+525	New Balance Fresh Foam Kaymin TRL	https://runrepeat.com/new-balance-fresh-foam-kaymin-trl	53
+526	Brooks PureGrit 6	https://runrepeat.com/brooks-puregrit-6	90
+527	Asics Gel Quantum 360 Knit 2	https://runrepeat.com/asics-gel-quantum-360-knit-2	89
+528	Altra Lone Peak 3.0 NeoShell Mid	https://runrepeat.com/altra-lone-peak-3-0-neoshell-mid	85
+529	Zoot Laguna	https://runrepeat.com/zoot-laguna	35
+530	Topo Athletic Ultrafly	https://runrepeat.com/topo-athletic-ultrafly	84
+531	Saucony Redeemer ISO	https://runrepeat.com/saucony-redeemer	75
+532	Under Armour Toccoa	https://runrepeat.com/under-armour-toccoa	49
+533	Skechers GOmeb Razor 2	https://runrepeat.com/skechers-gomeb-razor-2	60
+534	New Balance 840 v3	https://runrepeat.com/new-balance-840	70
+535	Under Armour Horizon RTT	https://runrepeat.com/under-armour-horizon-rtt	63
+536	Salomon XA Pro 3D CS WP	https://runrepeat.com/salomon-xa-pro-3d-cs-wp	145
+537	Hoka One One Clifton 3	https://runrepeat.com/hoka-one-one-clifton-3	100
+538	New Balance Fresh Foam Cruz Decon	https://runrepeat.com/new-balance-fresh-foam-cruz-decon	75
+539	New Balance Fresh Foam Lazr Sport	https://runrepeat.com/new-balance-fresh-foam-lazr-sport	34
+540	Altra One 2.5	https://runrepeat.com/altra-one	70
+541	Reebok Fusium Run	https://runrepeat.com/reebok-fusium-run	41
+542	New Balance Vazee Pace	https://runrepeat.com/new-balance-vazee-pace	90
+543	New Balance Minimus 10 v1	https://runrepeat.com/new-balance-minimus-10-v1	115
+544	Asics DynaFlyte 3 Lite-Show	https://runrepeat.com/asics-dynaflyte-3-lite-show	99
+545	Altra Superior 4.0	https://runrepeat.com/altra-superior-40	108
+546	Asics Gel Quantum 180	https://runrepeat.com/asics-gel-quantum-180	75
+547	Saucony Ride 7	https://runrepeat.com/saucony-ride-7	73
+548	Nike Free Train Instinct	https://runrepeat.com/nike-free-train-instinct	75
+549	On Cloudace	https://runrepeat.com/on-cloudace	200
+550	Puma Speed 500 Ignite	https://runrepeat.com/puma-speed-500-ignite	35
+551	Nike Revolution 4 FlyEase	https://runrepeat.com/nike-revolution-4-flyease	45
+552	New Balance Vazee Rush	https://runrepeat.com/new-balance-vazee-rush	45
+553	Asics Gel Kayano 24 Lite-Show	https://runrepeat.com/asics-gel-kayano-24-lite-show	85
+554	Skechers GOrun Fast	https://runrepeat.com/skechers-gorun-fast	24
+555	Jordan Grind	https://runrepeat.com/jordan-grind	68
+556	Under Armour Fuse FST	https://runrepeat.com/under-armour-fuse-fst	30
+557	Brooks Transcend 6	https://runrepeat.com/brooks-transcend-6	160
+558	Nike Free RN CMTR	https://runrepeat.com/nike-free-rn-cmtr	75
+559	Nike Air Zoom Span 2	https://runrepeat.com/nike-air-zoom-span-2	50
+560	Saucony Koa TR	https://runrepeat.com/saucony-koa-tr	55
+561	Nike Air Zoom Span	https://runrepeat.com/nike-air-zoom-span	54
+562	Nike Lunar Skyelux	https://runrepeat.com/nike-lunar-skyelux	50
+563	Brooks Addiction 13	https://runrepeat.com/brooks-addiction-13	130
+564	Hoka One One Evo Mafate	https://runrepeat.com/hoka-one-one-evo-mafate	170
+565	Brooks Ghost 11 GTX	https://runrepeat.com/brooks-ghost-11-gtx	150
+566	New Balance 1500 T2	https://runrepeat.com/new-balance-1500-t2	100
+567	Reebok AT Super 3.0 Stealth	https://runrepeat.com/reebok-at-super-30-stealth	105
+568	New Balance Rubix	https://runrepeat.com/new-balance-rubix	116
+569	Mizuno Wave Sonic	https://runrepeat.com/mizuno-wave-sonic	62
+570	Hoka One One Clifton 5 Knit	https://runrepeat.com/hoka-one-one-clifton-5-knit	135
+571	Adidas Pure Boost DPR LTD	https://runrepeat.com/adidas-pure-boost-dpr-ltd	56
+572	Salomon Sense ProPulse	https://runrepeat.com/salomon-sense-propulse	50
+573	Asics Gel Contend 3	https://runrepeat.com/asics-gel-contend	40
+574	New Balance 680 v3	https://runrepeat.com/new-balance-680	56
+575	Newton Distance 7	https://runrepeat.com/newton-distance-7	155
+576	Puma Carson 2 X	https://runrepeat.com/puma-carson-2-x	37
+577	Reebok OSR Grasse Road	https://runrepeat.com/reebok-osr-grasse-road	60
+578	Nike Air Max Sequent	https://runrepeat.com/nike-air-max-sequent	83
+579	Puma Speed Ignite Netfit	https://runrepeat.com/puma-speed-ignite-netfit	84
+580	Saucony Switchback ISO	https://runrepeat.com/saucony-switchback-iso	140
+581	Inov-8 Terraclaw 250	https://runrepeat.com/inov-8-terraclaw-250	75
+582	Saucony Triumph ISO 3	https://runrepeat.com/saucony-triumph-iso-3	70
+583	La Sportiva Wildcat 2.0 GTX	https://runrepeat.com/la-sportiva-wildcat-gtx	77
+584	Brooks Mazama 2	https://runrepeat.com/brooks-mazama-2	90
+585	Reebok Fusion Flexweave	https://runrepeat.com/reebok-fusion-flexweave	36
+586	Brooks Dyad 9	https://runrepeat.com/brooks-dyad-9	63
+587	Merrell Vapor Glove 2	https://runrepeat.com/merrell-vapor-glove	65
+588	Saucony Zealot ISO 2	https://runrepeat.com/saucony-zealot-iso-2	88
+589	New Balance Fresh Foam Veniz	https://runrepeat.com/new-balance-fresh-foam-veniz	35
+590	Under Armour Fat Tire 3	https://runrepeat.com/under-armour-fat-tire-3	112
+591	Asics HyperGel Kenzen	https://runrepeat.com/asics-hypergel-kenzen	55
+592	Vibram FiveFingers EL-X	https://runrepeat.com/vibram-fivefingers-el-x	60
+593	Merrell Bare Access Flex E-Mesh	https://runrepeat.com/merrell-bare-access-flex-e-mesh	45
+594	Altra Vanish-R	https://runrepeat.com/altra-vanish-r	100
+595	Mizuno Wave Kazan	https://runrepeat.com/mizuno-wave-kazan	72
+596	Asics GT 1000 7 SP	https://runrepeat.com/asics-gt-1000-7-sp	63
+597	Brooks Cascadia 13 GTX	https://runrepeat.com/brooks-cascadia-13-gtx	160
+598	Nike Flex Experience RN 6	https://runrepeat.com/nike-flex-experience-rn-6	44
+599	Nike Free RN Distance	https://runrepeat.com/nike-free-rn-distance	97
+600	Saucony Peregrine 7	https://runrepeat.com/saucony-peregrine-7	120
+601	Adidas AlphaBounce CK	https://runrepeat.com/adidas-alphabounce-ck	56
+602	Inov-8 Trailroc 270	https://runrepeat.com/inov-8-trailroc-270	98
+603	Adidas Pure Boost All Terrain	https://runrepeat.com/adidas-pure-boost-all-terrain	82
+604	Inov-8 Roclite 320 GTX	https://runrepeat.com/inov-8-roclite-320-gtx	155
+605	Asics Gel Quantum 180 2 MX	https://runrepeat.com/asics-gel-quantum-180-2-mx	60
+606	Under Armour Micro G Pursuit Twist	https://runrepeat.com/under-armour-micro-g-pursuit-twist	60
+607	Brooks Ricochet LE	https://runrepeat.com/brooks-ricochet-le	120
+608	Vibram FiveFingers Trek Ascent	https://runrepeat.com/vibram-fivefingers-trek-ascent	120
+609	Saucony Xodus ISO	https://runrepeat.com/saucony-xodus-iso	95
+610	Reebok Ahary Runner	https://runrepeat.com/reebok-ahary-runner	28
+611	Mizuno Wave Inspire 12	https://runrepeat.com/mizuno-wave-inspire	93
+612	Altra Paradigm 3.0	https://runrepeat.com/altra-paradigm-30	95
+613	Hoka One One Tor Ultra Hi WP	https://runrepeat.com/hoka-one-one-tor-ultra-hi-wp	230
+614	Inov-8 X-Talon 225	https://runrepeat.com/inov-8-x-talon-225	110
+615	Nike Flex Fury 2	https://runrepeat.com/nike-flex-fury-2	60
+616	New Balance Fresh Foam Gobi Trail v3	https://runrepeat.com/new-balance-fresh-foam-gobi-trail-v3	60
+617	Brooks Neuro 2	https://runrepeat.com/brooks-neuro-2	58
+618	Saucony Cohesion TR 11	https://runrepeat.com/saucony-cohesion-tr-11	59
+619	Altra Lone Peak 3.0	https://runrepeat.com/altra-lone-peak-3-0	120
+620	New Balance FuelCore Nitrel Trail	https://runrepeat.com/new-balance-fuelcore-nitrel-trail	62
+621	New Balance 940 v3	https://runrepeat.com/new-balance-940-v3	115
+622	Salomon S-Lab Sense 7 SG	https://runrepeat.com/salomon-s-lab-sense-7-sg	179
+623	Salomon Sense Ride GTX Invisible Fit	https://runrepeat.com/salomon-sense-ride-gtx-invisible-fit	140
+624	Salomon S-Lab Sense 7	https://runrepeat.com/salomon-s-lab-sense-7	180
+625	Asics Gel Surveyor 5	https://runrepeat.com/asics-gel-surveyor-5	55
+626	Under Armour SpeedForm Gemini 2	https://runrepeat.com/under-armour-speedform-gemini	80
+627	Brooks Caldera 3	https://runrepeat.com/brooks-caldera-3	140
+628	Adidas Falcon Elite 5	https://runrepeat.com/adidas-falcon-elite	35
+629	Saucony Hurricane ISO 2	https://runrepeat.com/saucony-hurricane-iso	74
+630	Nike Air Zoom Structure 19	https://runrepeat.com/nike-air-zoom-structure	118
+631	Saucony Xodus ISO 2	https://runrepeat.com/saucony-xodus-iso-2	130
+632	Inov-8 Parkclaw 275	https://runrepeat.com/inov-8-parkclaw-275	70
+633	Salomon S-Lab Speed 2	https://runrepeat.com/salomon-s-lab-speed-2	180
+634	Altra Torin IQ	https://runrepeat.com/altra-torin-iq	100
+635	Altra Superior 3.0	https://runrepeat.com/altra-superior-3-0	65
+636	Nike Air Zoom Winflo 3	https://runrepeat.com/nike-air-zoom-winflo-3	72
+637	Adidas Adizero Prime Parley	https://runrepeat.com/adidas-adizero-prime-parley	90
+638	Nike Air Zoom Winflo 4 Shield	https://runrepeat.com/nike-air-zoom-winflo-4-shield	55
+639	Salomon X-Scream 3D	https://runrepeat.com/salomon-x-scream-3d	70
+640	Asics FuzeX Rush Adapt	https://runrepeat.com/asics-fuzex-rush-adapt	41
+641	La Sportiva Ultra Raptor GTX	https://runrepeat.com/la-sportiva-ultra-raptor-gtx	83
+642	Adidas AlphaBounce Parley	https://runrepeat.com/adidas-alphabounce-parley	47
+643	Under Armour SpeedForm Slingshot	https://runrepeat.com/armour-speedform-slingshot	85
+644	On Cloudventure Waterproof	https://runrepeat.com/on-cloudventure-waterproof	120
+645	Under Armour Speedform Fortis 2	https://runrepeat.com/under-armour-speedform-fortis-2	62
+646	New Balance Hanzo S	https://runrepeat.com/new-balance-hanzo-s	120
+647	Adidas Terrex Skychaser	https://runrepeat.com/adidas-terrex-skychaser	77
+648	Nike Air Zoom Structure 22 Shield	https://runrepeat.com/nike-air-zoom-structure-22-shield	91
+649	Mizuno Wave Enigma 5	https://runrepeat.com/mizuno-wave-enigma	96
+650	Nike FS Lite Run 4	https://runrepeat.com/nike-fs-lite-run-4	55
+651	Mizuno Wave Rider 19	https://runrepeat.com/mizuno-wave-rider	120
+652	Brooks PureGrit 5	https://runrepeat.com/brooks-puregrit-5	120
+653	Asics Gel Scram 3	https://runrepeat.com/asics-gel-scram-3	55
+654	Under Armour Micro G Assert 6	https://runrepeat.com/armour-micro-g-assert-6	42
+655	Hoka One One Gaviota 2	https://runrepeat.com/hoka-one-one-gaviota-2	150
+656	Mizuno Wave Paradox 2	https://runrepeat.com/mizuno-wave-paradox	66
+657	Asics GT 4000	https://runrepeat.com/asics-gt-4000	130
+658	Inov-8 Roclite 325 GTX	https://runrepeat.com/inov-8-roclite-325-gtx	78
+659	Salomon S-Lab XA Alpine 2	https://runrepeat.com/salomon-s-lab-xa-alpine-2	250
+660	Topo Athletic ST-2	https://runrepeat.com/topo-athletic-st-2	90
+661	On Cloudflash	https://runrepeat.com/on-cloudflash	180
+662	Reebok Print Lite Rush	https://runrepeat.com/reebok-print-lite-rush	20
+663	Asics Gel Exalt 2	https://runrepeat.com/asics-gel-exalt-2	75
+664	Under Armour Drift 2	https://runrepeat.com/under-armour-drift-2	44
+665	Topo Athletic Terraventure	https://runrepeat.com/topo-athletic-terraventure	110
+666	Under Armour SpeedForm Slingride	https://runrepeat.com/armour-speedform-slingride	63
+667	Asics Gel Pursue 4	https://runrepeat.com/asics-gel-pursue-4	60
+668	Inov-8 Mudclaw 275	https://runrepeat.com/inov-8-mudclaw-275	120
+669	Dynafit Feline SL	https://runrepeat.com/dynafit-feline-sl	150
+670	Topo Athletic Terraventure 2	https://runrepeat.com/topo-athletic-terraventure-2	120
+671	Puma Carson 2 Nature Knit	https://runrepeat.com/puma-carson-2-nature-knit	30
+672	Nike Renew Rival Shield	https://runrepeat.com/nike-renew-rival-shield	72
+673	New Balance Fresh Foam Gobi Trail	https://runrepeat.com/new-balance-fresh-foam-gobi-trail	86
+674	Nike Air Zoom Elite 8	https://runrepeat.com/nike-air-zoom-elite	81
+675	New Balance Fresh Foam Arishi v2	https://runrepeat.com/new-balance-fresh-foam-arishi-v2	50
+676	Adidas Duramo 6	https://runrepeat.com/adidas-duramo-6	50
+677	Asics Gel Kenun Knit	https://runrepeat.com/asics-gel-kenun-knit	50
+678	Reebok Express Runner	https://runrepeat.com/reebok-express-runner	39
+679	Brooks Ravenna 8	https://runrepeat.com/brooks-ravenna-8	110
+680	Adidas Terrex CMTK	https://runrepeat.com/adidas-terrex-cmtk	90
+681	New Balance Fresh Foam Gobi Trail v2	https://runrepeat.com/new-balance-fresh-foam-gobi-trail-v2	65
+682	The North Face Ultra Endurance II	https://runrepeat.com/the-north-face-ultra-endurance-ii	120
+683	Nike LunarEpic Low Flyknit	https://runrepeat.com/nike-lunarepic-flyknit-low	160
+684	Salming Trail 5	https://runrepeat.com/salming-trail-5	85
+685	Nike Air Zoom Pegasus 35 FlyEase	https://runrepeat.com/nike-air-zoom-pegasus-35-flyease	79
+686	Merrell Trail Glove 5	https://runrepeat.com/merrell-trail-glove-5	85
+687	Saucony Hurricane ISO 3	https://runrepeat.com/saucony-hurricane-iso-3	84
+688	Zoot Ultra Kalani 3.0	https://runrepeat.com/zoot-ultra-kalani	40
+689	Puma Ignite Limitless Weave	https://runrepeat.com/puma-ignite-limitless-weave	50
+690	New Balance FuelCore Sonic v2	https://runrepeat.com/new-balance-fuelcore-sonic-v2	110
+691	Reebok Endless Road	https://runrepeat.com/reebok-endless-road	27
+692	Brooks Dyad 10	https://runrepeat.com/brooks-dyad-10	130
+693	Puma Speed 600 S Ignite	https://runrepeat.com/puma-speed-600-s-ignite	45
+694	Under Armour Charged Rebel	https://runrepeat.com/under-armour-charged-rebel	56
+695	Jordan Grind 2	https://runrepeat.com/jordan-grind-2	70
+696	Saucony Nomad TR	https://runrepeat.com/saucony-nomad-tr	80
+697	Asics Gel Nimbus 20 Lite-Show	https://runrepeat.com/asics-gel-nimbus-20-lite-show	120
+698	Adidas Vengeful	https://runrepeat.com/adidas-vengeful	57
+699	Adidas AlphaBounce AMS	https://runrepeat.com/adidas-alphabounce-ams	70
+700	New Balance Fresh Foam Zante Solas	https://runrepeat.com/new-balance-fresh-foam-zante-solas	100
+701	On Cloud Waterproof	https://runrepeat.com/on-cloud-waterproof	150
+702	Asics Gel Kenun Lyte	https://runrepeat.com/asics-gel-kenun-lyte	30
+703	Salomon Sonic Pro 2	https://runrepeat.com/salomon-sonic-pro-2	80
+704	Under Armour SpeedForm Apollo 2	https://runrepeat.com/under-armour-speedform-apollo	100
+705	Hoka One One Evo Jawz	https://runrepeat.com/hoka-one-one-evo-jawz	130
+706	Reebok Instalite Run	https://runrepeat.com/reebok-instalite-run	22
+707	Altra Instinct 4.0	https://runrepeat.com/altra-instinct-4-0	110
+708	Zoot Solana ACR	https://runrepeat.com/zoot-solana-acr	30
+709	La Sportiva Tempesta GTX	https://runrepeat.com/la-sportiva-tempesta-gtx	165
+710	New Balance 840 v4	https://runrepeat.com/new-balance-840-v4	120
+711	Adidas AlphaBounce Engineered Mesh	https://runrepeat.com/adidas-alphabounce-engineered-mesh	45
+712	The North Face One Trail	https://runrepeat.com/the-north-face-one-trail	70
+713	Xero Shoes TerraFlex	https://runrepeat.com/xero-shoes-terraflex	100
+714	Asics Gel Kenun MX	https://runrepeat.com/asics-gel-kenun-mx	40
+715	Inov-8 X-Talon 260 Ultra	https://runrepeat.com/inov-8-x-talon-260-ultra	139
+716	Asics LyteRacer TS 7	https://runrepeat.com/asics-lyteracer-ts-7	80
+717	Puma Speed 600 Ignite	https://runrepeat.com/puma-speed-600-ignite	35
+718	Saucony Excursion TR 10	https://runrepeat.com/saucony-excursion-tr-10	45
+719	Asics Gel Nimbus 20 SP	https://runrepeat.com/asics-gel-nimbus-20-sp	90
+720	Nike Zoom Strike 2	https://runrepeat.com/nike-zoom-strike-2	56
+721	Reebok Floatride Run Fast Pro	https://runrepeat.com/reebok-floatride-run-fast-pro	250
+722	Inov-8 Trail Talon 290	https://runrepeat.com/inov-8-trail-talon-290	88
+723	La Sportiva Unika	https://runrepeat.com/la-sportiva-unika	190
+724	Nike Tri Fusion	https://runrepeat.com/nike-tri-fusion	85
+725	Reebok Runner	https://runrepeat.com/reebok-runner	30
+726	Under Armour Thrill 2	https://runrepeat.com/under-armour-thrill-2	58
+727	Puma Ignite Limitless SR evoKNIT	https://runrepeat.com/puma-ignite-limitless-sr-evoknit	42
+728	New Balance Fresh Foam Cruz v2 Nubuck	https://runrepeat.com/new-balance-fresh-foam-cruz-v2-nubuck	53
+729	Newton Motion 7	https://runrepeat.com/newton-motion-7	160
+730	Asics Gel Kenun Lyte MX	https://runrepeat.com/asics-gel-kenun-lyte-mx	35
+731	Asics Gel Pursue 3	https://runrepeat.com/asics-gel-pursue-3	55
+732	New Balance Fresh Foam Arishi Sport	https://runrepeat.com/new-balance-fresh-foam-arishi-sport	25
+733	The North Face Endurus TR	https://runrepeat.com/the-north-face-endurus-tr	130
+734	Asics Gel Quantum 360 Shift	https://runrepeat.com/asics-gel-quantum-360-shift	110
+735	Nike Zoom Rotational 6	https://runrepeat.com/nike-zoom-rotational	100
+736	Altra Instinct 4.5	https://runrepeat.com/altra-instinct-45	82
+737	La Sportiva Lycan	https://runrepeat.com/la-sportiva-lycan	115
+738	Asics Endurant	https://runrepeat.com/asics-endurant	33
+739	New Balance 1340 v3	https://runrepeat.com/new-balance-1340-v3	90
+740	Reebok Print Run ULTK	https://runrepeat.com/reebok-print-run-ultk	56
+741	Brooks PureCadence 5	https://runrepeat.com/brooks-purecadence	120
+742	Newton Kismet II	https://runrepeat.com/newton-kismet-ii	135
+743	On Cloudrush	https://runrepeat.com/on-cloudrush	125
+744	Nike Free RN 2018 Sun	https://runrepeat.com/nike-free-rn-2018-sun	33
+745	Brooks PureGrit 7	https://runrepeat.com/brooks-puregrit-7	120
+746	Topo Athletic Runventure 2	https://runrepeat.com/topo-athletic-runventure-2	110
+747	Altra Lone Peak 3.0 NeoShell Low	https://runrepeat.com/altra-lone-peak-30-neoshell-low	110
+748	Saucony Echelon 6	https://runrepeat.com/saucony-echelon-6	35
+749	Brooks Levitate 2 LE	https://runrepeat.com/brooks-levitate-2-le	150
+750	Altra Olympus 2.0	https://runrepeat.com/altra-olympus	150
+751	Asics Gel Hyper Tri 3	https://runrepeat.com/asics-gel-hyper-tri-3	70
+752	Reebok Speedlux 2.0	https://runrepeat.com/reebok-speedlux-20	27
+753	Nike Air Zoom Elite 7	https://runrepeat.com/nike-air-zoom-elite-7	110
+754	Newton Kismet 4	https://runrepeat.com/newton-kismet-4	105
+755	Mizuno Wave Creation 20	https://runrepeat.com/mizuno-wave-creation-20	170
+756	Salomon XA Pro 3D M+	https://runrepeat.com/salomon-xa-pro-3d-m	120
+757	Reebok Runner 2.0 MT	https://runrepeat.com/reebok-runner-20-mt	36
+758	La Sportiva Uragano GTX	https://runrepeat.com/la-sportiva-uragano-gtx	180
+759	New Balance Vazee Prism	https://runrepeat.com/new-balance-vazee-prism	59
+760	Newton Gravity 8	https://runrepeat.com/newton-gravity-8	175
+761	Puma Ignite Limitless SR	https://runrepeat.com/puma-ignite-limitless-sr	32
+762	Mizuno Wave Daichi 2	https://runrepeat.com/mizuno-wave-daichi-2	99
+763	Asics Gel Flux 3	https://runrepeat.com/asics-gel-flux	75
+764	Asics Gel FujiEndurance	https://runrepeat.com/asics-gel-fujiendurance	72
+765	Salomon Speedspike CS	https://runrepeat.com/salomon-speedspike-cs	81
+766	Reebok Instalite Lux	https://runrepeat.com/reebok-instalite-lux	23
+767	Reebok Run Supreme 3.0 MT	https://runrepeat.com/reebok-run-supreme-30-mt	24
+768	Adidas Energy Bounce 2.0	https://runrepeat.com/adidas-energy-bounce-2-0	50
+769	New Balance Vazee Summit	https://runrepeat.com/new-balance-vazee-summit	48
+770	Hoka One One Mach 2	https://runrepeat.com/hoka-one-one-mach-2	140
+771	Inov-8 Race Ultra 290	https://runrepeat.com/inov-8-race-ultra-290	130
+772	Under Armour SpeedForm Gemini 3 Graphic	https://runrepeat.com/under-armour-speedform-gemini-3-graphic	43
+773	Inov-8 Mudclaw G 260	https://runrepeat.com/inov-8-mudclaw-g-260	150
+774	Merrell Trail Glove 4 E-Mesh	https://runrepeat.com/merrell-trail-glove-4-e-mesh	70
+775	Under Armour Charged Bandit	https://runrepeat.com/under-armour-charged-bandit	100
+776	On Cloudventure Peak	https://runrepeat.com/on-cloudventure-peak	150
+777	Altra Impulse Flash	https://runrepeat.com/altra-impulse-flash	60
+778	Under Armour Charged Reactor Run	https://runrepeat.com/under-armour-charged-reactor-run	46
+779	Under Armour Charged Reactor Run	https://runrepeat.com/under-armour-charged-reactor-run	46
+780	Adidas Response Boost Trail	https://runrepeat.com/adidas-response-boost-trail	70
+781	Merrell Agility Charge Flex	https://runrepeat.com/merrell-agility-charge-flex	49
+782	Adidas Climachill Sonic Boost	https://runrepeat.com/adidas-climachill-sonic-boost	40
+783	The North Face Ultra Cardiac	https://runrepeat.com/the-north-face-ultra-cardiac	95
+784	Saucony Echelon 7	https://runrepeat.com/saucony-echelon-7	130
+785	361 Degrees Chaser 2	https://runrepeat.com/361-degrees-chaser-2	75
+786	Under Armour Horizon STR	https://runrepeat.com/under-armour-horizon-str	69
+787	Asics GT 2000 5 Trail	https://runrepeat.com/asics-gt-2000-5-trail	55
+788	Hoka One One Hupana Knit Jacquard	https://runrepeat.com/hoka-one-one-hupana-knit-jacquard	90
+789	Altra Lone Peak 4.0 Mid RSM	https://runrepeat.com/altra-lone-peak-40-mid-rsm	160
+790	Inov-8 Parkclaw 275 GTX	https://runrepeat.com/inov-8-parkclaw-275-gtx	90
+791	Merrell Agility Fusion Flex	https://runrepeat.com/merrell-agility-fusion-flex	45
+792	Saucony Kinvara 6	https://runrepeat.com/saucony-kinvara-6	83
+793	The North Face Ultra Endurance	https://runrepeat.com/the-north-face-ultra-endurance	100
+794	Altra Lone Peak 4.0 RSM	https://runrepeat.com/altra-lone-peak-40-rsm	150
+795	Under Armour Charged CoolSwitch	https://runrepeat.com/under-armour-charged-coolswitch	37
+796	La Sportiva VK	https://runrepeat.com/la-sportiva-vk	135
+797	Reebok Jet Dashride 6.0	https://runrepeat.com/reebok-jet-dashride-60	29
+798	New Balance Fresh Foam Hierro	https://runrepeat.com/new-balance-fresh-foam-hierro	115
+799	Hoka One One Bondi Leather	https://runrepeat.com/hoka-one-one-bondi-leather	160
+800	Topo Athletic Magnifly 2	https://runrepeat.com/topo-athletic-magnifly-2	110
+801	La Sportiva Kaptiva	https://runrepeat.com/la-sportiva-kaptiva	139
+802	Asics Gel Excite 3	https://runrepeat.com/asics-gel-excite-3	50
+803	Under Armour Micro G Speed Swift	https://runrepeat.com/armour-micro-g-speed-swift	48
+804	Reebok Astroride Future	https://runrepeat.com/reebok-astroride-future	25
+805	Asics GT 2000 5 Lite-Show	https://runrepeat.com/asics-gt-2000-5-lite-show	79
+806	Asics Gel Kenun MX SP	https://runrepeat.com/asics-gel-kenun-mx-sp	45
+807	Saucony Cortana 4	https://runrepeat.com/saucony-cortana	81
+808	Saucony Redeemer ISO 2	https://runrepeat.com/saucony-redeemer-iso-2	120
+809	La Sportiva Crossover 2.0 GTX	https://runrepeat.com/la-sportiva-crossover-gtx	86
+810	Adidas Powerblaze	https://runrepeat.com/adidas-powerblaze	60
+811	Under Armour Micro G Fuel	https://runrepeat.com/under-armour-micro-g-fuel	43
+812	Reebok Astroride Strike	https://runrepeat.com/reebok-astroride-strike	36
+813	Inov-8 Arctic Talon 275	https://runrepeat.com/inov-8-arctic-talon-275	130
+814	Under Armour Charged Bandit 4 Team	https://runrepeat.com/under-armour-charged-bandit-4-team	79
+815	New Balance 790 v6	https://runrepeat.com/new-balance-790-v6	49
+816	The North Face Ultra Cardiac II	https://runrepeat.com/the-north-face-ultra-cardiac-ii	110
+817	Under Armour SpeedForm Slingride TRI	https://runrepeat.com/under-armour-speedform-slingride-tri	73
+818	Inov-8 Trail Talon 275	https://runrepeat.com/inov-8-trail-talon-275	44
+819	Reebok Ridgerider Trail 2.0	https://runrepeat.com/reebok-ridgerider-trail-20	40
+820	Vibram FiveFingers Trek Ascent Insulated	https://runrepeat.com/vibram-fivefingers-trek-ascent-insulated	130
+821	Skechers GOrun Forza 2	https://runrepeat.com/skechers-gorun-forza-2	92
+822	Vibram FiveFingers Treksport	https://runrepeat.com/vibram-fivefingers-treksport	86
+823	Merrell All Out Crush Tough Mudder	https://runrepeat.com/merrell-all-out-crush-tough-mudder	100
+824	Reebok All Terrain Freedom	https://runrepeat.com/reebok-all-terrain-freedom	63
+825	Topo Athletic Ultrafly 2	https://runrepeat.com/topo-athletic-ultrafly-2	120
+826	Asics FuzeX Rush CM	https://runrepeat.com/asics-fuzex-rush-cm	30
+827	New Balance 910 v4	https://runrepeat.com/new-balance-910-v4	66
+828	Asics Gel Surveyor 3	https://runrepeat.com/asics-gel-surveyor	50
+829	Hoka One One Akasa	https://runrepeat.com/hoka-one-one-akasa	140
+830	Adidas Element Athletic	https://runrepeat.com/adidas-element-athletic	30
+831	Topo Athletic Hydroventure 2	https://runrepeat.com/topo-athletic-hydroventure-2	140
+832	Newton Motion 8	https://runrepeat.com/newton-motion-8	175
+833	Puma Ignite Disc	https://runrepeat.com/puma-ignite-disc	60
+834	Asics Gel Kayano 25 OBI	https://runrepeat.com/asics-gel-kayano-25-obi	120
+835	Asics DynaFlyte 3 Sound	https://runrepeat.com/asics-dynaflyte-3-sound	91
+836	Newton Fate 4	https://runrepeat.com/newton-fate-4	100
+837	Saucony Breakthru 2	https://runrepeat.com/saucony-breakthru	80
+838	Asics Gel Quantum 360 Shift MX	https://runrepeat.com/asics-gel-quantum-360-shift-mx	120
+839	Puma Ignite PWRWARM	https://runrepeat.com/puma-ignite-pwrwarm	61
+840	Saucony Peregrine 7 ICE+	https://runrepeat.com/saucony-peregrine-7-ice	104
+841	Asics Gel Nimbus 19 Lite-Show	https://runrepeat.com/asics-gel-nimbus-19-lite-show	87
+842	On Cloudventure Midtop	https://runrepeat.com/on-cloudventure-midtop	160
+843	Under Armour Highlight Delta 2	https://runrepeat.com/under-armour-highlight-delta-2	68
+844	New Balance Fresh Foam Lazr Denim	https://runrepeat.com/new-balance-fresh-foam-lazr-denim	27
+845	Merrell Trail Crusher	https://runrepeat.com/merrell-trail-crusher	60
+846	Under Armour Freedom Assert 6	https://runrepeat.com/under-armour-freedom-assert-6	62
+847	Reebok Zig Pulse SE	https://runrepeat.com/reebok-zig-pulse-se	63
+848	Under Armour Horizon KTV	https://runrepeat.com/under-armour-horizon-ktv	84
+849	Reebok OSR Sweet Road SE	https://runrepeat.com/reebok-osr-sweet-road-se	44
+850	Saucony Linchpin	https://runrepeat.com/saucony-linchpin	30
+851	Nike Free RN Motion Flyknit	https://runrepeat.com/nike-free-rn-motion-flyknit	65
+852	New Balance Fresh Foam Cruz Retro Hoodie	https://runrepeat.com/new-balance-fresh-foam-cruz-retro-hoodie	35
+853	Skechers GOmeb Speed 3	https://runrepeat.com/skechers-gomeb-speed	120
+854	Altra Lone Peak 4.0 Mid Mesh	https://runrepeat.com/altra-lone-peak-40-mid-mesh	130
+855	Nike LunarSpider R6	https://runrepeat.com/nike-lunarspider-r	88
+856	Hoka One One Cavu 2	https://runrepeat.com/hoka-one-one-cavu-2	110
+857	Salomon Sense Pulse	https://runrepeat.com/salomon-sense-pulse	87
+858	Zoot Diego	https://runrepeat.com/zoot-diego	40
+859	Saucony Caliber TR	https://runrepeat.com/saucony-caliber-tr	67
+860	Inov-8 Roclite 325	https://runrepeat.com/inov-8-roclite-325	75
+861	Nike Free RN 2017 Shield	https://runrepeat.com/nike-free-rn-2017-shield	60
+862	Puma Cell Regulate Nature Tech	https://runrepeat.com/puma-cell-regulate-nature-tech	52
+863	Reebok Plus Runner ULTK	https://runrepeat.com/reebok-plus-runner-ultk	42
+864	New Balance 880 v9	https://runrepeat.com/new-balance-880-v9	125
+865	Saucony Peregrine 8 Ice+	https://runrepeat.com/saucony-peregrine-8-ice	150
+866	Asics FuzeX Knit	https://runrepeat.com/asics-fuzex-knit	50
+867	Inov-8 Roclite 305 GTX	https://runrepeat.com/inov-8-roclite-305-gtx	140
+868	Adidas Pure Boost ZG Prime	https://runrepeat.com/adidas-pure-boost-zg-prime	130
+869	Under Armour Speed Swift 2	https://runrepeat.com/under-armour-speed-swift-2	50
+870	New Balance Vazee 2090	https://runrepeat.com/new-balance-vazee-2090	72
+871	Reebok Floatride Run Smooth	https://runrepeat.com/reebok-floatride-run-smooth	80
+872	The North Face Flight RKT	https://runrepeat.com/the-north-face-flight-rkt	107
+873	New Balance Vazee Breathe	https://runrepeat.com/new-balance-vazee-breathe	72
+874	Adidas AlphaBounce EM CTD	https://runrepeat.com/adidas-alphabounce-em-ctd	100
+875	Saucony Mystic	https://runrepeat.com/saucony-mystic	64
+876	361 Degrees Strata 3	https://runrepeat.com/361-degrees-strata-3	155
+877	Skechers GOrun 3	https://runrepeat.com/skechers-gorun-3	100
+878	Adidas Pure Boost R	https://runrepeat.com/adidas-pure-boost-r	110
+879	La Sportiva Akyra GTX	https://runrepeat.com/la-sportiva-akyra-gtx	160
+880	Adidas Ultra Boost Mid	https://runrepeat.com/adidas-ultra-boost-mid	130
+881	Altra Kayenta	https://runrepeat.com/altra-kayenta	110
+882	Altra Timp IQ	https://runrepeat.com/altra-timp-iq	199
+883	Reebok Runner 3	https://runrepeat.com/reebok-runner-3	31
+884	Merrell Trail Glove 4 Knit Wool	https://runrepeat.com/merrell-trail-glove-4-knit-wool	112
+885	Under Armour Threadborne Reveal	https://runrepeat.com/under-armour-threadborne-reveal	42
+886	New Balance Cypher Run Knit	https://runrepeat.com/new-balance-cypher-run-knit	42
+887	New Balance 880 v8 GTX	https://runrepeat.com/new-balance-880-v8-gtx	120
+888	New Balance Fresh Foam Cruz SockFit	https://runrepeat.com/new-balance-fresh-foam-cruz-sockfit	100
+889	On Cloudflyer Waterproof	https://runrepeat.com/on-cloudflyer-waterproof	180
+890	Adidas Pure Boost LTD	https://runrepeat.com/adidas-pure-boost-ltd	96
+891	Adidas Solar RNR	https://runrepeat.com/adidas-solar-rnr	70
+892	Reebok Z Fury Tempo	https://runrepeat.com/reebok-z-fury-tempo	42
+893	New Balance Fresh Foam Zante v3 Breathe	https://runrepeat.com/new-balance-fresh-foam-zante-v3-breathe	60
+894	Merrell Nova	https://runrepeat.com/merrell-nova	108
+895	Jordan Zoom Tenacity 88	https://runrepeat.com/jordan-zoom-tenacity-88	70
+896	Puma Flare Mesh	https://runrepeat.com/puma-flare-mesh	55
+897	Adidas Asweego	https://runrepeat.com/adidas-asweego	76
+898	New Balance 775 v2	https://runrepeat.com/new-balance-775-v2	57
