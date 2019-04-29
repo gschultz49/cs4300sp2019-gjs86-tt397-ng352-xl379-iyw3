@@ -403,6 +403,10 @@ $(document).ready(function () {
     $("#current_weight").text(this.value);
   });
 
+  $(document).on("input change", "#price-range", function (){
+    $("#current_price").text(this.value);
+  });
+
 });
 
 // for similar, handle on click of any card and load it's data
