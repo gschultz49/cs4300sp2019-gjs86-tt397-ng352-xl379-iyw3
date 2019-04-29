@@ -297,7 +297,6 @@ body {
     font-style: oblique;
     margin-left: 15%;
     width: 50%;
-    color: #337ab7;
     cursor: pointer; }
     #shoe-modal .modal-shoeName:hover {
       text-decoration: underline; }
