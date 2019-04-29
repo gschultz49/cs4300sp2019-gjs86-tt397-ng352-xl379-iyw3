@@ -529,7 +529,7 @@ def norm_rsplit(text,n):
     return text.lower().rsplit(' ', n)[-n:]
 
 # load models
-load_path = os.path.join(settings.APP_MODELS, 'models_compressed.pkl')
+load_path = os.path.join(settings.APP_MODELS, 'trained_models.pkl')
 models = pickle.load(open(load_path,'rb'))
 WORDS_MODEL = models['words_model']
 WORD_TUPLES_MODEL = models['word_tuples_model']
