@@ -551,9 +551,12 @@ body {
   // display:flex;
   margin: 5px auto;
 }
-.price-slider {
-  margin-bottom: 30px;
-  margin-left: 15%;
-  margin-right: 15%;
-  width: 70%;
+
+#price-slider {
+  background-color: #f2f2f9;
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 50px;
 }
