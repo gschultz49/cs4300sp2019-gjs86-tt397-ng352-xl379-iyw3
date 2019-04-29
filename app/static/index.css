@@ -339,15 +339,27 @@ body {
   margin: auto;
   padding: 10%;
 }
+#shoe-modal .shoeName-price {
+  margin-bottom: 30px;
+}
 #shoe-modal .modal-shoeName {
   text-align: center;
   font-style: oblique;
-  font-size: 4.5rem;
+  margin-left: 15%;
+  width: 50%;
   color: #337ab7;
   cursor: pointer;
+  float: left;
 }
 #shoe-modal .modal-shoeName:hover {
   text-decoration: underline;
+}
+#shoe-modal .modal-price {
+  float: left;
+  width: 10%;
+  margin-right: 15%;
+  margin-left: 20px;
+  color: orange;
 }
 #shoe-modal .modal-center-grid {
   margin-left: 10px;
@@ -383,9 +395,6 @@ body {
 }
 #shoe-modal #image-arch_support {
   width: 40%;
-}
-#shoe-modal .modal-price {
-  color: orange;
 }
 
 .center {
