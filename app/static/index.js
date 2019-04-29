@@ -441,9 +441,16 @@ $(document).ready(function () {
     $("#current_weight").text(this.value);
   });
 
-  $(document).on("input change", "#price-range", function (){
-    $("#current_price").text(this.value);
+  // $(document).on("input change", "#price-range", function (){
+  //   $("#current_price").text(this.value);
+  // });
+
+  //create double-slider
+  var slider = createD3RangeSlider(0, 500, "#price-slider");
+  slider.onChange(function(newRange){
+    d3.select("#price-text").text(newRange.begin + " - " + newRange.end);
   });
+  // slider.range(100,200);
 
 });
 
@@ -487,7 +494,6 @@ $(document).on("click", ".modal-shoeName" , function (){
 $(document).on("click", ".header a", function (e) {
   scrollToTop(e);
 })
-
 
 
 // Handler for similar shoes autoclicker

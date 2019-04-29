@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="/static/index.css">
   <link rel="stylesheet" type="text/css" href="/static/tooltipster.bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="/static/tooltipster-sideTip-punk.min.css" />
-  <script src="https://d3js.org/d3.v5.min.js"></script>
   <title>Solemate</title>
   <!-- favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
@@ -15,6 +14,10 @@
   <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#d55b5b">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!--Source: Referenced Rasmus Fonseca's library for range slider-->
+  <script src="https://cdn.rawgit.com/RasmusFonseca/d3RangeSlider/master/d3RangeSlider.js"></script>
+  <link href="https://cdn.rawgit.com/RasmusFonseca/d3RangeSlider/master/d3RangeSlider.css" rel="stylesheet">
 </head>
 
 <body>
@@ -126,6 +129,8 @@
           </div>
         </div>
       </div>
+
+      <!--Weight Slider-->
       <div class="item-group">
         <div class="input-item">
           <div class="item-box">
@@ -134,7 +139,6 @@
               <option>Women</option>
             </select>
           </div>
-
           <div class="item-box">
             <p> Weight: <span id="current_weight">7.5</span>oz </p>
             <div class="slidecontainer">
@@ -142,12 +146,11 @@
             </div>
           </div>
         </div>
-      
-        <div class="price-slider">
-            <p>Price: $<span id="current_price">150</span></p>
-          <div class="slidecontainer">
-            <input type="range" min="0" max="300" value="150" step="1" class="slider" id="price-range">
-          </div>
+        <!--Weight Slider-->
+
+        <div>
+            <p>Price: $<span id="price-text">0-500</span> </p>
+          <div id="price-slider"></div>
         </div>
 
       <div class="item-group">
@@ -175,11 +178,17 @@
         <figure>
           <img class="modal-shoeImage" src="https://cdn.runrepeat.com/i/nike/901/nike-air-zoom-pegasus-32-chaussures-de-course-homme-multicolore-multicolore-white-black-lsr-orange-pht-bl-42-1-2-eu-homme-multic-600.jpg">
         </figure>
+<<<<<<< HEAD
         <h3 class="modal-title modal-shoeName shoe-highlight">Nike Air Zoom Pegasus 35</h3>
         <div class="modal-center-grid">
           <div class="price">
+=======
+        <div class="modal-center-grid shoeName-price">
+            <h3 class="modal-shoeName">Nike Air Zoom Pegasus 35</h3>
+>>>>>>> f6a575cdab221fc63e27c9cd78b0acae370b788c
             <h3 class="modal-price"></h3>
-          </div>
+        </div>
+        <div class="modal-center-grid">
           <div class="other-shoes">
             <!-- <div class="item-box"> -->
             <h4>Other Similar Shoes<br><br>
