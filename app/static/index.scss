@@ -554,9 +554,58 @@ body {
 
 #price-slider {
   background-color: #f2f2f9;
-  position: relative;
+  // position: relative;
+  height: 50px;
   width: 50%;
   margin-left: 25%;
   margin-right: 25%;
   margin-bottom: 50px;
 }
+
+.slider {
+  position: absolute;
+  border: 1px solid #AAB;
+  background: #BCE;
+  // height: 200%;
+  // height: 200px;
+  width: 58px;
+  top: 0px;
+  cursor: move;
+  /*margin:-0.5px;*/
+}
+
+.slider .handle {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #AAB;
+  // background: #9AC;
+
+  /* Support for bootstrap */
+  box-sizing: border-box;
+  // -moz-box-sizing: border-box;
+  // -webkit-box-sizing: border-box;
+}
+
+.slider .EE {
+  //right
+  height: 50px;
+  width: 40px;
+  right: 0px;
+  cursor: e-resize;
+  background: blue;
+}
+
+.slider .WW {
+  //left
+  height: 50px;
+  width: 40px;
+  cursor: w-resize;
+  left: 0px;
+  background: red;
+}
+
+// .slider .EE, .slider .WW {
+//   top: 50%;
+//   margin-top: -4px;
+// }
