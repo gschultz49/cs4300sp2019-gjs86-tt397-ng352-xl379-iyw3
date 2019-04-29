@@ -175,14 +175,10 @@ $(document).on("click", '.card', function () {
   let women_weight = card.find(".card-women_weight").text();
   let price = card.find(".card-price").text();
 
-  // console.log(price.trim());
-
   // console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
   //divide the relevant terms into a list
   relevantTerms = relevantTerms.trim().split(",");
-
-  // console.log(relevantTerms);
 
   //highlight the relevant terms in relevant sentence
   if (relevantTerms[0] !== "") {
@@ -197,8 +193,6 @@ $(document).on("click", '.card', function () {
         }
     });
   }
-
-  // console.log(relevantSentence);
 
   let index = relevantSentence.indexOf(".,");
   //if there are two sentences
