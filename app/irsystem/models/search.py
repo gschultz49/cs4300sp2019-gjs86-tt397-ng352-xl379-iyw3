@@ -343,7 +343,7 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
                 if user_dict["terrain"][0] != terr and user_dict["terrain"][1]  != terr:
                     i += 1
                     continue 
-            if sdict[str(topresult[i])]['price']  < user_dict['price'][0] or sdict[str(topresult[i])]['price']  > user_dict['price'][1]:
+            if int(sdict[str(topresult[i])]['price'])  < int(user_dict['price'][0]) or int(sdict[str(topresult[i])]['price'])  > int(user_dict['price'][1]):
                 i += 1
                 continue
             topresults.append(topresult[i])
@@ -390,7 +390,7 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
                 if user_dict["terrain"][0] != terr and user_dict["terrain"][1]  != terr:
                     i += 1
                     continue 
-            if sdict[str(topresult[i])]['price']  < user_dict['price'][0] or sdict[str(topresult[i])]['price']  > user_dict['price'][1]:
+            if int(sdict[str(topresult[i])]['price'])  < int(user_dict['price'][0]) or int(sdict[str(topresult[i])]['price'])  > int(user_dict['price'][1]):
                 i += 1
                 continue
             topresults.append(topresult[i])
