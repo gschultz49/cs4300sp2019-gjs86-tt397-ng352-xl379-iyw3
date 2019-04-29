@@ -81,10 +81,10 @@ const custom_shoe_template = (shoe) => {
         <p class="card-similarShoes"> ${shoe.similarShoes}</p>
         <p class="card-corescore"> ${shoe.corescore}</p>
         <p class="card-similarity"> ${shoe.similarity}</p>
-        <p class="card-relevantTerms"> ${shoe.relevantTerms}</p>
+        <p class="card-relevantTerms"> ${shoe.relevantTerms.length > 0 ? shoe.relevantTerms : "None"}</p>
         <p class="card-amazonLink"> ${shoe.amazonLink}</p>
         <p class="card-terrain"> ${shoe.terrain}</p>
-        <p class="card-relevantSentence"> ${shoe.relevantSentence}</p>
+        <p class="card-relevantSentence"> ${shoe.relevantSentence.length > 0 ? shoe.relevantTerms : "N/A"}</p>
         <p class="card-arch_support"> ${shoe.arch_support}</p>
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
@@ -97,7 +97,6 @@ const custom_shoe_template = (shoe) => {
 
 // rendering template for a card
 let render_card = (endpoint, shoe) => {
-  console.log("Rendering template data");
   // determines which shoe to use by endpoint
   let rendering_card = (endpoint == "/custom_search") ? custom_shoe_template(shoe) : similar_shoe_template(shoe);
   $(".shoes-grid").append(rendering_card);
@@ -109,7 +108,7 @@ let ajax_retrieve = (endpoint, search_dictionary) => {
   $.getJSON($SCRIPT_ROOT + endpoint, 
     search_dictionary
     , function (data) {
-    console.log("AJAX RETURNED DATA: ")
+    console.log("Executing ajax call...");
     console.log(data);
     // if no results display none, else display some card
     (data.length > 0) ? data.map(c => render_card(endpoint, c)) : render_empty();
@@ -128,7 +127,6 @@ let clear_and_search = (endpoint, search_dictionary) => {
 
 // grab and perform input
 let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
-  console.log("IN INPUT HANDLER");
   let inputted_value = $(inputbox).val();
   
   // GET ALL VALUES HERE
@@ -143,7 +141,7 @@ let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
     search_dictionary["gender"] = $(".weight :selected").val();
     search_dictionary["weight"] = $("#weight-range").val();
   }
-  console.log(inputbox, endpoint, search_dictionary); 
+  // console.log(inputbox, endpoint, search_dictionary); 
   // ADD INDIVIDUAL SHOE FUNCTIONALITY HERE
   clear_and_search(endpoint, search_dictionary);
   scrollToResults();
@@ -153,11 +151,10 @@ let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
 $(document).on("click", '.card', function () {
   // when user selects a specific card, grab its attributes to populate the modal
   let card = $(this);
-  console.log("CLICKED");
 
   //change data that is gathered from the card based on modal
   let card_class = card.attr("class");
-  console.log("card class is ", card_class);
+  // console.log("card class is ", card_class);
 
   // get contents of clicked shoe
   let shoeName = card.find(".card-shoeName").text();
@@ -174,14 +171,14 @@ $(document).on("click", '.card', function () {
   let women_weight = card.find(".card-women_weight").text();
   let price = card.find(".card-price").text();
 
-  console.log(price.trim());
+  // console.log(price.trim());
 
   // console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
 
   //divide the relevant terms into a list
   relevantTerms = relevantTerms.trim().split(",");
 
-  console.log(relevantTerms);
+  // console.log(relevantTerms);
 
   //highlight the relevant terms in relevant sentence
   if (relevantTerms[0] !== "") {
@@ -197,7 +194,7 @@ $(document).on("click", '.card', function () {
     });
   }
 
-  console.log(relevantSentence);
+  // console.log(relevantSentence);
 
   let index = relevantSentence.indexOf(".,");
   //if there are two sentences
@@ -220,7 +217,6 @@ $(document).on("click", '.card', function () {
     //remove the hide attribute from svg
     $("#modal_graph").removeClass("hide");
 
-    console.log("search for card similar");
     let graph_text = card.find(".card-graph").text();
     console.log(graph_text);
 
@@ -268,8 +264,6 @@ $(document).on("click", '.card', function () {
     "Motion Support": "/static/flat_arch.png"
   };
 
-  console.log(arch_support.trim());
-
   relevantTerms = relevantTerms.join(", ");
 
   // populate modal 
@@ -281,6 +275,7 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-corescore").html("" + corescore);
   modal.find(".modal-similarity").html("" + similarity);
   modal.find(".modal-relevantTerms").html("" + relevantTerms);
+  console.log(relevantTerms);
   if (index === -1) {
     //one sentence
     modal.find(".modal-relevantSentence1").html("" + relevantSentence);
@@ -303,7 +298,6 @@ $(document).on("click", '.card', function () {
 });
 
 let scrollToResults = () => {
-  console.log("scrolling to results...");
   $("html, body").animate({
      scrollTop: ($(".results_text").offset().top - 50)
     }, 1100);
@@ -372,14 +366,12 @@ $(document).ready(function () {
   // Handle for click of enter for custom searched shoe
   $("#custom-search-text").on('keypress', function (e) {
     if (e.which == 13) {
-      console.log("enter was pressed for custom");
       input_handler("#custom-search-text", "/custom_search");
     }
   });
 
   //Handle for click on buttom for custom searched shoe
   $(".custom-search-button").on("click", function(e){
-    console.log("button clicked for custom");
     input_handler("#custom-search-text", "/custom_search");
   })
 
