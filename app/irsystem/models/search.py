@@ -375,12 +375,6 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
         
         topresults = []
         
-        gender = user_dict['gender']
-        if gender == "Men":
-            g = "men_weight"
-        else:
-            g = "women_weight"
-        
         i = 0
         while len(topresults) < numtop and i < 100:
             
@@ -396,7 +390,7 @@ def FindQuery(q, u_input=u_input, sdict=sdict, numtop=18, get_sim=get_sim, infor
                 if user_dict["terrain"][0] != terr and user_dict["terrain"][1]  != terr:
                     i += 1
                     continue 
-            if sdict[str(topresult[i])][g] != '' and float(user_dict['weight']) < float(sdict[str(topresult[i])][g][:-2]):
+            if sdict[str(topresult[i])]['price']  < user_dict['price'][0] or sdict[str(topresult[i])]['price']  > user_dict['price'][1]:
                 i += 1
                 continue
             topresults.append(topresult[i])
@@ -531,11 +525,11 @@ def FindShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
 
 ### Autocomplete ###
 # helper function
-def normSplit(text,n):
+def norm_rsplit(text,n):
     return text.lower().rsplit(' ', n)[-n:]
 
 # load models
-load_path = os.path.join(settings.APP_MODELS, 'trained_models.pkl')
+load_path = os.path.join(settings.APP_MODELS, 'models_compressed.pkl')
 models = pickle.load(open(load_path,'rb'))
 WORDS_MODEL = models['words_model']
 WORD_TUPLES_MODEL = models['word_tuples_model']
@@ -569,17 +563,17 @@ NEARBY_KEYS = {
     }
 
 
-def thisWord(word, top_n=10):
+def this_word(word, top_n=10):
     """given an incomplete word, return top n suggestions based off
     frequency of words prefixed by said input word"""
     return [(k, v) for k, v in WORDS_MODEL.most_common()
                 if k.startswith(word)][:top_n]
 
 
-predict_currword = thisWord
+predict_currword = this_word
 
 
-def thisWordGivenLast(first_word, second_word, top_n=10):
+def this_word_given_last(first_word, second_word, top_n=10):
     """given a word, return top n suggestions determined by the frequency of
     words prefixed by the input GIVEN the occurence of the last word"""
 
@@ -598,7 +592,7 @@ def thisWordGivenLast(first_word, second_word, top_n=10):
     return Counter(probable_words).most_common(top_n)
 
 
-predict_currword_given_lastword = thisWordGivenLast
+predict_currword_given_lastword = this_word_given_last
 
 
 def predict(first_word, second_word, top_n=10):
@@ -615,35 +609,17 @@ def predict(first_word, second_word, top_n=10):
         return predict_currword(first_word, top_n)
 
 
-def splitPredict(text, top_n=10):
+def split_predict(text, top_n=10):
     """takes in string and will right split accordingly.
     Optionally, you can provide keyword argument "top_n" for
     choosing the number of suggestions to return (default is 10)"""
-    text = normSplit(text, 2)
+    text = norm_rsplit(text, 2)
     return predict(*text, top_n=top_n)
 
-def createWordList(line):
-    wordList2 =[]
-    wordList1 = line.split()
-    for word in wordList1:
-        cleanWord = ""
-        for char in word:
-            if char in '!,.?":;0123456789 ':
-                char = ""
-            cleanWord += char
-        wordList2.append(cleanWord)
-    return wordList2
-
 def CompleteWord(user_input):
-    user_input = user_input.lower()
-    if "," in user_input:
-        user_input = user_input.replace("," ," ")
-        words = createWordList(user_input)
-        result = predict(words[-1], "")
+    words = user_input.split(" ")
+    if len(words) < 2:
+        result = predict(words[0], "")
     else:
-        words = createWordList(user_input)
-        if len(words) < 2:
-            result = predict(words[0], "")
-        else:
-            result = splitPredict(user_input)
+        result = split_predict(user_input)
     return [e[0] for e in result]
