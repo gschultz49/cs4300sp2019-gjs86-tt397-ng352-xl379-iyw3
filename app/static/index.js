@@ -306,7 +306,7 @@ $(document).on("click", '.card', function () {
 
   // populate modal 
   let modal = $(".modal-content");
-  modal.find(".modal-shoeName").html("" + shoeName);
+  modal.find(".modal-shoeName").html("" + shoeName + '<span class="modal-price">'+price.trim()+'Applesauce</span>');
   modal.find(".modal-price").html("" + "$" + price.trim());
   modal.find(".modal-shoeImage").attr("src", shoeImage);
   modal.find(".modal-similarShoes").html("" + similarShoes.split(",").map(similarShoeFormatter));
@@ -481,14 +481,19 @@ let remove_color_if_similar_active = () => {
 
 
 // Handler for shoe Title autoclicker
+$(document).on("click", ".modal-shoeName", function () {
+  let shoeName = $(this).text().trim();
+  console.log("BLEHHHH");
+  console.log(shoeName);
+  let shoeNameAdjusted = shoeName.slice(0, shoeName.indexOf("$"));
+  console.log(shoeNameAdjusted);
+  if (is_similar_active()) { autoclicker(shoeNameAdjusted); }
+})
+
+// Handler for similar shoes autoclicker
 $(document).on("click", ".similar-shoe-name-event" , function (){
   let shoeName = $(this).text().trim();
   if (is_similar_active ()) { autoclicker(shoeName);}
-})
-// Handler for similar shoes autoclicker
-$(document).on("click", ".modal-shoeName" , function (){
-  let shoeName = $(this).text().trim();
-  if (is_similar_active()) { autoclicker(shoeName); }
 })
 
 $(document).on("click", ".header a", function (e) {

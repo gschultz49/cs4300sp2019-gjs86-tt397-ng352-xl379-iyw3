@@ -296,10 +296,7 @@ body {
     text-align: center;
     font-style: oblique;
     margin-left: 15%;
-    width: 50%;
-    cursor: pointer; }
-    #shoe-modal .modal-shoeName:hover {
-      text-decoration: underline; }
+    width: 80%; }
   #shoe-modal .modal-price {
     width: 10%;
     margin-right: 15%;
