@@ -336,13 +336,14 @@ $(document).on("click", '.card', function () {
 
 });
 
-let scrollToResults = () => {
+let scrollToResults = (e) => {
   $("html, body").animate({
      scrollTop: ($(".results_text").offset().top - 50)
     }, 1100);
     return false;
 };
-let scrollToTop = () => {
+let scrollToTop = (e) => {
+  e.preventDefault();
   $("html, body").animate({ scrollTop: 0 }, 1100);
   return false;
 }
@@ -475,8 +476,8 @@ $(document).on("click", ".modal-shoeName" , function (){
   autoclicker(shoeName);
 })
 
-$(document).on("click", ".header a", function () {
-  scrollToTop();
+$(document).on("click", ".header a", function (e) {
+  scrollToTop(e);
 })
 
 
