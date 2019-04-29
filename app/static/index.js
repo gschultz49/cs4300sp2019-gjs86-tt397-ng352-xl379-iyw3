@@ -151,7 +151,6 @@ let ajax_retrieve_individual = (endpoint, search_dictionary) => {
     , function (single) {
       // should only be 1 result here
       let singular_card = render_individual_shoe_similar_search(single);
-      $(".individual_shoe").empty();
       $(".individual_shoe").append(singular_card);
     });
 }
@@ -159,6 +158,7 @@ let ajax_retrieve_individual = (endpoint, search_dictionary) => {
 // wrapper, clears the data and fetches results
 let clear_and_search = (endpoint, search_dictionary) => {
   $(".shoes-grid").empty();
+  $(".individual_shoe").empty();
   $(".results_text").empty();
   $(".results_text").append(results_text);
   // something to append the query shoe?
@@ -179,8 +179,12 @@ let input_handler = (inputbox, endpoint, search_dictionary = {}) => {
     // find more values and add to dictionary here...
     search_dictionary["terrain"] = [is_checked("#trail"), is_checked("#road")]
     search_dictionary["arch_support"] = [is_checked("#neutral"), is_checked("#stability"), is_checked("#motion_control") ]
-    search_dictionary["gender"] = $(".weight :selected").val();
-    search_dictionary["weight"] = $("#weight-range").val();
+    // search_dictionary["gender"] = $(".weight :selected").val();
+    // search_dictionary["weight"] = $("#weight-range").val();
+    // console.log( $("#price-text").text() );
+    let price_text = $("#price-text").text().split("-").map(Number);
+    // console.log(price_text);
+    search_dictionary["price"] = price_text;
   }
   
   // If this is similar search, render the individual shoe
@@ -211,8 +215,8 @@ $(document).on("click", '.card', function () {
   let amazonLink = card.find(".card-amazonLink").text();
   let terrain = card.find(".card-terrain").text();
   let arch_support = card.find(".card-arch_support").text();
-  let men_weight = card.find(".card-men_weight").text();
-  let women_weight = card.find(".card-women_weight").text();
+  // let men_weight = card.find(".card-men_weight").text();
+  // let women_weight = card.find(".card-women_weight").text();
   let price = card.find(".card-price").text();
 
   // console.log(shoeName, shoeImage, similarShoes, corescore, similarity, terrain, arch_support, men_weight, women_weight, relevantTerms);
@@ -283,13 +287,13 @@ $(document).on("click", '.card', function () {
   }
 
   //If men_weight or women_weight is blank, show N/A 
-  if (men_weight === " ") {
-    men_weight = "N/A";
-  }
+  // if (men_weight === " ") {
+  //   men_weight = "N/A";
+  // }
 
-  if (women_weight === " ") {
-    women_weight = "N/A";
-  }
+  // if (women_weight === " ") {
+  //   women_weight = "N/A";
+  // }
 
   var terrain_to_image = {
     "Road": "/static/road.png",
@@ -328,11 +332,15 @@ $(document).on("click", '.card', function () {
   modal.find(".modal-arch_support").html("<b>Arch:</b>" + arch_support);
   modal.find("#image-arch_support").attr("src", arch_to_image[arch_support.trim()]);
   modal.find(".modal-amazonLink").attr("href", amazonLink);
-  modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
-  modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight); 
+  // modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
+  // modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight); 
 
+  // remove colors if on custom screen
+  if (!is_similar_active()) {
+    console.log("Similar mode is OFF");
+    remove_color_if_similar_active();
+  }
   console.log("Modal updated");
-
 });
 
 let scrollToResults = (e) => {
@@ -372,11 +380,6 @@ $(document).ready(function () {
     theme: ['tooltipster-punk', "tooltipster-punk-customized"],
     side: "right"
   });
-
-  // $('.similar-shoe-name-event').tooltipster({
-  //   theme: ['tooltipster-punk', "tooltipster-punk-customized"],
-  //   side: "right"
-  // });
 
   // autosuggest for similar shoes
   autosuggest({
@@ -451,7 +454,7 @@ $(document).ready(function () {
   slider.onChange(function(newRange){
     d3.select("#price-text").text(newRange.begin + " - " + newRange.end);
   });
-  // slider.range(100,200);
+  slider.range(0,500);
 
 });
 
@@ -470,16 +473,26 @@ let autoclicker = (name) =>{
   input_handler("#input-text", "/similar_search", { search: name });
 }
 
-// Handler for similar shoes autoclicker
+// returns TRUE if similar page is active
+let is_similar_active = () => {
+  return ($("#custom-search-content").css("display") !== "block");
+}
+
+let remove_color_if_similar_active = () => {
+  $(".modal-shoeName").removeClass("shoe-highlight");
+  $(".modal-similarShoes").removeClass("shoe-span-highlight");
+}
+
+
+// Handler for shoe Title autoclicker
 $(document).on("click", ".similar-shoe-name-event" , function (){
-  console.log("linked click");
   let shoeName = $(this).text().trim();
-  autoclicker(shoeName);
+  if (is_similar_active ()) { autoclicker(shoeName);}
 })
 // Handler for similar shoes autoclicker
 $(document).on("click", ".modal-shoeName" , function (){
   let shoeName = $(this).text().trim();
-  autoclicker(shoeName);
+  if (is_similar_active()) { autoclicker(shoeName); }
 })
 
 $(document).on("click", ".header a", function (e) {

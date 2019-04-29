@@ -21,7 +21,7 @@ def _searchs (f, query):
 	return results
 
 def _generate_dictionary(request, termsDict):
-	ISARRAY = ["terrain", "arch_support"]
+	ISARRAY = ["terrain", "arch_support", "price"]
 	for t in termsDict:
 		if t in request.args or t in ISARRAY:
 			if type(termsDict[t]) == list:
@@ -69,9 +69,10 @@ def custom_search():
 		"search": None,
 		"terrain":[],
 		"arch_support": [],
-		"gender": None,
-		"weight": None,
-		"price": 1000
+		# "gender": None,
+		# "weight": None,
+		# "price": 1000
+		"price": []
 	}
 
 	data = _generate_dictionary(request, terms)

@@ -329,6 +329,22 @@ body {
   width: 90px;
 }
 
+.shoe-highlight {
+  color: #337ab7;
+  cursor: pointer;
+}
+.shoe-highlight:hover {
+  text-decoration: underline;
+}
+
+.shoe-span-highlight span {
+  color: #337ab7;
+}
+.shoe-span-highlight span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 #shoe-modal {
   word-wrap: break-word;
 }
@@ -348,7 +364,6 @@ body {
   font-style: oblique;
   margin-left: 15%;
   width: 50%;
-  color: #337ab7;
   cursor: pointer;
 }
 #shoe-modal .modal-shoeName:hover {
@@ -377,13 +392,6 @@ body {
 #shoe-modal .item-box img {
   height: 100px;
   width: 100px;
-}
-#shoe-modal span {
-  color: #337ab7;
-}
-#shoe-modal span:hover {
-  text-decoration: underline;
-  cursor: pointer;
 }
 #shoe-modal .other-shoes {
   text-align: center;
@@ -462,11 +470,46 @@ body {
 
 #price-slider {
   background-color: #f2f2f9;
-  position: relative;
+  height: 50px;
   width: 50%;
   margin-left: 25%;
   margin-right: 25%;
   margin-bottom: 50px;
+}
+
+.slider {
+  position: absolute;
+  border: 1px solid #AAB;
+  background: #BCE;
+  width: 58px;
+  top: 0px;
+  cursor: move;
+  /*margin:-0.5px;*/
+}
+
+.slider .handle {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #AAB;
+  /* Support for bootstrap */
+  box-sizing: border-box;
+}
+
+.slider .EE {
+  height: 50px;
+  width: 40px;
+  right: 0px;
+  cursor: e-resize;
+  background: blue;
+}
+
+.slider .WW {
+  height: 50px;
+  width: 40px;
+  cursor: w-resize;
+  left: 0px;
+  background: red;
 }
 
 /*# sourceMappingURL=index.css.map */
