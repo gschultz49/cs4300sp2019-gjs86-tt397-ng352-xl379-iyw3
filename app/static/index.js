@@ -151,7 +151,6 @@ let ajax_retrieve_individual = (endpoint, search_dictionary) => {
     , function (single) {
       // should only be 1 result here
       let singular_card = render_individual_shoe_similar_search(single);
-      $(".individual_shoe").empty();
       $(".individual_shoe").append(singular_card);
     });
 }
@@ -159,6 +158,7 @@ let ajax_retrieve_individual = (endpoint, search_dictionary) => {
 // wrapper, clears the data and fetches results
 let clear_and_search = (endpoint, search_dictionary) => {
   $(".shoes-grid").empty();
+  $(".individual_shoe").empty();
   $(".results_text").empty();
   $(".results_text").append(results_text);
   // something to append the query shoe?
@@ -335,8 +335,12 @@ $(document).on("click", '.card', function () {
   // modal.find(".modal-men_weight").html("<b>Men's weight:</b> " + men_weight);
   // modal.find(".modal-women_weight").html("<b>Women's weight:</b> " + women_weight); 
 
+  // remove colors if on custom screen
+  if (!is_similar_active()) {
+    console.log("Similar mode is OFF");
+    remove_color_if_similar_active();
+  }
   console.log("Modal updated");
-
 });
 
 let scrollToResults = (e) => {
@@ -376,11 +380,6 @@ $(document).ready(function () {
     theme: ['tooltipster-punk', "tooltipster-punk-customized"],
     side: "right"
   });
-
-  // $('.similar-shoe-name-event').tooltipster({
-  //   theme: ['tooltipster-punk', "tooltipster-punk-customized"],
-  //   side: "right"
-  // });
 
   // autosuggest for similar shoes
   autosuggest({
@@ -474,16 +473,26 @@ let autoclicker = (name) =>{
   input_handler("#input-text", "/similar_search", { search: name });
 }
 
-// Handler for similar shoes autoclicker
+// returns TRUE if similar page is active
+let is_similar_active = () => {
+  return ($("#custom-search-content").css("display") !== "block");
+}
+
+let remove_color_if_similar_active = () => {
+  $(".modal-shoeName").removeClass("shoe-highlight");
+  $(".modal-similarShoes").removeClass("shoe-span-highlight");
+}
+
+
+// Handler for shoe Title autoclicker
 $(document).on("click", ".similar-shoe-name-event" , function (){
-  console.log("linked click");
   let shoeName = $(this).text().trim();
-  autoclicker(shoeName);
+  if (is_similar_active ()) { autoclicker(shoeName);}
 })
 // Handler for similar shoes autoclicker
 $(document).on("click", ".modal-shoeName" , function (){
   let shoeName = $(this).text().trim();
-  autoclicker(shoeName);
+  if (is_similar_active()) { autoclicker(shoeName); }
 })
 
 $(document).on("click", ".header a", function (e) {

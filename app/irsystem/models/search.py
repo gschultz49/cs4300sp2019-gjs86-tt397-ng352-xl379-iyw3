@@ -537,11 +537,11 @@ def FindShoe(shoename, shoename_to_index=shoename_to_index, sdict = sdict):
 
 ### Autocomplete ###
 # helper function
-def norm_rsplit(text,n):
+def normSplit(text,n):
     return text.lower().rsplit(' ', n)[-n:]
 
 # load models
-load_path = os.path.join(settings.APP_MODELS, 'models_compressed.pkl')
+load_path = os.path.join(settings.APP_MODELS, 'trained_models.pkl')
 models = pickle.load(open(load_path,'rb'))
 WORDS_MODEL = models['words_model']
 WORD_TUPLES_MODEL = models['word_tuples_model']
@@ -575,17 +575,17 @@ NEARBY_KEYS = {
     }
 
 
-def this_word(word, top_n=10):
+def thisWord(word, top_n=10):
     """given an incomplete word, return top n suggestions based off
     frequency of words prefixed by said input word"""
     return [(k, v) for k, v in WORDS_MODEL.most_common()
                 if k.startswith(word)][:top_n]
 
 
-predict_currword = this_word
+predict_currword = thisWord
 
 
-def this_word_given_last(first_word, second_word, top_n=10):
+def thisWordGivenLast(first_word, second_word, top_n=10):
     """given a word, return top n suggestions determined by the frequency of
     words prefixed by the input GIVEN the occurence of the last word"""
 
@@ -604,7 +604,7 @@ def this_word_given_last(first_word, second_word, top_n=10):
     return Counter(probable_words).most_common(top_n)
 
 
-predict_currword_given_lastword = this_word_given_last
+predict_currword_given_lastword = thisWordGivenLast
 
 
 def predict(first_word, second_word, top_n=10):
@@ -621,17 +621,35 @@ def predict(first_word, second_word, top_n=10):
         return predict_currword(first_word, top_n)
 
 
-def split_predict(text, top_n=10):
+def splitPredict(text, top_n=10):
     """takes in string and will right split accordingly.
     Optionally, you can provide keyword argument "top_n" for
     choosing the number of suggestions to return (default is 10)"""
-    text = norm_rsplit(text, 2)
+    text = normSplit(text, 2)
     return predict(*text, top_n=top_n)
 
+def createWordList(line):
+    wordList2 =[]
+    wordList1 = line.split()
+    for word in wordList1:
+        cleanWord = ""
+        for char in word:
+            if char in '!,.?":;0123456789 ':
+                char = ""
+            cleanWord += char
+        wordList2.append(cleanWord)
+    return wordList2
+
 def CompleteWord(user_input):
-    words = user_input.split(" ")
-    if len(words) < 2:
-        result = predict(words[0], "")
+    user_input = user_input.lower()
+    if "," in user_input:
+        user_input = user_input.replace("," ," ")
+        words = createWordList(user_input)
+        result = predict(words[-1], "")
     else:
-        result = split_predict(user_input)
+        words = createWordList(user_input)
+        if len(words) < 2:
+            result = predict(words[0], "")
+        else:
+            result = splitPredict(user_input)
     return [e[0] for e in result]

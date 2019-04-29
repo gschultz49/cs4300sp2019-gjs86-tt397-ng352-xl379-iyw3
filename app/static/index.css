@@ -329,6 +329,22 @@ body {
   width: 90px;
 }
 
+.shoe-highlight {
+  color: #337ab7;
+  cursor: pointer;
+}
+.shoe-highlight:hover {
+  text-decoration: underline;
+}
+
+.shoe-span-highlight span {
+  color: #337ab7;
+}
+.shoe-span-highlight span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 #shoe-modal {
   word-wrap: break-word;
 }
@@ -348,7 +364,6 @@ body {
   font-style: oblique;
   margin-left: 15%;
   width: 50%;
-  color: #337ab7;
   cursor: pointer;
 }
 #shoe-modal .modal-shoeName:hover {
@@ -377,13 +392,6 @@ body {
 #shoe-modal .item-box img {
   height: 100px;
   width: 100px;
-}
-#shoe-modal span {
-  color: #337ab7;
-}
-#shoe-modal span:hover {
-  text-decoration: underline;
-  cursor: pointer;
 }
 #shoe-modal .other-shoes {
   text-align: center;
