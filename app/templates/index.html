@@ -3,6 +3,8 @@
 <head>
   <link rel="stylesheet" href="/static/bootstrap.min.css">
   <link rel="stylesheet" href="/static/index.css">
+  <link rel="stylesheet" type="text/css" href="/static/tooltipster.bundle.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/tooltipster-sideTip-punk.min.css" />
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <title>Solemate</title>
   <!-- favicon -->
@@ -92,14 +94,14 @@
       <h3>Terrain Type</h3>
       <div class="input-item">
         <div class="item-box">
-          <input type="checkbox" id="trail" name="trail" value="trail" class="item">
-          <label id="trail-label" for="trail"><img alt="terrain-type" src="/static/trail.png"></label>
-          <p>Trail</p>
+          <input type="checkbox" id="trail" name="trail" value="trail" class="">
+          <label id="trail-label" for="trail"><img class="item" alt="terrain-type" src="/static/trail.png"></label>
+          <p>Trail <img data-tooltip-content="#trail_content" class="help" src="/static/question_mark.png"></p>
         </div>
         <div class="item-box">
-          <input type="checkbox" id="road" name="road" value="road" class="item">
-          <label id="road-label" for="road"> <img alt="terrain-type" src="/static/road.png"></label>
-          <p>Road</p>
+          <input type="checkbox" id="road" name="road" value="road" class="">
+          <label id="road-label" for="road"> <img class="item" alt="terrain-type" src="/static/road.png"></label>
+          <p>Road <img data-tooltip-content="#road_content" class="help" src="/static/question_mark.png"></p>
         </div>
       </div>
     </div>
@@ -110,17 +112,17 @@
           <div class="item-box">
             <input type="checkbox" id="neutral" name="neutral" value="neutral" class="item">
             <label id="neutral-label" for="neutral"><img class="arches" alt="arch support" src="/static/high_arch.png"></label>
-            <p>Neutral</p>
+            <p>Neutral <img data-tooltip-content="#neutral_content" class="help" src="/static/question_mark.png"></p>
           </div>
           <div class="item-box">
             <input type="checkbox" id="stability" name="stability" value="stability" class="item">
             <label id="stability-label" for="stability"> <img class="arches" alt="arch support" src="/static/normal_arch.png"></label>
-            <p>Stability</p>
+            <p>Stability <img data-tooltip-content="#stability_content" class="help" src="/static/question_mark.png"></p>
           </div>
           <div class="item-box">
             <input type="checkbox" id="motion_control" name="motion_control" value="motion control" class="item">
             <label id="motion_control-label" for="motion_control"> <img class="arches" alt="arch support" src="/static/flat_arch.png"></label>
-            <p>Motion Control</p>
+            <p>Motion Control <img  data-tooltip-content="#motion_control_content" class="help" src="/static/question_mark.png"></p>
           </div>
         </div>
       </div>
@@ -228,6 +230,36 @@
       Irina Wang (iyw3), Greg Schultz (gjs86)</p>
   </div>
 
+  <div class="tooltip_templates">
+    <span id="trail_content">
+      <h3>Trail</h3>
+      <br>
+      <p>Shoes best for trail, off road, mountains and other unstable surfaces.</p>
+    </span>
+    <span id="road_content">
+      <h3>Road</h3>
+      <br>
+      <p>Shoes best for road, track and light gravel</p>
+    </span>
+    <span id="neutral_content">
+      <h3>Neutral / severe overpronation / flat feet</h3>
+      <br>
+      <p>Shoes for runners who do not need any additional arch support (Around 50% of runners). Best for people with normal, high
+      or medium high arches.</p>
+    </span>
+    <span id="stability_content">
+      <h3>Stability / overpronation / normal arch</h3>
+      <br>
+      <p>Shoes for runners who need mild to moderate arch support (Around 45% of runners). Best for runners with a low arch.
+      </p>
+    </span>
+    <span id="motion_control_content">
+      <h3>Motion control / severe overpronation / flat feet</h3>
+      <br>
+      <p>Shoes for runners who needs a lot of arch support. Best for runners with flat feet.</p>
+    </span>
+  </div>
+
   <!-- dependencies -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -237,6 +269,7 @@
   <script src="/static/index.js"></script>
   <script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
   <script src="/static/typeahead.jquery.js"></script>
+  <script src="/static/tooltipster.bundle.min.js"></script>
 </body>
 
 </html>

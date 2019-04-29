@@ -373,38 +373,6 @@ body {
         }
       }
 
-      // input[type=checkbox] {
-      //   display:none;
-      // }
-
-      // #trail-label::before{
-      //   content: url("/static/trail.png");
-      // }
-      // :checked + #trail-label::before{
-      //   content: url("/static/trail_clicked.png");
-      // }
-
-      // #road-label::before{
-      //   background-image: url("/static/road.png")
-      // }
-      // :checked + #road-label::before{
-      //   background-image: url("/static/road_clicked.png")
-      // }
-
-      // input[type=checkbox] + label {
-      //   background: #999;
-      //   height: 16px;
-      //   width: 16px;
-      //   display:inline-block;
-      //   padding: 0 0 0 0px;
-      // }
-      // input[type=checkbox]:checked + label {
-      //   background: #0080FF;
-      //   height: 16px;
-      //   width: 16px;
-      //   display:inline-block;
-      //   padding: 0 0 0 0px;
-      // }
       .item{
         padding-top: 5px;
         padding-bottom: 5px;
@@ -413,9 +381,13 @@ body {
         margin-right: auto;
         display: block;
       }
-      img{
-        height:100px;
-        width:100px;
+      // img{
+      //   // height:100px;
+      //   // width:100px;
+      // }
+      .help{
+        height: 1em;
+        display:inline-block;
       }
       .arches{
         height:150px;
@@ -497,4 +469,13 @@ body {
 .highlight {
   color: orange;
   font-size: 18px;
+}
+
+.tooltip_templates { 
+  display: none; 
+}
+.tooltipster-sidetip.tooltipster-punk.tooltipster-punk-customized .tooltipster-box {
+  border-bottom: 6px solid #5bc0dd;
+  height:200px;
+  width:300px;
 }

@@ -330,6 +330,11 @@ let autosuggest = (d) => {
 
 $(document).ready(function () { 
 
+  $('.help').tooltipster({
+    theme: ['tooltipster-punk', "tooltipster-punk-customized"],
+    side: "right"
+  });
+
   // autosuggest for similar shoes
   autosuggest({
     id: "#similar-search-text", 
