@@ -84,7 +84,7 @@ const custom_shoe_template = (shoe) => {
         <p class="card-relevantTerms"> ${shoe.relevantTerms.length > 0 ? shoe.relevantTerms : "None"}</p>
         <p class="card-amazonLink"> ${shoe.amazonLink}</p>
         <p class="card-terrain"> ${shoe.terrain}</p>
-        <p class="card-relevantSentence"> ${shoe.relevantSentence.length > 0 ? shoe.relevantTerms : "N/A"}</p>
+        <p class="card-relevantSentence"> ${shoe.relevantSentence.length > 0 ? shoe.relevantSentence : "N/A"}</p>
         <p class="card-arch_support"> ${shoe.arch_support}</p>
         <p class="card-men_weight"> ${shoe.men_weight}</p>
         <p class="card-women_weight"> ${shoe.women_weight}</p>
