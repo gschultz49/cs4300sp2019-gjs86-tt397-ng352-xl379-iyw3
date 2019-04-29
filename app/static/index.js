@@ -37,7 +37,7 @@ const render_individual_shoe_similar_search = (shoe) => {
           src=${shoe.shoeImage}>
       </div>
       <div class="shoe_content_item">
-        <h4 id="individual_shoe_name"> ${shoe.name}</h4>
+        <h5 id="individual_shoe_name"> ${shoe.name} <span style="color:orange">$${shoe.price}</span></h5>
         <div class="equi_two">
           <h4 id="individual_shoe_terrain"> <b>Terrain:</b> <span>${shoe.terrain}</span></h4>
           <h4 id="individual_shoe_arch"> <b>Arch:</b> <span>${shoe.arch_support}</span></h4>
@@ -80,8 +80,6 @@ const similar_shoe_template = (shoe) => {
       </div>
       <div class="additional-data">
         <p class="card-similarShoes"> ${shoe.similarShoes.map(similarShoeFormatter)} </p>
-        <p class="card-corescore"> ${shoe.corescore}</p>
-        <p class="card-similarity"> ${shoe.similarity}</p>
         <p class="card-relevantTerms"> ${shoe.relevantTerms}</p>
         <p class="card-amazonLink"> ${shoe.amazonLink}</p>
         <p class="card-terrain"> ${shoe.terrain}</p>
