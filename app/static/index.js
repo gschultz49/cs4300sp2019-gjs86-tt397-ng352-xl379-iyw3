@@ -444,9 +444,9 @@ $(document).ready(function () {
   // });
 
   //create double-slider
-  var slider = createD3RangeSlider(0, 500, "#price-slider");
+  var slider = createD3RangeSlider(0, 350, "#price-slider");
   //initial value
-  slider.range(0, 500);
+  slider.range(0, 350);
   // $("#price-slider > .slider-container > .slider").css("width", "100%");
   slider.onChange(function(newRange){
     console.log(newRange);
