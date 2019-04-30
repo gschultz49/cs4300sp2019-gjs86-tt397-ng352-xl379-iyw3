@@ -226,8 +226,10 @@ $(document).on("click", '.card', function () {
         var replace2 = d.charAt(0).toUpperCase() + d.slice(1);
         var re1 = new RegExp(replace1, "g");
         var re2 = new RegExp(replace2, "g");
-        relevantSentence = relevantSentence.replace(re1, '<b class="highlight">' + replace1 + "</b>");
-        relevantSentence = relevantSentence.replace(re2, '<b class="highlight">' + replace2 + "</b>");
+        relevantSentence = relevantSentence.replace(re1, '<b class="h">' + replace1 + "</b>");
+        console.log(relevantSentence);
+        relevantSentence = relevantSentence.replace(re2, '<b class="h">' + replace2 + "</b>");
+        console.log(relevantSentence);
         }
     });
   }
