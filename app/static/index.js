@@ -41,10 +41,6 @@ const render_individual_shoe_similar_search = (shoe) => {
           <h4 id="individual_shoe_terrain"> <b>Terrain:</b> <span>${shoe.terrain}</span></h4>
           <h4 id="individual_shoe_arch"> <b>Arch:</b> <span>${shoe.arch_support}</span></h4>
         </div>
-        <div class="equi_two">
-          <h4 id="individual_shoe_mweight"><b>Mens weight:</b> <span>${shoe.men_weight.length > 1 ? shoe.men_weight : "N/A"}</span></h4>
-          <h4 id="individual_shoe_wweight"><b>Womens weight:</b> <span>${shoe.women_weight.length > 1 ? shoe.men_weight : "N/A"}</span></h4>
-        </div>
       </div>
     </div>
   `
@@ -111,8 +107,6 @@ const custom_shoe_template = (shoe) => {
         <p class="card-terrain"> ${shoe.terrain}</p>
         <p class="card-relevantSentence"> ${shoe.relevantSentence.length > 0 ? shoe.relevantSentence : "N/A"}</p>
         <p class="card-arch_support"> ${shoe.arch_support}</p>
-        <p class="card-men_weight"> ${shoe.men_weight}</p>
-        <p class="card-women_weight"> ${shoe.women_weight}</p>
         <p class="card-price"> ${shoe.price}</p>
       </div>
     </div>

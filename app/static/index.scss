@@ -67,10 +67,12 @@ body {
 }
 
 .effect-grow{
+  
   img{
     transition: all .5s;
   }
   &:hover{
+    animation: heartbeat 1s infinite;
     img{
       transition: transform .5s;
       transform: scale(1.5);
@@ -554,7 +556,7 @@ body {
 }
 
 .equi_two{
-  // display:flex;
+  display:inline-block;
   margin: 5px auto;
 }
 
