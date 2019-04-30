@@ -17,7 +17,6 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!--Source: Referenced Rasmus Fonseca's library for range slider-->
   <script src="https://cdn.rawgit.com/RasmusFonseca/d3RangeSlider/master/d3RangeSlider.js"></script>
-  <!-- <link href="https://cdn.rawgit.com/RasmusFonseca/d3RangeSlider/master/d3RangeSlider.css" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -149,8 +148,10 @@
         <!--Weight Slider-->
 
         <div>
-            <p>Price: $</p> 
-            <p id="price-text">0-500</p>
+            <div class="price-container">
+                <h4>Price: $</h4> 
+                <h4 id="price-text">0-0</h4>
+            </div>
           <div id="price-slider"></div>
         </div>
 

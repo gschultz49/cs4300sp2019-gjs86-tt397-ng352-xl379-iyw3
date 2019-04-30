@@ -454,7 +454,8 @@ $(document).ready(function () {
   slider.onChange(function(newRange){
     d3.select("#price-text").text(newRange.begin + " - " + newRange.end);
   });
-  slider.range(0,500);
+  //initial value
+  slider.range(0, 250);
 
 });
 
