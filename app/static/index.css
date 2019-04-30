@@ -439,6 +439,7 @@ body {
   text-align: center;
   margin: auto;
   display: flex;
+  margin-bottom: 20px;
 }
 
 .price-row {
