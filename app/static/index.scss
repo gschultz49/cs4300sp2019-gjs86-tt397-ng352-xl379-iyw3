@@ -605,23 +605,25 @@ body {
 }
 
 .slider .EE {
+  //right
+  cursor: e-resize;
   right: -4px;
   height: 18px;
   width: 14px;
-  cursor: e-resize;
   background: red;
-  // background: url('/static/mini_heart.svg');
   border-radius: 5px;
+  float: right;
 }
 
 .slider .WW {
+  //left
   cursor: w-resize;
+  float: left;
   left: -4px;
   height: 18px;
   width: 14px;
   border-radius: 5px;
   background: blue;
-  // background: url('/static/mini_heart.svg');
 }
 
 
