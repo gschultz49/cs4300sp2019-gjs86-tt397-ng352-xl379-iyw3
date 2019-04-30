@@ -568,6 +568,15 @@ body {
   display: flex;
 }
 
+.price-row {
+  flex: 1;
+  text-align: center;
+}
+
+#price-text {
+  float: right;
+}
+
 #price-slider {
   background-color: #ececec;
   height: 15px;
