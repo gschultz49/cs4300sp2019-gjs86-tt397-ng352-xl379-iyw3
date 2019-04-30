@@ -41,6 +41,7 @@ const render_individual_shoe_similar_search = (shoe) => {
           <h4 id="individual_shoe_terrain"> <b>Terrain:</b> <span>${shoe.terrain}</span></h4>
           <h4 id="individual_shoe_arch"> <b>Arch:</b> <span>${shoe.arch_support}</span></h4>
         </div>
+        <a href='${shoe.amazonLink}'>Find on Amazon</a>
       </div>
     </div>
   `
