@@ -445,11 +445,15 @@ $(document).ready(function () {
 
   //create double-slider
   var slider = createD3RangeSlider(0, 500, "#price-slider");
-  slider.onChange(function(newRange){
-    d3.select("#price-text").text(newRange.begin + " - " + newRange.end);
-  });
   //initial value
   slider.range(0, 250);
+  // $("#price-slider > .slider-container > .slider").css("width", "50%");
+
+  slider.onChange(function(newRange){
+    console.log(newRange);
+    d3.select("#price-text").text(newRange.begin + " - " + newRange.end);
+  });
+  
 
 });
 
