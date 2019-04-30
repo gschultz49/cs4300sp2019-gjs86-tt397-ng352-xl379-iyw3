@@ -67,10 +67,12 @@ body {
 }
 
 .effect-grow{
+  
   img{
     transition: all .5s;
   }
   &:hover{
+    animation: heartbeat 1s infinite;
     img{
       transition: transform .5s;
       transform: scale(1.5);
@@ -453,14 +455,7 @@ body {
     text-align: center;
     font-style: oblique;
     margin-left: 15%;
-    width: 50%;
-    cursor: pointer;
-    // float: left;
-    &:hover{
-      // opacity: .5;
-      text-decoration:  underline;
-      // transition all .5s;
-    }
+    width: 80%;
   }
   .modal-price {
     // float: left;
@@ -560,7 +555,7 @@ body {
 }
 
 .equi_two{
-  // display:flex;
+  display:inline-block;
   margin: 5px auto;
 }
 

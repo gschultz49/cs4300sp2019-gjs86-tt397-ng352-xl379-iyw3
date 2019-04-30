@@ -41,10 +41,6 @@ const render_individual_shoe_similar_search = (shoe) => {
           <h4 id="individual_shoe_terrain"> <b>Terrain:</b> <span>${shoe.terrain}</span></h4>
           <h4 id="individual_shoe_arch"> <b>Arch:</b> <span>${shoe.arch_support}</span></h4>
         </div>
-        <div class="equi_two">
-          <h4 id="individual_shoe_mweight"><b>Mens weight:</b> <span>${shoe.men_weight.length > 1 ? shoe.men_weight : "N/A"}</span></h4>
-          <h4 id="individual_shoe_wweight"><b>Womens weight:</b> <span>${shoe.women_weight.length > 1 ? shoe.men_weight : "N/A"}</span></h4>
-        </div>
       </div>
     </div>
   `
@@ -111,8 +107,6 @@ const custom_shoe_template = (shoe) => {
         <p class="card-terrain"> ${shoe.terrain}</p>
         <p class="card-relevantSentence"> ${shoe.relevantSentence.length > 0 ? shoe.relevantSentence : "N/A"}</p>
         <p class="card-arch_support"> ${shoe.arch_support}</p>
-        <p class="card-men_weight"> ${shoe.men_weight}</p>
-        <p class="card-women_weight"> ${shoe.women_weight}</p>
         <p class="card-price"> ${shoe.price}</p>
       </div>
     </div>
@@ -310,7 +304,7 @@ $(document).on("click", '.card', function () {
 
   // populate modal 
   let modal = $(".modal-content");
-  modal.find(".modal-shoeName").html("" + shoeName);
+  modal.find(".modal-shoeName").html("" + shoeName + '<span class="modal-price">'+price.trim()+'Applesauce</span>');
   modal.find(".modal-price").html("" + "$" + price.trim());
   modal.find(".modal-shoeImage").attr("src", shoeImage);
   modal.find(".modal-similarShoes").html("" + similarShoes.split(",").map(similarShoeFormatter));
@@ -486,14 +480,19 @@ let remove_color_if_similar_active = () => {
 
 
 // Handler for shoe Title autoclicker
+$(document).on("click", ".modal-shoeName", function () {
+  let shoeName = $(this).text().trim();
+  console.log("BLEHHHH");
+  console.log(shoeName);
+  let shoeNameAdjusted = shoeName.slice(0, shoeName.indexOf("$"));
+  console.log(shoeNameAdjusted);
+  if (is_similar_active()) { autoclicker(shoeNameAdjusted); }
+})
+
+// Handler for similar shoes autoclicker
 $(document).on("click", ".similar-shoe-name-event" , function (){
   let shoeName = $(this).text().trim();
   if (is_similar_active ()) { autoclicker(shoeName);}
-})
-// Handler for similar shoes autoclicker
-$(document).on("click", ".modal-shoeName" , function (){
-  let shoeName = $(this).text().trim();
-  if (is_similar_active()) { autoclicker(shoeName); }
 })
 
 $(document).on("click", ".header a", function (e) {

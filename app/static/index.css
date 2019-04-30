@@ -57,6 +57,9 @@ body {
 .effect-grow img {
   transition: all 0.5s;
 }
+.effect-grow:hover {
+  animation: heartbeat 1s infinite;
+}
 .effect-grow:hover img {
   transition: transform 0.5s;
   transform: scale(1.5);
@@ -327,11 +330,7 @@ body {
   text-align: center;
   font-style: oblique;
   margin-left: 15%;
-  width: 50%;
-  cursor: pointer;
-}
-#shoe-modal .modal-shoeName:hover {
-  text-decoration: underline;
+  width: 80%;
 }
 #shoe-modal .modal-price {
   width: 10%;
@@ -429,6 +428,7 @@ body {
 }
 
 .equi_two {
+  display: inline-block;
   margin: 5px auto;
 }
 

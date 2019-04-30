@@ -45,8 +45,6 @@ def similar_search():
 def similar_search_individual():
 	return _searchs(FindShoe, request.args.get("search"))
 
-
-
 # Similar shoe autosuggester
 @irsystem.route('/similar_shoe_autosuggest')
 def similar_shoe_autosuggest():
@@ -76,6 +74,7 @@ def custom_search():
 	}
 
 	data = _generate_dictionary(request, terms)
+	print (data)
 	return _search(FindQuery,data)
 
 
